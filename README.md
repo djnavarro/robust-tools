@@ -7,12 +7,28 @@
 
 # Robust Tools for Psychological Science
 
+The research toolkit in psychological science has changed a lot in the
+last decade. Across many areas there is a heightened emphasis on
+transparency, open access, and a preference for the use of freely
+available tools. These skills are rarely taught during undergraduate
+psychology classes, and because research methods classes tend to be
+statistics heavy, they’re rarely a part of research methodology classes
+either. This elective provides a hands on tutorial in how to use these
+tools: it covers an introduction to R programming, modern data
+visualisation, how to structure your projects, proper version control
+with git and GitHub, how to use OSF and PsyArXiv, and even how to write
+APA manuscripts from within R and set up a professional website to
+promote your work\! The course is designed for novices, and no
+preexisting familiarity with these tools and no programming background
+is assumed. See <https://github.com/djnavarro/robust-tools> for details.
+
 ## Week 1: Introduction to R & RStudio
 
   - First commands
   - Scripts
   - Installing & loading packages
   - Flow control with TurtleGraphics
+  - “Googling the error message” / StackOverflow / \#rstats twitter
 
 ## Week 2: Introduction to data visualisation with ggplot
 
