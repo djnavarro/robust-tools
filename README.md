@@ -7,17 +7,11 @@
 
 # Robust Tools for Psychological Science
 
-## Week 1: Be smart from the beginning
+## Week 1: Introduction to R & RStudio
 
-  - project directory structure
-  - archiving method
-  - documentation system
-  - data collection and formatting
-  - analysis tools
+## Week 2: Introduction to data visualisation with ggplot
 
-## Week 2: Introduction to R & RStudio
-
-## Week 3: Introduction to data visualisation with ggplot
+## Week 3: Structuring a project
 
 ## Week 4: Behavioural experiments with jaysire
 
