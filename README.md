@@ -15,12 +15,13 @@ psychology classes, and because research methods classes tend to be
 statistics heavy, they’re rarely a part of research methodology classes
 either. This elective provides a hands on tutorial in how to use these
 tools: it covers an introduction to R programming, modern data
-visualisation, how to structure your projects, proper version control
-with git and GitHub, how to use OSF and PsyArXiv, and even how to write
-APA manuscripts from within R and set up a professional website to
-promote your work\! The course is designed for novices, and no
-preexisting familiarity with these tools and no programming background
-is assumed. See <https://github.com/djnavarro/robust-tools> for details.
+visualisation and data wrangling, how to structure your projects, proper
+version control with git and GitHub, how to use OSF and PsyArXiv, and
+even how to write APA manuscripts from within R and set up a
+professional website to promote your work\! The course is designed for
+novices, and no preexisting familiarity with these tools and no
+programming background is assumed. See
+<https://github.com/djnavarro/robust-tools> for details.
 
 ## Week 1: Introduction to R & RStudio
 
@@ -52,7 +53,11 @@ is assumed. See <https://github.com/djnavarro/robust-tools> for details.
   - Structure of a broswer based experiment
   - Using jaysire to write to jsPsych
 
-## Week 5: OSF, PsyArXiv
+## Week 5: Data wrangling with dplyr
+
+\[dplyr stuff here\]
+
+## Week 6: OSF, PsyArXiv
 
   - OSF as archival storage
   - Creating an OSF account
@@ -60,7 +65,7 @@ is assumed. See <https://github.com/djnavarro/robust-tools> for details.
   - Understanding DOIs
   - Sharing via PsyArXiv
 
-## Week 6: Introduction to git & GitHub
+## Week 7: Introduction to git & GitHub
 
   - What is git? What is GitHub?
   - Installing git, signup for GitHub
@@ -70,19 +75,13 @@ is assumed. See <https://github.com/djnavarro/robust-tools> for details.
   - Issues threads & pull requests on GitHub
   - The “burn it down” approach
 
-## Week 7: Literate programming with R markdown (and papaja)
+## Week 8: Literate programming with R markdown
 
   - Plain markdown
   - R markdown
   - A dash of LaTeX
   - The YAML header
-  - APA manuscripts with papaja
-
-## Week 8: Professional websites with blogdown
-
-  - Blogdown as Rube Goldberg device
-  - Getting started with academic theme
-  - How to push it to GitHub pages
-  - Advice for surviving Hugo
+  - Teaser: APA manuscripts with papaja
+  - Teaser: Professional websites with blogdown
 
 ## Week 9: Student presentations
