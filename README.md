@@ -23,6 +23,22 @@ novices, and no preexisting familiarity with these tools and no
 programming background is assumed. See
 <https://github.com/djnavarro/robust-tools> for details.
 
+**Notes on assessment:**
+
+I’m on my way back from a conference and so won’t be able to post a
+comprehensive description of the assessment until I get back, but a
+couple of people have asked so here’s the gist…
+
+The assessment will have two components: one part will be made up of a
+series of (very brief) quizzes on each section of the course (shouldn’t
+be more than 10 minutes of work each week), and the other part will be a
+project of *your* choosing that uses the skills you’ve learned during
+the class (which can be written work, programming, whatever… each
+student will be able to discuss their projects with me). The final week
+of the class will consist of each student giving a brief presentation
+(~10-15 minutes) on what their project was about, and that presentation
+would count as part of the project for assessment purposes.
+
 ## Week 1: Introduction to R & RStudio
 
   - First commands
