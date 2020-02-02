@@ -1,0 +1,222 @@
+---
+title: "> week 01 <br> > data visualisation"
+subtitle: "`r emo::ji('art')` pretty pictures! <br> `r emo::ji('link')` [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
+author: "danielle navarro"
+date: "27 jan 2020"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["../../style/xaringan-themer.css", "../../style/slides-style.css"]
+    nature:
+      highlightStyle: solarized-light
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+---
+
+```{r child = "../../style/setup.Rmd"}
+```
+
+```{r load-packages, message=FALSE, echo=FALSE}
+library(DiagrammeR)
+library(magick)
+library(tidyverse)
+library(unvotes)
+library(lubridate)
+library(countdown)
+library(openintro)
+library(infer)
+```
+
+class: middle
+
+background-image: url("img/press_play.png")
+background-size: cover
+background-color: #0F4C81
+
+.pull-left-wide[.larger[.embolden[.pink[
+  let's begin...
+]]]]
+
+
+---
+
+
+
+class: middle, inverse
+
+## Imagine you’re new to baking, and you’re in a baking class. I’m going to present two options for starting the class. Which one gives you **better sense** of the final product?
+
+---
+
+class: middle, inverse
+
+## .hand[ OK, hold on to that thought! ]
+
+---
+
+class: middle
+
+.pull-left-narrow[
+  .huge-blue-number[2]
+]
+.pull-right-wide[
+  .larger[
+  design
+  foundations
+  ]
+]
+
+---
+
+### .pink[ design foundation 1: ]
+
+## backwards design
+
+Set goals for educational curriculum before choosing instructional methods + forms of assessment
+
+1. Identify desired results
+1. Determine acceptable evidence
+1. Plan learning experiences and instruction
+
+.footnote[
+Wiggins, Grant P., Grant Wiggins, and Jay McTighe. Understanding by design. Ascd, 2005.
+]
+
+---
+
+## designing backwards
+
+1. Identify desired **data analysis** results
+1. Determine **building blocks**
+1. Plan learning experiences and instruction
+
+---
+
+### .pink[ design foundation 2: ]
+
+## 2016 Guidelines for Assessment and Instruction in Statistics Education (GAISE)
+
+1. Teach statistical thinking.  
+  - Teach statistics as an investigative process of problem-solving and decision making.
+  - Give students experience with multivariable thinking [...] to answer challenging questions that require them to investigate and explore relationships among many variables.
+1. Focus on conceptual understanding. 
+1. Integrate real data with a context and purpose.
+1. Foster active learning.
+1. Use technology to explore concepts and analyse data.
+1. Use assessments to improve and evaluate student learning. 
+
+.footnote[
+amstat.org/asa/files/pdfs/GAISE/GaiseCollege_Full.pdf
+]
+
+---
+
+.discussion[
+Discuss in groups of three and then as a large group.
+
+- What are your first reactions to the curriculum we just described for an intro data science course? 
+- Which components can you see yourself (or do you already) include in an intro data science curriculum?
+- Which components do you have reservations about, and why?
+]
+
+```{r echo=FALSE}
+countdown(minutes = 3)
+```
+
+
+---
+
+.pull-left-narrow[
+  .huge-blue-number[5]
+]
+.pull-right-wide[
+  .larger[
+  design
+  principles
+  ]
+]
+
+---
+
+class: middle, inverse
+
+## Which kitchen would you rather bake in? 
+
+.pull-left[
+```{r kitchen-inrepair, echo=FALSE}
+knitr::include_graphics("img/kitchen-inrepair.png")
+```
+]
+.pull-right[
+```{r kitchen-built, echo=FALSE}
+knitr::include_graphics("img/kitchen-built.png")
+```
+]
+
+---
+
+class: middle, inverse
+
+## Which kitchen would you rather bake in?
+
+.pull-left[
+```{r kitchen-inrepair-xed, echo=FALSE, cache=TRUE}
+image_read("img/kitchen-inrepair.png") %>%
+  image_annotate("X", size = 1200, gravity = "Center", color = "#638CC7")
+```
+]
+.pull-right[
+```{r kitchen-built-selected, echo=FALSE, cache=TRUE}
+image_read("img/kitchen-built.png") %>% 
+  image_border("#F5B895", "50x50") %>%
+  image_annotate("\u2665", size = 300, gravity = "SouthEast", color = "#F5B895", location = "+100+50")
+```
+]
+
+---
+
+.pull-left-wide[
+  .right[
+  .larger[
+  cherish  
+  day  
+  one  
+  ]  
+  ]
+]
+.pull-right-narrow[
+  .huge-pink-number[1]
+]
+
+---
+
+.pull-left[
+```{r kitchen-inrepair-small, echo=FALSE, out.height=250}
+knitr::include_graphics("img/kitchen-inrepair.png")
+```
+- Install R
+- Install RStudio
+- Install the following packages:
+  - tidyverse
+  - rmarkdown
+  - ...
+- Load these packages
+- Install git
+]
+.pull-right[
+```{r kitchen-built-small, echo=FALSE, out.height=250}
+knitr::include_graphics("img/kitchen-built.png")
+```
+- Go to rstudio.cloud (or some other server based solution)
+- Log in with your ID & pass
+```{r hello-R, eval=FALSE}
+> hello R!
+```
+]
+
