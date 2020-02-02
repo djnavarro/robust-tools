@@ -33,15 +33,14 @@ library(openintro)
 library(infer)
 ```
 
-class: middle
+class: middle, inverse
 
 background-image: url("img/press_play.png")
 background-size: cover
-background-color: #0F4C81
 
-.pull-left-wide[.larger[.embolden[.pink[
-  let's begin...
-]]]]
+.larger[.embolden[
+  let's get started...
+]]
 
 
 ---

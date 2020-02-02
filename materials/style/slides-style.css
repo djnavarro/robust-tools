@@ -222,7 +222,6 @@ ul{
 
 /* Footer */
 div.my-footer {
-    border-top: 1px solid var(--classic-blue);
     position: absolute;
     bottom: 0px;
     height: 35px;
