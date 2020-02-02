@@ -101,3 +101,8 @@ would count as part of the project for assessment purposes.
   - Teaser: Professional websites with blogdown
 
 ## Week 9: Student presentations
+
+## Thank yous
+
+  - Greg Wilson
+  - Mine Çetinkaya-Rundel
