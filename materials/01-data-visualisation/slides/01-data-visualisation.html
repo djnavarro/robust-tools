@@ -52,7 +52,7 @@ background-color: #0F4C81
     in...
   ]]]
 ]
-<div class="countdown" id="timer_5e3790b7" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5e37a44d" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -128,7 +128,7 @@ Paired discussion 👯‍♀️
 - Anxiety about the class?
 - Etc.
 
-<div class="countdown" id="timer_5e378e96" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5e37a377" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 ]
@@ -343,6 +343,8 @@ class: middle, inverse
 ## what questions do you have? 🤔
 
 
+
+
 ---
 
 
@@ -353,10 +355,115 @@ class: middle
 ]
 .pull-right-wide[
   .larger[
-  the grammar
-  of graphics
+  our online workspace
   ]
 ]
+
+
+---
+
+class: middle, inverse
+
+## R + RStudio on my laptop
+
+.pull-left[
+&lt;img src="img/rstudio_local.png" width="1229" /&gt;
+]
+.pull-right[
+- Download and install R
+- Download and install RStudio
+- Install a lot of other things
+- Cry when something breaks
+- Ready to go!
+]
+
+
+
+---
+
+class: middle, inverse
+
+## R + RStudio in the cloud
+
+.pull-left[
+&lt;img src="img/rstudio_cloud.png" width="1229" /&gt;
+]
+.pull-right[
+- It's the same thing
+- Sign up at: https://rstudio.cloud
+- Ready to go!
+]
+
+
+
+---
+
+
+class: middle
+
+.pull-left-narrow[
+  .huge-blue-number[3]
+]
+.pull-right-wide[
+  .larger[
+  make some prettiness!
+  ]
+]
+
+
+---
+
+class: middle, inverse
+
+## .hand[oh hey it's a room of our own...]
+## https://rstudio.cloud/spaces/49759
+&lt;br&gt;
+## .hand[... let's try it out!]
+
+
+
+---
+
+class: middle, inverse
+
+.pull-left[
+.hand[the code we wrote...]
+
+```r
+library(tidyverse)
+ggplot(
+  data = mpg,
+  mapping = aes(
+    x = displ,
+    y = hwy
+  )
+) + 
+  geom_point()
+```
+]
+
+.pull-right[
+.hand[the output we got...]
+
+![](01-data-visualisation_files/figure-html/hello-r-output-1.png)&lt;!-- --&gt;
+]
+
+
+---
+
+class: middle, inverse
+
+## .hand[problem solving! how could we...]
+
+- show the city mileage `cty` as the y-value?
+- show the manufacture `year` as the x-value?  
+- show the number of cylinders `cyl` as the colour?
+- remove the dots and show a blank plot?
+- include a regression line as well as the dot points?
+
+<div class="countdown" id="timer_5e37a496" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

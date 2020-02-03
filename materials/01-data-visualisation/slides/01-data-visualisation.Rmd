@@ -367,6 +367,8 @@ class: middle, inverse
 ## what questions do you have? `r emo::ji("thinking")`
 
 
+
+
 ---
 
 
@@ -377,8 +379,126 @@ class: middle
 ]
 .pull-right-wide[
   .larger[
-  the grammar
-  of graphics
+  our online workspace
   ]
 ]
+
+
+---
+
+class: middle, inverse
+
+## R + RStudio on my laptop
+
+.pull-left[
+```{r rstudio_local, echo=FALSE}
+knitr::include_graphics("img/rstudio_local.png")
+```
+]
+.pull-right[
+- Download and install R
+- Download and install RStudio
+- Install a lot of other things
+- Cry when something breaks
+- Ready to go!
+]
+
+
+
+---
+
+class: middle, inverse
+
+## R + RStudio in the cloud
+
+.pull-left[
+```{r rstudio_cloud, echo=FALSE}
+knitr::include_graphics("img/rstudio_cloud.png")
+```
+]
+.pull-right[
+- It's the same thing
+- Sign up at: https://rstudio.cloud
+- Ready to go!
+]
+
+
+
+---
+
+
+class: middle
+
+.pull-left-narrow[
+  .huge-blue-number[3]
+]
+.pull-right-wide[
+  .larger[
+  make some prettiness!
+  ]
+]
+
+
+---
+
+class: middle, inverse
+
+## .hand[oh hey it's a room of our own...]
+## https://rstudio.cloud/spaces/49759
+<br>
+## .hand[... let's try it out!]
+
+
+
+---
+
+class: middle, inverse
+
+.pull-left[
+.hand[the code we wrote...]
+```{r hello-r-code, eval=FALSE}
+library(tidyverse)
+ggplot(
+  data = mpg,
+  mapping = aes(
+    x = displ,
+    y = hwy
+  )
+) + 
+  geom_point()
+```
+]
+
+.pull-right[
+.hand[the output we got...]
+
+```{r hello-r-output, echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
+library(tidyverse)
+ggplot(
+  data = mpg,
+  mapping = aes(
+    x = displ,
+    y = hwy
+  )
+) + 
+  geom_point()
+```
+]
+
+
+---
+
+class: middle, inverse
+
+## .hand[problem solving! how could we...]
+
+- show the city mileage `cty` as the y-value?
+- show the manufacture `year` as the x-value?  
+- show the number of cylinders `cyl` as the colour?
+- remove the dots and show a blank plot?
+- include a regression line as well as the dot points?
+
+```{r echo=FALSE}
+countdown(minutes = 2)
+```
 
