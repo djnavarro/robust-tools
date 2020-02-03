@@ -210,8 +210,7 @@ class: middle
 ]
 .pull-right-wide[
   .larger[
-  so maybe
-  I lied, just a little... 
+  yeah, that was a lie
   ]
 ]
 
@@ -226,9 +225,33 @@ class: middle
 ]
 .pull-right-wide[
   .larger[
-  let's talk about this class
+  let's talk about the class first
   ]
 ]
+
+---
+
+class: middle, inverse
+
+## Class schedule
+
+.pull-left[
+```{r class-schedule, echo=FALSE}
+knitr::include_graphics("img/class-schedule.jpg")
+```
+]
+.pull-right[
+1. **Data visualisation**
+2. Data wrangling
+3. Writing experiments
+4. Tidy projects
+5. Q&A + proposals
+6. Archiving + version control
+7. Documentation
+8. ???
+9. Student presentations
+]
+
 
 
 
