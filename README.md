@@ -7,6 +7,13 @@
 
 # Robust Tools for Psychological Science
 
+*Hi\! If you’re coming here from the honours course materials… gosh this
+page looks unpleasant, right? I’m writing a friendlier and more helpful
+website at the moment and a link to it will appear very shortly\!
+<br><br> –Danielle*
+
+<br>
+
 The research toolkit in psychological science has changed a lot in the
 last decade. Across many areas there is a heightened emphasis on
 transparency, open access, and a preference for the use of freely
@@ -39,7 +46,7 @@ of the class will consist of each student giving a brief presentation
 (~10-15 minutes) on what their project was about, and that presentation
 would count as part of the project for assessment purposes.
 
-## Inspiration and credit
+## Inspiration
 
   - Greg Wilson: LINK
   - Mine Çetinkaya-Rundel:
