@@ -70,6 +70,12 @@ h1, h2, h3 {
   color: var(--peach-quartz);
 }
 
+.plainwhite {
+  color: #FFFFFF;
+}
+
+
+
 /* Font sizes */
 .larger { font-size: 400% }
 .large { font-size: 130% }
