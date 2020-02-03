@@ -454,6 +454,23 @@ class: middle, inverse
 
 class: middle, inverse
 
+
+.pull-left[
+```{r our_space, echo=FALSE, fig.align='center'}
+knitr::include_graphics("img/our_space.png")
+```
+]
+.pull-right[
+- You should see this
+- Click on data visualisation
+- Let's do a [live demo](https://rstudio.cloud/spaces/49759)
+]
+
+
+---
+
+class: middle, inverse
+
 .pull-left[
 .hand[the code we wrote...]
 ```{r hello-r-code, eval=FALSE}
