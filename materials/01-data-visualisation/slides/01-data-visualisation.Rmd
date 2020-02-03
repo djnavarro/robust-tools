@@ -236,20 +236,45 @@ class: middle, inverse
 ## Class schedule
 
 .pull-left[
-```{r class-schedule, echo=FALSE}
+```{r class-schedule-a, echo=FALSE}
 knitr::include_graphics("img/class-schedule.jpg")
 ```
 ]
 .pull-right[
-1. Data visualisation
-2. Data wrangling
-3. Writing experiments
-4. Tidy projects
-5. Q&A + proposals
-6. Archiving + version control
-7. Documentation
-8. ???
-9. Student presentations
+1. **Data visualisation**
+2. **Working with data**
+3. **Writing experiments**
+4. **Keeping projects tidy**
+5. .
+6. **Archiving & version control**
+7. **Documentation**
+8. .
+9. .
+]
+
+
+
+---
+
+class: middle, inverse
+
+## Class schedule
+
+.pull-left[
+```{r class-schedule-b, echo=FALSE}
+knitr::include_graphics("img/class-schedule.jpg")
+```
+]
+.pull-right[
+1. **Data visualisation**
+2. **Working with data**
+3. **Writing experiments**
+4. **Keeping projects tidy**
+5. .plainblack[.embolden[Project proposals]]
+6. **Archiving & version control**
+7. **Documentation**
+8. .plainblack[.embolden[??????]]
+9. .plainblack[.embolden[Student presentations]]
 ]
 
 
@@ -326,12 +351,20 @@ knitr::include_graphics("img/class-assessment.jpg")
 ]
 .pull-right[
 - You get to choose!
-- Discuss your ideas with me `r emo::ji("slightly_smiling_face")`
+- Discuss ideas with me `r emo::ji("slightly_smiling_face")`
 - Doesn't need to be technical
 - Proposals in week 5
 - Presentations in week 9
 - Final submission XXX
 ]
+
+
+---
+
+class: middle, inverse
+
+## before we begin...
+## what questions do you have? `r emo::ji("thinking")`
 
 
 ---
