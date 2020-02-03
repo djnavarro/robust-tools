@@ -102,7 +102,13 @@ would count as part of the project for assessment purposes.
 
 ## Week 9: Student presentations
 
-## Thank yous
+## Inspiration and credit
 
-  - Greg Wilson
-  - Mine Çetinkaya-Rundel
+  - Greg Wilson: LINK
+  - Mine Çetinkaya-Rundel:
+    <https://rstudio-conf-2020.github.io/design-ds-classroom/>
+
+## Image credits
+
+  - Brooke Lark: <https://unsplash.com/photos/ZkgWJ4BfgsE>
+  - William: <https://unsplash.com/photos/NgMjOrEkhTI>
