@@ -27,8 +27,7 @@ version control with git and GitHub, how to use OSF and PsyArXiv, and
 even how to write APA manuscripts from within R and set up a
 professional website to promote your work\! The course is designed for
 novices, and no preexisting familiarity with these tools and no
-programming background is assumed. See
-<https://github.com/djnavarro/robust-tools> for details.
+programming background is assumed.
 
 **Notes on assessment:**
 
