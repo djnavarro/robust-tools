@@ -1,0 +1,64 @@
+---
+title: '<div class="jumbotron"><h1 class="title toc-ignore display-3" align="center">Robust Tools for Psychological Science</h1><p class="lead" align="center">Danielle Navarro</p></div>'
+output:
+  html_document:
+    theme: flatly
+    highlight: textmate
+    css: mystyle.css
+pagetitle: "Robust Tools"
+---
+
+```{r,echo=FALSE}
+rm(list=objects()) # start with a clean workspace
+```
+
+The research toolkit in psychological science has changed a lot in the last decade. Across many areas there is a heightened emphasis on transparency, open access, and a preference for the use of freely available tools. These skills are rarely taught during undergraduate psychology classes, and because research methods classes tend to be statistics heavy, they’re rarely a part of research methodology classes either. This elective provides a hands on tutorial in how to use these tools: it covers an introduction to R programming, modern data visualisation and data wrangling, how to structure your projects, proper version control with git and GitHub, how to use OSF and PsyArXiv, and even how to write APA manuscripts from within R and set up a professional website to promote your work! The course is designed for novices, and no preexisting familiarity with these tools and no programming background is assumed.
+
+This page is a work in progress! More information will appear over time as I finalise the course material `r emo::ji("slightly_smiling_face")`
+
+## 1. Class schedule
+
+
+- Week 1: Data visualisation
+- Week 2: Working with data
+- Week 3: Writing experiments
+- Week 4: Keeping projects tidy
+- Week 5: *Student project proposals*
+- Week 6: Archiving & version control
+- Week 7: Documentation
+- Week 8: *???????*
+- Week 9: *Student presentations*
+
+
+## 2. Assessment structure
+
+- Class participation: 20%
+- Problem sets: 30%
+- Student projects: 50%
+
+Notes on class participation:
+
+- Best effort at the content
+- Help others if you can
+- Talk, in moderation
+- Follow code of conduct
+- Be kind (& have fun)
+
+The problem sets:
+
+- Three exercises `r emo::ji("bike")` `r emo::ji("swimming_man")` `r emo::ji("athletic_shoe")`
+- Partly technical `r emo::ji("scream")`
+- Partly written `r emo::ji("memo")`
+- Exercises are small `r emo::ji("shrimp")`
+- Practice versions first! `r emo::ji("slightly_smiling_face")`
+
+The project:
+
+- You get to choose!
+- Discuss ideas with me `r emo::ji("slightly_smiling_face")`
+- Doesn't need to be technical
+- Proposals in week 5
+- Presentations in week 9
+- Final submission XXX
+
+
