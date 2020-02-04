@@ -728,9 +728,34 @@ countdown(minutes = 2)
 ```
 ---
 
+
+class: middle
+
+.pull-left-narrow[
+  .huge-blue-number[4]
+]
+.pull-right-wide[
+  .larger[
+  paired exercises! `r emo::ji("women_with_bunny_ears")`
+  ]
+]
+
+
+---
+
+
+
 .hand[resources!]
 
-- https://r4ds.had.co.nz/data-visualisation.html
-- https://psyr.org/visualising-data.html
-- https://socviz.co/
+This tutorial is very gentle: <br>
+https://ggplot2tutor.com/beginner_tutorial/beginner_tutorial/
+
+This section from the "R for data science" book is good: <br>
+https://r4ds.had.co.nz/data-visualisation.html
+
+I have a few examples here: <br>
+https://psyr.org/visualising-data.html
+
+This data visualisation book is a good resource: <br>
+https://socviz.co/
 
