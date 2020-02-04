@@ -745,7 +745,7 @@ class: middle
 
 
 
-.hand[resources!]
+.hand[where to next?
 
 This tutorial is very gentle: <br>
 https://ggplot2tutor.com/beginner_tutorial/beginner_tutorial/
