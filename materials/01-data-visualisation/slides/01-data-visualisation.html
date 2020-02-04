@@ -54,7 +54,7 @@ background-color: #0F4C81
     in...
   ]]]
 ]
-<div class="countdown" id="timer_5e38f9f1" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5e39cb13" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -130,47 +130,18 @@ Paired discussion 👯‍♀️
 - Anxiety about the class?
 - Etc.
 
-<div class="countdown" id="timer_5e38f9d7" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5e39cbd0" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
-]
-
-
-
----
-
-class: middle, inverse
-
-## Which kitchen would you rather bake in? 
-
-.pull-left[
-&lt;img src="img/kitchen-inrepair.png" width="512" /&gt;
-]
-.pull-right[
-&lt;img src="img/kitchen-built.png" width="512" /&gt;
-]
-
----
-
-class: middle, inverse
-
-## Which kitchen would you rather bake in?
-
-.pull-left[
-&lt;img src="01-data-visualisation_files/figure-html/kitchen-inrepair-xed-1.png" width="512" /&gt;
-]
-.pull-right[
-&lt;img src="01-data-visualisation_files/figure-html/kitchen-built-selected-1.png" width="544" /&gt;
 ]
 
 ---
 
 class: inverse
 
-
 .pull-left[
 &lt;img src="img/kitchen-inrepair.png" width="512" height="250" /&gt;
-.hand[How I used to teach this:]
+.hand[How I used to teach R...]
 - Install R. Install RStudio
 - Install packages. Load them
 - Waste a lot of time ⏳
@@ -447,7 +418,7 @@ demo sequence:
 - `mpg`, explain data
 - `?mpg`, explain "help" docs
 - clear screen again
-- `ggplot(data = mpg)`, explain each component while typing
+- `ggplot(data = mpg)`, explain each component while typing (use the word "function" early!)
 - discuss output (note the popups and explain them)
 - up arrow to recall last command (verbalise it)
 - `+ geom_point(mapping = aes(x = displ, y = hwy))`
@@ -489,16 +460,16 @@ class: middle, inverse
 - show the number of cylinders `cyl` as the colour?
 - include a regression line as well as the dot points?
 
-<div class="countdown" id="timer_5e38f8b2" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5e39ce5b" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
 ---
 
-class: middle, inverse
+class: inverse
 
 .pull-left[
-.hand[original code...]
+.hand[our original code...]
 
 ```r
 ggplot(data = mpg) +
@@ -511,18 +482,20 @@ geom_point(
 ```
 ]
 
+--
+
 .pull-right[
-.hand[original output...]
+.hand[...and output]
 
 ![](01-data-visualisation_files/figure-html/hello-r-output-2-1.png)&lt;!-- --&gt;
 ]
 
 ---
 
-class: middle, inverse
+class: inverse
 
 .pull-left[
-.hand[add colour...]
+.hand[if we add colour...]
 
 ```r
 ggplot(data = mpg) +
@@ -536,18 +509,20 @@ geom_point(
 ```
 ]
 
+--
+
 .pull-right[
-.hand[coloured output...]
+.hand[... the output gets colour]
 
 ![](01-data-visualisation_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
 ]
 
 ---
 
-class: middle, inverse
+class: inverse
 
 .pull-left[
-.hand[add another geom...]
+.hand[adding another "geom"...]
 
 ```r
 ggplot(data = mpg) +
@@ -571,15 +546,17 @@ geom_point(
 ```
 ]
 
+--
+
 .pull-right[
-.hand[paints another layer...]
+.hand[...paints another "layer"]
 
 ![](01-data-visualisation_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
 ]
 
 ---
 
-class: middle, inverse
+class: inverse
 
 .pull-left[
 .hand[hm... this is annoying]
@@ -593,29 +570,136 @@ geom_point(
     color = cyl 
   )
 ) + 
-*geom_smooth(
+geom_smooth(
 * mapping = aes(
 *   x = displ,
 *   y = hwy
   ) 
 ) 
 ```
+]
 
-```
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+--
+
+.pull-right[
+.hand[can we eliminate this redundancy?]
+- `x` and `y` values don't change
+- make them **global** aesthetics
+- (also, what is an "aesthetic"?)
+]
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[we can just move the code!]
+
+```r
+ggplot(data = mpg,
+* mapping = aes(
+*   x = displ,
+*   y = hwy
+* )
+) +
+geom_point(
+  mapping = aes(
+    color = cyl 
+  )
+) + 
+geom_smooth() 
 ```
 ]
 
 .pull-right[
-.hand[eliminate redundancy?]
-
-- `x` and `y` values don't change
-- make them **global aesthetics**
-- but how???
-
+&lt;br&gt;
+- the `mapping` within the `ggplot()` command is "global"
 ]
 
+
 ---
+
+class: inverse
+
+.pull-left[
+.hand[we can just move the code!]
+
+```r
+ggplot(data = mpg,
+  mapping = aes( 
+    x = displ, 
+    y = hwy 
+  ) 
+) +
+*geom_point(
+  mapping = aes(
+    color = cyl 
+  )
+) + 
+*geom_smooth()
+```
+]
+
+.pull-right[
+&lt;br&gt;
+- the `mapping` within the `ggplot()` command is "global"
+- both "geoms" will use the `x` and `y` values that they "inherit"
+]
+
+
+---
+
+class: inverse
+
+.left[
+.hand[same code, just neater!]
+
+```r
+ggplot(
+  data = mpg,
+  mapping = aes(x = displ, y = hwy)
+) +
+geom_point(mapping = aes(color = cyl)) + 
+geom_smooth() 
+```
+]
+
+
+---
+
+class: inverse
+
+.left[
+.hand[paired discussion]
+
+```r
+ggplot(
+  data = mpg,
+  mapping = aes(x = displ, y = hwy)
+) +
+geom_point(mapping = aes(color = cyl)) + 
+geom_smooth() 
+```
+]
+
+.left[
+- what are the **variables**?
+- what are the **geoms**, and what do they do?
+- identify the R **functions** this code uses 
+- why did I say this is the "same" code as before?
+]
+
+
+<div class="countdown" id="timer_5e39cc20" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+---
+
+.hand[resources!]
+
+- https://r4ds.had.co.nz/data-visualisation.html
+- https://psyr.org/visualising-data.html
+- https://socviz.co/
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

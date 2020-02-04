@@ -138,55 +138,15 @@ countdown(minutes = 3)
 ```
 ]
 
-
-
----
-
-class: middle, inverse
-
-## Which kitchen would you rather bake in? 
-
-.pull-left[
-```{r kitchen-inrepair, echo=FALSE}
-knitr::include_graphics("img/kitchen-inrepair.png")
-```
-]
-.pull-right[
-```{r kitchen-built, echo=FALSE}
-knitr::include_graphics("img/kitchen-built.png")
-```
-]
-
----
-
-class: middle, inverse
-
-## Which kitchen would you rather bake in?
-
-.pull-left[
-```{r kitchen-inrepair-xed, echo=FALSE, cache=TRUE}
-image_read("img/kitchen-inrepair.png") %>%
-  image_annotate("X", size = 1200, gravity = "Center", color = "#638CC7")
-```
-]
-.pull-right[
-```{r kitchen-built-selected, echo=FALSE, cache=TRUE}
-image_read("img/kitchen-built.png") %>% 
-  image_border("#F5B895", "50x50") %>%
-  image_annotate("\u2665", size = 300, gravity = "SouthEast", color = "#F5B895", location = "+100+50")
-```
-]
-
 ---
 
 class: inverse
-
 
 .pull-left[
 ```{r kitchen-inrepair-small, echo=FALSE, out.height=250}
 knitr::include_graphics("img/kitchen-inrepair.png")
 ```
-.hand[How I used to teach this:]
+.hand[How I used to teach R...]
 - Install R. Install RStudio
 - Install packages. Load them
 - Waste a lot of time `r emo::ji("hourglass_flowing_sand")`
@@ -483,7 +443,7 @@ demo sequence:
 - `mpg`, explain data
 - `?mpg`, explain "help" docs
 - clear screen again
-- `ggplot(data = mpg)`, explain each component while typing
+- `ggplot(data = mpg)`, explain each component while typing (use the word "function" early!)
 - discuss output (note the popups and explain them)
 - up arrow to recall last command (verbalise it)
 - `+ geom_point(mapping = aes(x = displ, y = hwy))`
@@ -540,10 +500,10 @@ countdown(minutes = 2)
 
 ---
 
-class: middle, inverse
+class: inverse
 
 .pull-left[
-.hand[original code...]
+.hand[our original code...]
 ```{r hello-r-code-2, eval=FALSE}
 ggplot(data = mpg) +
 geom_point(
@@ -555,8 +515,10 @@ geom_point(
 ```
 ]
 
+--
+
 .pull-right[
-.hand[original output...]
+.hand[...and output]
 
 ```{r hello-r-output-2, echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
 ggplot(
@@ -572,10 +534,10 @@ ggplot(
 
 ---
 
-class: middle, inverse
+class: inverse
 
 .pull-left[
-.hand[add colour...]
+.hand[if we add colour...]
 ```{r hello-r-color, fig.show='hide'}
 ggplot(data = mpg) +
 geom_point(
@@ -588,8 +550,10 @@ geom_point(
 ```
 ]
 
+--
+
 .pull-right[
-.hand[coloured output...]
+.hand[... the output gets colour]
 
 ```{r ref.label="hello-r-color", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
 ```
@@ -597,10 +561,10 @@ geom_point(
 
 ---
 
-class: middle, inverse
+class: inverse
 
 .pull-left[
-.hand[add another geom...]
+.hand[adding another "geom"...]
 ```{r adding-geoms, fig.show='hide'}
 ggplot(data = mpg) +
 geom_point(
@@ -619,8 +583,10 @@ geom_smooth( #<<
 ```
 ]
 
+--
+
 .pull-right[
-.hand[paints another layer...]
+.hand[...paints another "layer"]
 
 ```{r ref.label="adding-geoms", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
 ```
@@ -628,11 +594,11 @@ geom_smooth( #<<
 
 ---
 
-class: middle, inverse
+class: inverse
 
 .pull-left[
 .hand[hm... this is annoying]
-```{r redundancy, fig.show='hide'}
+```{r redundancy, fig.show='hide', warning=FALSE, message=FALSE}
 ggplot(data = mpg) +
 geom_point(
   mapping = aes( #<<
@@ -641,7 +607,7 @@ geom_point(
     color = cyl 
   )
 ) + 
-geom_smooth( #<<
+geom_smooth(
   mapping = aes( #<<
     x = displ, #<<
     y = hwy #<<
@@ -650,15 +616,121 @@ geom_smooth( #<<
 ```
 ]
 
+--
+
 .pull-right[
-.hand[eliminate redundancy?]
-
+.hand[can we eliminate this redundancy?]
 - `x` and `y` values don't change
-- make them **global aesthetics**
-- but how???
-
+- make them **global** aesthetics
+- (also, what is an "aesthetic"?)
 ]
 
 ---
 
+class: inverse
+
+.pull-left[
+.hand[we can just move the code!]
+```{r redundancy2, fig.show='hide', warning=FALSE, message=FALSE}
+ggplot(data = mpg,
+  mapping = aes( #<<
+    x = displ, #<<
+    y = hwy #<<
+  ) #<<
+) +
+geom_point(
+  mapping = aes(
+    color = cyl 
+  )
+) + 
+geom_smooth() 
+```
+]
+
+.pull-right[
+<br>
+- the `mapping` within the `ggplot()` command is "global"
+]
+
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[we can just move the code!]
+```{r redundancy3, fig.show='hide', warning=FALSE, message=FALSE}
+ggplot(data = mpg,
+  mapping = aes( 
+    x = displ, 
+    y = hwy 
+  ) 
+) +
+geom_point( #<<
+  mapping = aes(
+    color = cyl 
+  )
+) + 
+geom_smooth() #<<
+```
+]
+
+.pull-right[
+<br>
+- the `mapping` within the `ggplot()` command is "global"
+- both "geoms" will use the `x` and `y` values that they "inherit"
+]
+
+
+---
+
+class: inverse
+
+.left[
+.hand[same code, just neater!]
+```{r redundancy4, fig.show='hide', warning=FALSE, message=FALSE}
+ggplot(
+  data = mpg,
+  mapping = aes(x = displ, y = hwy)
+) +
+geom_point(mapping = aes(color = cyl)) + 
+geom_smooth() 
+```
+]
+
+
+---
+
+class: inverse
+
+.left[
+.hand[paired discussion]
+```{r redundancy5, fig.show='hide', warning=FALSE, message=FALSE}
+ggplot(
+  data = mpg,
+  mapping = aes(x = displ, y = hwy)
+) +
+geom_point(mapping = aes(color = cyl)) + 
+geom_smooth() 
+```
+]
+
+.left[
+- what are the **variables**?
+- what are the **geoms**, and what do they do?
+- identify the R **functions** this code uses 
+- why did I say this is the "same" code as before?
+]
+
+
+```{r, echo=FALSE}
+countdown(minutes = 2)
+```
+---
+
+.hand[resources!]
+
+- https://r4ds.had.co.nz/data-visualisation.html
+- https://psyr.org/visualising-data.html
+- https://socviz.co/
 
