@@ -26,6 +26,14 @@ output:
 library(countdown)
 ```
 
+```{r include=FALSE}
+hook_source <- knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  x <- stringr::str_replace(x, "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$", "*\\1")
+  hook_source(x, options)
+})
+```
+
 class: middle, inverse
 
 background-image: url("img/press_play.png")
@@ -448,12 +456,9 @@ class: middle, inverse
 <br>
 ## .hand[... let's try it out!]
 
-
-
 ---
 
 class: middle, inverse
-
 
 .pull-left[
 ```{r our_space, echo=FALSE, fig.align='center'}
@@ -463,9 +468,26 @@ knitr::include_graphics("img/our_space.png")
 .pull-right[
 - You should see this
 - Click on data visualisation
-- Let's do a [live demo](https://rstudio.cloud/spaces/49759)
+- Let's do a live demo
+
+https://rstudio.cloud/spaces/49759
 ]
 
+???
+
+demo sequence:
+- explain RStudio layout
+- explain boring R text
+- ctrl-L to clear boring text (verbalise shortcut)
+- `library(tidyverse)`, explain messages
+- `mpg`, explain data
+- `?mpg`, explain "help" docs
+- clear screen again
+- `ggplot(data = mpg)`, explain each component while typing
+- discuss output (note the popups and explain them)
+- up arrow to recall last command (verbalise it)
+- `+ geom_point(mapping = aes(x = displ, y = hwy))`
+- talk them through this bit by bit, but "defer" explanation of `aes()` for now
 
 ---
 
@@ -475,14 +497,13 @@ class: middle, inverse
 .hand[the code we wrote...]
 ```{r hello-r-code, eval=FALSE}
 library(tidyverse)
-ggplot(
-  data = mpg,
+ggplot(data = mpg) +
+geom_point(
   mapping = aes(
     x = displ,
     y = hwy
   )
-) + 
-  geom_point()
+) 
 ```
 ]
 
@@ -502,7 +523,6 @@ ggplot(
 ```
 ]
 
-
 ---
 
 class: middle, inverse
@@ -512,10 +532,133 @@ class: middle, inverse
 - show the city mileage `cty` as the y-value?
 - show the manufacture `year` as the x-value?  
 - show the number of cylinders `cyl` as the colour?
-- remove the dots and show a blank plot?
 - include a regression line as well as the dot points?
 
 ```{r echo=FALSE}
 countdown(minutes = 2)
 ```
+
+---
+
+class: middle, inverse
+
+.pull-left[
+.hand[original code...]
+```{r hello-r-code-2, eval=FALSE}
+ggplot(data = mpg) +
+geom_point(
+  mapping = aes(
+    x = displ,
+    y = hwy
+  )
+) 
+```
+]
+
+.pull-right[
+.hand[original output...]
+
+```{r hello-r-output-2, echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
+ggplot(
+  data = mpg,
+  mapping = aes(
+    x = displ,
+    y = hwy
+  )
+) + 
+  geom_point()
+```
+]
+
+---
+
+class: middle, inverse
+
+.pull-left[
+.hand[add colour...]
+```{r hello-r-color, fig.show='hide'}
+ggplot(data = mpg) +
+geom_point(
+  mapping = aes(
+    x = displ,
+    y = hwy,
+    color = cyl #<<
+  )
+) 
+```
+]
+
+.pull-right[
+.hand[coloured output...]
+
+```{r ref.label="hello-r-color", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
+```
+]
+
+---
+
+class: middle, inverse
+
+.pull-left[
+.hand[add another geom...]
+```{r adding-geoms, fig.show='hide'}
+ggplot(data = mpg) +
+geom_point(
+  mapping = aes(
+    x = displ,
+    y = hwy,
+    color = cyl 
+  )
+) + 
+geom_smooth( #<<
+  mapping = aes( #<<
+    x = displ, #<<
+    y = hwy #<<
+  ) #<<
+) #<<
+```
+]
+
+.pull-right[
+.hand[paints another layer...]
+
+```{r ref.label="adding-geoms", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
+```
+]
+
+---
+
+class: middle, inverse
+
+.pull-left[
+.hand[hm... this is annoying]
+```{r redundancy, fig.show='hide'}
+ggplot(data = mpg) +
+geom_point(
+  mapping = aes( #<<
+    x = displ, #<<
+    y = hwy, #<<
+    color = cyl 
+  )
+) + 
+geom_smooth( #<<
+  mapping = aes( #<<
+    x = displ, #<<
+    y = hwy #<<
+  ) 
+) 
+```
+]
+
+.pull-right[
+.hand[eliminate redundancy?]
+
+- `x` and `y` values don't change
+- make them **global aesthetics**
+- but how???
+
+]
+
+---
+
 

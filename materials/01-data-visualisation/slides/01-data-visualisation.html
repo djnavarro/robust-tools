@@ -39,6 +39,8 @@ layout: true
 
 
 
+
+
 class: middle, inverse
 
 background-image: url("img/press_play.png")
@@ -52,7 +54,7 @@ background-color: #0F4C81
     in...
   ]]]
 ]
-<div class="countdown" id="timer_5e37b1e6" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5e38f9f1" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -128,7 +130,7 @@ Paired discussion 👯‍♀️
 - Anxiety about the class?
 - Etc.
 
-<div class="countdown" id="timer_5e37b413" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5e38f9d7" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 ]
@@ -420,12 +422,9 @@ class: middle, inverse
 &lt;br&gt;
 ## .hand[... let's try it out!]
 
-
-
 ---
 
 class: middle, inverse
-
 
 .pull-left[
 &lt;img src="img/our_space.png" width="415" style="display: block; margin: auto;" /&gt;
@@ -433,9 +432,26 @@ class: middle, inverse
 .pull-right[
 - You should see this
 - Click on data visualisation
-- Let's do a [live demo](https://rstudio.cloud/spaces/49759)
+- Let's do a live demo
+
+https://rstudio.cloud/spaces/49759
 ]
 
+???
+
+demo sequence:
+- explain RStudio layout
+- explain boring R text
+- ctrl-L to clear boring text (verbalise shortcut)
+- `library(tidyverse)`, explain messages
+- `mpg`, explain data
+- `?mpg`, explain "help" docs
+- clear screen again
+- `ggplot(data = mpg)`, explain each component while typing
+- discuss output (note the popups and explain them)
+- up arrow to recall last command (verbalise it)
+- `+ geom_point(mapping = aes(x = displ, y = hwy))`
+- talk them through this bit by bit, but "defer" explanation of `aes()` for now
 
 ---
 
@@ -446,14 +462,13 @@ class: middle, inverse
 
 ```r
 library(tidyverse)
-ggplot(
-  data = mpg,
+ggplot(data = mpg) +
+geom_point(
   mapping = aes(
     x = displ,
     y = hwy
   )
-) + 
-  geom_point()
+) 
 ```
 ]
 
@@ -462,7 +477,6 @@ ggplot(
 
 ![](01-data-visualisation_files/figure-html/hello-r-output-1.png)&lt;!-- --&gt;
 ]
-
 
 ---
 
@@ -473,12 +487,135 @@ class: middle, inverse
 - show the city mileage `cty` as the y-value?
 - show the manufacture `year` as the x-value?  
 - show the number of cylinders `cyl` as the colour?
-- remove the dots and show a blank plot?
 - include a regression line as well as the dot points?
 
-<div class="countdown" id="timer_5e37b362" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5e38f8b2" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
+
+---
+
+class: middle, inverse
+
+.pull-left[
+.hand[original code...]
+
+```r
+ggplot(data = mpg) +
+geom_point(
+  mapping = aes(
+    x = displ,
+    y = hwy
+  )
+) 
+```
+]
+
+.pull-right[
+.hand[original output...]
+
+![](01-data-visualisation_files/figure-html/hello-r-output-2-1.png)&lt;!-- --&gt;
+]
+
+---
+
+class: middle, inverse
+
+.pull-left[
+.hand[add colour...]
+
+```r
+ggplot(data = mpg) +
+geom_point(
+  mapping = aes(
+    x = displ,
+    y = hwy,
+*   color = cyl
+  )
+) 
+```
+]
+
+.pull-right[
+.hand[coloured output...]
+
+![](01-data-visualisation_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+]
+
+---
+
+class: middle, inverse
+
+.pull-left[
+.hand[add another geom...]
+
+```r
+ggplot(data = mpg) +
+geom_point(
+  mapping = aes(
+    x = displ,
+    y = hwy,
+    color = cyl 
+  )
+) + 
+*geom_smooth(
+* mapping = aes(
+*   x = displ,
+*   y = hwy
+* )
+*) 
+```
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+]
+
+.pull-right[
+.hand[paints another layer...]
+
+![](01-data-visualisation_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+]
+
+---
+
+class: middle, inverse
+
+.pull-left[
+.hand[hm... this is annoying]
+
+```r
+ggplot(data = mpg) +
+geom_point(
+* mapping = aes(
+*   x = displ,
+*   y = hwy,
+    color = cyl 
+  )
+) + 
+*geom_smooth(
+* mapping = aes(
+*   x = displ,
+*   y = hwy
+  ) 
+) 
+```
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+]
+
+.pull-right[
+.hand[eliminate redundancy?]
+
+- `x` and `y` values don't change
+- make them **global aesthetics**
+- but how???
+
+]
+
+---
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
