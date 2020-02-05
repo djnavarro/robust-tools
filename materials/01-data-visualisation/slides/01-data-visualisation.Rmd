@@ -743,9 +743,196 @@ class: middle
 
 ---
 
+class: inverse
+
+.pull-left-wide[
+.hand[exercise_ggplot_01.R]
+```{r ggplot_exercise_01, fig.show='hide', warning=FALSE, message=FALSE}
+library(tidyverse)
+
+dino <- read_csv("data_dino.csv")
+picture <- ggplot(data = dino) + 
+  geom_point(
+    mapping = aes(x = x, y = y)
+  )
+
+plot(picture)
+```
+
+```{r, echo=FALSE}
+countdown(minutes = 2)
+```
+]
+
+--
+
+.pull-right-narrow[
+<br><br>
+```{r ref.label="ggplot_exercise_01", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
+```
+]
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[this is the same!]
+```{r ggplot_exercise_01b, fig.show='hide', warning=FALSE, message=FALSE}
+library(tidyverse)
+
+dino <- read_csv("data_dino.csv")
+picture <- ggplot(dino) + #<<
+  geom_point(
+    mapping = aes(x = x, y = y)
+  )
+
+plot(picture)
+```
+]
+
+.pull-right-narrow[
+<br><br>
+```{r ref.label="ggplot_exercise_01b", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
+```
+]
+
+--
+
+.pull-left-wide[
+- named argument: `ggplot(data = dino)`
+- unnamed argument: `ggplot(dino)`
+]
 
 
-.hand[where to next?
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[these all have unnamed arguments]
+```{r ggplot_exercise_01d, fig.show='hide', warning=FALSE, message=FALSE}
+library(tidyverse) #<<
+
+dino <- read_csv("data_dino.csv") #<<
+picture <- ggplot(dino) + #<<
+  geom_point(
+    mapping = aes(x = x, y = y)
+  )
+
+plot(picture) #<<
+```
+]
+
+.pull-right-narrow[
+<br><br>
+```{r ref.label="ggplot_exercise_01d", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
+```
+]
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[we can simplify here too...]
+```{r ggplot_exercise_01f, fig.show='hide', warning=FALSE, message=FALSE}
+library(tidyverse)
+
+dino <- read_csv("data_dino.csv") 
+picture <- ggplot(dino) + 
+  geom_point( #<<
+    mapping = aes(x = x, y = y) #<<
+  ) #<<
+
+plot(picture) 
+```
+]
+
+.pull-right-narrow[
+<br><br>
+```{r ref.label="ggplot_exercise_01f", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
+```
+]
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[we can simplify here too...]
+```{r ggplot_exercise_01c, fig.show='hide', warning=FALSE, message=FALSE}
+library(tidyverse)
+
+dino <- read_csv("data_dino.csv")
+picture <- ggplot(dino) + 
+  geom_point(aes(x = x, y = y)) #<<
+
+plot(picture)
+```
+
+]
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[and again...]
+```{r ggplot_exercise_01e, fig.show='hide', warning=FALSE, message=FALSE}
+library(tidyverse)
+
+dino <- read_csv("data_dino.csv")
+picture <- ggplot(dino) + 
+  geom_point(aes(x, y)) #<<
+
+plot(picture)
+```
+
+]
+
+
+.pull-right-narrow[
+<br><br>
+```{r ref.label="ggplot_exercise_01e", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
+```
+]
+
+
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[ggplot2 code ofen looks like this!]
+```{r ggplot_exercise_01g, fig.show='hide', warning=FALSE, message=FALSE}
+library(tidyverse)
+
+dino <- read_csv("data_dino.csv")
+picture <- ggplot(dino) + #<<
+  geom_point(aes(x, y)) #<<
+
+plot(picture)
+```
+
+]
+
+
+.pull-right-narrow[
+<br><br>
+```{r ref.label="ggplot_exercise_01g", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
+```
+]
+
+
+
+---
+
+.hand[where to next?]
 
 This tutorial is very gentle: <br>
 https://ggplot2tutor.com/beginner_tutorial/beginner_tutorial/

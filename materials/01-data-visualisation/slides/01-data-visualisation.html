@@ -54,7 +54,7 @@ background-color: #0F4C81
     in...
   ]]]
 ]
-<div class="countdown" id="timer_5e39fc55" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5e3b4a87" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -130,7 +130,7 @@ Paired discussion 👯‍♀️
 - Anxiety about the class?
 - Etc.
 
-<div class="countdown" id="timer_5e39fca1" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5e3b49fd" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 ]
@@ -460,7 +460,7 @@ class: middle, inverse
 - show the number of cylinders `cyl` as the colour?
 - include a regression line as well as the dot points?
 
-<div class="countdown" id="timer_5e39fa9c" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5e3b47df" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -690,7 +690,7 @@ geom_smooth()
 ]
 
 
-<div class="countdown" id="timer_5e39fcbb" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5e3b4770" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 ---
@@ -710,9 +710,197 @@ class: middle
 
 ---
 
+class: inverse
+
+.pull-left-wide[
+.hand[exercise_ggplot_01.R]
+
+```r
+library(tidyverse)
+
+dino &lt;- read_csv("data_dino.csv")
+picture &lt;- ggplot(data = dino) + 
+  geom_point(
+    mapping = aes(x = x, y = y)
+  )
+
+plot(picture)
+```
+
+<div class="countdown" id="timer_5e3b4a05" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+]
+
+--
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](01-data-visualisation_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+]
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[this is the same!]
+
+```r
+library(tidyverse)
+
+dino &lt;- read_csv("data_dino.csv")
+*picture &lt;- ggplot(dino) +
+  geom_point(
+    mapping = aes(x = x, y = y)
+  )
+
+plot(picture)
+```
+]
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](01-data-visualisation_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+]
+
+--
+
+.pull-left-wide[
+- named argument: `ggplot(data = dino)`
+- unnamed argument: `ggplot(dino)`
+]
 
 
-.hand[where to next?
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[these all have unnamed arguments]
+
+```r
+*library(tidyverse)
+
+*dino &lt;- read_csv("data_dino.csv")
+*picture &lt;- ggplot(dino) +
+  geom_point(
+    mapping = aes(x = x, y = y)
+  )
+
+*plot(picture)
+```
+]
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](01-data-visualisation_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+]
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[we can simplify here too...]
+
+```r
+library(tidyverse)
+
+dino &lt;- read_csv("data_dino.csv") 
+picture &lt;- ggplot(dino) + 
+* geom_point(
+*   mapping = aes(x = x, y = y)
+* )
+
+plot(picture) 
+```
+]
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](01-data-visualisation_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+]
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[we can simplify here too...]
+
+```r
+library(tidyverse)
+
+dino &lt;- read_csv("data_dino.csv")
+picture &lt;- ggplot(dino) + 
+* geom_point(aes(x = x, y = y))
+
+plot(picture)
+```
+
+]
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[and again...]
+
+```r
+library(tidyverse)
+
+dino &lt;- read_csv("data_dino.csv")
+picture &lt;- ggplot(dino) + 
+* geom_point(aes(x, y))
+
+plot(picture)
+```
+
+]
+
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](01-data-visualisation_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+]
+
+
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[ggplot2 code ofen looks like this!]
+
+```r
+library(tidyverse)
+
+dino &lt;- read_csv("data_dino.csv")
+*picture &lt;- ggplot(dino) +
+* geom_point(aes(x, y))
+
+plot(picture)
+```
+
+]
+
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](01-data-visualisation_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+]
+
+
+
+---
+
+.hand[where to next?]
 
 This tutorial is very gentle: &lt;br&gt;
 https://ggplot2tutor.com/beginner_tutorial/beginner_tutorial/
