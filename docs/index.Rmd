@@ -56,7 +56,7 @@ The project:
 
 - You get to choose!
 - Discuss ideas with me `r emo::ji("slightly_smiling_face")`
-- Doesn't need to be technical
+- Doesn't need to be technical (e.g., you can write an essay instead of coding!)
 - Proposals in week 5
 - Presentations in week 9
 - Final submission XXX
