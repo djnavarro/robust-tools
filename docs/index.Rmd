@@ -21,7 +21,7 @@ This page is a work in progress! More information will appear over time as I fin
 The nine-week course is built around a series of six two-hour modules, covering the following topics
 
 - An introduction to [data visualisation](visualisation) with ggplot2
-- Working with data
+- Learn the basics of [data wrangling](wrangling) in the tidyverse
 - Writing experiments
 - Keeping projects tidy
 - Archiving & version control

@@ -1,0 +1,60 @@
+---
+title: "Data Wrangling Exercise 5"
+author: "Danielle J. Navarro"
+date: "11/12/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Yet another exercise in fixing broken code, but this time using the frames data!
+
+```{r, packageload, error=TRUE, message=FALSE}
+library(tidyverse)
+library(here)
+library(skimr)
+frames <- here("analysis", "data", "frames_ex2.csv") %>% read_csv()
+```
+
+
+Print and skim the data. Notice that there are a lot of rows, because every row is a single judgment!
+
+```{r explore, error=TRUE}
+frames
+skim(frames)
+```
+
+Use filter to extract the data from person with `id` of 12.
+
+```{r filterone, error=TRUE}
+one_person <- frames %>% 
+  filter(id == 12)
+```
+
+Inspect their raw data:
+
+```{r inspectone, error=TRUE}
+one_person
+```
+
+Next let's look at their average "response" across each of the 7 test items (i.e., group by test item and compute the mean response for each item.
+
+```{r generalisation, error=TRUE}
+generalisation <- one_person %>%
+  group_by(test_item) %>%
+  summarise(mean_response = mean(response))
+```
+
+Finally, as a reward, a picture! This code shold start working once the chunks above work
+
+```{r picture, error=TRUE}
+generalisation %>% 
+  ggplot(aes(x = test_item, y = mean_response)) +
+  geom_point() + 
+  geom_smooth(method = lm)
+```
+
+
+

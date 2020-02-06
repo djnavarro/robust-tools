@@ -1,0 +1,75 @@
+---
+title: "Data Wrangling Exercise 4"
+author: "Danielle J. Navarro"
+date: "11/12/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Another exercise in fixing broken code!
+
+```{r, packageload, error=TRUE, message=FALSE}
+library(tidyverse)
+library(here)
+tidy_users <- here("analysis", "data", "tidy_users.csv") %>% read_csv()
+tidy_users
+```
+
+## Problem 1... 
+
+- 1a: Filter the data so that we only retain rows for dates with more than 200 users
+- 1b: Select the Date and Users variables only
+- 1c: Arrange the output to sort the rows by User, in descending order (hint: there is a function called `desc()`)
+
+```{r problem1, error=TRUE}
+output1 <- tidy_users %>% 
+  filter( Users > 200 ) %>% 
+  select( Date, Users ) %>%
+  arrange( desc(Users) )
+
+print(output1)
+```
+
+## Problem 2...
+
+Apply a `filter` to the data so that we only include data from Saturdays with more than 50 users; and `arrange` the output so that cases are arranged by number of users.
+
+```{r problem2, error=TRUE}
+output2 <- tidy_users %>% 
+  filter(Weekday == "Saturday" & Users > 50) %>%
+  arrange(desc(Users))
+
+print(output2)
+```
+
+
+## Problem 3...
+
+Create a sorted table. Use `group_by` and `summarise` to calculate the average number of users for every day of the week (including weekends!), and then use `arrange` to sort the weekdays by mean number of users. 
+
+```{r problem3, error=TRUE}
+output3 <- tidy_users %>%
+  group_by( Weekday ) %>%
+  summarise( mean_users = mean(Users) ) %>% 
+  arrange( mean_users )
+
+print(output3)
+```
+
+## Problem 4...
+
+Take the results from `output3` and use `mutate()` to round the `mean_users` to the nearest whole number (there is a function called `round()`) 
+
+```{r problem4, error=TRUE}
+output4 <- output3 %>%
+  mutate(mean_users = round(mean_users))
+
+print(output4)
+```
+
+
+
+

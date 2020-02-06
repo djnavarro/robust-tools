@@ -1,0 +1,37 @@
+---
+title: "Data Wrangling Exercise 1"
+author: "Danielle J. Navarro"
+date: "11/12/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+For this DIY exercise, we have an R Markdown document with a number of errors in the code. You need to find every BROKEN-BIT and replace it with the right answer! Our data analysis relies on `tidyverse` and the `here` package. The first thing we need to do is load those packages:
+
+```{r packageload, error=TRUE, message=FALSE}
+library(tidyverse)
+library(here)
+library(skimr)
+```
+
+The second step in our data analysis is loading the data from a file. For this first exercise, we'll use a simpler data set than the `frames` file, and instead load a `tidy_users.csv` data file that contains information about the number of people visiting Danielle's website over a couple of months.  
+
+```{r loaddata, error=TRUE}
+data_file <- here("analysis", "data", "tidy_users.csv")
+tidy_users <- read_csv(file = data_file)
+```
+
+Now that we've loaded the data, we should take a look at it. In the tutorial we discussed how to do this either by printing the variable, or glimpsing it. The code below prints it but doesn't glimpse. Fix it so that it uses glimpse instead:
+
+```{r inspectdata, error=TRUE}
+glimpse(tidy_users)
+```
+
+Finally, it's probably a good idea to take a quick skim of the data set. Write a new code chunk below that uses the `skim` function from the `skimr` package to do this.
+
+```{r skimdata, error=TRUE}
+skim(tidy_users)
+```

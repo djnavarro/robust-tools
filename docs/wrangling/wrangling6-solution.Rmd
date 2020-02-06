@@ -1,0 +1,41 @@
+---
+title: "Data Wrangling Exercise 6"
+author: "Danielle J. Navarro"
+date: "11/12/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r, packageload, error=TRUE, message=FALSE}
+library(tidyverse)
+library(here)
+tidy_nails <- here("analysis", "data", "tidy_nails.csv") %>% read_csv()
+tidy_nails
+```
+
+The data come from market research reported by [Nails Magazine](www.nailsmag.com/page/70218/market-research), tracking the number of nail salons and technicians working in said salons, across all U.S. states over several years. 
+
+## Gather
+
+Use the `gather()` function to create a long form data frame in which there are two variables, `measure` (which could be either "technicians" or "salns") and `count`, which is indicates the numnber of technicians/salons, and then arrange it by U.S. state and year.
+
+```{r gather, error=TRUE}
+long_nails <- tidy_nails %>%
+  gather(key = "measure", value = "count", 
+         technicians, salons)  %>% 
+  arrange(state, year)
+
+print(long_nails)
+```
+
+## Spread
+
+Add a code chunk below that spreads the data out again
+
+```{r spread, error=TRUE}
+long_nails %>% spread(key = measure, value = count)
+```

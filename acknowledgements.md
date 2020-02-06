@@ -10,3 +10,7 @@
 - William: https://unsplash.com/photos/NgMjOrEkhTI
 - Plush Design Studio: https://unsplash.com/photos/94Ld_MtIUf0
 - Sven Mieke: https://unsplash.com/photos/fteR0e2BzKo
+
+## Image credits: Data wrangling
+
+- Allison Horst: https://twitter.com/allison_horst

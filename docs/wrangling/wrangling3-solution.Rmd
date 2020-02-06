@@ -1,0 +1,49 @@
+---
+title: "Data Wrangling Exercise 3"
+author: "Danielle J. Navarro"
+date: "11/12/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Another exercise in fixing broken code!
+
+```{r, packageload, error=TRUE, message=FALSE}
+library(tidyverse)
+library(here)
+```
+
+```{r loaddata, error=TRUE}
+tidy_users <- here("analysis", "data", "tidy_users.csv") %>% read_csv()
+```
+
+In this first section what we're aiming to do is summarise (count) the total number of users in every month, and store it in a variable called `total_users`
+
+```{r monthlydata, error=TRUE}
+monthly_users <- tidy_users %>%
+  group_by( Month ) %>%
+  summarise(
+    total_users = sum( Users ) 
+  ) %>%
+  ungroup()
+```
+
+The output from the previous chunk should be a data set (a tibble). Modify the code below so that it prints out that variable:
+
+```{r monthlydata2, error=TRUE}
+monthly_users
+```
+
+Here is some code that will draw a pretty picture once the code above is working. You shouldn't need to edit this at all!
+
+```{r picture, error=TRUE}
+monthly_users %>% 
+  ggplot(aes(x = Month, y = total_users)) + 
+  geom_col() 
+```
+
+As a bonus exercise, go back to the `monthly_users` chunk above and fix it so that we `ungroup()` the summarised data.
+

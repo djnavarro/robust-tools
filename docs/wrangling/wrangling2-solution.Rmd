@@ -1,0 +1,52 @@
+---
+title: "Data Wrangling Exercise 2"
+author: "Danielle J. Navarro"
+date: "11/12/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r packageload, message=FALSE}
+library(tidyverse)
+```
+
+The second DIY exercise is about the pipe operator `%>%`. In the code below, I've written a some code that generates random numbers and then calculates the mean. First, let's decide on how many numbers:
+
+```{r}
+N <- 100
+```
+
+Here is the nonpiped version of the code:
+
+```{r traditionalcode1, error=TRUE}
+mean(rnorm(N))
+```
+
+In the code chunk below, write a piped version of the same thing:
+
+```{r pipedcode1, error=TRUE}
+N %>% rnorm() %>% mean()
+```
+
+By default, the pipe operator assumes that the inpit takes the place of the *first* argument in the function. So let's suppose I want to calculate the 20% trimmed mean, of normally distributed numbers with mean 100 and standard deviation 15. Here's the traditional version:
+
+```{r traditionalcode2, error=TRUE}
+mean(
+  rnorm(N, mean = 100, sd = 15),
+  trim = .2
+  )
+```
+
+Can you rewrite this in piped form? What do you notice?
+
+```{r pipedcode2, error=TRUE}
+N  %>% 
+  rnorm(mean = 100, sd = 15) %>% 
+  mean(trim = .2)
+```
+
+It's cleaner, right? It's visually clearer how the different arguments are related to each other
