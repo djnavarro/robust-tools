@@ -6,7 +6,7 @@ date: "27 jan 2020"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["../../style/xaringan-themer.css", "../../style/slides-style.css"]
+    css: ["../style/xaringan-themer.css", "../style/slides-style.css"]
     nature:
       highlightStyle: solarized-light
       highlightLines: true
@@ -19,7 +19,7 @@ output:
         </div>`
 ---
 
-```{r child = "../../style/setup.Rmd"}
+```{r child = "../style/setup.Rmd"}
 ```
 
 ```{r load-packages, message=FALSE, echo=FALSE}
