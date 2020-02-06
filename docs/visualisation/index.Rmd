@@ -2,7 +2,7 @@
 title: "> week 01 <br> > data visualisation"
 subtitle: "`r emo::ji('art')` pretty pictures! <br> `r emo::ji('link')` [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
 author: "danielle navarro"
-date: "27 jan 2020"
+date: "20 feb 2020"
 output:
   xaringan::moon_reader:
     lib_dir: libs
