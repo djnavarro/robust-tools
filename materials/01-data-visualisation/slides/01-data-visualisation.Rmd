@@ -371,8 +371,6 @@ knitr::include_graphics("img/rstudio_local.png")
 - Ready to go!
 ]
 
-
-
 ---
 
 class: middle, inverse
@@ -908,7 +906,7 @@ plot(picture)
 class: inverse
 
 .pull-left-wide[
-.hand[ggplot2 code ofen looks like this!]
+.hand[ggplot2 code often looks like this!]
 ```{r ggplot_exercise_01g, fig.show='hide', warning=FALSE, message=FALSE}
 library(tidyverse)
 
@@ -929,20 +927,26 @@ plot(picture)
 ]
 
 
+---
+
+class: middle
+
+.hand[The rest of the exercises are self-paced!]
+
 
 ---
 
-.hand[where to next?]
+.hand[So now you know the basics. Where to next?]
 
-This tutorial is very gentle: <br>
+Start with this gentle tutorial: <br>
 https://ggplot2tutor.com/beginner_tutorial/beginner_tutorial/
 
-This section from the "R for data science" book is good: <br>
+Next take a look at the classic "R for Data Science": <br>
 https://r4ds.had.co.nz/data-visualisation.html
 
-I have a few examples here: <br>
+You can check out a few examples I've made here: <br>
 https://psyr.org/visualising-data.html
 
-This data visualisation book is a good resource: <br>
+Finally, Keiran Healy's data visualisation book is very good: <br>
 https://socviz.co/
 
