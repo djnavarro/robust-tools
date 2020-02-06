@@ -944,8 +944,8 @@ https://ggplot2tutor.com/beginner_tutorial/beginner_tutorial/
 Next take a look at the classic "R for Data Science": <br>
 https://r4ds.had.co.nz/data-visualisation.html
 
-You can check out a few examples I've made here: <br>
-https://psyr.org/visualising-data.html
+I wrote a more advanced data visualisation workshop here: <br>
+https://djnavarro.github.io/satrdayjoburg/
 
 Finally, Keiran Healy's data visualisation book is very good: <br>
 https://socviz.co/
