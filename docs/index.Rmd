@@ -12,23 +12,22 @@ pagetitle: "Robust Tools"
 rm(list=objects()) # start with a clean workspace
 ```
 
-The research toolkit in psychological science has changed a lot in the last decade. Across many areas there is a heightened emphasis on transparency, open access, and a preference for the use of freely available tools. These skills are rarely taught during undergraduate psychology classes, and because research methods classes tend to be statistics heavy, they’re rarely a part of research methodology classes either. This elective provides a hands on tutorial in how to use these tools: it covers an introduction to R programming, modern data visualisation and data wrangling, how to structure your projects, proper version control with git and GitHub, how to use OSF and PsyArXiv, and even how to write APA manuscripts from within R and set up a professional website to promote your work! The course is designed for novices, and no preexisting familiarity with these tools and no programming background is assumed.
+The research toolkit in psychological science has changed a lot in the last decade. Across many areas there is a heightened emphasis on transparency, open access, and a preference for the use of freely available tools. These skills are rarely taught during undergraduate psychology classes, and because research methods classes tend to be statistics heavy, they’re rarely a part of research methodology classes either. This elective provides a hands on tutorial in how to use these tools: it covers an introduction to R programming, modern data visualisation and data wrangling, how to structure your projects, version control and how to write professional documents in R. The course is designed for novices, and no preexisting familiarity with these tools and no programming background is assumed.
 
 This page is a work in progress! More information will appear over time as I finalise the course material `r emo::ji("slightly_smiling_face")`
 
 ## 1. Class schedule
 
+The nine-week course is built around a series of six two-hour workshops, covering the following topics
 
-- Week 1: Data visualisation
-- Week 2: Working with data
-- Week 3: Writing experiments
-- Week 4: Keeping projects tidy
-- Week 5: *Student project proposals*
+- Data visualisation
+- Working with data
+- Writing experiments
+- Keeping projects tidy
 - Week 6: Archiving & version control
 - Week 7: Documentation
-- Week 8: *???????*
-- Week 9: *Student presentations*
 
+During **Weeks 1-4** we will cover the first four modules. **Week 5** will be left as a "flex" week in which students can discuss their project proposals with me, ask questions or catch up on material they may have missed earlier. **Weeks 6-7** cover the final two modules. **Week 8** is left as second "flex" week to cover additional materials or answer questions students may have. **Week 9** is set aside for students to present their projects. 
 
 ## 2. Assessment structure
 
