@@ -1,5 +1,5 @@
 ---
-title: '<div class="jumbotron"><h1 class="title toc-ignore display-3" align="center">Robust Tools for Psychological Science</h1><p class="lead" align="center">Danielle Navarro</p></div>'
+title: '<div class="jumbotron"><h1 class="title toc-ignore display-3" align="center">Data science with R: A robust toolkit for psychological research</h1><p class="lead" align="center">Danielle Navarro</p></div>'
 output:
   html_document:
     theme: flatly
@@ -18,16 +18,16 @@ This page is a work in progress! More information will appear over time as I fin
 
 ## 1. Class schedule
 
-The nine-week course is built around a series of six two-hour workshops, covering the following topics
+The nine-week course is built around a series of six two-hour modules, covering the following topics
 
-- Data visualisation
+- An introduction to [data visualisation](visualisation) with ggplot2
 - Working with data
 - Writing experiments
 - Keeping projects tidy
-- Week 6: Archiving & version control
-- Week 7: Documentation
+- Archiving & version control
+- Documentation in R
 
-During **Weeks 1-4** we will cover the first four modules. **Week 5** will be left as a "flex" week in which students can discuss their project proposals with me, ask questions or catch up on material they may have missed earlier. **Weeks 6-7** cover the final two modules. **Week 8** is left as second "flex" week to cover additional materials or answer questions students may have. **Week 9** is set aside for students to present their projects. 
+*Schedule:* During **Weeks 1-4** we will cover the first four modules. **Week 5** will be left as a "flex" week in which students can discuss their project proposals with me, ask questions or catch up on material they may have missed earlier. **Weeks 6-7** cover the final two modules. **Week 8** is left as second "flex" week to cover additional materials or answer questions students may have. **Week 9** is set aside for students to present their projects. 
 
 ## 2. Assessment structure
 
