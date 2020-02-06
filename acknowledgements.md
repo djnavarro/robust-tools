@@ -1,10 +1,10 @@
 
 ## Inspiration
 
-- Greg Wilson: LINK
+- Greg Wilson: LINK TBA
 - Mine Çetinkaya-Rundel: https://rstudio-conf-2020.github.io/design-ds-classroom/
 
-## Image credits
+## Image credits: Visualisation module
 
 - Brooke Lark: https://unsplash.com/photos/ZkgWJ4BfgsE
 - William: https://unsplash.com/photos/NgMjOrEkhTI
