@@ -563,34 +563,63 @@ class: middle, inverse
 
 ---
 class: inverse
-.hand[long form data]
-
-```{r, eval=TRUE}
-long_avrs <- mean_resp_small %>%
+```{r setup_reshape, results='hide'}
+long_data <- mean_resp_small %>%
   mutate(generalisation = response/9) %>% 
-  select(-response) 
-
-long_avrs
+  select(-response) %>%
+  arrange(test_item) %>%
+  print(n = 4)
 ```
+--
+```{r ref.label="setup_reshape", echo=FALSE, highlight.output = c(1,4,5)}
+```
+
 
 ---
 class: inverse
-.hand[spread to wide form]
-
-```{r, eval=TRUE}
-wide_avrs <- long_avrs %>%
-  spread(key = condition, value = generalisation) #<<
-
-wide_avrs
+```{r, results='hide'}
+wide_data <- long_data %>%
+  pivot_wider(
+    names_from = condition, #<< 
+    values_from = generalisation #<<
+  ) 
 ```
+
 
 ---
 class: inverse
-.hand[gather to long form]
+```{r, eval=TRUE, highlight.output = c(1,4)}
+wide_data <- long_data %>%
+  pivot_wider(
+    names_from = condition, 
+    values_from = generalisation 
+  ) %>% 
+  print(n = 4)
+```
 
+
+---
+class: inverse
+```{r, results='hide'}
+wide_data %>% 
+  pivot_longer(
+    cols = c(category, property), #<<
+    names_to = "condition", #<<
+    values_to = "generalisation" #<<
+  )
+```
+
+
+---
+class: inverse
 ```{r, eval=TRUE}
-wide_avrs %>% 
-  gather(key = "condition", value = "generalisation", category, property) #<<
+wide_data %>% 
+  pivot_longer(
+    cols = c(category, property), 
+    names_to = "condition", 
+    values_to = "generalisation"
+  ) %>%
+  print(n = 4)
 ```
 
 ---
