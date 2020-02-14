@@ -39,7 +39,7 @@ knitr::knit_hooks$set(source = function(x, options) {
 
 class: middle, inverse
 
-background-image: url("img/press_play.png")
+background-image: url("img/purple_heart2.png")
 background-size: cover
 background-color: #0F4C81
 
@@ -172,6 +172,7 @@ frames <- read_csv(file = "data_reasoning.csv")
 ```{r ref.label="read-data", echo=FALSE, warning=FALSE}
 ```
 
+
 ---
 
 class: inverse
@@ -180,7 +181,8 @@ class: inverse
 print(frames)
 ```
 --
-```{r ref.label="print-data", echo=FALSE, warning=FALSE}
+```{r, echo=FALSE, warning=FALSE}
+print(frames, n = 6, width = 59)
 ```
 
 
@@ -192,7 +194,8 @@ class: inverse
 glimpse(frames)
 ```
 --
-```{r ref.label="glimpse-data", echo=FALSE, warning=FALSE}
+```{r, echo=FALSE, warning=FALSE}
+glimpse(frames, width = 59)
 ```
 
 ---
@@ -350,7 +353,7 @@ frames %>%
 ---
 
 class: middle
-.hand[Wrangling Exercise #1]
+.hand[Wrangling Exercise #3 and #4]
 
 ---
 
@@ -365,16 +368,20 @@ class: middle, inverse
   ]
 ]
 
+
 ---
 
+
 class: inverse
-```{r, eval=TRUE, results='hide'}
-average_response <- frames %>%
+
+
+```{r average-response, results='hide'}
+mean_resp <- frames %>%
   group_by(test_item, sample_size, n_obs, condition) %>%
   summarise(response = mean(response)) %>%
   ungroup()
 
-average_response %>% #<<
+mean_resp %>% #<<
   filter(sample_size == "small") #<<
 ```
 
@@ -389,8 +396,8 @@ average_response %>% #<<
 class: inverse
 .hand[filter()]
 
-```{r, eval=TRUE, highlight.output = c(4,5)}
-average_response %>%
+```{r average-response2, highlight.output = c(4,5)}
+mean_resp %>% 
   filter(sample_size == "small")
 ```
 
@@ -399,7 +406,7 @@ class: inverse
 .hand[arrange()]
 
 ```{r, eval=TRUE, highlight.output = 4:10}
-average_response %>%
+mean_resp %>%
   filter(sample_size == "small") %>%
   arrange(condition) #<<
 ```
@@ -409,7 +416,7 @@ class: inverse
 .hand[select()]
 
 ```{r, eval=TRUE, highlight.output = 4:10}
-average_response %>%
+mean_resp %>%
   filter(sample_size == "small") %>%
   arrange(condition) %>%
   select(test_item, condition, response) #<<
@@ -422,12 +429,12 @@ class: inverse
 .hand[store output as a variable]
 
 ```{r, eval=TRUE}
-average_response_small <- average_response %>% #<<
+mean_resp_small <- mean_resp %>% #<<
   filter(sample_size == "small") %>%
   arrange(condition) %>%
   select(test_item, condition, response)
 
-average_response_small
+mean_resp_small
 ```
 
 ---
@@ -435,7 +442,7 @@ class: inverse
 .hand[mutate()]
 
 ```{r, eval=TRUE}
-average_response_small %>%
+mean_resp_small %>%
   mutate(generalisation = response/9) #<<
 ```
 
@@ -444,7 +451,7 @@ class: inverse
 .hand[mutate() and select()]
 
 ```{r, eval=TRUE}
-average_response_small %>%
+mean_resp_small %>%
   mutate(generalisation = response/9) %>% #<<
   select(-response) #<<
 ```
@@ -474,7 +481,7 @@ class: inverse
 .hand[long form data]
 
 ```{r, eval=TRUE}
-long_avrs <- average_response_small %>%
+long_avrs <- mean_resp_small %>%
   mutate(generalisation = response/9) %>% 
   select(-response) 
 
@@ -505,3 +512,4 @@ wide_avrs %>%
 
 class: middle
 .hand[Wrangling Exercise #6]
+
