@@ -309,7 +309,11 @@ frames %>%
   summarise(response = mean(response))
 ```
 --
-```{r ref.label="frames-group", echo=FALSE}
+```{r, echo=FALSE, highlight.output=2:3}
+frames %>%
+  group_by(test_item, sample_size, n_obs, condition) %>%
+  summarise(response = mean(response)) %>%
+  print(n = 4)
 ```
 
 
@@ -325,7 +329,12 @@ frames %>%
   ungroup() #<<
 ```
 
-```{r ref.label="frames-group-2", echo=FALSE}
+```{r, echo=FALSE, highlight.output=2}
+frames %>%
+  group_by(test_item, sample_size, n_obs, condition) %>%
+  summarise(response = mean(response)) %>%
+  ungroup() %>%
+  print(n = 4)
 ```
 
 ---
@@ -337,9 +346,9 @@ class: inverse
 frames %>% 
   group_by(test_item) %>%
   summarise(
-    mean_resp = mean(response), #<<
-    sd_resp = sd(response), #<<
-    count = n() #<<
+    m = mean(response), #<<
+    s = sd(response), #<<
+    n = n() #<<
   ) %>%
   ungroup()
 ```
@@ -349,6 +358,11 @@ frames %>%
 ```{r ref.label="summarise-real", echo=FALSE}
 ```
 ]
+
+???
+- these are bad variable names
+- i've done it to fit the slides
+- don't do it in real life
 
 ---
 
@@ -396,30 +410,86 @@ mean_resp %>% #<<
 class: inverse
 .hand[filter()]
 
-```{r average-response2, highlight.output = c(4,5)}
+```{r, results='hide', highlight.output = c(4,5)}
+mean_resp 
+```
+
+--
+
+```{r average-response2c, echo=FALSE, highlight.output = c(8,9)}
+mean_resp %>% 
+  print(n=6)
+```
+
+
+
+---
+class: inverse
+.hand[filter()]
+
+```{r average-response2, results='hide', highlight.output = c(4,5)}
 mean_resp %>% 
   filter(sample_size == "small")
 ```
+
+--
+
+```{r average-response2b, echo=FALSE, highlight.output = c(4,5)}
+mean_resp %>% 
+  filter(sample_size == "small") %>%
+  print(n=6)
+```
+
+
+
+---
+class: inverse
+.hand[.]
+
+```{r, results='hide'}
+mean_resp %>%
+  filter(sample_size == "small")
+```
+```{r, echo=FALSE, highlight.output = c(4,6)}
+mean_resp %>%
+  filter(sample_size == "small") %>%
+  print(n=6)
+```
+
 
 ---
 class: inverse
 .hand[arrange()]
 
-```{r, eval=TRUE, highlight.output = 4:10}
+```{r, results='hide'}
 mean_resp %>%
   filter(sample_size == "small") %>%
   arrange(condition) #<<
+```
+```{r, echo=FALSE, highlight.output = 4:5}
+mean_resp %>%
+  filter(sample_size == "small") %>%
+  arrange(condition) %>%
+  print(n=5)
 ```
 
 ---
 class: inverse
 .hand[select()]
 
-```{r, eval=TRUE, highlight.output = 4:10}
+```{r, results='hide'}
 mean_resp %>%
   filter(sample_size == "small") %>%
   arrange(condition) %>%
   select(test_item, condition, response) #<<
+```
+--
+```{r, echo=FALSE}
+mean_resp %>%
+  filter(sample_size == "small") %>%
+  arrange(condition) %>%
+  select(test_item, condition, response) %>%
+  print(n=4)
 ```
 
 
@@ -433,9 +503,22 @@ mean_resp_small <- mean_resp %>% #<<
   filter(sample_size == "small") %>%
   arrange(condition) %>%
   select(test_item, condition, response)
-
-mean_resp_small
 ```
+
+---
+class: inverse
+.hand[print output from a variable]
+
+```{r, eval=TRUE}
+mean_resp_small <- mean_resp %>%
+  filter(sample_size == "small") %>%
+  arrange(condition) %>%
+  select(test_item, condition, response)
+
+print(mean_resp_small, n = 2) #<<
+```
+
+
 
 ---
 class: inverse
@@ -443,7 +526,8 @@ class: inverse
 
 ```{r, eval=TRUE}
 mean_resp_small %>%
-  mutate(generalisation = response/9) #<<
+  mutate(generalisation = response/9) %>% #<<
+  print(n = 5)
 ```
 
 ---
@@ -453,7 +537,8 @@ class: inverse
 ```{r, eval=TRUE}
 mean_resp_small %>%
   mutate(generalisation = response/9) %>% #<<
-  select(-response) #<<
+  select(-response) %>% #<<
+  print(n = 4)
 ```
 
 
