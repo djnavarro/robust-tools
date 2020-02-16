@@ -45,7 +45,7 @@ layout: true
 
 class: middle, inverse
 
-background-image: url("img/press_play.png")
+background-image: url("img/purple_heart2.png")
 background-size: cover
 background-color: #0F4C81
 
@@ -56,7 +56,7 @@ background-color: #0F4C81
     in...
   ]]]
 ]
-<div class="countdown" id="timer_5e3bb756" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5e48b8f3" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -127,13 +127,13 @@ class: middle
 
 class: middle
 .hand[Seven test items that vary in size: Smallest...]
-![](img/test2.jpg)&lt;!-- --&gt;
+&lt;img src="img/test2.jpg" width="410" /&gt;
 
 ---
 
 class: middle
 .hand[Seven test items that vary in size: Largest...]
-![](img/test8.jpg)&lt;!-- --&gt;
+&lt;img src="img/test8.jpg" width="410" /&gt;
 
 ---
 
@@ -175,6 +175,7 @@ frames &lt;- read_csv(file = "data_reasoning.csv")
 ## )
 ```
 
+
 ---
 
 class: inverse
@@ -187,19 +188,16 @@ print(frames)
 
 ```
 ## # A tibble: 4,725 x 8
-##       id gender   age condition sample_size n_obs test_item response
-##    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-##  1     1 male      36 category  small           2         1        8
-##  2     1 male      36 category  small           2         2        7
-##  3     1 male      36 category  small           2         3        6
-##  4     1 male      36 category  small           2         4        6
-##  5     1 male      36 category  small           2         5        5
-##  6     1 male      36 category  small           2         6        6
-##  7     1 male      36 category  small           2         7        3
-##  8     1 male      36 category  medium          6         1        9
-##  9     1 male      36 category  medium          6         2        7
-## 10     1 male      36 category  medium          6         3        5
-## # … with 4,715 more rows
+##      id gender   age condition sample_size n_obs test_item
+##   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+## 1     1 male      36 category  small           2         1
+## 2     1 male      36 category  small           2         2
+## 3     1 male      36 category  small           2         3
+## 4     1 male      36 category  small           2         4
+## 5     1 male      36 category  small           2         5
+## 6     1 male      36 category  small           2         6
+## # … with 4,719 more rows, and 1 more variable:
+## #   response &lt;dbl&gt;
 ```
 
 
@@ -216,14 +214,14 @@ glimpse(frames)
 ```
 ## Observations: 4,725
 ## Variables: 8
-## $ id          &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
-## $ gender      &lt;chr&gt; "male", "male", "male", "male", "male", "male", "male", "…
-## $ age         &lt;dbl&gt; 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 3…
-## $ condition   &lt;chr&gt; "category", "category", "category", "category", "category…
-## $ sample_size &lt;chr&gt; "small", "small", "small", "small", "small", "small", "sm…
-## $ n_obs       &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 6, 6, 6, 6, 6, 6, 6, 12, 12, 12, 12,…
-## $ test_item   &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, …
-## $ response    &lt;dbl&gt; 8, 7, 6, 6, 5, 6, 3, 9, 7, 5, 6, 4, 4, 2, 8, 7, 6, 6, 4, …
+## $ id          &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
+## $ gender      &lt;chr&gt; "male", "male", "male", "male", "mal…
+## $ age         &lt;dbl&gt; 36, 36, 36, 36, 36, 36, 36, 36, 36, …
+## $ condition   &lt;chr&gt; "category", "category", "category", …
+## $ sample_size &lt;chr&gt; "small", "small", "small", "small", …
+## $ n_obs       &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 6, 6, 6, 6, 6, …
+## $ test_item   &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, …
+## $ response    &lt;dbl&gt; 8, 7, 6, 6, 5, 6, 3, 9, 7, 5, 6, 4, …
 ```
 
 ---
@@ -342,20 +340,14 @@ frames %&gt;%
 
 ```
 ## # A tibble: 42 x 5
-## # Groups:   test_item, sample_size, n_obs [21]
-##    test_item sample_size n_obs condition response
-##        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-##  1         1 large          12 category      7.60
-##  2         1 large          12 property      7.16
-##  3         1 medium          6 category      7.32
-##  4         1 medium          6 property      6.66
-##  5         1 small           2 category      6.07
-##  6         1 small           2 property      5.78
-##  7         2 large          12 category      7.51
-##  8         2 large          12 property      7.20
-##  9         2 medium          6 category      7.17
-## 10         2 medium          6 property      6.95
-## # … with 32 more rows
+*## # Groups:   test_item, sample_size, n_obs [21]
+*##   test_item sample_size n_obs condition response
+##       &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
+## 1         1 large          12 category      7.60
+## 2         1 large          12 property      7.16
+## 3         1 medium          6 category      7.32
+## 4         1 medium          6 property      6.66
+## # … with 38 more rows
 ```
 
 
@@ -375,19 +367,13 @@ frames %&gt;%
 
 ```
 ## # A tibble: 42 x 5
-##    test_item sample_size n_obs condition response
-##        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-##  1         1 large          12 category      7.60
-##  2         1 large          12 property      7.16
-##  3         1 medium          6 category      7.32
-##  4         1 medium          6 property      6.66
-##  5         1 small           2 category      6.07
-##  6         1 small           2 property      5.78
-##  7         2 large          12 category      7.51
-##  8         2 large          12 property      7.20
-##  9         2 medium          6 category      7.17
-## 10         2 medium          6 property      6.95
-## # … with 32 more rows
+*##   test_item sample_size n_obs condition response
+##       &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
+## 1         1 large          12 category      7.60
+## 2         1 large          12 property      7.16
+## 3         1 medium          6 category      7.32
+## 4         1 medium          6 property      6.66
+## # … with 38 more rows
 ```
 
 ---
@@ -400,9 +386,9 @@ class: inverse
 frames %&gt;% 
   group_by(test_item) %&gt;%
   summarise(
-*   mean_resp = mean(response),
-*   sd_resp = sd(response),
-*   count = n()
+*   m = mean(response),
+*   s = sd(response),
+*   n = n()
   ) %&gt;%
   ungroup()
 ```
@@ -412,22 +398,27 @@ frames %&gt;%
 
 ```
 ## # A tibble: 7 x 4
-##   test_item mean_resp sd_resp count
-##       &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;
-## 1         1      6.77    2.56   675
-## 2         2      6.88    2.10   675
-## 3         3      5.71    2.41   675
-## 4         4      4.48    2.68   675
-## 5         5      3.76    2.81   675
-## 6         6      3.43    2.99   675
-## 7         7      3.26    3.11   675
+##   test_item     m     s     n
+##       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+## 1         1  6.77  2.56   675
+## 2         2  6.88  2.10   675
+## 3         3  5.71  2.41   675
+## 4         4  4.48  2.68   675
+## 5         5  3.76  2.81   675
+## 6         6  3.43  2.99   675
+## 7         7  3.26  3.11   675
 ```
 ]
+
+???
+- these are bad variable names
+- i've done it to fit the slides
+- don't do it in real life
 
 ---
 
 class: middle
-.hand[Wrangling Exercise #1]
+.hand[Wrangling Exercises #3 and #4]
 
 ---
 
@@ -442,17 +433,21 @@ class: middle, inverse
   ]
 ]
 
+
 ---
+
 
 class: inverse
 
+
+
 ```r
-average_response &lt;- frames %&gt;%
+mean_resp &lt;- frames %&gt;%
   group_by(test_item, sample_size, n_obs, condition) %&gt;%
   summarise(response = mean(response)) %&gt;%
   ungroup()
 
-*average_response %&gt;%
+*mean_resp %&gt;%
 * filter(sample_size == "small")
 ```
 
@@ -469,29 +464,78 @@ class: inverse
 
 
 ```r
-average_response %&gt;%
+mean_resp 
+```
+
+--
+
+
+```
+## # A tibble: 42 x 5
+##   test_item sample_size n_obs condition response
+##       &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
+## 1         1 large          12 category      7.60
+## 2         1 large          12 property      7.16
+## 3         1 medium          6 category      7.32
+## 4         1 medium          6 property      6.66
+*## 5         1 small           2 category      6.07
+*## 6         1 small           2 property      5.78
+## # … with 36 more rows
+```
+
+
+
+---
+class: inverse
+.hand[filter()]
+
+
+```r
+mean_resp %&gt;% 
+  filter(sample_size == "small")
+```
+
+--
+
+
+```
+## # A tibble: 14 x 5
+##   test_item sample_size n_obs condition response
+##       &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
+*## 1         1 small           2 category      6.07
+*## 2         1 small           2 property      5.78
+## 3         2 small           2 category      6.26
+## 4         2 small           2 property      6.21
+## 5         3 small           2 category      5.87
+## 6         3 small           2 property      5.24
+## # … with 8 more rows
+```
+
+
+
+---
+class: inverse
+.hand[.]
+
+
+```r
+mean_resp %&gt;%
   filter(sample_size == "small")
 ```
 
 ```
 ## # A tibble: 14 x 5
-##    test_item sample_size n_obs condition response
-##        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-*##  1         1 small           2 category      6.07
-*##  2         1 small           2 property      5.78
-##  3         2 small           2 category      6.26
-##  4         2 small           2 property      6.21
-##  5         3 small           2 category      5.87
-##  6         3 small           2 property      5.24
-##  7         4 small           2 category      5.11
-##  8         4 small           2 property      4.68
-##  9         5 small           2 category      4.55
-## 10         5 small           2 property      3.99
-## 11         6 small           2 category      4.16
-## 12         6 small           2 property      3.68
-## 13         7 small           2 category      3.98
-## 14         7 small           2 property      3.67
+##   test_item sample_size n_obs condition response
+##       &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
+*## 1         1 small           2 category      6.07
+## 2         1 small           2 property      5.78
+*## 3         2 small           2 category      6.26
+## 4         2 small           2 property      6.21
+## 5         3 small           2 category      5.87
+## 6         3 small           2 property      5.24
+## # … with 8 more rows
 ```
+
 
 ---
 class: inverse
@@ -499,29 +543,21 @@ class: inverse
 
 
 ```r
-average_response %&gt;%
+mean_resp %&gt;%
   filter(sample_size == "small") %&gt;%
 * arrange(condition)
 ```
 
 ```
 ## # A tibble: 14 x 5
-##    test_item sample_size n_obs condition response
-##        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-*##  1         1 small           2 category      6.07
-*##  2         2 small           2 category      6.26
-*##  3         3 small           2 category      5.87
-*##  4         4 small           2 category      5.11
-*##  5         5 small           2 category      4.55
-*##  6         6 small           2 category      4.16
-*##  7         7 small           2 category      3.98
-##  8         1 small           2 property      5.78
-##  9         2 small           2 property      6.21
-## 10         3 small           2 property      5.24
-## 11         4 small           2 property      4.68
-## 12         5 small           2 property      3.99
-## 13         6 small           2 property      3.68
-## 14         7 small           2 property      3.67
+##   test_item sample_size n_obs condition response
+##       &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
+*## 1         1 small           2 category      6.07
+*## 2         2 small           2 category      6.26
+## 3         3 small           2 category      5.87
+## 4         4 small           2 category      5.11
+## 5         5 small           2 category      4.55
+## # … with 9 more rows
 ```
 
 ---
@@ -530,30 +566,22 @@ class: inverse
 
 
 ```r
-average_response %&gt;%
+mean_resp %&gt;%
   filter(sample_size == "small") %&gt;%
   arrange(condition) %&gt;%
 * select(test_item, condition, response)
 ```
+--
 
 ```
 ## # A tibble: 14 x 3
-##    test_item condition response
-##        &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-*##  1         1 category      6.07
-*##  2         2 category      6.26
-*##  3         3 category      5.87
-*##  4         4 category      5.11
-*##  5         5 category      4.55
-*##  6         6 category      4.16
-*##  7         7 category      3.98
-##  8         1 property      5.78
-##  9         2 property      6.21
-## 10         3 property      5.24
-## 11         4 property      4.68
-## 12         5 property      3.99
-## 13         6 property      3.68
-## 14         7 property      3.67
+##   test_item condition response
+##       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
+## 1         1 category      6.07
+## 2         2 category      6.26
+## 3         3 category      5.87
+## 4         4 category      5.11
+## # … with 10 more rows
 ```
 
 
@@ -564,33 +592,36 @@ class: inverse
 
 
 ```r
-*average_response_small &lt;- average_response %&gt;%
+*mean_resp_small &lt;- mean_resp %&gt;%
+  filter(sample_size == "small") %&gt;%
+  arrange(condition) %&gt;%
+  select(test_item, condition, response)
+```
+
+---
+class: inverse
+.hand[print output from a variable]
+
+
+```r
+mean_resp_small &lt;- mean_resp %&gt;%
   filter(sample_size == "small") %&gt;%
   arrange(condition) %&gt;%
   select(test_item, condition, response)
 
-average_response_small
+*print(mean_resp_small, n = 2)
 ```
 
 ```
 ## # A tibble: 14 x 3
-##    test_item condition response
-##        &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-##  1         1 category      6.07
-##  2         2 category      6.26
-##  3         3 category      5.87
-##  4         4 category      5.11
-##  5         5 category      4.55
-##  6         6 category      4.16
-##  7         7 category      3.98
-##  8         1 property      5.78
-##  9         2 property      6.21
-## 10         3 property      5.24
-## 11         4 property      4.68
-## 12         5 property      3.99
-## 13         6 property      3.68
-## 14         7 property      3.67
+##   test_item condition response
+##       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
+## 1         1 category      6.07
+## 2         2 category      6.26
+## # … with 12 more rows
 ```
+
+
 
 ---
 class: inverse
@@ -598,28 +629,21 @@ class: inverse
 
 
 ```r
-average_response_small %&gt;%
-* mutate(generalisation = response/9)
+mean_resp_small %&gt;%
+* mutate(generalisation = response/9) %&gt;%
+  print(n = 5)
 ```
 
 ```
 ## # A tibble: 14 x 4
-##    test_item condition response generalisation
-##        &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;          &lt;dbl&gt;
-##  1         1 category      6.07          0.674
-##  2         2 category      6.26          0.696
-##  3         3 category      5.87          0.652
-##  4         4 category      5.11          0.568
-##  5         5 category      4.55          0.506
-##  6         6 category      4.16          0.462
-##  7         7 category      3.98          0.442
-##  8         1 property      5.78          0.643
-##  9         2 property      6.21          0.690
-## 10         3 property      5.24          0.583
-## 11         4 property      4.68          0.521
-## 12         5 property      3.99          0.443
-## 13         6 property      3.68          0.409
-## 14         7 property      3.67          0.407
+##   test_item condition response generalisation
+##       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;          &lt;dbl&gt;
+## 1         1 category      6.07          0.674
+## 2         2 category      6.26          0.696
+## 3         3 category      5.87          0.652
+## 4         4 category      5.11          0.568
+## 5         5 category      4.55          0.506
+## # … with 9 more rows
 ```
 
 ---
@@ -628,36 +652,28 @@ class: inverse
 
 
 ```r
-average_response_small %&gt;%
+mean_resp_small %&gt;%
 * mutate(generalisation = response/9) %&gt;%
-* select(-response)
+* select(-response) %&gt;%
+  print(n = 4)
 ```
 
 ```
 ## # A tibble: 14 x 3
-##    test_item condition generalisation
-##        &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
-##  1         1 category           0.674
-##  2         2 category           0.696
-##  3         3 category           0.652
-##  4         4 category           0.568
-##  5         5 category           0.506
-##  6         6 category           0.462
-##  7         7 category           0.442
-##  8         1 property           0.643
-##  9         2 property           0.690
-## 10         3 property           0.583
-## 11         4 property           0.521
-## 12         5 property           0.443
-## 13         6 property           0.409
-## 14         7 property           0.407
+##   test_item condition generalisation
+##       &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
+## 1         1 category           0.674
+## 2         2 category           0.696
+## 3         3 category           0.652
+## 4         4 category           0.568
+## # … with 10 more rows
 ```
 
 
 ---
 
 class: middle
-.hand[Wrangling Exercises #4 and #5]
+.hand[Wrangling Exercises #5 and #6]
 
 ---
 
@@ -668,103 +684,413 @@ class: middle, inverse
 ]
 .pull-right-wide[
   .larger[
-  Reshaping data
+  Pivot
   ]
 ]
 
 
 ---
 class: inverse
-.hand[long form data]
-
 
 ```r
-long_avrs &lt;- average_response_small %&gt;%
+long_data &lt;- mean_resp_small %&gt;%
   mutate(generalisation = response/9) %&gt;% 
-  select(-response) 
+  select(-response) %&gt;%
+  arrange(test_item) %&gt;%
+  print(n = 4)
+```
+--
 
-long_avrs
+```
+*## # A tibble: 14 x 3
+##   test_item condition generalisation
+##       &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
+*## 1         1 category           0.674
+*## 2         1 property           0.643
+## 3         2 category           0.696
+## 4         2 property           0.690
+## # … with 10 more rows
 ```
 
-```
-## # A tibble: 14 x 3
-##    test_item condition generalisation
-##        &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
-##  1         1 category           0.674
-##  2         2 category           0.696
-##  3         3 category           0.652
-##  4         4 category           0.568
-##  5         5 category           0.506
-##  6         6 category           0.462
-##  7         7 category           0.442
-##  8         1 property           0.643
-##  9         2 property           0.690
-## 10         3 property           0.583
-## 11         4 property           0.521
-## 12         5 property           0.443
-## 13         6 property           0.409
-## 14         7 property           0.407
-```
 
 ---
 class: inverse
-.hand[spread to wide form]
-
 
 ```r
-wide_avrs &lt;- long_avrs %&gt;%
-* spread(key = condition, value = generalisation)
+wide_data &lt;- long_data %&gt;%
+  pivot_wider(
+*   names_from = condition,
+*   values_from = generalisation
+  ) 
+```
 
-wide_avrs
+
+---
+class: inverse
+
+```r
+wide_data &lt;- long_data %&gt;%
+  pivot_wider(
+    names_from = condition, 
+    values_from = generalisation 
+  ) %&gt;% 
+  print(n = 4)
 ```
 
 ```
-## # A tibble: 7 x 3
+*## # A tibble: 7 x 3
 ##   test_item category property
 ##       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
-## 1         1    0.674    0.643
+*## 1         1    0.674    0.643
 ## 2         2    0.696    0.690
 ## 3         3    0.652    0.583
 ## 4         4    0.568    0.521
-## 5         5    0.506    0.443
-## 6         6    0.462    0.409
-## 7         7    0.442    0.407
+## # … with 3 more rows
 ```
+
 
 ---
 class: inverse
-.hand[gather to long form]
-
 
 ```r
-wide_avrs %&gt;% 
-* gather(key = "condition", value = "generalisation", category, property)
+wide_data %&gt;% 
+  pivot_longer(
+*   cols = c(category, property),
+*   names_to = "condition",
+*   values_to = "generalisation"
+  )
+```
+
+
+---
+class: inverse
+
+```r
+wide_data %&gt;% 
+  pivot_longer(
+    cols = c(category, property), 
+    names_to = "condition", 
+    values_to = "generalisation"
+  ) %&gt;%
+  print(n = 4)
 ```
 
 ```
 ## # A tibble: 14 x 3
-##    test_item condition generalisation
-##        &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
-##  1         1 category           0.674
-##  2         2 category           0.696
-##  3         3 category           0.652
-##  4         4 category           0.568
-##  5         5 category           0.506
-##  6         6 category           0.462
-##  7         7 category           0.442
-##  8         1 property           0.643
-##  9         2 property           0.690
-## 10         3 property           0.583
-## 11         4 property           0.521
-## 12         5 property           0.443
-## 13         6 property           0.409
-## 14         7 property           0.407
+##   test_item condition generalisation
+##       &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
+## 1         1 category           0.674
+## 2         1 property           0.643
+## 3         2 category           0.696
+## 4         2 property           0.690
+## # … with 10 more rows
 ```
 
 ---
 
 class: middle
 .hand[Wrangling Exercise #6]
+
+
+---
+
+class: middle, inverse
+
+.pull-left-narrow[
+  .huge-blue-number[6]
+]
+.pull-right-wide[
+  .larger[
+  Combining datasets
+  ]
+]
+
+
+---
+class: inverse
+.hand[sometimes data come in separate files]
+
+```r
+# sometimes from two different surveys...
+demographics &lt;- read_csv("data_demographics.csv")
+experience &lt;- read_csv("data_experience.csv")
+
+# sometimes from two different participants...
+results10 &lt;- read_csv("data_results10.csv")
+results20 &lt;- read_csv("data_results20.csv")
+```
+
+
+
+---
+class: inverse
+.hand[we want to "stack" these vertically...]
+
+```r
+results10
+```
+
+```
+## # A tibble: 60 x 5
+##   participant feature    est  true band   
+##         &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  
+## 1          10 PLCW.6.5     3  1.57 Band 01
+## 2          10 PLCY.6.A    15  1.97 Band 01
+## 3          10 PLCZ.3.2     8  2.1  Band 01
+## 4          10 PUCX.4.b     5  1.10 Band 01
+## 5          10 PUCC.8.7    30  1.10 Band 01
+## 6          10 PUCF.8.7    30  1.13 Band 01
+## # … with 54 more rows
+```
+
+
+---
+class: inverse
+.hand[we want to "stack" these vertically...]
+
+```r
+results20
+```
+
+```
+*## # A tibble: 60 x 5
+##   participant feature    est  true band   
+##         &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  
+## 1          20 PLCW.6.5    15  1.57 Band 01
+## 2          20 PLCY.6.A    60  1.97 Band 01
+## 3          20 PLCZ.3.2    10  2.1  Band 01
+## 4          20 PUCX.4.b    65  1.10 Band 01
+## 5          20 PUCC.8.7    35  1.10 Band 01
+## 6          20 PUCF.8.7    50  1.13 Band 01
+## # … with 54 more rows
+```
+
+
+---
+class: inverse
+.hand[we want to "stack" these vertically... with **bind_rows()**]
+
+```r
+bind_rows(results10, results20)
+```
+
+```
+*## # A tibble: 120 x 5
+##   participant feature    est  true band   
+##         &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  
+## 1          10 PLCW.6.5     3  1.57 Band 01
+## 2          10 PLCY.6.A    15  1.97 Band 01
+## 3          10 PLCZ.3.2     8  2.1  Band 01
+## 4          10 PUCX.4.b     5  1.10 Band 01
+## 5          10 PUCC.8.7    30  1.10 Band 01
+## 6          10 PUCF.8.7    30  1.13 Band 01
+## # … with 114 more rows
+```
+
+---
+class: inverse
+.hand[we want to "stack" these vertically... with **bind_rows()**]
+
+```r
+bind_rows(results10, results20) %&gt;% arrange(feature)
+```
+
+```
+## # A tibble: 120 x 5
+##   participant feature    est  true band   
+##         &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  
+*## 1          10 CLCE.2.1    95  99.1 Band 99
+*## 2          20 CLCE.2.1    99  99.1 Band 99
+## 3          10 CLCF.2.1    80  79.8 Band 75
+## 4          20 CLCF.2.1    50  79.8 Band 75
+## 5          10 CLCF.6.5    70  50.9 Band 50
+## 6          20 CLCF.6.5    65  50.9 Band 50
+## # … with 114 more rows
+```
+
+
+
+---
+
+class: middle
+.hand[Wrangling Exercise #7]
+
+
+
+---
+class: inverse
+.hand[we can stack horizontally with **bind_cols()**]
+
+```r
+demographics
+```
+
+```
+## # A tibble: 2 x 3
+##   participant us       age
+##         &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
+## 1          10 US        33
+## 2          20 Non-US    32
+```
+
+---
+class: inverse
+.hand[we can stack horizontally with **bind_cols()**]
+
+```r
+experience
+```
+
+```
+## # A tibble: 2 x 7
+##   participant handwriting_exp… forensic_scient…
+##         &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;           
+## 1          10 HW Expert        Yes             
+## 2          20 HW Expert        Yes             
+## # … with 4 more variables: forensic_specialty &lt;chr&gt;,
+## #   handwriting_reports &lt;dbl&gt;, confidence &lt;dbl&gt;,
+## #   familiarity &lt;dbl&gt;
+```
+
+---
+class: inverse
+.hand[we can stack horizontally with **bind_cols()**, though...]
+
+```r
+bind_cols(demographics, experience)
+```
+
+```
+## # A tibble: 2 x 10
+##   participant us      age participant1 handwriting_exp…
+##         &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;           
+## 1          10 US       33           10 HW Expert       
+## 2          20 Non-…    32           20 HW Expert       
+## # … with 5 more variables: forensic_scientist &lt;chr&gt;,
+## #   forensic_specialty &lt;chr&gt;, handwriting_reports &lt;dbl&gt;,
+## #   confidence &lt;dbl&gt;, familiarity &lt;dbl&gt;
+```
+
+
+---
+class: inverse
+.hand[... we may prefer to "merge" using **full_join()**]
+
+```r
+full_join(demographics, experience)
+```
+
+```
+## Joining, by = "participant"
+```
+
+```
+## # A tibble: 2 x 9
+##   participant us      age handwriting_exp…
+##         &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;           
+## 1          10 US       33 HW Expert       
+## 2          20 Non-…    32 HW Expert       
+## # … with 5 more variables: forensic_scientist &lt;chr&gt;,
+## #   forensic_specialty &lt;chr&gt;, handwriting_reports &lt;dbl&gt;,
+## #   confidence &lt;dbl&gt;, familiarity &lt;dbl&gt;
+```
+
+
+---
+class: inverse
+.hand[discussion... what will this do?]
+
+```r
+surveys &lt;- full_join(demographics, experience)
+results &lt;- full_join(results10, results20)
+```
+
+
+
+---
+class: inverse
+.hand[discussion... what will this do?]
+
+```r
+surveys %&gt;% print(width = 58)
+```
+
+```
+## # A tibble: 2 x 9
+##   participant us      age handwriting_exp…
+##         &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;           
+## 1          10 US       33 HW Expert       
+## 2          20 Non-…    32 HW Expert       
+## # … with 5 more variables: forensic_scientist &lt;chr&gt;,
+## #   forensic_specialty &lt;chr&gt;, handwriting_reports &lt;dbl&gt;,
+## #   confidence &lt;dbl&gt;, familiarity &lt;dbl&gt;
+```
+
+
+---
+class: inverse
+.hand[discussion... what will this do?]
+
+```r
+results %&gt;% arrange(feature) %&gt;% print(n = 6)
+```
+
+```
+## # A tibble: 120 x 5
+##   participant feature    est  true band   
+##         &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  
+## 1          10 CLCE.2.1    95  99.1 Band 99
+## 2          20 CLCE.2.1    99  99.1 Band 99
+## 3          10 CLCF.2.1    80  79.8 Band 75
+## 4          20 CLCF.2.1    50  79.8 Band 75
+## 5          10 CLCF.6.5    70  50.9 Band 50
+## 6          20 CLCF.6.5    65  50.9 Band 50
+## # … with 114 more rows
+```
+
+
+---
+class: inverse
+.hand[discussion... what will this do?]
+
+```r
+full_join(surveys, results)
+```
+
+
+---
+class: inverse
+.hand[discussion... what will this do?]
+
+```r
+full_join(surveys, results) %&gt;% print(n = 4, width = 58)
+```
+
+```
+## Joining, by = "participant"
+```
+
+```
+## # A tibble: 120 x 13
+##   participant us      age handwriting_exp…
+##         &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;           
+## 1          10 US       33 HW Expert       
+## 2          10 US       33 HW Expert       
+## 3          10 US       33 HW Expert       
+## 4          10 US       33 HW Expert       
+## # … with 116 more rows, and 9 more variables:
+## #   forensic_scientist &lt;chr&gt;, forensic_specialty &lt;chr&gt;,
+## #   handwriting_reports &lt;dbl&gt;, confidence &lt;dbl&gt;,
+## #   familiarity &lt;dbl&gt;, feature &lt;chr&gt;, est &lt;dbl&gt;,
+## #   true &lt;dbl&gt;, band &lt;chr&gt;
+```
+
+
+
+---
+
+class: middle
+.hand[Wrangling Exercise #8]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

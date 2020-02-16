@@ -1,0 +1,3 @@
+participant,handwriting_expert,forensic_scientist,forensic_specialty,handwriting_reports,confidence,familiarity
+10,HW Expert,Yes,Questioned documents,125,50,75
+20,HW Expert,Yes,Questioned documents,50,55,55
