@@ -20,14 +20,33 @@ This page is a work in progress! More information will appear over time as I fin
 
 The nine-week course is built around a series of six two-hour modules, covering the following topics
 
-- An introduction to [data visualisation](visualisation) with ggplot2
-- Learn the basics of [data wrangling](wrangling) in the tidyverse
-- Writing experiments
-- Keeping projects tidy
-- Archiving & version control
-- Documentation in R
+- Week 1: 
+  - [Welcome to the class](welcome) 
+  - [Data visualisation with ggplot2](visualisation)
+- Week 2:
+  - [Meeting your data](meetup)
+  - [Tidying your data](tidying)
+- Week 3:
+  - Writing experiments
+- Week 4: 
+  - Working with projects
+  - Revisting the basics
+- Week 5 (flexible):
+  - Discuss student projects
+  - Catchup, Q&A, etc
+- Week 6 
+  - Archiving with OSF 
+  - Version control with git
+- Week 7
+  - Introducing R markdown
+  - Extending R markdown
+- Week 8 (flexible):
+  - Additional material as needed
+  - Catchup, Q&A, etc
+- Week 9:
+  - Student presentations
+  - Wrap up
 
-*Schedule:* During **Weeks 1-4** we will cover the first four modules. **Week 5** will be left as a "flex" week in which students can discuss their project proposals with me, ask questions or catch up on material they may have missed earlier. **Weeks 6-7** cover the final two modules. **Week 8** is left as second "flex" week to cover additional materials or answer questions students may have. **Week 9** is set aside for students to present their projects. 
 
 ## 2. Assessment structure
 

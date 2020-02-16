@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>&gt; week 02   &gt; data wrangling</title>
+    <title>&gt; 03   &gt; tidying your data</title>
     <meta charset="utf-8" />
     <meta name="author" content="danielle navarro" />
     <meta name="date" content="2020-02-27" />
@@ -16,7 +16,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# &gt; week 02 <br> &gt; data wrangling
+# &gt; 03 <br> &gt; tidying your data
 ## 🧙 bewitch your data! <br> 🔗 <a href="https://djnavarro.link/robust-tools">djnavarro.link/robust-tools</a>
 ### danielle navarro
 ### 27 feb 2020
@@ -56,7 +56,7 @@ background-color: #0F4C81
     in...
   ]]]
 ]
-<div class="countdown" id="timer_5e48b8f3" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5e48cdc5" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -76,113 +76,28 @@ class: middle inverse
 
 ]
 
-
----
-
-class: middle
-
-.pull-left-narrow[
-  .huge-blue-number[1]
-]
-.pull-right-wide[
-  .larger[
-  The reasoning data
-  ]
-]
-
----
-
-class: middle
-.hand[Property sampling: the robot only detects plaxium spheres]
-&lt;img src="img/data10_property.jpg" width="410" /&gt;
-
-
----
-
-class: middle
-.hand[Category sampling: the robot only tests small spheres]
-&lt;img src="img/data10_category.jpg" width="410" /&gt;
-
-
----
-
-class: middle
-.hand[Small sample size: Elicit judgments after two observations]
-&lt;img src="img/data2_property.jpg" width="410" /&gt;
-
----
-
-class: middle
-.hand[Medium sample size: Elicit judgments after six observations]
-&lt;img src="img/data6_property.jpg" width="410" /&gt;
-
----
-
-class: middle
-.hand[Large sample size: Elicit judgments after twelve observations]
-&lt;img src="img/data12_property.jpg" width="410" /&gt;
-
-
----
-
-class: middle
-.hand[Seven test items that vary in size: Smallest...]
-&lt;img src="img/test2.jpg" width="410" /&gt;
-
----
-
-class: middle
-.hand[Seven test items that vary in size: Largest...]
-&lt;img src="img/test8.jpg" width="410" /&gt;
-
 ---
 
 class: middle, inverse
 
 .pull-left-narrow[
-  .huge-blue-number[2]
+  .huge-blue-number[4]
 ]
 .pull-right-wide[
   .larger[
-  Meeting the data
+  Organising data
   ]
 ]
-
 
 ---
 
 class: inverse
-.hand[Importing the data!]
+.hand[Import data]
 
 
 ```r
 library(tidyverse)
 frames &lt;- read_csv(file = "data_reasoning.csv")
-```
---
-
-```
-## Parsed with column specification:
-## cols(
-##   id = col_double(),
-##   gender = col_character(),
-##   age = col_double(),
-##   condition = col_character(),
-##   sample_size = col_character(),
-##   n_obs = col_double(),
-##   test_item = col_double(),
-##   response = col_double()
-## )
-```
-
-
----
-
-class: inverse
-.hand[Inspecting the data]
-
-```r
-print(frames)
 ```
 --
 
@@ -199,239 +114,6 @@ print(frames)
 ## # … with 4,719 more rows, and 1 more variable:
 ## #   response &lt;dbl&gt;
 ```
-
-
----
-
-class: inverse
-.hand[Inspecting the data]
-
-```r
-glimpse(frames)
-```
---
-
-```
-## Observations: 4,725
-## Variables: 8
-## $ id          &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
-## $ gender      &lt;chr&gt; "male", "male", "male", "male", "mal…
-## $ age         &lt;dbl&gt; 36, 36, 36, 36, 36, 36, 36, 36, 36, …
-## $ condition   &lt;chr&gt; "category", "category", "category", …
-## $ sample_size &lt;chr&gt; "small", "small", "small", "small", …
-## $ n_obs       &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 6, 6, 6, 6, 6, …
-## $ test_item   &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, …
-## $ response    &lt;dbl&gt; 8, 7, 6, 6, 5, 6, 3, 9, 7, 5, 6, 4, …
-```
-
----
-
-class: middle
-.hand[Wrangling Exercise #1]
-
----
-
-class: middle, inverse
-
-.pull-left-narrow[
-  .huge-blue-number[2]
-]
-.pull-right-wide[
-  .larger[
-  Meeting the pipe
-  ]
-]
-
-
----
-
-class: inverse
-
-&lt;br&gt;&lt;br&gt;&lt;br&gt;
-.hand[The pipe, %&gt;%]
-
-.pull-left[
-- Take the frames data...
-- Do one thing...
-- Then another...
-- And then one more...
-]
---
-.pull-right[
-```{}
-frames %&gt;%
-  do_one_thing(.) %&gt;%
-  then_another(.) %&gt;%
-  and_then_one_more(.)
-```
-]
-
-
----
-
-class: middle, inverse
-
-.hand[Piping is a good abstraction]
-
-.pull-left-wide[
-```{}
-data %&gt;% 
-  tidy() %&gt;%
-  describe() %&gt;%
-  visualise() %&gt;%
-  analyse()
-```
-
-- We "pipe" our data through operations
-- The data set *flows* through our analysis
-]
-
----
-
-class: middle
-.hand[Wrangling Exercise #2]
-
----
-
-class: middle, inverse
-
-.pull-left-narrow[
-  .huge-blue-number[3]
-]
-.pull-right-wide[
-  .larger[
-  Group and
-  summarise
-  ]
-]
-
----
-
-class: middle, inverse 
-.pull-left-wide[
-.hand[The basic idea]
-
-
-```r
-frames %&gt;%
-  group_by( GROUP ) %&gt;%
-  summarise( EXPRESSION ) %&gt;%
-  ungroup()
-```
-
-- use `group_by` to define groups
-- use `summarise` to... summarise
-- use `ungroup` to remove grouping
-]
-
-
----
-class: inverse
-
-.hand[Group, summarise...]
-
-
-```r
-frames %&gt;%
-  group_by(test_item, sample_size, n_obs, condition) %&gt;%
-  summarise(response = mean(response))
-```
---
-
-```
-## # A tibble: 42 x 5
-*## # Groups:   test_item, sample_size, n_obs [21]
-*##   test_item sample_size n_obs condition response
-##       &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-## 1         1 large          12 category      7.60
-## 2         1 large          12 property      7.16
-## 3         1 medium          6 category      7.32
-## 4         1 medium          6 property      6.66
-## # … with 38 more rows
-```
-
-
----
-class: inverse
-
-.hand[Group, summarise, and ungroup]
-
-
-```r
-frames %&gt;%
-  group_by(test_item, sample_size, n_obs, condition) %&gt;%
-  summarise(response = mean(response)) %&gt;%
-* ungroup()
-```
-
-
-```
-## # A tibble: 42 x 5
-*##   test_item sample_size n_obs condition response
-##       &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-## 1         1 large          12 category      7.60
-## 2         1 large          12 property      7.16
-## 3         1 medium          6 category      7.32
-## 4         1 medium          6 property      6.66
-## # … with 38 more rows
-```
-
----
-class: inverse
-
-.hand[A more realistic example]
-.pull-left[
-
-```r
-frames %&gt;% 
-  group_by(test_item) %&gt;%
-  summarise(
-*   m = mean(response),
-*   s = sd(response),
-*   n = n()
-  ) %&gt;%
-  ungroup()
-```
-]
---
-.pull-right[
-
-```
-## # A tibble: 7 x 4
-##   test_item     m     s     n
-##       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
-## 1         1  6.77  2.56   675
-## 2         2  6.88  2.10   675
-## 3         3  5.71  2.41   675
-## 4         4  4.48  2.68   675
-## 5         5  3.76  2.81   675
-## 6         6  3.43  2.99   675
-## 7         7  3.26  3.11   675
-```
-]
-
-???
-- these are bad variable names
-- i've done it to fit the slides
-- don't do it in real life
-
----
-
-class: middle
-.hand[Wrangling Exercises #3 and #4]
-
----
-
-class: middle, inverse
-
-.pull-left-narrow[
-  .huge-blue-number[4]
-]
-.pull-right-wide[
-  .larger[
-  Organising data
-  ]
-]
 
 
 ---
