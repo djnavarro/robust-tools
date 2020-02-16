@@ -8,23 +8,27 @@
 
 # structure...
 
-1. basic logic of a ggplot
+1. "let's get started": basic logic of a ggplot
 
 - describe: instructor "builds & narrates" a simple ggplot
 - solidify: small groups discussion to reason about the code
 - practice: 
 
-2. mapping from data to aesthetics
+2. "mapping data to aesthetics"
 
-3. adding layers to the plot
+3. "building plots in layers"
 
-4. sharing information between layers
+4. "tidying our code": global vs local mappings
 
-- describe: slides show how to "move" local to global
-- solidify
-- practice
+5. "paired exercises"
 
-5. variables, functions, names
+- this is really a consolidation only
+
+6. "naming arguments"
+
+7. 
+
+... draw the rest of the owl: needs work :-)
 
 
 
