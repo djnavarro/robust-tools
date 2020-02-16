@@ -6,11 +6,7 @@
 - opened a preexisting project in rstudio.cloud
 - typed a few things, clicked on a few things
 
-# what topics will we cover?
-
-- 
-
-# how will we structure it?
+# structure...
 
 1. basic logic of a ggplot
 
@@ -22,7 +18,15 @@
 
 3. adding layers to the plot
 
-4. 
+4. sharing information between layers
+
+- describe: slides show how to "move" local to global
+- solidify
+- practice
+
+5. variables, functions, names
+
+
 
 
 

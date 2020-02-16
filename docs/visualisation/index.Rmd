@@ -65,11 +65,11 @@ class: middle, inverse
 class: middle
 
 .pull-left-narrow[
-  .huge-blue-number[3]
+  .huge-blue-number[1]
 ]
 .pull-right-wide[
   .larger[
-  make some prettiness!
+  let's get started!
   ]
 ]
 
@@ -120,8 +120,70 @@ demo sequence:
 
 class: middle, inverse
 
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/My_First_Plot1.png")
+```
+
+???
+
+- this is recap to solidify learning
+- `ggplot()` creates the (still blank) plot using `data = mpg`
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/My_First_Plot2.png")
+```
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/My_First_Plot3.png")
+```
+
+???
+
+- then `geom_point()` adds the dots
+- ... using the `mapping` (currently referred to as "blah")
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/My_First_Plot4.png")
+```
+
+???
+
+- the `mapping` tells R *how* to connect the plot to the data
+- in this case we map `x` onto the `displ` variable
+- and we map `y` onto the `hwy` variable
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/My_First_Plot5.png")
+```
+
+???
+
+- `displ` is essentially a measure of engine size
+- `hwy` is fuel efficiency for highway driving
+
+
+---
+
+class: inverse
+
 .pull-left[
-.hand[the code we wrote...]
+.hand[the real code `r emo::ji('heart')`]
 ```{r hello-r-code, eval=FALSE}
 library(tidyverse)
 ggplot(data = mpg) +
@@ -134,8 +196,10 @@ geom_point(
 ```
 ]
 
+--
+
 .pull-right[
-.hand[the output we got...]
+.hand[... and the real output!]
 
 ```{r hello-r-output, echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
 library(tidyverse)
@@ -159,18 +223,167 @@ class: middle, inverse
 - show the city mileage `cty` as the y-value?
 - show the manufacture `year` as the x-value?  
 - show the number of cylinders `cyl` as the colour?
-- include a regression line as well as the dot points?
+- (bonus): include a regression line instead of dot points?
 
 ```{r echo=FALSE}
 countdown(minutes = 2)
 ```
+
+???
+
+- they're not expected to know all the answers!
+- questions 1-3 promote intuitive grasp of mappings
+- question 4 is there to foreshadow geoms
+
+---
+
+class: middle, inverse
+
+.hand[i am very good at art]
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/My_First_Plot.gif")
+```
+
+
+
+---
+
+
+class: middle
+
+.pull-left-narrow[
+  .huge-blue-number[2]
+]
+.pull-right-wide[
+  .larger[
+  mapping data to aesthetics
+  ]
+]
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/Mapping1.png")
+```
+
+???
+
+- let's unpack the contents of that "blah", shall we?
+- the `ggplot(data = mpg)` part tells us the `mpg` data go with our plot
+
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/Mapping2.png")
+```
+
+???
+
+- the `mpg` data contains "variables"
+- here are some of those variables in the data...
+- but how do they "map" to the plot???
+
+
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/Mapping3.png")
+```
+
+???
+
+- the visual content/features of a plot are "aesthetics" 
+- `x` coordinates and `y` coordinates are aesthetics
+- can include things like `size` and `colour` also
+- (mention US/UK spelling)
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/Mapping4.png")
+```
+
+???
+
+- that "blah" was an **aesthetic mapping**
+- it tells R which plot aesthetics are mapped onto which variables in the data
+
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/Mapping5.png")
+```
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/Mapping6.png")
+```
+
+
+
 
 ---
 
 class: inverse
 
 .pull-left[
-.hand[our original code...]
+.hand[using real code this time...]
+```{r hello-r-code-3, eval=FALSE}
+ggplot(data = mpg) +
+geom_point(
+  mapping = aes( #<<
+    x = displ, #<<
+    y = hwy #<<
+  ) #<<
+) 
+```
+]
+
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[using real code this time...]
+```{r hello-r-code-4, results='hide'}
+aes(
+  x = displ,
+  y = hwy 
+) 
+```
+]
+--
+.pull-right[
+.hand[.]
+```{r ref.label = "hello-r-code-4", echo=FALSE}
+```
+]
+
+
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[can we add colour to this?]
 ```{r hello-r-code-2, eval=FALSE}
 ggplot(data = mpg) +
 geom_point(
@@ -182,10 +395,8 @@ geom_point(
 ```
 ]
 
---
-
 .pull-right[
-.hand[...and output]
+.hand[.]
 
 ```{r hello-r-output-2, echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
 ggplot(
@@ -199,12 +410,17 @@ ggplot(
 ```
 ]
 
+???
+
+- ask them to set colour to the number of cylinders `cyl`
+- (not a class exercise, just an interactive bit...)
+
 ---
 
 class: inverse
 
 .pull-left[
-.hand[if we add colour...]
+.hand[add **colour** to the mapping!]
 ```{r hello-r-color, fig.show='hide'}
 ggplot(data = mpg) +
 geom_point(
@@ -220,9 +436,91 @@ geom_point(
 --
 
 .pull-right[
-.hand[... the output gets colour]
+.hand[...the output gets colour]
 
 ```{r ref.label="hello-r-color", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
+```
+]
+
+???
+
+- prompt: is something wrong here?
+- hint: can you have 5.21 cylinders in an engine?
+- (don't give them the answer yet...)
+
+
+---
+
+
+class: middle
+
+.pull-left-narrow[
+  .huge-blue-number[3]
+]
+.pull-right-wide[
+  .larger[
+  building plots in layers
+  ]
+]
+
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/Layers1.png")
+```
+
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/Layers2.png")
+```
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/Layers3.png")
+```
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
+knitr::include_graphics("img/Layers4.png")
+```
+
+
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[our plot has a "points" layer]
+```{r adding-geoms-prelude, fig.show='hide'}
+ggplot(data = mpg) +
+geom_point(
+  mapping = aes(
+    x = displ,
+    y = hwy,
+    color = cyl 
+  )
+) 
+```
+]
+
+.pull-right[
+.hand[.]
+
+```{r ref.label="adding-geoms-prelude", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
 ```
 ]
 
@@ -231,7 +529,7 @@ geom_point(
 class: inverse
 
 .pull-left[
-.hand[adding another "geom"...]
+.hand[adding **geom_smooth()**]
 ```{r adding-geoms, fig.show='hide'}
 ggplot(data = mpg) +
 geom_point(
@@ -250,14 +548,29 @@ geom_smooth( #<<
 ```
 ]
 
---
-
 .pull-right[
-.hand[...paints another "layer"]
+.hand[paints another layer]
 
 ```{r ref.label="adding-geoms", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
 ```
 ]
+
+
+
+---
+
+
+class: middle
+
+.pull-left-narrow[
+  .huge-blue-number[4]
+]
+.pull-right-wide[
+  .larger[
+  tidying up our code
+  ]
+]
+
 
 ---
 
@@ -287,9 +600,8 @@ geom_smooth(
 
 .pull-right[
 .hand[can we eliminate this redundancy?]
-- `x` and `y` values don't change
+- `x` and `y` values are the same
 - make them **global** aesthetics
-- (also, what is an "aesthetic"?)
 ]
 
 ---
@@ -313,6 +625,8 @@ geom_point(
 geom_smooth() 
 ```
 ]
+
+--
 
 .pull-right[
 <br>
@@ -347,6 +661,39 @@ geom_smooth() #<<
 - the `mapping` within the `ggplot()` command is "global"
 - both "geoms" will use the `x` and `y` values that they "inherit"
 ]
+
+
+
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[we can just move the code!]
+```{r redundancy6, fig.show='hide', warning=FALSE, message=FALSE}
+ggplot(data = mpg,
+  mapping = aes( 
+    x = displ, 
+    y = hwy 
+  ) 
+) +
+geom_point(
+  mapping = aes( #<<
+    color = cyl  #<<
+  ) #<<
+) + 
+geom_smooth()
+```
+]
+
+.pull-right[
+<br>
+- the `mapping` within the `ggplot()` command is "global"
+- both "geoms" will use the `x` and `y` values that they "inherit"
+- the `color` aesthetic remains "local" to `geom_point()`
+]
+
 
 
 ---
@@ -399,7 +746,7 @@ countdown(minutes = 2)
 class: middle
 
 .pull-left-narrow[
-  .huge-blue-number[4]
+  .huge-blue-number[5]
 ]
 .pull-right-wide[
   .larger[
@@ -420,7 +767,10 @@ library(tidyverse)
 dino <- read_csv("data_dino.csv")
 picture <- ggplot(data = dino) + 
   geom_point(
-    mapping = aes(x = x, y = y)
+    mapping = aes(
+      x = horizontal, 
+      y = vertical
+    )
   )
 
 plot(picture)
@@ -439,6 +789,48 @@ countdown(minutes = 2)
 ```
 ]
 
+
+---
+
+
+class: middle
+
+.pull-left-narrow[
+  .huge-blue-number[6]
+]
+.pull-right-wide[
+  .larger[
+  naming arguments (or not)
+  ]
+]
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[from the exercise]
+```{r ggplot_exercise_01x, fig.show='hide', warning=FALSE, message=FALSE}
+dino <- read_csv("data_dino.csv")
+picture <- ggplot(data = dino) + #<<
+  geom_point(
+    mapping = aes(
+      x = horizontal, 
+      y = vertical
+    )
+  )
+plot(picture)
+```
+]
+
+.pull-right-narrow[
+<br><br>
+```{r ref.label="ggplot_exercise_01x", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
+```
+]
+
+
 ---
 
 class: inverse
@@ -446,14 +838,14 @@ class: inverse
 .pull-left-wide[
 .hand[this is the same!]
 ```{r ggplot_exercise_01b, fig.show='hide', warning=FALSE, message=FALSE}
-library(tidyverse)
-
 dino <- read_csv("data_dino.csv")
 picture <- ggplot(dino) + #<<
   geom_point(
-    mapping = aes(x = x, y = y)
+    mapping = aes(
+      x = horizontal, 
+      y = vertical
+    )
   )
-
 plot(picture)
 ```
 ]
@@ -477,16 +869,16 @@ plot(picture)
 class: inverse
 
 .pull-left-wide[
-.hand[these all have unnamed arguments]
+.hand[unnamed arguments]
 ```{r ggplot_exercise_01d, fig.show='hide', warning=FALSE, message=FALSE}
-library(tidyverse) #<<
-
 dino <- read_csv("data_dino.csv") #<<
 picture <- ggplot(dino) + #<<
   geom_point(
-    mapping = aes(x = x, y = y)
+    mapping = aes(
+      x = horizontal, 
+      y = vertical
+    )
   )
-
 plot(picture) #<<
 ```
 ]
@@ -503,16 +895,16 @@ plot(picture) #<<
 class: inverse
 
 .pull-left-wide[
-.hand[we can simplify here too...]
+.hand[named argument]
 ```{r ggplot_exercise_01f, fig.show='hide', warning=FALSE, message=FALSE}
-library(tidyverse)
-
 dino <- read_csv("data_dino.csv") 
 picture <- ggplot(dino) + 
-  geom_point( #<<
-    mapping = aes(x = x, y = y) #<<
-  ) #<<
-
+  geom_point( 
+    mapping = aes( #<<
+      x = horizontal,
+      y = vertical
+    ) 
+  ) 
 plot(picture) 
 ```
 ]
@@ -529,31 +921,65 @@ plot(picture)
 class: inverse
 
 .pull-left-wide[
-.hand[we can simplify here too...]
+.hand[unnamed]
 ```{r ggplot_exercise_01c, fig.show='hide', warning=FALSE, message=FALSE}
-library(tidyverse)
-
 dino <- read_csv("data_dino.csv")
 picture <- ggplot(dino) + 
-  geom_point(aes(x = x, y = y)) #<<
-
+  geom_point(
+    aes( #<<
+      x = horizontal, 
+      y = vertical
+    )
+  ) 
 plot(picture)
 ```
 
 ]
+
+.pull-right-narrow[
+<br><br>
+```{r ref.label="ggplot_exercise_01c", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
+```
+]
+
 
 ---
 
 class: inverse
 
 .pull-left-wide[
-.hand[and again...]
-```{r ggplot_exercise_01e, fig.show='hide', warning=FALSE, message=FALSE}
-library(tidyverse)
-
+.hand[one more time!]
+```{r ggplot_exercise_01y, fig.show='hide', warning=FALSE, message=FALSE}
 dino <- read_csv("data_dino.csv")
 picture <- ggplot(dino) + 
-  geom_point(aes(x, y)) #<<
+  geom_point(
+    aes( 
+      x = horizontal, #<<
+      y = vertical #<<
+    )
+  ) 
+plot(picture)
+```
+
+]
+
+.pull-right-narrow[
+<br><br>
+```{r ref.label="ggplot_exercise_01y", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
+```
+]
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[one more time!]
+```{r ggplot_exercise_01e, fig.show='hide', warning=FALSE, message=FALSE}
+dino <- read_csv("data_dino.csv")
+picture <- ggplot(dino) + 
+  geom_point(aes(horizontal, vertical)) #<<
 
 plot(picture)
 ```
@@ -577,11 +1003,9 @@ class: inverse
 .pull-left-wide[
 .hand[ggplot2 code often looks like this!]
 ```{r ggplot_exercise_01g, fig.show='hide', warning=FALSE, message=FALSE}
-library(tidyverse)
-
 dino <- read_csv("data_dino.csv")
 picture <- ggplot(dino) + #<<
-  geom_point(aes(x, y)) #<<
+  geom_point(aes(horizontal, vertical)) #<<
 
 plot(picture)
 ```

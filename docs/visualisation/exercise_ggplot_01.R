@@ -23,7 +23,7 @@ print(dino)
 
 # Create a new "picture"...
 picture <- ggplot(data = dino) + 
-  geom_point(mapping = aes(x = x, y = y))
+  geom_point(mapping = aes(x = horizontal, y = vertical))
 
 # ... and plot it
 plot(picture)
@@ -33,6 +33,6 @@ plot(picture)
 
 # - what does read_csv() do?
 # - what do print() and plot() do?
-# - why does my code say "x = x" and "y = y"????
+# - why does my code say "x = horizontal" and "y = vertical"????
 # - what does the "<-" thingy do?
 
