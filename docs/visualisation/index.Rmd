@@ -1114,7 +1114,6 @@ knitr::include_graphics("img/handwriting.jpg")
 forensic <- read_csv("data_forensic.csv")
 ```
 
-
 ---
 
 class: middle
@@ -1194,6 +1193,51 @@ class: middle
 
 ---
 
+class: inverse
+
+.hand[split experts and novices?]
+```{r facet0, message=FALSE, warning=FALSE, out.height=300}
+ggplot(forensic) + 
+  geom_boxplot(aes(x = band, y = est)) 
+```
+
+---
+
+class: inverse
+
+.hand[split experts and novices?]
+```{r facet1, message=FALSE, warning=FALSE, out.height=300, out.width=600}
+ggplot(forensic) + 
+  geom_boxplot(aes(x = band, y = est)) + 
+  facet_wrap(vars(handwriting_expert)) #<<
+```
+
+---
+
+class: inverse
+
+.hand[play around?]
+```{r facet2, message=FALSE, warning=FALSE, out.height=300, out.width=600}
+ggplot(forensic) + 
+  geom_boxplot(aes(x = band, y = est, fill = band)) + 
+  facet_wrap(vars(handwriting_expert))
+```
+
+---
+
+class: inverse
+
+.hand[play around?]
+```{r facet3, message=FALSE, warning=FALSE, out.height=300, out.width=600}
+ggplot(forensic) + 
+  geom_boxplot(aes(x = handwriting_expert, y = est, fill = band)) + 
+  facet_wrap(vars(band))
+```
+
+
+
+---
+
 class: middle
 
 .pull-left-narrow[
@@ -1206,21 +1250,26 @@ class: middle
 ]
 
 
+---
+
+class: inverse
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The recording of my <a href="https://twitter.com/hashtag/rstudioconf?src=hash&amp;ref_src=twsrc%5Etfw">#rstudioconf</a> talk, The Glamour of Graphics is up! 💅 Enjoy, and keep in mind these are guidelines, not rules. <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://t.co/VHz05yAs09">https://t.co/VHz05yAs09</a></p>&mdash; Will Chase (@W_R_Chase) <a href="https://twitter.com/W_R_Chase/status/1228683209422057479?ref_src=twsrc%5Etfw">February 15, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
 
 ---
 
 .hand[So now you know the basics. Where to next?]
 
-Start with this gentle tutorial: <br>
+*Refresher?* ...try this lovely tutorial! <br>
 https://ggplot2tutor.com/beginner_tutorial/beginner_tutorial/
 
-Next take a look at the classic "R for Data Science": <br>
+*A classic?* ...look into "R for Data Science" <br>
 https://r4ds.had.co.nz/data-visualisation.html
 
-I wrote a more advanced data visualisation workshop here: <br>
+*This but extra?* ...I wrote an advanced workshop<br>
 https://djnavarro.github.io/satrdayjoburg/
 
-Finally, Keiran Healy's data visualisation book is very good: <br>
+*A full book?* ...Keiran Healy's book is very good! <br>
 https://socviz.co/
 
