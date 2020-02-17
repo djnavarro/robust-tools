@@ -21,11 +21,11 @@ This page is a work in progress! More information will appear over time as I fin
 The nine-week course is built around a series of six two-hour modules, covering the following topics
 
 - Week 1: 
-  - [Welcome to the class](welcome) 
-  - [Data visualisation with ggplot2](visualisation)
+  - Welcome to the class ([slides](welcome)) 
+  - Introduction to data visualisation ([slides](visualisation), [project](https://rstudio.cloud/spaces/49759/project/901338))
 - Week 2:
-  - [Meeting your data](meetup)
-  - [Tidying your data](tidying)
+  - Meeting your data
+  - Tidying your data
 - Week 3:
   - Writing experiments
 - Week 4: 
