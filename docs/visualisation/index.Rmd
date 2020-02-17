@@ -7,7 +7,8 @@ output:
   xaringan::moon_reader:
     lib_dir: libs
     css: ["../style/xaringan-themer.css", "../style/slides-style.css"]
-    nature:
+    nature: 
+      beforeInit: "https://platform.twitter.com/widgets.js"      
       highlightStyle: solarized-light
       highlightLines: true
       countIncrementalSlides: false
@@ -1254,7 +1255,7 @@ class: middle
 
 class: inverse
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The recording of my <a href="https://twitter.com/hashtag/rstudioconf?src=hash&amp;ref_src=twsrc%5Etfw">#rstudioconf</a> talk, The Glamour of Graphics is up! 💅 Enjoy, and keep in mind these are guidelines, not rules. <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://t.co/VHz05yAs09">https://t.co/VHz05yAs09</a></p>&mdash; Will Chase (@W_R_Chase) <a href="https://twitter.com/W_R_Chase/status/1228683209422057479?ref_src=twsrc%5Etfw">February 15, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">The recording of my <a href="https://twitter.com/hashtag/rstudioconf?src=hash&amp;ref_src=twsrc%5Etfw">#rstudioconf</a> talk, The Glamour of Graphics is up! 💅 Enjoy, and keep in mind these are guidelines, not rules. <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://t.co/VHz05yAs09">https://t.co/VHz05yAs09</a></p>&mdash; Will Chase (@W_R_Chase) <a href="https://twitter.com/W_R_Chase/status/1228683209422057479?ref_src=twsrc%5Etfw">February 15, 2020</a></blockquote>
 
 
 ---
