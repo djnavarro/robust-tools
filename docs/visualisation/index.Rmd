@@ -673,14 +673,16 @@ countdown(minutes = 2)
 
 class: middle
 
+background-image: url("img/tidy.jpg")
+background-size: cover
+
+
 .pull-left-narrow[
   .huge-blue-number[4]
 ]
 .pull-right-wide[
   .larger[
-  &nbsp;&nbsp;code<br>
-  &nbsp;&nbsp;clean<br>
-  &nbsp;&nbsp;`r emo::ji("broom")`
+  &nbsp;&nbsp;tidy code
   ]
 ]
 
