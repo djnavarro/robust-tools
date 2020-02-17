@@ -811,7 +811,6 @@ countdown(minutes = 2)
 
 ---
 
-
 class: middle
 
 .pull-left-narrow[
@@ -989,6 +988,35 @@ plot(picture)
 ]
 
 
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[one more time!]
+```{r ggplot_exercise_01z, fig.show='hide', warning=FALSE, message=FALSE}
+dino <- read_csv("data_dino.csv")
+picture <- ggplot(dino) + 
+  geom_point(
+    aes( 
+      horizontal, #<<
+      vertical #<<
+    )
+  ) 
+plot(picture)
+```
+
+]
+
+.pull-right-narrow[
+<br><br>
+```{r ref.label="ggplot_exercise_01z", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
+```
+]
+
+
 ---
 
 class: inverse
@@ -1043,7 +1071,22 @@ plot(picture)
 
 class: middle
 
-.hand[now try exercises 6 through 8!]
+.pull-left-narrow[
+  .huge-blue-number[7]
+]
+.pull-right-wide[
+  .larger[
+  check your learning! `r emo::ji("women_with_bunny_ears")`
+  ]
+]
+
+
+
+---
+
+class: middle
+
+.hand[exercises 6-8... emoji translation!]
 
 ```{r, echo=FALSE, out.width=600}
 knitr::include_graphics("img/Exercise04.png")
@@ -1054,11 +1097,81 @@ knitr::include_graphics("img/Exercise04.png")
 
 class: middle
 
-.hand[exercises 9 and 10 introduce a new data set]
+.hand[exercises 9-10... forensic handwriting expertise]
 
+.pull-left[
 ```{r, echo=FALSE, out.width=600}
 knitr::include_graphics("img/handwriting.jpg")
 ```
+]
+.pull-right[
+- Martire, Growns & Navarro (2018) *What do the experts know? Calibration, precision, and the wisdom of crowds among forensic handwriting experts*
+- https://psyarxiv.com/pq7kz
+]
+
+
+```{r, echo=FALSE, message=FALSE}
+forensic <- read_csv("data_forensic.csv")
+```
+
+
+---
+
+class: middle
+
+.hand[exercise 9 plot]
+
+```{r exercise9, echo=FALSE, warning=FALSE, message=FALSE, out.height=400, out.width=600}
+ggplot(data = forensic) + 
+  geom_point(
+    mapping = aes(
+      x = true, 
+      y = est
+    )
+  )
+```
+
+
+---
+
+.pull-left[
+.hand[exercise 10 solution]
+```{r exercise10a, eval=FALSE}
+ggplot(data = forensic) + 
+  geom_boxplot(
+    mapping = aes(
+      x = band, 
+      y = est
+    )
+  )
+```
+]
+.pull-right[
+<br><br>
+```{r, ref.label="exercise10a", echo=FALSE, message=FALSE, warning=FALSE}
+```
+]
+
+
+---
+
+.pull-left[
+.hand[exercise 10 solution]
+```{r exercise10b, eval=FALSE}
+ggplot(data = forensic) + 
+  geom_violin( #<<
+    mapping = aes(
+      x = band, 
+      y = est
+    )
+  )
+```
+]
+.pull-right[
+<br><br>
+```{r, ref.label="exercise10b", echo=FALSE, message=FALSE, warning=FALSE}
+```
+]
 
 
 

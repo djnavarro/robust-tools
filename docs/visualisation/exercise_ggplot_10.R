@@ -1,6 +1,6 @@
 # Exercise 6
 #
-# This is the code that we came up with in Exercise 5. What you
+# This is the code that we came up with in Exercise 9. What you
 # can see is that the "true" frequencies come in 5 distinct "bands".
 # That was part of the experimental design. It doesn't make a lot
 # of sense to draw a scatterplot when the data on the x-asis come 
