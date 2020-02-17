@@ -1,6 +1,6 @@
 ---
 title: "> 01 <br> > data visualisation"
-subtitle: "`r emo::ji('art')` pretty pictures! <br> `r emo::ji('link')` [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
+subtitle: "`r emo::ji('art')` <br> `r emo::ji('link')` [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
 author: "danielle navarro"
 date: "20 feb 2020"
 output:
@@ -20,6 +20,25 @@ output:
 ---
 
 ```{r child = "../style/setup.Rmd"}
+```
+
+```{r meta, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "An introduction to data visualisation in R for new users",
+  ) %>% 
+  meta_name("github-repo" = "djnavarro/robust-tools") %>% 
+  meta_social(
+    title = "Data Visualisation",
+    url = "https://djnavarro.github.io/robust-tools/visualisation/",
+    image = "https://djnavarro.github.io/robust-tools/visualisation/img/My_First_Plot5.png",
+    image_alt = "A hand drawn sketch of a scatterplot with barely legible handwritten R code.",
+    og_type = "website",
+    og_author = "Danielle Navarro",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@djnavarro"
+  )
 ```
 
 ```{r load-packages, message=FALSE, echo=FALSE}
@@ -64,7 +83,7 @@ class: middle
 
 class: middle, inverse
 
-## https://rstudio.cloud/spaces/49759/project/901338
+## https://rstudio.cloud/project/901338
 
 ???
 
