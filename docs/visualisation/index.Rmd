@@ -855,21 +855,26 @@ countdown(minutes = 2)
 ```
 ---
 
-
 class: middle
+
+background-image: url("img/dinosaur.jpg")
+background-size: cover
 
 .pull-left-narrow[
   .huge-blue-number[5]
 ]
 .pull-right-wide[
   .larger[
-  code without me! `r emo::ji("women_with_bunny_ears")`
+  `r emo::ji("women_with_bunny_ears")`
   ]
 ]
 
 
 ---
 
+
+background-image: url("img/dinosaur.jpg")
+background-size: cover
 
 .pull-left-wide[
 .hand[exercise_ggplot_05.R]
