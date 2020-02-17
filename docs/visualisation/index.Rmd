@@ -64,24 +64,7 @@ class: middle
 
 class: middle, inverse
 
-## https://rstudio.cloud/spaces/49759
-
----
-
-class: middle, inverse
-
-.pull-left[
-```{r our_space, echo=FALSE, fig.align='center'}
-knitr::include_graphics("img/our_space.png")
-```
-]
-.pull-right[
-- You should see this
-- Click on data visualisation
-- Let's do a live demo
-
-https://rstudio.cloud/spaces/49759
-]
+## https://rstudio.cloud/spaces/49759/project/901338
 
 ???
 
@@ -1046,6 +1029,19 @@ class: middle
 ```{r, echo=FALSE, out.width=600}
 knitr::include_graphics("img/Exercise04.png")
 ```
+
+
+---
+
+class: middle
+
+.hand[exercises 9 and 10 introduce a new data set]
+
+```{r, echo=FALSE, out.width=600}
+knitr::include_graphics("img/handwriting.jpg")
+```
+
+
 
 
 
