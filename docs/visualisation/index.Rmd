@@ -67,7 +67,7 @@ countdown(minutes = 1, color_background = "white")
 
 ---
 
-class: middle
+class: middle, inverse
 
 background-image: url("img/press_play.png")
 background-size: cover
@@ -1285,6 +1285,10 @@ ggplot(data = forensic) +
 
 class: middle
 
+background-image: url("img/facets.jpg")
+background-size: cover
+
+
 .pull-left-narrow[
   .huge-blue-number[8]
 ]
@@ -1346,13 +1350,16 @@ ggplot(forensic) +
 
 class: middle
 
+background-image: url("img/one_art_please.png")
+background-size: cover
+
 .pull-left-narrow[
   .huge-blue-number[9]
 ]
 .pull-right-wide[
   .larger[
-  &nbsp; glamour <br>
-  &nbsp; graphics
+  &nbsp; <span style="color:white;font-weight: bold">glamour</span><br>
+  &nbsp; <span style="color:white;font-weight: bold">graphics</span>
   ]
 ]
 
