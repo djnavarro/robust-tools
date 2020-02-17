@@ -40,24 +40,10 @@ background-image: url("img/press_play.png")
 background-size: cover
 background-color: #0F4C81
 
-.pull-left-narrow[
-  .larger[.embolden[.pink[
-    class
-    starts
-    in...
-  ]]]
-]
 ```{r echo=FALSE}
 countdown(minutes = 1, color_background = "white")
 ```
 
-
----
-
-class: middle, inverse
-
-## just in case:
-## https://djnavarro.link/robust-tools 
 
 ---
 
@@ -78,10 +64,7 @@ class: middle
 
 class: middle, inverse
 
-## .hand[oh hey it's a room of our own...]
 ## https://rstudio.cloud/spaces/49759
-<br>
-## .hand[... let's try it out!]
 
 ---
 
@@ -216,14 +199,15 @@ ggplot(
 
 ---
 
-class: middle, inverse
+class: middle
 
-## .hand[problem solving! how could we...]
+## .hand[exercise 1...`r emo::ji("women_with_bunny_ears")`]
 
-- show the city mileage `cty` as the y-value?
-- show the manufacture `year` as the x-value?  
-- show the number of cylinders `cyl` as the colour?
-- (bonus): include a regression line instead of dot points?
+
+- how to show the city mileage `cty` as the y-value?
+- how to show the manufacture `year` as the x-value?  
+- how to show the number of cylinders `cyl` as the colour?
+- (bonus): how to include a regression line instead of dot points?
 
 ```{r echo=FALSE}
 countdown(minutes = 2)
@@ -413,7 +397,7 @@ ggplot(
 ???
 
 - ask them to set colour to the number of cylinders `cyl`
-- (not a class exercise, just an interactive bit...)
+- (not a class exercise, just to segue...)
 
 ---
 
@@ -447,6 +431,30 @@ geom_point(
 - prompt: is something wrong here?
 - hint: can you have 5.21 cylinders in an engine?
 - (don't give them the answer yet...)
+
+
+---
+
+class: middle
+
+## .hand[exercise 2...`r emo::ji("woman_technologist")`]
+
+code along with me while we...
+- look at the `mpg` data
+- recreate the last plot
+- change the **variables** in the mapping (type `mpg` to see)
+- change the **aesthetics** in the mapping (e.g. `x`, `y`, `color`, `size`, `fill`, `shape`)
+
+???
+
+- do the typing in rstudio cloud and get them to type along 
+- get them to suggest possible code edits...
+- let them discover the "continuous variable cannot be mapped..." error
+- talk them through it and show them `factor()` as the answer
+
+```{r echo=FALSE}
+countdown(minutes = 2)
+```
 
 
 ---
@@ -489,13 +497,6 @@ class: middle, inverse
 knitr::include_graphics("img/Layers3.png")
 ```
 
----
-
-class: middle, inverse
-
-```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
-knitr::include_graphics("img/Layers4.png")
-```
 
 
 
@@ -507,7 +508,7 @@ class: inverse
 .hand[our plot has a "points" layer]
 ```{r adding-geoms-prelude, fig.show='hide'}
 ggplot(data = mpg) +
-geom_point(
+geom_point( #<<
   mapping = aes(
     x = displ,
     y = hwy,
@@ -516,6 +517,8 @@ geom_point(
 ) 
 ```
 ]
+
+--
 
 .pull-right[
 .hand[.]
@@ -554,6 +557,23 @@ geom_smooth( #<<
 ```{r ref.label="adding-geoms", echo=FALSE, warning=FALSE, message=FALSE, fig.height=3.75}
 ```
 ]
+
+
+
+---
+
+class: middle
+
+## .hand[exercise 3...`r emo::ji("woman_technologist")`]
+
+code along with me while we...
+- recreate the plot with `geom_point()` only
+- add the `geom_smooth()` layer
+- add a third layer with `geom_rug()`
+
+```{r echo=FALSE}
+countdown(minutes = 2)
+```
 
 
 
@@ -715,10 +735,8 @@ geom_smooth()
 
 ---
 
-class: inverse
-
 .left[
-.hand[paired discussion]
+.hand[exercise 4... paired discussion `r emo::ji("women_with_bunny_ears")`]
 ```{r redundancy5, fig.show='hide', warning=FALSE, message=FALSE}
 ggplot(
   data = mpg,
@@ -750,17 +768,16 @@ class: middle
 ]
 .pull-right-wide[
   .larger[
-  paired exercises! `r emo::ji("women_with_bunny_ears")`
+  code without me! `r emo::ji("women_with_bunny_ears")`
   ]
 ]
 
 
 ---
 
-class: inverse
 
 .pull-left-wide[
-.hand[exercise_ggplot_01.R]
+.hand[exercise_ggplot_05.R]
 ```{r ggplot_exercise_01, fig.show='hide', warning=FALSE, message=FALSE}
 library(tidyverse)
 
@@ -1024,7 +1041,12 @@ plot(picture)
 
 class: middle
 
-.hand[The rest of the exercises are self-paced!]
+.hand[now try exercises 6 through 8!]
+
+```{r, echo=FALSE, out.width=600}
+knitr::include_graphics("img/Exercise04.png")
+```
+
 
 
 ---
