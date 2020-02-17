@@ -1176,6 +1176,37 @@ ggplot(data = forensic) +
 
 
 
+---
+
+class: middle
+
+.pull-left-narrow[
+  .huge-blue-number[8]
+]
+.pull-right-wide[
+  .larger[
+  &nbsp; facets <br>
+  &nbsp; `r emo::ji("black_square_button")` `r emo::ji("black_square_button")`<br>
+  &nbsp; `r emo::ji("black_square_button")` `r emo::ji("black_square_button")`<br>
+  ]
+]
+
+
+---
+
+class: middle
+
+.pull-left-narrow[
+  .huge-blue-number[9]
+]
+.pull-right-wide[
+  .larger[
+  the glamour of graphics
+  ]
+]
+
+
+
 
 ---
 
