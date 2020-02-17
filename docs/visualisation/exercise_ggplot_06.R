@@ -1,32 +1,22 @@
-# Exercise 6
+# Exercise 2
 #
-# This is the code that we came up with in Exercise 5. What you
-# can see is that the "true" frequencies come in 5 distinct "bands".
-# That was part of the experimental design. It doesn't make a lot
-# of sense to draw a scatterplot when the data on the x-asis come 
-# in discrete "bins" like this, does it?
+# Oh no! This script is *supposed* to be the same as the last one, but 
+# unfortunately my daughter has found a way to insert emojis where there 
+# should be code. 💖
 #
-# In this exercise, what we want to do is modify the code below so
-# that instead of plotting the raw value "true" on the x-axis, we 
-# use the "band" variable instead.
-#
-# Try that now. Do you see a problem?
+# Can please fix this? You can always look back at Exercise 1 to see what
+# the answers should be, but try not to do that 
+
+# Our first script --------------------------------------------------------
 
 library(tidyverse)
-forensic <- read_csv("data_forensic.csv")
 
-picture <- ggplot(data = forensic) + 
-  geom_point(mapping = aes(x = true, y = est))
+dino <- read_csv("data_dino.csv")
+print(💖)
 
-plot(picture)
+# Create a new "picture"...
+picture <- ggplot(data = 💖) + 
+  geom_point(mapping = aes(x = 💖, y = 💖))
 
-
-# If I tell you that there is a function called geom_boxplot(),
-# can you work out how to fix the problem? 
-#
-# What if I also tell you there is a function called geom_violin()?
-# Would you consider using that instead of geom_boxplot()? If yes, why?
-# If not, why not?
-
-
-
+# ... and plot it
+plot(💖)
