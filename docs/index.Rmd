@@ -4,7 +4,7 @@ output:
   html_document:
     theme: flatly
     highlight: textmate
-    css: mystyle.css
+    css: style/course-style.css
 pagetitle: "Robust Tools"
 ---
 
