@@ -911,13 +911,16 @@ countdown(minutes = 2)
 
 class: middle
 
+background-image: url("img/handwriting_light.jpg")
+background-size: cover
+
+
 .pull-left-narrow[
   .huge-blue-number[6]
 ]
 .pull-right-wide[
   .larger[
-  &nbsp;name it<br>
-  &nbsp;(or don't)
+  &nbsp;naming<br>&nbsp;things<br>
   ]
 ]
 
@@ -1170,7 +1173,7 @@ plot(picture)
 
 class: middle
 
-background-image: url("img/handwriting_light.jpg")
+background-image: url("img/exercise.jpg")
 background-size: cover
 
 
@@ -1179,7 +1182,7 @@ background-size: cover
 ]
 .pull-right-wide[
   .larger[
-  &nbsp;exercises<br>&nbsp;`r emo::ji("swimming_man")` `r emo::ji("dancer")`
+  &nbsp;`r emo::ji("swimming_man")`
   ]
 ]
 
