@@ -1,6 +1,6 @@
 ---
-title: "> 01 <br> > data visualisation"
-subtitle: "`r emo::ji('art')` <br> `r emo::ji('link')` [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
+title: "> 01 `r emo::ji('art')` <br> > data visualisation"
+subtitle: "`r emo::ji('link')` [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
 author: "danielle navarro"
 date: "20 feb 2020"
 output:
@@ -67,15 +67,18 @@ countdown(minutes = 1, color_background = "white")
 
 ---
 
-
 class: middle
+
+background-image: url("img/press_play.png")
+background-size: cover
 
 .pull-left-narrow[
   .huge-blue-number[1]
 ]
 .pull-right-wide[
   .larger[
-  let's get started!
+  <br>
+  `r emo::ji("play_or_pause_button")`
   ]
 ]
 
@@ -102,9 +105,21 @@ demo sequence:
 - `+ geom_point(mapping = aes(x = displ, y = hwy))`
 - talk them through this bit by bit, but "defer" explanation of `aes()` for now
 
+
 ---
 
 class: middle, inverse
+
+background-image: url("img/code.jpg")
+background-size: cover
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/code.jpg")
+background-size: cover
 
 ```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
 knitr::include_graphics("img/My_First_Plot1.png")
@@ -119,6 +134,9 @@ knitr::include_graphics("img/My_First_Plot1.png")
 
 class: middle, inverse
 
+background-image: url("img/code.jpg")
+background-size: cover
+
 ```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
 knitr::include_graphics("img/My_First_Plot2.png")
 ```
@@ -126,6 +144,9 @@ knitr::include_graphics("img/My_First_Plot2.png")
 ---
 
 class: middle, inverse
+
+background-image: url("img/code.jpg")
+background-size: cover
 
 ```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
 knitr::include_graphics("img/My_First_Plot3.png")
@@ -140,6 +161,9 @@ knitr::include_graphics("img/My_First_Plot3.png")
 
 class: middle, inverse
 
+background-image: url("img/code.jpg")
+background-size: cover
+
 ```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
 knitr::include_graphics("img/My_First_Plot4.png")
 ```
@@ -153,6 +177,9 @@ knitr::include_graphics("img/My_First_Plot4.png")
 ---
 
 class: middle, inverse
+
+background-image: url("img/code.jpg")
+background-size: cover
 
 ```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
 knitr::include_graphics("img/My_First_Plot5.png")
@@ -235,21 +262,37 @@ knitr::include_graphics("img/My_First_Plot.gif")
 
 ---
 
-
 class: middle
+
+background-image: url("img/maps_light.jpg")
+background-size: cover
 
 .pull-left-narrow[
   .huge-blue-number[2]
 ]
 .pull-right-wide[
   .larger[
-  mapping data to aesthetics
+  &nbsp; aesthetic<br>
+  &nbsp; mappings<br>
+  &nbsp; `r emo::ji("art")` `r emo::ji("world_map")`
   ]
 ]
+
 
 ---
 
 class: middle, inverse
+
+background-image: url("img/maps.jpg")
+background-size: cover
+
+---
+
+class: middle, inverse
+
+background-image: url("img/maps.jpg")
+background-size: cover
+
 
 ```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
 knitr::include_graphics("img/Mapping1.png")
@@ -261,9 +304,13 @@ knitr::include_graphics("img/Mapping1.png")
 - the `ggplot(data = mpg)` part tells us the `mpg` data go with our plot
 
 
+
 ---
 
 class: middle, inverse
+
+background-image: url("img/maps.jpg")
+background-size: cover
 
 ```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
 knitr::include_graphics("img/Mapping2.png")
@@ -277,9 +324,13 @@ knitr::include_graphics("img/Mapping2.png")
 
 
 
+
 ---
 
 class: middle, inverse
+
+background-image: url("img/maps.jpg")
+background-size: cover
 
 ```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
 knitr::include_graphics("img/Mapping3.png")
@@ -292,9 +343,13 @@ knitr::include_graphics("img/Mapping3.png")
 - can include things like `size` and `colour` also
 - (mention US/UK spelling)
 
+
 ---
 
 class: middle, inverse
+
+background-image: url("img/maps.jpg")
+background-size: cover
 
 ```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
 knitr::include_graphics("img/Mapping4.png")
@@ -306,17 +361,25 @@ knitr::include_graphics("img/Mapping4.png")
 - it tells R which plot aesthetics are mapped onto which variables in the data
 
 
+
 ---
 
 class: middle, inverse
+
+background-image: url("img/maps.jpg")
+background-size: cover
 
 ```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
 knitr::include_graphics("img/Mapping5.png")
 ```
 
+
 ---
 
 class: middle, inverse
+
+background-image: url("img/maps.jpg")
+background-size: cover
 
 ```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
 knitr::include_graphics("img/Mapping6.png")
@@ -445,8 +508,8 @@ class: middle
 code along with me while we...
 - look at the `mpg` data
 - recreate the last plot
-- change the **variables** in the mapping (type `mpg` to see)
-- change the **aesthetics** in the mapping (e.g. `x`, `y`, `color`, `size`, `fill`, `shape`)
+- change the mapped **variables** (type `mpg` to see variables)
+- change the mapped **aesthetics** (e.g. `x`, `y`, `color`, `size`, `fill`, `shape`)
 
 ???
 
@@ -465,12 +528,17 @@ countdown(minutes = 2)
 
 class: middle
 
+background-image: url("img/layer-cake_light.jpg")
+background-size: cover
+
 .pull-left-narrow[
   .huge-blue-number[3]
 ]
 .pull-right-wide[
   .larger[
-  building plots in layers
+  &nbsp; layered<br>
+  &nbsp; plots<br>
+  &nbsp; `r emo::ji("cake")`
   ]
 ]
 
@@ -478,6 +546,18 @@ class: middle
 ---
 
 class: middle, inverse
+
+background-image: url("img/layer-cake.jpg")
+background-size: cover
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/layer-cake.jpg")
+background-size: cover
+
 
 ```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
 knitr::include_graphics("img/Layers1.png")
@@ -488,6 +568,10 @@ knitr::include_graphics("img/Layers1.png")
 
 class: middle, inverse
 
+background-image: url("img/layer-cake.jpg")
+background-size: cover
+
+
 ```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
 knitr::include_graphics("img/Layers2.png")
 ```
@@ -495,6 +579,10 @@ knitr::include_graphics("img/Layers2.png")
 ---
 
 class: middle, inverse
+
+background-image: url("img/layer-cake.jpg")
+background-size: cover
+
 
 ```{r, echo=FALSE, fig.align='center', out.height=500, out.width=500}
 knitr::include_graphics("img/Layers3.png")
@@ -590,7 +678,9 @@ class: middle
 ]
 .pull-right-wide[
   .larger[
-  tidying up our code
+  &nbsp;&nbsp;code<br>
+  &nbsp;&nbsp;clean<br>
+  &nbsp;&nbsp;`r emo::ji("broom")`
   ]
 ]
 
@@ -819,7 +909,8 @@ class: middle
 ]
 .pull-right-wide[
   .larger[
-  naming arguments (or not)
+  &nbsp;name it<br>
+  &nbsp;(or don't)
   ]
 ]
 
@@ -1072,12 +1163,16 @@ plot(picture)
 
 class: middle
 
+background-image: url("img/handwriting_light.jpg")
+background-size: cover
+
+
 .pull-left-narrow[
   .huge-blue-number[7]
 ]
 .pull-right-wide[
   .larger[
-  check your learning! `r emo::ji("women_with_bunny_ears")`
+  &nbsp;exercises<br>&nbsp;`r emo::ji("swimming_man")` `r emo::ji("dancer")`
   ]
 ]
 
@@ -1246,7 +1341,8 @@ class: middle
 ]
 .pull-right-wide[
   .larger[
-  the glamour of graphics
+  &nbsp; glamour <br>
+  &nbsp; graphics
   ]
 ]
 
