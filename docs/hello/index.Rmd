@@ -1,6 +1,6 @@
 ---
-title: "> 02 <br> > a meetup with data"
-subtitle: "`r emo::ji('mage')` bewitch your data! <br> `r emo::ji('link')` [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
+title: "> 02 `r emo::ji('handshake')` <br> > say hello to your data"
+subtitle: "`r emo::ji('link')` [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
 author: "danielle navarro"
 date: "27 feb 2020"
 output:
@@ -18,6 +18,7 @@ output:
           </div>
         </div>`
 ---
+
 
 ```{r child = "../style/setup.Rmd"}
 ```
@@ -43,34 +44,10 @@ background-image: url("img/purple_heart2.png")
 background-size: cover
 background-color: #0F4C81
 
-.pull-left-narrow[
-  .larger[.embolden[.pink[
-    class
-    starts
-    in...
-  ]]]
-]
 ```{r echo=FALSE}
 countdown(minutes = 1, color_background = "white")
 ```
 
----
-
-class: middle inverse
-
-.pull-left[
-
-.hand[Data wrangling]
-
-- **What?** Manipulate data
-- **Why?** Data are messy
-- **How?** With tidyverse!
-
-```{r, echo=FALSE}
-knitr::include_graphics("img/horst_dplyr.png")
-```
-
-]
 
 
 ---
