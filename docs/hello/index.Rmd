@@ -37,21 +37,6 @@ knitr::knit_hooks$set(source = function(x, options) {
 ```
 
 
-
-class: middle, inverse
-
-background-image: url("img/purple_heart2.png")
-background-size: cover
-background-color: #0F4C81
-
-```{r echo=FALSE}
-countdown(minutes = 1, color_background = "white")
-```
-
-
-
----
-
 class: middle
 
 .pull-left-narrow[
