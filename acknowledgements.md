@@ -20,3 +20,5 @@
 - Daiga Ellaby: https://unsplash.com/photos/eB6RTmE2ky4
 - Shapelined: https://unsplash.com/photos/_JBKdviweXI
 - Mathew Schwartz: https://unsplash.com/photos/8rj4sz9YLCI
+- Alfons Morales: https://unsplash.com/photos/YLSwjSy7stw
+- Samuel Sianipar: https://unsplash.com/photos/scUBcasSvbE

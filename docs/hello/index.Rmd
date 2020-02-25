@@ -47,7 +47,7 @@ background-size: cover
 ]
 .pull-right-wide[
   .larger[
-  Inductive reasoning
+  `r emo::ji("woman_scientist")` <br>`r emo::ji("1234")`
   ]
 ]
 
@@ -187,8 +187,13 @@ background-size: cover
 ]
 
 .pull-right[
-<br><br>
-.hand[Exercise #1: discussion!]
+<br><br><br>
+<br><br><br>
+<br>
+
+.hand[
+<p style="text-align:right">Exercise #1:<br>discuss this study!</p>
+]
 
 ```{r echo=FALSE}
 countdown(minutes = 1, color_background = "white")
@@ -200,12 +205,18 @@ countdown(minutes = 1, color_background = "white")
 
 class: middle, inverse
 
+background-image: url("img/bookshelves.jpg")
+background-size: cover
+
+
 .pull-left-narrow[
   .huge-blue-number[2]
 ]
 .pull-right-wide[
   .larger[
-  Meeting the data
+  &nbsp; `r emo::ji('book')` <br>
+  &nbsp; <span style="color:white;font-weight: bold">Reading</span><br>
+  &nbsp; <span style="color:white;font-weight: bold">your data</span>
   ]
 ]
 
@@ -219,7 +230,7 @@ class: middle, inverse
 ---
 
 class: inverse
-.hand[Importing the data!]
+.hand[Reading the data into R]
 
 ```{r read-data, warning=FALSE, message=FALSE}
 library(tidyverse)
@@ -275,19 +286,26 @@ glimpse(frames, width = 59)
 
 ---
 
+background-image: url("img/bookshelves.jpg")
+background-size: cover
+
 class: middle
-.hand[Exercise #2]
+.hand[<span style="color:white;font-weight: bold;font-size:64pt">Exercise #2</span>]
 
 ---
 
 class: middle, inverse
 
+background-image: url("img/pipes.jpg")
+background-size: cover
+
 .pull-left-narrow[
-  .huge-blue-number[2]
+  .huge-blue-number[3]
 ]
 .pull-right-wide[
   .larger[
-  Meeting the pipe
+  &nbsp;Meet<br>
+  &nbsp;the pipe
   ]
 ]
 
@@ -335,15 +353,18 @@ data %>%
 
 ---
 
+background-image: url("img/pipes.jpg")
+background-size: cover
+
 class: middle
-.hand[Exercise #3]
+.hand[<span style="font-weight: bold;font-size:64pt">Exercise #3</span>]
 
 ---
 
 class: middle, inverse
 
 .pull-left-narrow[
-  .huge-blue-number[3]
+  .huge-blue-number[4]
 ]
 .pull-right-wide[
   .larger[
@@ -520,7 +541,7 @@ class: middle
 class: middle, inverse
 
 .pull-left-narrow[
-  .huge-blue-number[4]
+  .huge-blue-number[5]
 ]
 .pull-right-wide[
   .larger[
@@ -559,7 +580,7 @@ class: middle
 class: middle, inverse
 
 .pull-left-narrow[
-  .huge-blue-number[5]
+  .huge-blue-number[6]
 ]
 .pull-right-wide[
   .larger[
