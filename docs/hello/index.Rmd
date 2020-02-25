@@ -39,6 +39,9 @@ knitr::knit_hooks$set(source = function(x, options) {
 
 class: middle
 
+background-image: url("img/thinking_skeleton.jpg")
+background-size: cover
+
 .pull-left-narrow[
   .huge-blue-number[1]
 ]
@@ -94,6 +97,7 @@ knitr::include_graphics("img/robot1.jpg", dpi = 72)
 ---
 
 class: middle
+
 .hand[Property sampling: the robot only detects plaxium spheres]
 ```{r, echo=FALSE}
 knitr::include_graphics("img/data10_property.jpg")
@@ -173,6 +177,9 @@ class: middle
 ---
 
 class: middle
+
+background-image: url("img/thinking_skeleton.jpg")
+background-size: cover
 
 .pull-left[
 ```{r, ref.label="summary.plot", echo=FALSE, warning=FALSE, message = FALSE, fig.height=6}
