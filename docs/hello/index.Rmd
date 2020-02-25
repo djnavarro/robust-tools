@@ -544,7 +544,7 @@ write_csv(by_item, "summary_reasoning_by_item.csv")
 ---
 
 class: middle
-.hand[Exercise #6]
+.hand[Exercises #6 and #7]
 
 
 ---
