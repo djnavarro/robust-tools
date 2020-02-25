@@ -46,10 +46,6 @@
   text-align: right;
 }
 
-/* Bold */
-.embolden{
-  font-weight: bold;
-}
 
 /* Alignment */
 .right{
@@ -74,8 +70,9 @@ h1, h2, h3 {
   color: #FFFFFF;
 }
 
-.plainwhite {
-  color: #000000;
+/* Bold */
+.embolden{
+  font-weight: bold;
 }
 
 

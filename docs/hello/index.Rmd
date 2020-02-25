@@ -47,7 +47,7 @@ background-size: cover
 ]
 .pull-right-wide[
   .larger[
-  `r emo::ji("woman_scientist")` <br>`r emo::ji("1234")`
+  `r emo::ji("woman_scientist")`
   ]
 ]
 
@@ -312,7 +312,8 @@ background-size: cover
 
 ---
 
-class: inverse
+background-image: url("img/pipes2.jpg")
+background-size: cover
 
 <br><br><br>
 .hand[The pipe, %>%]
@@ -336,7 +337,10 @@ frames %>%
 
 ---
 
-class: middle, inverse
+background-image: url("img/pipes2.jpg")
+background-size: cover
+
+class: middle
 
 .pull-left-wide[
 ```{}
@@ -353,7 +357,7 @@ data %>%
 
 ---
 
-background-image: url("img/pipes.jpg")
+background-image: url("img/pipes2.jpg")
 background-size: cover
 
 class: middle
@@ -363,19 +367,27 @@ class: middle
 
 class: middle, inverse
 
+background-image: url("img/drawers.jpg")
+background-size: cover
+
+
 .pull-left-narrow[
   .huge-blue-number[4]
 ]
 .pull-right-wide[
-  .larger[
-  Group and
-  summarise
-  ]
+  .larger[.embolden[.plainwhite[
+    &nbsp; Grouped<br>
+    &nbsp; summary
+  ]]]
 ]
 
 ---
 
 class: middle, inverse 
+
+background-image: url("img/drawer2.jpg")
+background-size: cover
+
 .pull-left-wide[
 .hand[The basic idea]
 
@@ -394,6 +406,9 @@ frames %>%
 
 ---
 class: inverse
+
+background-image: url("img/drawer2.jpg")
+background-size: cover
 
 .hand[Group, summarise...]
 
@@ -414,6 +429,9 @@ frames %>%
 ---
 class: inverse
 
+background-image: url("img/drawer2.jpg")
+background-size: cover
+
 .hand[Group, summarise, and ungroup]
 
 ```{r frames-group-2, results='hide'}
@@ -433,6 +451,9 @@ frames %>%
 
 ---
 class: inverse
+
+background-image: url("img/drawer2.jpg")
+background-size: cover
 
 .hand[A more realistic example]
 .pull-left[
@@ -462,6 +483,9 @@ frames %>%
 ---
 class: inverse
 
+background-image: url("img/drawer2.jpg")
+background-size: cover
+
 .hand[A more realistic example]
 .pull-left[
 ```{r summarise-var, results='hide'}
@@ -478,6 +502,9 @@ by_item <- frames %>% #<<
 
 ---
 class: inverse
+
+background-image: url("img/drawer2.jpg")
+background-size: cover
 
 .hand[A more realistic example]
 .pull-left[
@@ -501,6 +528,9 @@ geom_point()
 
 ---
 class: inverse
+
+background-image: url("img/drawer2.jpg")
+background-size: cover
 
 .hand[A more realistic example]
 .pull-left[
@@ -531,21 +561,28 @@ geom_pointrange()  #<<
 ---
 
 class: middle
-.hand[Exercises #4 and #5]
 
+background-image: url("img/drawer2.jpg")
+background-size: cover
 
+.hand[.plainwhite[
+  <span style="font-weight:bold;font-size:64pt">Exercises #4 and #5</span>
+]]
 
 ---
 
-
 class: middle, inverse
+
+background-image: url("img/typewriter.jpg")
+background-size: cover
 
 .pull-left-narrow[
   .huge-blue-number[5]
 ]
 .pull-right-wide[
   .larger[
-  Exporting the data
+  `r emo::ji("fountain_pen")`<br>
+  .plainwhite[Writing<br>data]
   ]
 ]
 
@@ -553,7 +590,7 @@ class: middle, inverse
 ---
 
 class: inverse
-.hand[If we import with read_csv...]
+.hand[If we read with read_csv...]
 
 ```{r, warning=FALSE, message=FALSE, results="hide"}
 read_csv("data_reasoning.csv")
@@ -561,7 +598,7 @@ read_csv("data_reasoning.csv")
 
 <br><br>
 --
-.hand[Then we export with write_csv...]
+.hand[... then we write with write_csv!]
 
 ```{r, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
 write_csv(by_item, "summary_reasoning_by_item.csv")
@@ -572,24 +609,37 @@ write_csv(by_item, "summary_reasoning_by_item.csv")
 ---
 
 class: middle
-.hand[Exercises #6 and #7]
+
+background-image: url("img/typewriter.jpg")
+background-size: cover
+
+.hand[.plainwhite[
+  <span style="font-weight:bold;font-size:64pt">Exercises #6 and #7</span>
+]]
 
 
 ---
 
-class: middle, inverse
+class: middle
+
+background-image: url("img/snow_road.jpg")
+background-size: cover
 
 .pull-left-narrow[
   .huge-blue-number[6]
 ]
 .pull-right-wide[
   .larger[
-  Other data formats
+  &nbsp;Where<br>&nbsp;next?
   ]
 ]
 
 
 ---
+
+background-image: url("img/snow_road2.jpg")
+background-size: cover
+
 
 .hand[Not in this class, but for future reference...]
 - Excel files? `readxl` package
@@ -597,4 +647,11 @@ class: middle, inverse
 - JSON format? `jsonlite` package
 - Databases? `dbplyr` package
 
+.pull-right-wide[
+<br><br><br>
+.hand[Want more information?]
+
+Data import chapter in R for Data Science<br>
+https://r4ds.had.co.nz/data-import.html
+]
 

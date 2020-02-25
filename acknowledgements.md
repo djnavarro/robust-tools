@@ -22,3 +22,6 @@
 - Mathew Schwartz: https://unsplash.com/photos/8rj4sz9YLCI
 - Alfons Morales: https://unsplash.com/photos/YLSwjSy7stw
 - Samuel Sianipar: https://unsplash.com/photos/scUBcasSvbE
+- Kolar.io: https://unsplash.com/photos/lRoX0shwjUQ
+- Patrick Fore: https://unsplash.com/photos/0gkw_9fy0eQ
+- Jason Abdilla: https://unsplash.com/photos/anE0V1ljPUI
