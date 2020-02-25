@@ -32,7 +32,7 @@ meta() %>%
   ) %>% 
   meta_name("github-repo" = "djnavarro/robust-tools") %>% 
   meta_social(
-    title = "Data Visualisation",
+    title = "Say hello to your data",
     url = "https://djnavarro.github.io/robust-tools/hello/",
     image = "https://djnavarro.github.io/robust-tools/hello/img/pipe.png",
     image_alt = "Text showing the magrittr pipe in R, written as %>%, overlaying a greyscale image of industrial pipes",
