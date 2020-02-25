@@ -1,67 +1,39 @@
-# Exercise 2
+# Exercise 2:
 #
-# Welcome to the pipe! In this exercise I'm going to give you some code that
-# uses functions you've never seen before, and I want you to try to work out 
-# what each one does. I'll use the forensic data to illustrate this, so the 
-# first step is to load the tidyverse and the data...
-
-library(tidyverse)
-forensic <- read_csv("data_forensic.csv")
-
-
-# Summarise participant 1 -------------------------------------------------
-
-participant1 <- ungroup(
-  summarise(
-    group_by(
-      filter(forensic, participant == 1),
-      band
-    ),
-    mean = mean(est), 
-    sd = sd(est)  
-  )
-)
-
-
-# Summarise participant 2 -------------------------------------------------
-
-x <- filter(forensic, participant == 2)
-y <- group_by(x, band)
-z <- summarise(y, mean = mean(est), sd = sd(est))
-participant2 <- ungroup(z)
-
-
-
-# Summarise participant 3 -------------------------------------------------
-
-participant3 <- forensic %>%
-  filter(participant == 3) %>%
-  group_by(band) %>%
-  summarise(mean = mean(est), sd = sd(est)) %>%
-  ungroup()
-
-
-# Check the results -------------------------------------------------------
-
-print(participant1)
-print(participant2)
-print(participant3)
-
-
-
-# Discussion (in pairs, as always!)
-# 
-# - All three "versions" of the code do the same thing, only with different
-#   participants. Setting aside the fact that you haven't actually learned
-#   what filter(), group_by(), etc does... can you work out what the code is
-#   doing overall?
+# The exercises from the visualisation module introduced you to the "forensic 
+# handwriting" data published by Martire et al (2018). We'll work with these
+# data for this exercise. Firstly we'll need to load the data and take a quick
+# look at it but... oh no, more emojis. 
 #
-# - Which of these three versions is easiest to understand? Or are they all
-#   equally easy/difficult? What makes it easy/hard?
+# I guess at this point I should confess that it's me who loves the emojis and
+# not my daughter, who honestly is bored with this already. 
 #
-# - What do you think the "pipe operator" %>% is doing here (hint: compare
-#   the code for versions 2 and 3 to each other...) 
+# In any case, your task is to replace the emojis with the appropriate R code
+# and then briefly answer the discussion questions at the bottom (chat with 
+# the person next to you!)
+
+
+# Load the required packages
+library(💜)
+
+# Read the data into R
+forensic <- 💅("data_forensic.csv")
+
+# Inspect the data. The workshop showed two methods for doing this, printing
+# and glimpsing the data. They can be useful for different purposes. Try 
+# printing the data here:
+💅(💜)
+
+# Now try glimpsing the data here:
+💅(💜)
+ 
+
+# Discussion: 
 #
-# - There is something weird about the "participant1" data. This has nothing
-#   to do with my code... it's actually something that is in the "forensic"
-#   data itself. What is the weird thing and what do you think it means?
+# - How easy is it to work out what each variable "is"? Do we need something
+#   else besides what I've given you so far?
+#
+# - I've used two emojis here instead of proper R code: 💅 and 💜. There's
+#   a pattern to it... what is the difference between the "kinds of thing" that
+#   I replaced with 💅 and the kinds of thing I replaced with 💜?
+
