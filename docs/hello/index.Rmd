@@ -23,6 +23,26 @@ output:
 ```{r child = "../style/setup.Rmd"}
 ```
 
+
+```{r meta, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "Importing, piping and exporting data in R",
+  ) %>% 
+  meta_name("github-repo" = "djnavarro/robust-tools") %>% 
+  meta_social(
+    title = "Data Visualisation",
+    url = "https://djnavarro.github.io/robust-tools/hello/",
+    image = "https://djnavarro.github.io/robust-tools/hello/img/pipe.png",
+    image_alt = "Text showing the magrittr pipe in R, written as %>%, overlaying a greyscale image of industrial pipes",
+    og_type = "website",
+    og_author = "Danielle Navarro",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@djnavarro"
+  )
+```
+
 ```{r load-packages, message=FALSE, echo=FALSE}
 library(countdown)
 library(tidyverse)
@@ -304,8 +324,8 @@ background-size: cover
 ]
 .pull-right-wide[
   .larger[
-  &nbsp;Meet<br>
-  &nbsp;the pipe
+  &nbsp;The pipe<br>
+  &nbsp;.embolden[%&gt;%]<br>
   ]
 ]
 
