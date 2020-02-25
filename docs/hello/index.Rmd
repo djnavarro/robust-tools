@@ -44,9 +44,52 @@ class: middle
 ]
 .pull-right-wide[
   .larger[
-  The reasoning data
+  Inductive reasoning
   ]
 ]
+
+---
+
+
+class:middle
+
+.pull-left[
+```{r summary.plot, echo=FALSE, warning=FALSE, message = FALSE, fig.height=6}
+frames <- read_csv("data_reasoning.csv") %>%
+  mutate(
+    sample_size = factor(sample_size, levels = c("small", "medium", "large")),
+    test_item = factor(test_item)
+  ) 
+ggplot(frames, aes(x = test_item, y = response)) +
+  geom_boxplot(aes(fill = test_item), outlier.alpha = 0, coef = 0, show.legend = FALSE) +
+  facet_grid(rows = vars(sample_size), cols = vars(condition)) + 
+  scale_y_continuous(breaks = 0:9, minor_breaks = NULL) + 
+  scale_fill_viridis_d(alpha = .5) + 
+  theme_minimal() 
+```
+]
+
+.pull-right[
+<br><br>
+Hayes, Banner, Forrester & Navarro (2019). 
+<br><br>
+*Selective sampling and inductive inference: Drawing inferences based on observed and missing evidence* <br><br>
+https://psyarxiv.com/2m83v/ 
+]
+
+---
+
+
+
+
+class: middle
+
+### https://djnavarro.github.io/robust-tools/reasoning/
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/robot1.jpg", dpi = 72)
+```
+
 
 ---
 
@@ -106,6 +149,26 @@ class: middle
 ```{r, echo=FALSE}
 knitr::include_graphics("img/test8.jpg")
 ```
+
+
+---
+
+class: middle
+
+.pull-left[
+```{r, ref.label="summary.plot", echo=FALSE, warning=FALSE, message = FALSE, fig.height=6}
+```
+]
+
+.pull-right[
+<br><br>
+- smooth generalisation profiles
+- similar for small samples
+- different for large samples
+<br><br>
+- property shows "tightening"
+- category does not
+]
 
 ---
 
