@@ -416,92 +416,21 @@ Danielle Navarro
 
 
 <p>The research toolkit in psychological science has changed a lot in the last decade. Across many areas there is a heightened emphasis on transparency, open access, and a preference for the use of freely available tools. These skills are rarely taught during undergraduate psychology classes, and because research methods classes tend to be statistics heavy, they’re rarely a part of research methodology classes either. This elective provides a hands on tutorial in how to use these tools: it covers an introduction to R programming, modern data visualisation and data wrangling, how to structure your projects, version control and how to write professional documents in R. The course is designed for novices, and no preexisting familiarity with these tools and no programming background is assumed.</p>
-<p>This page is a work in progress! More information will appear over time as I finalise the course material 🙂</p>
-<div id="class-schedule" class="section level2">
-<h2>1. Class schedule</h2>
-<p>The nine-week course is built around a series of six two-hour modules, covering the following topics</p>
-<ul>
-<li>Week 1:
+<p>This page is a work in progress! More information will appear over time 🙂, but broadly speaking the course is built around a series of modules covering the following topics</p>
 <ul>
 <li>Welcome to the class (<a href="welcome">slides</a>)</li>
 <li>Introduction to data visualisation (<a href="visualisation">slides</a>, <a href="https://rstudio.cloud/project/901338">project</a>)</li>
-</ul></li>
-<li>Week 2:
-<ul>
-<li>Meeting your data</li>
-<li>Tidying your data</li>
-</ul></li>
-<li>Week 3:
-<ul>
-<li>Writing experiments</li>
-</ul></li>
-<li>Week 4:
-<ul>
-<li>Working with projects</li>
-<li>Revisting the basics</li>
-</ul></li>
-<li>Week 5 (flexible):
-<ul>
-<li>Discuss student projects</li>
-<li>Catchup, Q&amp;A, etc</li>
-</ul></li>
-<li>Week 6
-<ul>
+<li>Say hello to your data (<a href="hello">slides</a>, <a href="https://rstudio.cloud/project/978818">project</a>, <a href="reasoning">study</a>)</li>
+<li>Tidying up your data</li>
+<li>Writing your own experiments</li>
+<li>Structuring your own project</li>
+<li>Programming in R</li>
 <li>Archiving with OSF</li>
 <li>Version control with git</li>
-</ul></li>
-<li>Week 7
-<ul>
-<li>Introducing R markdown</li>
-<li>Extending R markdown</li>
-</ul></li>
-<li>Week 8 (flexible):
-<ul>
-<li>Additional material as needed</li>
-<li>Catchup, Q&amp;A, etc</li>
-</ul></li>
-<li>Week 9:
-<ul>
-<li>Student presentations</li>
-<li>Wrap up</li>
-</ul></li>
-</ul>
-</div>
-<div id="assessment-structure" class="section level2">
-<h2>2. Assessment structure</h2>
-<ul>
-<li>Class participation: 20%</li>
-<li>Problem sets: 30%</li>
-<li>Student projects: 50%</li>
-</ul>
-<p>Notes on class participation:</p>
-<ul>
-<li>Best effort at the content</li>
-<li>Help others if you can</li>
-<li>Talk, in moderation</li>
-<li>Follow code of conduct</li>
-<li>Be kind (&amp; have fun)</li>
-</ul>
-<p>The problem sets:</p>
-<ul>
-<li>Three exercises 🚲 🏊 👟</li>
-<li>Partly technical 😱</li>
-<li>Partly written 📝</li>
-<li>Exercises are small 🦐</li>
-<li>Practice versions first! 🙂</li>
-</ul>
-<p>The project:</p>
-<ul>
-<li>You get to choose!</li>
-<li>Discuss ideas with me 🙂</li>
-<li>Doesn’t need to be technical (e.g., you can write an essay instead of coding!)</li>
-<li>Proposals in week 5</li>
-<li>Presentations in week 9</li>
-<li>Final submission XXX</li>
+<li>Documenting with R markdown</li>
 </ul>
 <p><br><br></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="data:image/png;base64,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" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
-</div>
 
 
 

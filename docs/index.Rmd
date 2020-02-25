@@ -12,80 +12,21 @@ pagetitle: "Robust Tools"
 rm(list=objects()) # start with a clean workspace
 ```
 
-The research toolkit in psychological science has changed a lot in the last decade. Across many areas there is a heightened emphasis on transparency, open access, and a preference for the use of freely available tools. These skills are rarely taught during undergraduate psychology classes, and because research methods classes tend to be statistics heavy, they’re rarely a part of research methodology classes either. This elective provides a hands on tutorial in how to use these tools: it covers an introduction to R programming, modern data visualisation and data wrangling, how to structure your projects, version control and how to write professional documents in R. The course is designed for novices, and no preexisting familiarity with these tools and no programming background is assumed.
+The research toolkit in psychological science has changed a lot in the last decade. Across many areas there is a heightened emphasis on transparency, open access, and a preference for the use of freely available tools. These skills are rarely taught during undergraduate psychology classes, and because research methods classes tend to be statistics heavy, they’re rarely a part of research methodology classes either. This elective provides a hands on tutorial in how to use these tools: it covers an introduction to R programming, modern data visualisation and data wrangling, how to structure your projects, version control and how to write professional documents in R. The course is designed for novices, and no preexisting familiarity with these tools and no programming background is assumed. 
 
-This page is a work in progress! More information will appear over time as I finalise the course material `r emo::ji("slightly_smiling_face")`
+This page is a work in progress! More information will appear over time `r emo::ji("slightly_smiling_face")`, but broadly speaking the course is built around a series of modules covering the following topics
 
-## 1. Class schedule
+- Welcome to the class ([slides](welcome)) 
+- Introduction to data visualisation ([slides](visualisation), [project](https://rstudio.cloud/project/901338))
+- Say hello to your data ([slides](hello), [project](https://rstudio.cloud/project/978818), [study](reasoning))
+- Tidying up your data
+- Writing your own experiments
+- Structuring your own project
+- Programming in R
+- Archiving with OSF 
+- Version control with git
+- Documenting with R markdown
 
-The nine-week course is built around a series of six two-hour modules, covering the following topics
-
-- Week 1: 
-  - Welcome to the class ([slides](welcome)) 
-  - Introduction to data visualisation ([slides](visualisation), [project](https://rstudio.cloud/project/901338))
-  
-- Week 2:
-  - Meeting your data
-  - Tidying your data
-
-- Week 3:
-  - Writing experiments
-
-- Week 4: 
-  - Working with projects
-  - Revisting the basics
-
-- Week 5 (flexible):
-  - Discuss student projects
-  - Catchup, Q&A, etc
-
-- Week 6 
-  - Archiving with OSF 
-  - Version control with git
-
-- Week 7
-  - Introducing R markdown
-  - Extending R markdown
-
-- Week 8 (flexible):
-  - Additional material as needed
-  - Catchup, Q&A, etc
-
-- Week 9:
-  - Student presentations
-  - Wrap up
-
-
-## 2. Assessment structure
-
-- Class participation: 20%
-- Problem sets: 30%
-- Student projects: 50%
-
-Notes on class participation:
-
-- Best effort at the content
-- Help others if you can
-- Talk, in moderation
-- Follow code of conduct
-- Be kind (& have fun)
-
-The problem sets:
-
-- Three exercises `r emo::ji("bike")` `r emo::ji("swimming_man")` `r emo::ji("athletic_shoe")`
-- Partly technical `r emo::ji("scream")`
-- Partly written `r emo::ji("memo")`
-- Exercises are small `r emo::ji("shrimp")`
-- Practice versions first! `r emo::ji("slightly_smiling_face")`
-
-The project:
-
-- You get to choose!
-- Discuss ideas with me `r emo::ji("slightly_smiling_face")`
-- Doesn't need to be technical (e.g., you can write an essay instead of coding!)
-- Proposals in week 5
-- Presentations in week 9
-- Final submission XXX
 
 
 <br><br>
