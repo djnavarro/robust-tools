@@ -7,6 +7,8 @@
     <meta name="date" content="2020-02-27" />
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
     <link rel="stylesheet" href="../style/xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="../style/slides-style.css" type="text/css" />
   </head>
@@ -147,6 +149,24 @@ class: middle
 
 ---
 
+class: middle
+
+.pull-left[
+![](index_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+&lt;br&gt;&lt;br&gt;
+.hand[Exercise #1: discussion!]
+
+<div class="countdown" id="timer_5e5498ec" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+]
+
+
+---
+
 class: middle, inverse
 
 .pull-left-narrow[
@@ -184,6 +204,20 @@ frames &lt;- read_csv(file = "data_reasoning.csv")
 ##   response = col_double()
 ## )
 ```
+
+
+---
+
+class: inverse
+.hand[Click on "frames" in the environment pane]
+&lt;img src="img/view_frames_0.png" width="900" /&gt;
+
+
+---
+
+class: inverse
+.hand[Click on "frames" in the environment pane]
+&lt;img src="img/view_frames_1.png" width="900" /&gt;
 
 
 ---
@@ -237,7 +271,7 @@ glimpse(frames)
 ---
 
 class: middle
-.hand[Wrangling Exercise #1]
+.hand[Exercise #2]
 
 ---
 
@@ -281,8 +315,6 @@ frames %&gt;%
 
 class: middle, inverse
 
-.hand[Piping is a good abstraction]
-
 .pull-left-wide[
 ```{}
 data %&gt;% 
@@ -299,7 +331,7 @@ data %&gt;%
 ---
 
 class: middle
-.hand[Wrangling Exercise #2]
+.hand[Exercise #3]
 
 ---
 
@@ -425,10 +457,147 @@ frames %&gt;%
 - i've done it to fit the slides
 - don't do it in real life
 
+
+---
+class: inverse
+
+.hand[A more realistic example]
+.pull-left[
+
+```r
+*by_item &lt;- frames %&gt;%
+  group_by(test_item) %&gt;%
+  summarise(
+    m = mean(response), 
+    s = sd(response), 
+    n = n() 
+  ) %&gt;%
+  ungroup()
+```
+]
+
+---
+class: inverse
+
+.hand[A more realistic example]
+.pull-left[
+
+```r
+ggplot(
+  data = by_item,
+  mapping = aes(
+    x = test_item, 
+    y = m
+  )
+) +
+geom_point() 
+```
+]
+--
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+]
+
+
+---
+class: inverse
+
+.hand[A more realistic example]
+.pull-left[
+
+```r
+ggplot(
+  data = by_item,
+  mapping = aes(
+    x = test_item, 
+    y = m, 
+*   ymin = m - s,
+*   ymax = m + s
+  )
+) +
+*geom_pointrange()
+```
+]
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
+]
+
+
+
+
+
+
+
 ---
 
 class: middle
-.hand[Wrangling Exercises #3 and #4]
+.hand[Exercises #4 and #5]
+
+
+
+---
+
+
+class: middle, inverse
+
+.pull-left-narrow[
+  .huge-blue-number[4]
+]
+.pull-right-wide[
+  .larger[
+  Exporting the data
+  ]
+]
+
+
+---
+
+class: inverse
+.hand[If we import with read_csv...]
+
+
+```r
+read_csv("data_reasoning.csv")
+```
+
+&lt;br&gt;&lt;br&gt;
+--
+.hand[Then we export with write_csv...]
+
+
+```r
+write_csv(by_item, "summary_reasoning_by_item.csv")
+```
+
+
+
+---
+
+class: middle
+.hand[Exercise #6]
+
+
+---
+
+class: middle, inverse
+
+.pull-left-narrow[
+  .huge-blue-number[5]
+]
+.pull-right-wide[
+  .larger[
+  Other data formats
+  ]
+]
+
+
+---
+
+.hand[Not in this class, but for future reference...]
+- Excel files? `readxl` package
+- SPSS, Stata or SAS? `haven` package
+- JSON format? `jsonlite` package
+- Databases? `dbplyr` package
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

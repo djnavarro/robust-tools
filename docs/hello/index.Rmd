@@ -172,6 +172,25 @@ class: middle
 
 ---
 
+class: middle
+
+.pull-left[
+```{r, ref.label="summary.plot", echo=FALSE, warning=FALSE, message = FALSE, fig.height=6}
+```
+]
+
+.pull-right[
+<br><br>
+.hand[Exercise #1: discussion!]
+
+```{r echo=FALSE}
+countdown(minutes = 1, color_background = "white")
+```
+]
+
+
+---
+
 class: middle, inverse
 
 .pull-left-narrow[
@@ -195,6 +214,24 @@ frames <- read_csv(file = "data_reasoning.csv")
 ```
 --
 ```{r ref.label="read-data", echo=FALSE, warning=FALSE}
+```
+
+
+---
+
+class: inverse
+.hand[Click on "frames" in the environment pane]
+```{r, echo=FALSE, out.width=900}
+knitr::include_graphics("img/view_frames_0.png")
+```
+
+
+---
+
+class: inverse
+.hand[Click on "frames" in the environment pane]
+```{r, echo=FALSE, out.width=900}
+knitr::include_graphics("img/view_frames_1.png")
 ```
 
 
@@ -226,7 +263,7 @@ glimpse(frames, width = 59)
 ---
 
 class: middle
-.hand[Wrangling Exercise #1]
+.hand[Exercise #2]
 
 ---
 
@@ -270,8 +307,6 @@ frames %>%
 
 class: middle, inverse
 
-.hand[Piping is a good abstraction]
-
 .pull-left-wide[
 ```{}
 data %>% 
@@ -288,7 +323,7 @@ data %>%
 ---
 
 class: middle
-.hand[Wrangling Exercise #2]
+.hand[Exercise #3]
 
 ---
 
@@ -389,14 +424,143 @@ frames %>%
 - i've done it to fit the slides
 - don't do it in real life
 
+
+---
+class: inverse
+
+.hand[A more realistic example]
+.pull-left[
+```{r summarise-var, results='hide'}
+by_item <- frames %>% #<<
+  group_by(test_item) %>%
+  summarise(
+    m = mean(response), 
+    s = sd(response), 
+    n = n() 
+  ) %>%
+  ungroup()
+```
+]
+
+---
+class: inverse
+
+.hand[A more realistic example]
+.pull-left[
+```{r summarise-plot, results='hide', fig.show='hide'}
+ggplot(
+  data = by_item,
+  mapping = aes(
+    x = test_item, 
+    y = m
+  )
+) +
+geom_point() 
+```
+]
+--
+.pull-right[
+```{r ref.label="summarise-plot", echo=FALSE}
+```
+]
+
+
+---
+class: inverse
+
+.hand[A more realistic example]
+.pull-left[
+```{r summarise-plot2, results='hide', fig.show='hide', warning=FALSE}
+ggplot(
+  data = by_item,
+  mapping = aes(
+    x = test_item, 
+    y = m, 
+    ymin = m - s, #<<
+    ymax = m + s #<<
+  )
+) +
+geom_pointrange()  #<<
+```
+]
+.pull-right[
+```{r ref.label="summarise-plot2", echo=FALSE}
+```
+]
+
+
+
+
+
+
+
 ---
 
 class: middle
-.hand[Wrangling Exercises #3 and #4]
+.hand[Exercises #4 and #5]
 
 
 
+---
 
 
+class: middle, inverse
+
+.pull-left-narrow[
+  .huge-blue-number[4]
+]
+.pull-right-wide[
+  .larger[
+  Exporting the data
+  ]
+]
+
+
+---
+
+class: inverse
+.hand[If we import with read_csv...]
+
+```{r, warning=FALSE, message=FALSE, results="hide"}
+read_csv("data_reasoning.csv")
+```
+
+<br><br>
+--
+.hand[Then we export with write_csv...]
+
+```{r, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
+write_csv(by_item, "summary_reasoning_by_item.csv")
+```
+
+
+
+---
+
+class: middle
+.hand[Exercise #6]
+
+
+---
+
+class: middle, inverse
+
+.pull-left-narrow[
+  .huge-blue-number[5]
+]
+.pull-right-wide[
+  .larger[
+  Other data formats
+  ]
+]
+
+
+---
+
+.hand[Not in this class, but for future reference...]
+- Excel files? `readxl` package
+- SPSS, Stata or SAS? `haven` package
+- JSON format? `jsonlite` package
+- Databases? `dbplyr` package
 
 
