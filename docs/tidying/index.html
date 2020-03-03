@@ -66,18 +66,19 @@ background-size: cover
 ```r
 library(tidyverse)
 swow &lt;- read_tsv(file = "data_swow.csv.zip")
+swow &lt;- swow %&gt;% mutate(id = 1:n())
 ```
 --
 
 ```
-## # A tibble: 483,636 x 5
-*##   cue   response    R1     N R1.Strength
-##   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;
-## 1 a     one         21    97      0.216 
-## 2 a     the         16    97      0.165 
-## 3 a     b            9    97      0.0928
-## 4 a     an           4    97      0.0412
-## 5 a     first        3    97      0.0309
+## # A tibble: 483,636 x 6
+*##   cue   response    R1     N R1.Strength    id
+##   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;
+## 1 a     one         21    97      0.216      1
+## 2 a     the         16    97      0.165      2
+## 3 a     b            9    97      0.0928     3
+## 4 a     an           4    97      0.0412     4
+## 5 a     first        3    97      0.0309     5
 ## # … with 483,631 more rows
 ```
 
@@ -99,14 +100,14 @@ swow &lt;- clean_names(swow)
 --
 
 ```
-## # A tibble: 483,636 x 5
-*##   cue   response    r1     n r1_strength
-##   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;
-## 1 a     one         21    97      0.216 
-## 2 a     the         16    97      0.165 
-## 3 a     b            9    97      0.0928
-## 4 a     an           4    97      0.0412
-## 5 a     first        3    97      0.0309
+## # A tibble: 483,636 x 6
+*##   cue   response    r1     n r1_strength    id
+##   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;
+## 1 a     one         21    97      0.216      1
+## 2 a     the         16    97      0.165      2
+## 3 a     b            9    97      0.0928     3
+## 4 a     an           4    97      0.0412     4
+## 5 a     first        3    97      0.0309     5
 ## # … with 483,631 more rows
 ```
 
@@ -129,12 +130,12 @@ swow &lt;- swow %&gt;%
 --
 
 ```
-## # A tibble: 483,636 x 5
-*##   cue   response n_response n_total strength
-##   &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-## 1 a     one              21      97   0.216 
-## 2 a     the              16      97   0.165 
-## 3 a     b                 9      97   0.0928
+## # A tibble: 483,636 x 6
+*##   cue   response n_response n_total strength    id
+##   &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;
+## 1 a     one              21      97   0.216      1
+## 2 a     the              16      97   0.165      2
+## 3 a     b                 9      97   0.0928     3
 ## # … with 483,633 more rows
 ```
 
@@ -199,13 +200,13 @@ swow %&gt;%
 --
 
 ```
-## # A tibble: 28 x 5
-##   cue   response n_response n_total strength
-##   &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-## 1 woman man              38     100     0.38
-## 2 woman female           22     100     0.22
-## 3 woman girl              7     100     0.07
-## 4 woman lady              5     100     0.05
+## # A tibble: 28 x 6
+##   cue   response n_response n_total strength     id
+##   &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;int&gt;
+## 1 woman man              38     100     0.38 477315
+## 2 woman female           22     100     0.22 477316
+## 3 woman girl              7     100     0.07 477317
+## 4 woman lady              5     100     0.05 477318
 ## # … with 24 more rows
 ```
 
@@ -371,15 +372,15 @@ swow %&gt;%
 ```
 
 ```
-## # A tibble: 8 x 5
-##   cue   response n_response n_total strength
-##   &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-## 1 woman man              38     100     0.38
-## 2 woman female           22     100     0.22
-## 3 woman girl              7     100     0.07
-## 4 woman lady              5     100     0.05
-## 5 woman beauty            2     100     0.02
-## 6 woman me                2     100     0.02
+## # A tibble: 8 x 6
+##   cue   response n_response n_total strength     id
+##   &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;int&gt;
+## 1 woman man              38     100     0.38 477315
+## 2 woman female           22     100     0.22 477316
+## 3 woman girl              7     100     0.07 477317
+## 4 woman lady              5     100     0.05 477318
+## 5 woman beauty            2     100     0.02 477319
+## 6 woman me                2     100     0.02 477320
 ## # … with 2 more rows
 ```
 
@@ -398,15 +399,15 @@ swow %&gt;%
 ```
 
 ```
-## # A tibble: 200 x 5
-##   cue           response n_response n_total strength
-##   &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-## 1 abuse         woman             2     100   0.02  
-## 2 actress       woman             7     100   0.07  
-## 3 Amazon        woman             2     100   0.02  
-## 4 American      woman             2     100   0.02  
-## 5 apron         woman             2      98   0.0204
-## 6 argumentative woman             2     100   0.02  
+## # A tibble: 200 x 6
+##   cue           response n_response n_total strength    id
+##   &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;
+## 1 abuse         woman             2     100   0.02    1353
+## 2 actress       woman             7     100   0.07    3921
+## 3 Amazon        woman             2     100   0.02   12286
+## 4 American      woman             2     100   0.02   12941
+## 5 apron         woman             2      98   0.0204 19310
+## 6 argumentative woman             2     100   0.02   20182
 ## # … with 194 more rows
 ```
 
@@ -427,14 +428,14 @@ swow %&gt;%
 --
 
 ```
-## # A tibble: 200 x 5
-##   cue           response n_response n_total strength
-##   &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-## 1 abuse         woman             2     100     0.02
-## 2 Amazon        woman             2     100     0.02
-## 3 American      woman             2     100     0.02
-## 4 argumentative woman             2     100     0.02
-## 5 attract       woman             2     100     0.02
+## # A tibble: 200 x 6
+##   cue           response n_response n_total strength    id
+##   &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;
+## 1 abuse         woman             2     100     0.02  1353
+## 2 Amazon        woman             2     100     0.02 12286
+## 3 American      woman             2     100     0.02 12941
+## 4 argumentative woman             2     100     0.02 20182
+## 5 attract       woman             2     100     0.02 25876
 ## # … with 195 more rows
 ```
 
@@ -455,14 +456,14 @@ swow %&gt;%
 
 
 ```
-## # A tibble: 200 x 5
-##   cue      response n_response n_total strength
-##   &lt;chr&gt;    &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-## 1 man      woman            57      99    0.576
-## 2 lady     woman            36     100    0.36 
-## 3 feminist woman            30      99    0.303
-## 4 female   woman            23      99    0.232
-## 5 pregnant woman            18     100    0.18 
+## # A tibble: 200 x 6
+##   cue      response n_response n_total strength     id
+##   &lt;chr&gt;    &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;int&gt;
+## 1 man      woman            57      99    0.576 258593
+## 2 lady     woman            36     100    0.36  240149
+## 3 feminist woman            30      99    0.303 158641
+## 4 female   woman            23      99    0.232 158492
+## 5 pregnant woman            18     100    0.18  327286
 ## # … with 195 more rows
 ```
 
@@ -477,7 +478,6 @@ background-size: cover
 .hand[&lt;span style="font-size:60pt"&gt;exercise #3&lt;/span&gt;]
 
 - open script `exercise_tidying_03.R`
-- fix filtering: retain *all* responses for `woman_fwd` and `women_bck`
 - create analogous data sets `man_fwd` and `man_bck`
 - arrange all data sets by descending `strength`
 
@@ -508,7 +508,7 @@ background-size: cover
 
 ```r
 swow %&gt;%
-  filter(response == "woman") %&gt;%
+  filter(response == "woman", n_response &gt; 1) %&gt;%
   arrange(desc(strength)) %&gt;%
 * select(cue, response, strength)
 ```
@@ -517,13 +517,13 @@ swow %&gt;%
 
 
 ```
-## # A tibble: 522 x 3
+## # A tibble: 200 x 3
 ##   cue      response strength
 ##   &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;
 ## 1 man      woman       0.576
 ## 2 lady     woman       0.36 
 ## 3 feminist woman       0.303
-## # … with 519 more rows
+## # … with 197 more rows
 ```
 
 
@@ -532,13 +532,13 @@ swow %&gt;%
 background-image: url("img/select_fade.jpg")
 background-size: cover
 
-.hand[Alternative method]
+.hand[Alternative approach...]
 
 
 
 ```r
 swow %&gt;%
-  filter(response == "woman") %&gt;%
+  filter(response == "woman", n_response &gt; 1) %&gt;%
   arrange(desc(strength)) %&gt;%
 * select(-n_response, -n_total)
 ```
@@ -547,13 +547,13 @@ swow %&gt;%
 
 
 ```
-## # A tibble: 522 x 3
-##   cue      response strength
-##   &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;
-## 1 man      woman       0.576
-## 2 lady     woman       0.36 
-## 3 feminist woman       0.303
-## # … with 519 more rows
+## # A tibble: 200 x 4
+##   cue      response strength     id
+##   &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt;
+## 1 man      woman       0.576 258593
+## 2 lady     woman       0.36  240149
+## 3 feminist woman       0.303 158641
+## # … with 197 more rows
 ```
 
 
@@ -574,703 +574,627 @@ background-size: cover
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-
-class: inverse
-.hand[Import data]
-
-
-```r
-library(tidyverse)
-frames &lt;- read_csv(file = "data_reasoning.csv")
-```
---
-
-```
-## # A tibble: 4,725 x 8
-##      id gender   age condition sample_size n_obs test_item
-##   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;
-## 1     1 male      36 category  small           2         1
-## 2     1 male      36 category  small           2         2
-## 3     1 male      36 category  small           2         3
-## 4     1 male      36 category  small           2         4
-## 5     1 male      36 category  small           2         5
-## 6     1 male      36 category  small           2         6
-## # … with 4,719 more rows, and 1 more variable:
-## #   response &lt;dbl&gt;
-```
-
-
----
-
-
-class: inverse
-
-
-
-```r
-mean_resp &lt;- frames %&gt;%
-  group_by(test_item, sample_size, n_obs, condition) %&gt;%
-  summarise(response = mean(response)) %&gt;%
-  ungroup()
-
-*mean_resp %&gt;%
-* filter(sample_size == "small")
-```
-
---
-
-- First section creates the summary tibble
-- Second section applies a filter...
-- ... only retains cases where sample_size = "small"
-
-
----
-class: inverse
-.hand[filter()]
-
-
-```r
-mean_resp 
-```
-
---
-
-
-```
-## # A tibble: 42 x 5
-##   test_item sample_size n_obs condition response
-##       &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-## 1         1 large          12 category      7.60
-## 2         1 large          12 property      7.16
-## 3         1 medium          6 category      7.32
-## 4         1 medium          6 property      6.66
-*## 5         1 small           2 category      6.07
-*## 6         1 small           2 property      5.78
-## # … with 36 more rows
-```
-
-
-
----
-class: inverse
-.hand[filter()]
-
-
-```r
-mean_resp %&gt;% 
-  filter(sample_size == "small")
-```
-
---
-
-
-```
-## # A tibble: 14 x 5
-##   test_item sample_size n_obs condition response
-##       &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-*## 1         1 small           2 category      6.07
-*## 2         1 small           2 property      5.78
-## 3         2 small           2 category      6.26
-## 4         2 small           2 property      6.21
-## 5         3 small           2 category      5.87
-## 6         3 small           2 property      5.24
-## # … with 8 more rows
-```
-
-
-
----
-class: inverse
-.hand[.]
-
-
-```r
-mean_resp %&gt;%
-  filter(sample_size == "small")
-```
-
-```
-## # A tibble: 14 x 5
-##   test_item sample_size n_obs condition response
-##       &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-*## 1         1 small           2 category      6.07
-## 2         1 small           2 property      5.78
-*## 3         2 small           2 category      6.26
-## 4         2 small           2 property      6.21
-## 5         3 small           2 category      5.87
-## 6         3 small           2 property      5.24
-## # … with 8 more rows
-```
-
-
----
-class: inverse
-.hand[arrange()]
-
-
-```r
-mean_resp %&gt;%
-  filter(sample_size == "small") %&gt;%
-* arrange(condition)
-```
-
-```
-## # A tibble: 14 x 5
-##   test_item sample_size n_obs condition response
-##       &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-*## 1         1 small           2 category      6.07
-*## 2         2 small           2 category      6.26
-## 3         3 small           2 category      5.87
-## 4         4 small           2 category      5.11
-## 5         5 small           2 category      4.55
-## # … with 9 more rows
-```
-
----
-class: inverse
-.hand[select()]
-
-
-```r
-mean_resp %&gt;%
-  filter(sample_size == "small") %&gt;%
-  arrange(condition) %&gt;%
-* select(test_item, condition, response)
-```
---
-
-```
-## # A tibble: 14 x 3
-##   test_item condition response
-##       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-## 1         1 category      6.07
-## 2         2 category      6.26
-## 3         3 category      5.87
-## 4         4 category      5.11
-## # … with 10 more rows
-```
-
-
-
----
-class: inverse
-.hand[store output as a variable]
-
-
-```r
-*mean_resp_small &lt;- mean_resp %&gt;%
-  filter(sample_size == "small") %&gt;%
-  arrange(condition) %&gt;%
-  select(test_item, condition, response)
-```
-
----
-class: inverse
-.hand[print output from a variable]
-
-
-```r
-mean_resp_small &lt;- mean_resp %&gt;%
-  filter(sample_size == "small") %&gt;%
-  arrange(condition) %&gt;%
-  select(test_item, condition, response)
-
-*print(mean_resp_small, n = 2)
-```
-
-```
-## # A tibble: 14 x 3
-##   test_item condition response
-##       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-## 1         1 category      6.07
-## 2         2 category      6.26
-## # … with 12 more rows
-```
-
-
-
----
-class: inverse
-.hand[mutate()]
-
-
-```r
-mean_resp_small %&gt;%
-* mutate(generalisation = response/9) %&gt;%
-  print(n = 5)
-```
-
-```
-## # A tibble: 14 x 4
-##   test_item condition response generalisation
-##       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;          &lt;dbl&gt;
-## 1         1 category      6.07          0.674
-## 2         2 category      6.26          0.696
-## 3         3 category      5.87          0.652
-## 4         4 category      5.11          0.568
-## 5         5 category      4.55          0.506
-## # … with 9 more rows
-```
-
----
-class: inverse
-.hand[mutate() and select()]
-
-
-```r
-mean_resp_small %&gt;%
-* mutate(generalisation = response/9) %&gt;%
-* select(-response) %&gt;%
-  print(n = 4)
-```
-
-```
-## # A tibble: 14 x 3
-##   test_item condition generalisation
-##       &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
-## 1         1 category           0.674
-## 2         2 category           0.696
-## 3         3 category           0.652
-## 4         4 category           0.568
-## # … with 10 more rows
-```
-
-
----
-
-class: middle
-.hand[Wrangling Exercises #5 and #6]
-
 ---
 
 class: middle, inverse
+
+background-image: url("img/butterfly.jpg")
+background-size: cover
 
 .pull-left-narrow[
   .huge-blue-number[5]
 ]
 .pull-right-wide[
-  .larger[
-  Pivot
-  ]
+  &lt;br&gt;
+  .larger[.embolden[
+    &amp;nbsp;&amp;nbsp;Mutate
+  ]]
 ]
 
 
+
 ---
-class: inverse
 
-```r
-long_data &lt;- mean_resp_small %&gt;%
-  mutate(generalisation = response/9) %&gt;% 
-  select(-response) %&gt;%
-  arrange(test_item) %&gt;%
-  print(n = 4)
-```
---
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
 
-```
-*## # A tibble: 14 x 3
-##   test_item condition generalisation
-##       &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
-*## 1         1 category           0.674
-*## 2         1 property           0.643
-## 3         2 category           0.696
-## 4         2 property           0.690
-## # … with 10 more rows
-```
+.hand[Digression: Psychological measurement is hard]
+
+
+&lt;img src="index_files/figure-html/mutate0-1.png" width="600" height="400" /&gt;
 
 
 ---
-class: inverse
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Forward: compete with responses to **same** cue]
+
 
 ```r
-wide_data &lt;- long_data %&gt;%
-  pivot_wider(
-*   names_from = condition,
-*   values_from = generalisation
-  ) 
+woman_fwd
+```
+
+
+```
+## # A tibble: 8 x 4
+##   cue   response strength     id
+##   &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt;
+## 1 woman man          0.38 477315
+## 2 woman female       0.22 477316
+## 3 woman girl         0.07 477317
+## 4 woman lady         0.05 477318
+## 5 woman beauty       0.02 477319
+## 6 woman me           0.02 477320
+## # … with 2 more rows
 ```
 
 
 ---
-class: inverse
+
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Backward: compete with responses to **other** cues]
+
 
 ```r
-wide_data &lt;- long_data %&gt;%
-  pivot_wider(
-    names_from = condition, 
-    values_from = generalisation 
-  ) %&gt;% 
-  print(n = 4)
+woman_bck
 ```
 
+
 ```
-*## # A tibble: 7 x 3
-##   test_item category property
-##       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
-*## 1         1    0.674    0.643
-## 2         2    0.696    0.690
-## 3         3    0.652    0.583
-## 4         4    0.568    0.521
+## # A tibble: 200 x 4
+##   cue       response strength     id
+##   &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt;
+## 1 man       woman       0.576 258593
+## 2 lady      woman       0.36  240149
+## 3 feminist  woman       0.303 158641
+## 4 female    woman       0.232 158492
+## 5 pregnant  woman       0.18  327286
+## 6 housewife woman       0.17  209394
+## # … with 194 more rows
+```
+
+---
+
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Use mutate() to compute new variables]
+
+
+```r
+woman_fwd %&gt;%
+  mutate(rank = rank(-strength))
+```
+
+
+```
+## # A tibble: 8 x 5
+##   cue   response strength     id  rank
+##   &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt; &lt;dbl&gt;
+## 1 woman man          0.38 477315   1  
+## 2 woman female       0.22 477316   2  
+## 3 woman girl         0.07 477317   3  
+## 4 woman lady         0.05 477318   4  
+## 5 woman beauty       0.02 477319   6.5
 ## # … with 3 more rows
 ```
 
 
+
 ---
-class: inverse
+
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Use mutate() to compute new variables]
+
 
 ```r
-wide_data %&gt;% 
-  pivot_longer(
-*   cols = c(category, property),
-*   names_to = "condition",
-*   values_to = "generalisation"
-  )
+woman_bck %&gt;%
+  mutate(rank = rank(-strength))
 ```
 
 
+```
+## # A tibble: 200 x 5
+##   cue      response strength     id  rank
+##   &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt; &lt;dbl&gt;
+## 1 man      woman       0.576 258593     1
+## 2 lady     woman       0.36  240149     2
+## 3 feminist woman       0.303 158641     3
+## 4 female   woman       0.232 158492     4
+## 5 pregnant woman       0.18  327286     5
+## # … with 195 more rows
+```
+
+
+
+
 ---
-class: inverse
+
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Use mutate() to compute new variables]
+
 
 ```r
-wide_data %&gt;% 
-  pivot_longer(
-    cols = c(category, property), 
-    names_to = "condition", 
-    values_to = "generalisation"
-  ) %&gt;%
-  print(n = 4)
+woman_bck %&gt;%
+  mutate(rank = rank(-strength), type = "backward")
 ```
 
+
 ```
-## # A tibble: 14 x 3
-##   test_item condition generalisation
-##       &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
-## 1         1 category           0.674
-## 2         1 property           0.643
-## 3         2 category           0.696
-## 4         2 property           0.690
-## # … with 10 more rows
+## # A tibble: 200 x 6
+##   cue      response strength     id  rank type    
+##   &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   
+## 1 man      woman       0.576 258593     1 backward
+## 2 lady     woman       0.36  240149     2 backward
+## 3 feminist woman       0.303 158641     3 backward
+## 4 female   woman       0.232 158492     4 backward
+## 5 pregnant woman       0.18  327286     5 backward
+## # … with 195 more rows
 ```
+
+
 
 ---
 
-class: middle
-.hand[Wrangling Exercise #6]
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Which should we use, "rank" or "strength"?]
+
+&lt;img src="index_files/figure-html/mutate6-1.png" width="600" height="400" /&gt;
+
+---
+
+
+class: inverse, middle
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[&lt;span style="font-size:60pt"&gt;exercise #5&lt;/span&gt;]
+
+- open script `exercise_tidying_05.R`
+- mutate the data sets to include four new variables:
+  - `rank`: see the slides
+  - `type`: either `forward` or `backward` 
+  - `word`: either `man` or `woman`
+  - `associate`: see script for details!
+
+
+
+
 
 
 ---
 
 class: middle, inverse
 
+background-image: url("img/bind.jpg")
+background-size: cover
+
 .pull-left-narrow[
   .huge-blue-number[6]
 ]
 .pull-right-wide[
-  .larger[
-  Combining datasets
-  ]
+  &lt;br&gt;
+  .larger[.embolden[.plainwhite[
+    &amp;nbsp;&amp;nbsp;Bind
+  ]]]
 ]
 
 
+
 ---
-class: inverse
-.hand[sometimes data come in separate files]
+
+
+background-image: url("img/bind_fade.jpg")
+background-size: cover
+
+.hand[Use bind_rows() to stack data sets vertically]
+
+
+
+
 
 ```r
-# sometimes from two different surveys...
-demographics &lt;- read_csv("data_demographics.csv")
-experience &lt;- read_csv("data_experience.csv")
+gender &lt;- bind_rows(woman_fwd, woman_bck, 
+                    man_fwd, man_bck)
+```
 
-# sometimes from two different participants...
-results10 &lt;- read_csv("data_results10.csv")
-results20 &lt;- read_csv("data_results20.csv")
+--
+
+
+```
+*## # A tibble: 505 x 8
+##   cue   response strength     id  rank type    word  associate
+##   &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;    
+## 1 woman man          0.38 477315   1   forward woman man      
+## 2 woman female       0.22 477316   2   forward woman female   
+## 3 woman girl         0.07 477317   3   forward woman girl     
+## 4 woman lady         0.05 477318   4   forward woman lady     
+## 5 woman beauty       0.02 477319   6.5 forward woman beauty   
+## 6 woman me           0.02 477320   6.5 forward woman me       
+## # … with 499 more rows
 ```
 
 
 
 ---
-class: inverse
-.hand[we want to "stack" these vertically...]
+
+
+background-image: url("img/bind_fade.jpg")
+background-size: cover
+
+.hand[Clean up using select()...]
+
+
 
 ```r
-results10
+gender &lt;- bind_rows(woman_fwd, woman_bck, 
+                    man_fwd, man_bck) %&gt;%
+  select(id:associate)
 ```
 
-```
-## # A tibble: 60 x 5
-##   participant feature    est  true band   
-##         &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  
-## 1          10 PLCW.6.5     3  1.57 Band 01
-## 2          10 PLCY.6.A    15  1.97 Band 01
-## 3          10 PLCZ.3.2     8  2.1  Band 01
-## 4          10 PUCX.4.b     5  1.10 Band 01
-## 5          10 PUCC.8.7    30  1.10 Band 01
-## 6          10 PUCF.8.7    30  1.13 Band 01
-## # … with 54 more rows
-```
 
+```
+## # A tibble: 505 x 5
+##       id  rank type    word  associate
+##    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;    
+## 1 477315   1   forward woman man      
+## 2 477316   2   forward woman female   
+## 3 477317   3   forward woman girl     
+## 4 477318   4   forward woman lady     
+## 5 477319   6.5 forward woman beauty   
+## # … with 500 more rows
+```
 
 ---
-class: inverse
-.hand[we want to "stack" these vertically...]
+
+
+background-image: url("img/bind_fade.jpg")
+background-size: cover
+
+.hand[Clean up using select() and filter()]
+
+
 
 ```r
-results20
+gender &lt;- bind_rows(woman_fwd, woman_bck, 
+                    man_fwd, man_bck) %&gt;%
+  select(id:associate) %&gt;%
+  filter(associate != "man", associate != "woman")
 ```
 
+
 ```
-*## # A tibble: 60 x 5
-##   participant feature    est  true band   
-##         &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  
-## 1          20 PLCW.6.5    15  1.57 Band 01
-## 2          20 PLCY.6.A    60  1.97 Band 01
-## 3          20 PLCZ.3.2    10  2.1  Band 01
-## 4          20 PUCX.4.b    65  1.10 Band 01
-## 5          20 PUCC.8.7    35  1.10 Band 01
-## 6          20 PUCF.8.7    50  1.13 Band 01
-## # … with 54 more rows
+## # A tibble: 501 x 5
+##       id  rank type    word  associate
+##    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;    
+## 1 477316   2   forward woman female   
+## 2 477317   3   forward woman girl     
+## 3 477318   4   forward woman lady     
+## 4 477319   6.5 forward woman beauty   
+## # … with 497 more rows
 ```
+
+
+
+
 
 
 ---
-class: inverse
-.hand[we want to "stack" these vertically... with **bind_rows()**]
+
+
+background-image: url("img/bind_fade.jpg")
+background-size: cover
+
+.hand[Check that it worked!]
+
+.pull-left[
 
 ```r
-bind_rows(results10, results20)
+gender %&gt;%
+  group_by(word, type) %&gt;%
+  count()
 ```
+]
+--
+.pull-right[
 
 ```
-*## # A tibble: 120 x 5
-##   participant feature    est  true band   
-##         &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  
-## 1          10 PLCW.6.5     3  1.57 Band 01
-## 2          10 PLCY.6.A    15  1.97 Band 01
-## 3          10 PLCZ.3.2     8  2.1  Band 01
-## 4          10 PUCX.4.b     5  1.10 Band 01
-## 5          10 PUCC.8.7    30  1.10 Band 01
-## 6          10 PUCF.8.7    30  1.13 Band 01
-## # … with 114 more rows
+## # A tibble: 4 x 3
+## # Groups:   word, type [4]
+##   word  type         n
+##   &lt;chr&gt; &lt;chr&gt;    &lt;int&gt;
+## 1 man   backward   288
+## 2 man   forward      7
+## 3 woman backward   199
+## 4 woman forward      7
 ```
+]
 
----
-class: inverse
-.hand[we want to "stack" these vertically... with **bind_rows()**]
-
-```r
-bind_rows(results10, results20) %&gt;% arrange(feature)
-```
-
-```
-## # A tibble: 120 x 5
-##   participant feature    est  true band   
-##         &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  
-*## 1          10 CLCE.2.1    95  99.1 Band 99
-*## 2          20 CLCE.2.1    99  99.1 Band 99
-## 3          10 CLCF.2.1    80  79.8 Band 75
-## 4          20 CLCF.2.1    50  79.8 Band 75
-## 5          10 CLCF.6.5    70  50.9 Band 50
-## 6          20 CLCF.6.5    65  50.9 Band 50
-## # … with 114 more rows
-```
 
 
 
 ---
 
-class: middle
-.hand[Wrangling Exercise #7]
+class: middle, inverse
+
+background-image: url("img/join_dark.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[7]
+]
+.pull-right-wide[
+  &lt;br&gt;
+  .larger[.embolden[.plainwhite[
+    &amp;nbsp;&amp;nbsp;Join
+  ]]]
+]
 
 
 
----
-class: inverse
-.hand[we can stack horizontally with **bind_cols()**]
+&lt;!-- class: middle, inverse --&gt;
 
-```r
-demographics
-```
-
-```
-## # A tibble: 2 x 3
-##   participant us       age
-##         &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
-## 1          10 US        33
-## 2          20 Non-US    32
-```
-
----
-class: inverse
-.hand[we can stack horizontally with **bind_cols()**]
-
-```r
-experience
-```
-
-```
-## # A tibble: 2 x 7
-##   participant handwriting_exp… forensic_scient…
-##         &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;           
-## 1          10 HW Expert        Yes             
-## 2          20 HW Expert        Yes             
-## # … with 4 more variables: forensic_specialty &lt;chr&gt;,
-## #   handwriting_reports &lt;dbl&gt;, confidence &lt;dbl&gt;,
-## #   familiarity &lt;dbl&gt;
-```
-
----
-class: inverse
-.hand[we can stack horizontally with **bind_cols()**, though...]
-
-```r
-bind_cols(demographics, experience)
-```
-
-```
-## # A tibble: 2 x 10
-##   participant us      age participant1 handwriting_exp…
-##         &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;           
-## 1          10 US       33           10 HW Expert       
-## 2          20 Non-…    32           20 HW Expert       
-## # … with 5 more variables: forensic_scientist &lt;chr&gt;,
-## #   forensic_specialty &lt;chr&gt;, handwriting_reports &lt;dbl&gt;,
-## #   confidence &lt;dbl&gt;, familiarity &lt;dbl&gt;
-```
+&lt;!-- .pull-left-narrow[ --&gt;
+&lt;!--   .huge-blue-number[5] --&gt;
+&lt;!-- ] --&gt;
+&lt;!-- .pull-right-wide[ --&gt;
+&lt;!--   .larger[ --&gt;
+&lt;!--   Pivot --&gt;
+&lt;!--   ] --&gt;
+&lt;!-- ] --&gt;
 
 
----
-class: inverse
-.hand[... we may prefer to "merge" using **full_join()**]
-
-```r
-full_join(demographics, experience)
-```
-
-```
-## Joining, by = "participant"
-```
-
-```
-## # A tibble: 2 x 9
-##   participant us      age handwriting_exp…
-##         &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;           
-## 1          10 US       33 HW Expert       
-## 2          20 Non-…    32 HW Expert       
-## # … with 5 more variables: forensic_scientist &lt;chr&gt;,
-## #   forensic_specialty &lt;chr&gt;, handwriting_reports &lt;dbl&gt;,
-## #   confidence &lt;dbl&gt;, familiarity &lt;dbl&gt;
-```
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- ```{r setup_reshape, results='hide'} --&gt;
+&lt;!-- long_data &lt;- mean_resp_small %&gt;% --&gt;
+&lt;!--   mutate(generalisation = response/9) %&gt;%  --&gt;
+&lt;!--   select(-response) %&gt;% --&gt;
+&lt;!--   arrange(test_item) %&gt;% --&gt;
+&lt;!--   print(n = 4) --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- -- --&gt;
+&lt;!-- ```{r ref.label="setup_reshape", echo=FALSE, highlight.output = c(1,4,5)} --&gt;
+&lt;!-- ``` --&gt;
 
 
----
-class: inverse
-.hand[discussion... what will this do?]
-
-```r
-surveys &lt;- full_join(demographics, experience)
-results &lt;- full_join(results10, results20)
-```
-
-
-
----
-class: inverse
-.hand[discussion... what will this do?]
-
-```r
-surveys %&gt;% print(width = 58)
-```
-
-```
-## # A tibble: 2 x 9
-##   participant us      age handwriting_exp…
-##         &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;           
-## 1          10 US       33 HW Expert       
-## 2          20 Non-…    32 HW Expert       
-## # … with 5 more variables: forensic_scientist &lt;chr&gt;,
-## #   forensic_specialty &lt;chr&gt;, handwriting_reports &lt;dbl&gt;,
-## #   confidence &lt;dbl&gt;, familiarity &lt;dbl&gt;
-```
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- ```{r, results='hide'} --&gt;
+&lt;!-- wide_data &lt;- long_data %&gt;% --&gt;
+&lt;!--   pivot_wider( --&gt;
+&lt;!--     names_from = condition, #&lt;&lt;  --&gt;
+&lt;!--     values_from = generalisation #&lt;&lt; --&gt;
+&lt;!--   )  --&gt;
+&lt;!-- ``` --&gt;
 
 
----
-class: inverse
-.hand[discussion... what will this do?]
-
-```r
-results %&gt;% arrange(feature) %&gt;% print(n = 6)
-```
-
-```
-## # A tibble: 120 x 5
-##   participant feature    est  true band   
-##         &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  
-## 1          10 CLCE.2.1    95  99.1 Band 99
-## 2          20 CLCE.2.1    99  99.1 Band 99
-## 3          10 CLCF.2.1    80  79.8 Band 75
-## 4          20 CLCF.2.1    50  79.8 Band 75
-## 5          10 CLCF.6.5    70  50.9 Band 50
-## 6          20 CLCF.6.5    65  50.9 Band 50
-## # … with 114 more rows
-```
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- ```{r, eval=TRUE, highlight.output = c(1,4)} --&gt;
+&lt;!-- wide_data &lt;- long_data %&gt;% --&gt;
+&lt;!--   pivot_wider( --&gt;
+&lt;!--     names_from = condition,  --&gt;
+&lt;!--     values_from = generalisation  --&gt;
+&lt;!--   ) %&gt;%  --&gt;
+&lt;!--   print(n = 4) --&gt;
+&lt;!-- ``` --&gt;
 
 
----
-class: inverse
-.hand[discussion... what will this do?]
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- ```{r, results='hide'} --&gt;
+&lt;!-- wide_data %&gt;%  --&gt;
+&lt;!--   pivot_longer( --&gt;
+&lt;!--     cols = c(category, property), #&lt;&lt; --&gt;
+&lt;!--     names_to = "condition", #&lt;&lt; --&gt;
+&lt;!--     values_to = "generalisation" #&lt;&lt; --&gt;
+&lt;!--   ) --&gt;
+&lt;!-- ``` --&gt;
 
-```r
-full_join(surveys, results)
-```
+
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- ```{r, eval=TRUE} --&gt;
+&lt;!-- wide_data %&gt;%  --&gt;
+&lt;!--   pivot_longer( --&gt;
+&lt;!--     cols = c(category, property),  --&gt;
+&lt;!--     names_to = "condition",  --&gt;
+&lt;!--     values_to = "generalisation" --&gt;
+&lt;!--   ) %&gt;% --&gt;
+&lt;!--   print(n = 4) --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- class: middle --&gt;
+&lt;!-- .hand[Wrangling Exercise #6] --&gt;
 
 
----
-class: inverse
-.hand[discussion... what will this do?]
+&lt;!-- --- --&gt;
 
-```r
-full_join(surveys, results) %&gt;% print(n = 4, width = 58)
-```
+&lt;!-- class: middle, inverse --&gt;
 
-```
-## Joining, by = "participant"
-```
+&lt;!-- .pull-left-narrow[ --&gt;
+&lt;!--   .huge-blue-number[6] --&gt;
+&lt;!-- ] --&gt;
+&lt;!-- .pull-right-wide[ --&gt;
+&lt;!--   .larger[ --&gt;
+&lt;!--   Combining datasets --&gt;
+&lt;!--   ] --&gt;
+&lt;!-- ] --&gt;
 
-```
-## # A tibble: 120 x 13
-##   participant us      age handwriting_exp…
-##         &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;           
-## 1          10 US       33 HW Expert       
-## 2          10 US       33 HW Expert       
-## 3          10 US       33 HW Expert       
-## 4          10 US       33 HW Expert       
-## # … with 116 more rows, and 9 more variables:
-## #   forensic_scientist &lt;chr&gt;, forensic_specialty &lt;chr&gt;,
-## #   handwriting_reports &lt;dbl&gt;, confidence &lt;dbl&gt;,
-## #   familiarity &lt;dbl&gt;, feature &lt;chr&gt;, est &lt;dbl&gt;,
-## #   true &lt;dbl&gt;, band &lt;chr&gt;
-```
+
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- .hand[sometimes data come in separate files] --&gt;
+&lt;!-- ```{r, message=FALSE} --&gt;
+&lt;!-- # sometimes from two different surveys... --&gt;
+&lt;!-- demographics &lt;- read_csv("data_demographics.csv") --&gt;
+&lt;!-- experience &lt;- read_csv("data_experience.csv") --&gt;
+
+&lt;!-- # sometimes from two different participants... --&gt;
+&lt;!-- results10 &lt;- read_csv("data_results10.csv") --&gt;
+&lt;!-- results20 &lt;- read_csv("data_results20.csv") --&gt;
+&lt;!-- ``` --&gt;
 
 
 
----
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- .hand[we want to "stack" these vertically...] --&gt;
+&lt;!-- ```{r, eval=FALSE} --&gt;
+&lt;!-- results10 --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- ```{r, echo=FALSE} --&gt;
+&lt;!-- print(results10, n = 6) --&gt;
+&lt;!-- ``` --&gt;
 
-class: middle
-.hand[Wrangling Exercise #8]
+
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- .hand[we want to "stack" these vertically...] --&gt;
+&lt;!-- ```{r, eval=FALSE} --&gt;
+&lt;!-- results20 --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- ```{r, echo=FALSE, highlight.output=1} --&gt;
+&lt;!-- print(results20, n = 6) --&gt;
+&lt;!-- ``` --&gt;
+
+
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- .hand[we want to "stack" these vertically... with **bind_rows()**] --&gt;
+&lt;!-- ```{r, eval=FALSE} --&gt;
+&lt;!-- bind_rows(results10, results20) --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- ```{r, echo=FALSE, highlight.output=1} --&gt;
+&lt;!-- print(bind_rows(results10, results20), n = 6) --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- .hand[we want to "stack" these vertically... with **bind_rows()**] --&gt;
+&lt;!-- ```{r, eval=FALSE} --&gt;
+&lt;!-- bind_rows(results10, results20) %&gt;% arrange(feature) --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- ```{r, echo=FALSE, highlight.output=4:5} --&gt;
+&lt;!-- print(bind_rows(results10, results20) %&gt;% arrange(feature), n = 6) --&gt;
+&lt;!-- ``` --&gt;
+
+
+
+&lt;!-- --- --&gt;
+
+&lt;!-- class: middle --&gt;
+&lt;!-- .hand[Wrangling Exercise #7] --&gt;
+
+
+
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- .hand[we can stack horizontally with **bind_cols()**] --&gt;
+&lt;!-- ```{r, message=FALSE} --&gt;
+&lt;!-- demographics --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- .hand[we can stack horizontally with **bind_cols()**] --&gt;
+&lt;!-- ```{r, eval=FALSE} --&gt;
+&lt;!-- experience --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- ```{r, echo=FALSE} --&gt;
+&lt;!-- print(experience, width=58) --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- .hand[we can stack horizontally with **bind_cols()**, though...] --&gt;
+&lt;!-- ```{r, eval=FALSE} --&gt;
+&lt;!-- bind_cols(demographics, experience) --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- ```{r, echo=FALSE} --&gt;
+&lt;!-- survey &lt;- bind_cols(demographics, experience) --&gt;
+&lt;!-- print(survey, width=58) --&gt;
+&lt;!-- ``` --&gt;
+
+
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- .hand[... we may prefer to "merge" using **full_join()**] --&gt;
+&lt;!-- ```{r, eval=FALSE} --&gt;
+&lt;!-- full_join(demographics, experience) --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- ```{r, echo=FALSE} --&gt;
+&lt;!-- survey &lt;- full_join(demographics, experience) --&gt;
+&lt;!-- print(survey, width=58) --&gt;
+&lt;!-- ``` --&gt;
+
+
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- .hand[discussion... what will this do?] --&gt;
+&lt;!-- ```{r, results='hide', message = FALSE} --&gt;
+&lt;!-- surveys &lt;- full_join(demographics, experience) --&gt;
+&lt;!-- results &lt;- full_join(results10, results20) --&gt;
+&lt;!-- ``` --&gt;
+
+
+
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- .hand[discussion... what will this do?] --&gt;
+&lt;!-- ```{r} --&gt;
+&lt;!-- surveys %&gt;% print(width = 58) --&gt;
+&lt;!-- ``` --&gt;
+
+
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- .hand[discussion... what will this do?] --&gt;
+&lt;!-- ```{r} --&gt;
+&lt;!-- results %&gt;% arrange(feature) %&gt;% print(n = 6) --&gt;
+&lt;!-- ``` --&gt;
+
+
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- .hand[discussion... what will this do?] --&gt;
+&lt;!-- ```{r, eval=FALSE} --&gt;
+&lt;!-- full_join(surveys, results) --&gt;
+&lt;!-- ``` --&gt;
+
+
+&lt;!-- --- --&gt;
+&lt;!-- class: inverse --&gt;
+&lt;!-- .hand[discussion... what will this do?] --&gt;
+&lt;!-- ```{r} --&gt;
+&lt;!-- full_join(surveys, results) %&gt;% print(n = 4, width = 58) --&gt;
+&lt;!-- ``` --&gt;
+
+
+
+&lt;!-- --- --&gt;
+
+&lt;!-- class: middle --&gt;
+&lt;!-- .hand[Wrangling Exercise #8] --&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

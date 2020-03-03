@@ -65,6 +65,7 @@ background-size: cover
 ```{r read-swow, warning=FALSE, message=FALSE, results='hide'}
 library(tidyverse)
 swow <- read_tsv(file = "data_swow.csv.zip")
+swow <- swow %>% mutate(id = 1:n())
 ```
 --
 ```{r read-swow2, echo=FALSE, warning=FALSE, highlight.output=2}
@@ -410,7 +411,6 @@ background-size: cover
 .hand[<span style="font-size:60pt">exercise #3</span>]
 
 - open script `exercise_tidying_03.R`
-- fix filtering: retain *all* responses for `woman_fwd` and `women_bck`
 - create analogous data sets `man_fwd` and `man_bck`
 - arrange all data sets by descending `strength`
 
@@ -440,7 +440,7 @@ background-size: cover
 
 ```{r select1, warning=FALSE, message=FALSE, results='hide', fig.show='hide'}
 swow %>%
-  filter(response == "woman") %>%
+  filter(response == "woman", n_response > 1) %>%
   arrange(desc(strength)) %>%
   select(cue, response, strength) #<<
 ```
@@ -449,7 +449,7 @@ swow %>%
 
 ```{r select1-print, echo=FALSE}
 swow %>%
-  filter(response == "woman") %>%
+  filter(response == "woman", n_response > 1) %>%
   arrange(desc(strength)) %>%
   select(cue, response, strength) %>%
   print(n = 3)
@@ -461,12 +461,12 @@ swow %>%
 background-image: url("img/select_fade.jpg")
 background-size: cover
 
-.hand[Alternative method]
+.hand[Alternative approach...]
 
 
 ```{r select2, warning=FALSE, message=FALSE, results='hide', fig.show='hide'}
 swow %>%
-  filter(response == "woman") %>%
+  filter(response == "woman", n_response > 1) %>%
   arrange(desc(strength)) %>%
   select(-n_response, -n_total) #<<
 ```
@@ -475,7 +475,7 @@ swow %>%
 
 ```{r select2-print, echo=FALSE}
 swow %>%
-  filter(response == "woman") %>%
+  filter(response == "woman", n_response > 1) %>%
   arrange(desc(strength)) %>%
   select(-n_response, -n_total) %>%
   print(n = 3)
@@ -499,447 +499,601 @@ background-size: cover
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-
-class: inverse
-.hand[Import data]
-
-```{r read-data, warning=FALSE, message=FALSE, results='hide'}
-library(tidyverse)
-frames <- read_csv(file = "data_reasoning.csv")
-```
---
-```{r read-data2, echo=FALSE, warning=FALSE}
-print(frames, n = 6, width = 59)
-```
-
-
----
-
-
-class: inverse
-
-
-```{r average-response, results='hide'}
-mean_resp <- frames %>%
-  group_by(test_item, sample_size, n_obs, condition) %>%
-  summarise(response = mean(response)) %>%
-  ungroup()
-
-mean_resp %>% #<<
-  filter(sample_size == "small") #<<
-```
-
---
-
-- First section creates the summary tibble
-- Second section applies a filter...
-- ... only retains cases where sample_size = "small"
-
-
----
-class: inverse
-.hand[filter()]
-
-```{r, results='hide', highlight.output = c(4,5)}
-mean_resp 
-```
-
---
-
-```{r average-response2c, echo=FALSE, highlight.output = c(8,9)}
-mean_resp %>% 
-  print(n=6)
-```
-
-
-
----
-class: inverse
-.hand[filter()]
-
-```{r average-response2, results='hide', highlight.output = c(4,5)}
-mean_resp %>% 
-  filter(sample_size == "small")
-```
-
---
-
-```{r average-response2b, echo=FALSE, highlight.output = c(4,5)}
-mean_resp %>% 
-  filter(sample_size == "small") %>%
-  print(n=6)
-```
-
-
-
----
-class: inverse
-.hand[.]
-
-```{r, results='hide'}
-mean_resp %>%
-  filter(sample_size == "small")
-```
-```{r, echo=FALSE, highlight.output = c(4,6)}
-mean_resp %>%
-  filter(sample_size == "small") %>%
-  print(n=6)
-```
-
-
----
-class: inverse
-.hand[arrange()]
-
-```{r, results='hide'}
-mean_resp %>%
-  filter(sample_size == "small") %>%
-  arrange(condition) #<<
-```
-```{r, echo=FALSE, highlight.output = 4:5}
-mean_resp %>%
-  filter(sample_size == "small") %>%
-  arrange(condition) %>%
-  print(n=5)
-```
-
----
-class: inverse
-.hand[select()]
-
-```{r, results='hide'}
-mean_resp %>%
-  filter(sample_size == "small") %>%
-  arrange(condition) %>%
-  select(test_item, condition, response) #<<
-```
---
-```{r, echo=FALSE}
-mean_resp %>%
-  filter(sample_size == "small") %>%
-  arrange(condition) %>%
-  select(test_item, condition, response) %>%
-  print(n=4)
-```
-
-
-
----
-class: inverse
-.hand[store output as a variable]
-
-```{r, eval=TRUE}
-mean_resp_small <- mean_resp %>% #<<
-  filter(sample_size == "small") %>%
-  arrange(condition) %>%
-  select(test_item, condition, response)
-```
-
----
-class: inverse
-.hand[print output from a variable]
-
-```{r, eval=TRUE}
-mean_resp_small <- mean_resp %>%
-  filter(sample_size == "small") %>%
-  arrange(condition) %>%
-  select(test_item, condition, response)
-
-print(mean_resp_small, n = 2) #<<
-```
-
-
-
----
-class: inverse
-.hand[mutate()]
-
-```{r, eval=TRUE}
-mean_resp_small %>%
-  mutate(generalisation = response/9) %>% #<<
-  print(n = 5)
-```
-
----
-class: inverse
-.hand[mutate() and select()]
-
-```{r, eval=TRUE}
-mean_resp_small %>%
-  mutate(generalisation = response/9) %>% #<<
-  select(-response) %>% #<<
-  print(n = 4)
-```
-
-
----
-
-class: middle
-.hand[Wrangling Exercises #5 and #6]
-
 ---
 
 class: middle, inverse
+
+background-image: url("img/butterfly.jpg")
+background-size: cover
 
 .pull-left-narrow[
   .huge-blue-number[5]
 ]
 .pull-right-wide[
-  .larger[
-  Pivot
-  ]
+  <br>
+  .larger[.embolden[
+    &nbsp;&nbsp;Mutate
+  ]]
 ]
 
 
----
-class: inverse
-```{r setup_reshape, results='hide'}
-long_data <- mean_resp_small %>%
-  mutate(generalisation = response/9) %>% 
-  select(-response) %>%
-  arrange(test_item) %>%
-  print(n = 4)
-```
---
-```{r ref.label="setup_reshape", echo=FALSE, highlight.output = c(1,4,5)}
-```
-
 
 ---
-class: inverse
-```{r, results='hide'}
-wide_data <- long_data %>%
-  pivot_wider(
-    names_from = condition, #<< 
-    values_from = generalisation #<<
-  ) 
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Digression: Psychological measurement is hard]
+
+
+```{r mutate0, warning=FALSE, message=FALSE, echo=FALSE, out.height=400, out.width=600}
+# extractor function
+get_associates <- function(data, word, by, thresh = 1) {
+  data %>%
+    filter({{by}} == word, n_response > thresh) %>%
+    arrange(desc(strength)) %>%
+    mutate(
+      rank = rank(-strength),
+      word = word, 
+      type = deparse(rlang::enexpr(by)) %>% 
+        fct_recode("forward" = "cue", "backward" = "response"),
+      associate = if_else(type == "forward", true = response, false = cue)
+      ) %>%
+    select(cue, response, strength, id, rank, type, word, associate)
+}
+
+# four data sets
+woman_fwd <- get_associates(data = swow, word = "woman", by = cue)
+woman_bck <- get_associates(data = swow, word = "woman", by = response)
+man_fwd <- get_associates(data = swow, word = "man", by = cue)
+man_bck <- get_associates(data = swow, word = "man", by = response)
+
+# bind
+gender <- bind_rows(
+  woman_fwd, woman_bck, man_fwd, man_bck
+)
+
+
+# remove added variables to avoid later confusion
+woman_fwd <- woman_fwd %>% select(cue, response, strength, id)
+woman_bck <- woman_bck %>% select(cue, response, strength, id)
+man_fwd <- man_fwd %>% select(cue, response, strength, id)
+man_bck <- man_bck %>% select(cue, response, strength, id)
+
+# plot
+ggplot(gender) + 
+  geom_histogram(aes(x = strength)) + 
+  facet_grid(vars(word), vars(type)) + 
+  scale_y_log10() + 
+  xlab("associative strength") + 
+  ylab("frequency (logarithmic scale)") + 
+  coord_cartesian(xlim = c(0, .25))
 ```
 
 
 ---
-class: inverse
-```{r, eval=TRUE, highlight.output = c(1,4)}
-wide_data <- long_data %>%
-  pivot_wider(
-    names_from = condition, 
-    values_from = generalisation 
-  ) %>% 
-  print(n = 4)
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Forward: compete with responses to **same** cue]
+
+```{r mutate1, results="hide"}
+woman_fwd
+```
+
+```{r mutate1-print, echo=FALSE}
+woman_fwd %>% print(n = 6)
 ```
 
 
 ---
-class: inverse
-```{r, results='hide'}
-wide_data %>% 
-  pivot_longer(
-    cols = c(category, property), #<<
-    names_to = "condition", #<<
-    values_to = "generalisation" #<<
-  )
+
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Backward: compete with responses to **other** cues]
+
+```{r mutate2, results="hide"}
+woman_bck
+```
+
+```{r mutate2-print, echo=FALSE}
+woman_bck %>% print(n = 6)
+```
+
+---
+
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Use mutate() to compute new variables]
+
+```{r mutate3, results="hide"}
+woman_fwd %>%
+  mutate(rank = rank(-strength))
+```
+
+```{r mutate3-print, echo=FALSE}
+woman_fwd %>%
+  mutate(rank = rank(-strength)) %>%
+  print(n = 5)
 ```
 
 
+
 ---
-class: inverse
-```{r, eval=TRUE}
-wide_data %>% 
-  pivot_longer(
-    cols = c(category, property), 
-    names_to = "condition", 
-    values_to = "generalisation"
+
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Use mutate() to compute new variables]
+
+```{r mutate4, results="hide"}
+woman_bck %>%
+  mutate(rank = rank(-strength))
+```
+
+```{r mutate4-print, echo=FALSE}
+woman_bck %>%
+  mutate(rank = rank(-strength)) %>%
+  print(n = 5)
+```
+
+
+
+
+---
+
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Use mutate() to compute new variables]
+
+```{r mutate5, results="hide"}
+woman_bck %>%
+  mutate(rank = rank(-strength), type = "backward")
+```
+
+```{r mutate5-print, echo=FALSE}
+woman_bck %>%
+  mutate(rank = rank(-strength), type = "backward") %>%
+  print(n = 5)
+```
+
+
+
+---
+
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Which should we use, "rank" or "strength"?]
+
+```{r mutate6, echo=FALSE, out.height=400, out.width=600}
+ggplot(
+  data = bind_rows(
+    woman_fwd %>% mutate(rank = rank(-strength), type = "forward"),
+    woman_bck %>% mutate(rank = rank(-strength), type = "backward")
   ) %>%
-  print(n = 4)
+    filter(rank <= 20)
+) + 
+  geom_point(aes(x = rank, y = strength)) + 
+  geom_path(aes(x = rank, y = strength)) + 
+  facet_wrap(vars(type))
 ```
 
 ---
 
-class: middle
-.hand[Wrangling Exercise #6]
+
+class: inverse, middle
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[<span style="font-size:60pt">exercise #5</span>]
+
+- open script `exercise_tidying_05.R`
+- mutate the data sets to include four new variables:
+  - `rank`: see the slides
+  - `type`: either `forward` or `backward` 
+  - `word`: either `man` or `woman`
+  - `associate`: see script for details!
+
+
+
+
 
 
 ---
 
 class: middle, inverse
 
+background-image: url("img/bind.jpg")
+background-size: cover
+
 .pull-left-narrow[
   .huge-blue-number[6]
 ]
 .pull-right-wide[
-  .larger[
-  Combining datasets
-  ]
+  <br>
+  .larger[.embolden[.plainwhite[
+    &nbsp;&nbsp;Bind
+  ]]]
 ]
 
 
----
-class: inverse
-.hand[sometimes data come in separate files]
-```{r, message=FALSE}
-# sometimes from two different surveys...
-demographics <- read_csv("data_demographics.csv")
-experience <- read_csv("data_experience.csv")
 
-# sometimes from two different participants...
-results10 <- read_csv("data_results10.csv")
-results20 <- read_csv("data_results20.csv")
+---
+
+
+background-image: url("img/bind_fade.jpg")
+background-size: cover
+
+.hand[Use bind_rows() to stack data sets vertically]
+
+```{r echo=FALSE, warning=FALSE}
+woman_fwd <- get_associates(data = swow, word = "woman", by = cue)
+woman_bck <- get_associates(data = swow, word = "woman", by = response)
+man_fwd <- get_associates(data = swow, word = "man", by = cue)
+man_bck <- get_associates(data = swow, word = "man", by = response)
+```
+
+
+```{r bind1, results="hide", warning=FALSE}
+gender <- bind_rows(woman_fwd, woman_bck, 
+                    man_fwd, man_bck)
+```
+
+--
+
+```{r bind1-print, echo=FALSE, highlight.output = 1, warning=FALSE}
+gender <- bind_rows(woman_fwd, woman_bck, 
+                    man_fwd, man_bck)
+print(gender, n = 6)
 ```
 
 
 
 ---
-class: inverse
-.hand[we want to "stack" these vertically...]
-```{r, eval=FALSE}
-results10
+
+
+background-image: url("img/bind_fade.jpg")
+background-size: cover
+
+.hand[Clean up using select()...]
+
+
+```{r bind2, results="hide", warning=FALSE}
+gender <- bind_rows(woman_fwd, woman_bck, 
+                    man_fwd, man_bck) %>%
+  select(id:associate)
 ```
+
 ```{r, echo=FALSE}
-print(results10, n = 6)
-```
-
-
----
-class: inverse
-.hand[we want to "stack" these vertically...]
-```{r, eval=FALSE}
-results20
-```
-```{r, echo=FALSE, highlight.output=1}
-print(results20, n = 6)
-```
-
-
----
-class: inverse
-.hand[we want to "stack" these vertically... with **bind_rows()**]
-```{r, eval=FALSE}
-bind_rows(results10, results20)
-```
-```{r, echo=FALSE, highlight.output=1}
-print(bind_rows(results10, results20), n = 6)
+print(gender, n = 5)
 ```
 
 ---
-class: inverse
-.hand[we want to "stack" these vertically... with **bind_rows()**]
-```{r, eval=FALSE}
-bind_rows(results10, results20) %>% arrange(feature)
-```
-```{r, echo=FALSE, highlight.output=4:5}
-print(bind_rows(results10, results20) %>% arrange(feature), n = 6)
-```
 
 
+background-image: url("img/bind_fade.jpg")
+background-size: cover
 
----
-
-class: middle
-.hand[Wrangling Exercise #7]
-
+.hand[Clean up using select() and filter()]
 
 
----
-class: inverse
-.hand[we can stack horizontally with **bind_cols()**]
-```{r, message=FALSE}
-demographics
+```{r bind3, results="hide", warning=FALSE}
+gender <- bind_rows(woman_fwd, woman_bck, 
+                    man_fwd, man_bck) %>%
+  select(id:associate) %>%
+  filter(associate != "man", associate != "woman")
 ```
 
----
-class: inverse
-.hand[we can stack horizontally with **bind_cols()**]
-```{r, eval=FALSE}
-experience
-```
 ```{r, echo=FALSE}
-print(experience, width=58)
-```
-
----
-class: inverse
-.hand[we can stack horizontally with **bind_cols()**, though...]
-```{r, eval=FALSE}
-bind_cols(demographics, experience)
-```
-```{r, echo=FALSE}
-survey <- bind_cols(demographics, experience)
-print(survey, width=58)
-```
-
-
----
-class: inverse
-.hand[... we may prefer to "merge" using **full_join()**]
-```{r, eval=FALSE}
-full_join(demographics, experience)
-```
-```{r, echo=FALSE}
-survey <- full_join(demographics, experience)
-print(survey, width=58)
-```
-
-
----
-class: inverse
-.hand[discussion... what will this do?]
-```{r, results='hide', message = FALSE}
-surveys <- full_join(demographics, experience)
-results <- full_join(results10, results20)
+print(gender, n = 4)
 ```
 
 
 
----
-class: inverse
-.hand[discussion... what will this do?]
-```{r}
-surveys %>% print(width = 58)
-```
-
-
----
-class: inverse
-.hand[discussion... what will this do?]
-```{r}
-results %>% arrange(feature) %>% print(n = 6)
-```
-
-
----
-class: inverse
-.hand[discussion... what will this do?]
-```{r, eval=FALSE}
-full_join(surveys, results)
-```
-
-
----
-class: inverse
-.hand[discussion... what will this do?]
-```{r}
-full_join(surveys, results) %>% print(n = 4, width = 58)
-```
 
 
 
 ---
 
-class: middle
-.hand[Wrangling Exercise #8]
+
+background-image: url("img/bind_fade.jpg")
+background-size: cover
+
+.hand[Check that it worked!]
+
+.pull-left[
+```{r bind4, results='hide'}
+gender %>%
+  group_by(word, type) %>%
+  count()
+```
+]
+--
+.pull-right[
+```{r ref.label="bind4", echo = FALSE}
+```
+]
+
+
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/join_dark.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[7]
+]
+.pull-right-wide[
+  <br>
+  .larger[.embolden[.plainwhite[
+    &nbsp;&nbsp;Join
+  ]]]
+]
+
+
+
+<!-- class: middle, inverse -->
+
+<!-- .pull-left-narrow[ -->
+<!--   .huge-blue-number[5] -->
+<!-- ] -->
+<!-- .pull-right-wide[ -->
+<!--   .larger[ -->
+<!--   Pivot -->
+<!--   ] -->
+<!-- ] -->
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- ```{r setup_reshape, results='hide'} -->
+<!-- long_data <- mean_resp_small %>% -->
+<!--   mutate(generalisation = response/9) %>%  -->
+<!--   select(-response) %>% -->
+<!--   arrange(test_item) %>% -->
+<!--   print(n = 4) -->
+<!-- ``` -->
+<!-- -- -->
+<!-- ```{r ref.label="setup_reshape", echo=FALSE, highlight.output = c(1,4,5)} -->
+<!-- ``` -->
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- ```{r, results='hide'} -->
+<!-- wide_data <- long_data %>% -->
+<!--   pivot_wider( -->
+<!--     names_from = condition, #<<  -->
+<!--     values_from = generalisation #<< -->
+<!--   )  -->
+<!-- ``` -->
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- ```{r, eval=TRUE, highlight.output = c(1,4)} -->
+<!-- wide_data <- long_data %>% -->
+<!--   pivot_wider( -->
+<!--     names_from = condition,  -->
+<!--     values_from = generalisation  -->
+<!--   ) %>%  -->
+<!--   print(n = 4) -->
+<!-- ``` -->
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- ```{r, results='hide'} -->
+<!-- wide_data %>%  -->
+<!--   pivot_longer( -->
+<!--     cols = c(category, property), #<< -->
+<!--     names_to = "condition", #<< -->
+<!--     values_to = "generalisation" #<< -->
+<!--   ) -->
+<!-- ``` -->
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- ```{r, eval=TRUE} -->
+<!-- wide_data %>%  -->
+<!--   pivot_longer( -->
+<!--     cols = c(category, property),  -->
+<!--     names_to = "condition",  -->
+<!--     values_to = "generalisation" -->
+<!--   ) %>% -->
+<!--   print(n = 4) -->
+<!-- ``` -->
+
+<!-- --- -->
+
+<!-- class: middle -->
+<!-- .hand[Wrangling Exercise #6] -->
+
+
+<!-- --- -->
+
+<!-- class: middle, inverse -->
+
+<!-- .pull-left-narrow[ -->
+<!--   .huge-blue-number[6] -->
+<!-- ] -->
+<!-- .pull-right-wide[ -->
+<!--   .larger[ -->
+<!--   Combining datasets -->
+<!--   ] -->
+<!-- ] -->
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- .hand[sometimes data come in separate files] -->
+<!-- ```{r, message=FALSE} -->
+<!-- # sometimes from two different surveys... -->
+<!-- demographics <- read_csv("data_demographics.csv") -->
+<!-- experience <- read_csv("data_experience.csv") -->
+
+<!-- # sometimes from two different participants... -->
+<!-- results10 <- read_csv("data_results10.csv") -->
+<!-- results20 <- read_csv("data_results20.csv") -->
+<!-- ``` -->
+
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- .hand[we want to "stack" these vertically...] -->
+<!-- ```{r, eval=FALSE} -->
+<!-- results10 -->
+<!-- ``` -->
+<!-- ```{r, echo=FALSE} -->
+<!-- print(results10, n = 6) -->
+<!-- ``` -->
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- .hand[we want to "stack" these vertically...] -->
+<!-- ```{r, eval=FALSE} -->
+<!-- results20 -->
+<!-- ``` -->
+<!-- ```{r, echo=FALSE, highlight.output=1} -->
+<!-- print(results20, n = 6) -->
+<!-- ``` -->
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- .hand[we want to "stack" these vertically... with **bind_rows()**] -->
+<!-- ```{r, eval=FALSE} -->
+<!-- bind_rows(results10, results20) -->
+<!-- ``` -->
+<!-- ```{r, echo=FALSE, highlight.output=1} -->
+<!-- print(bind_rows(results10, results20), n = 6) -->
+<!-- ``` -->
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- .hand[we want to "stack" these vertically... with **bind_rows()**] -->
+<!-- ```{r, eval=FALSE} -->
+<!-- bind_rows(results10, results20) %>% arrange(feature) -->
+<!-- ``` -->
+<!-- ```{r, echo=FALSE, highlight.output=4:5} -->
+<!-- print(bind_rows(results10, results20) %>% arrange(feature), n = 6) -->
+<!-- ``` -->
+
+
+
+<!-- --- -->
+
+<!-- class: middle -->
+<!-- .hand[Wrangling Exercise #7] -->
+
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- .hand[we can stack horizontally with **bind_cols()**] -->
+<!-- ```{r, message=FALSE} -->
+<!-- demographics -->
+<!-- ``` -->
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- .hand[we can stack horizontally with **bind_cols()**] -->
+<!-- ```{r, eval=FALSE} -->
+<!-- experience -->
+<!-- ``` -->
+<!-- ```{r, echo=FALSE} -->
+<!-- print(experience, width=58) -->
+<!-- ``` -->
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- .hand[we can stack horizontally with **bind_cols()**, though...] -->
+<!-- ```{r, eval=FALSE} -->
+<!-- bind_cols(demographics, experience) -->
+<!-- ``` -->
+<!-- ```{r, echo=FALSE} -->
+<!-- survey <- bind_cols(demographics, experience) -->
+<!-- print(survey, width=58) -->
+<!-- ``` -->
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- .hand[... we may prefer to "merge" using **full_join()**] -->
+<!-- ```{r, eval=FALSE} -->
+<!-- full_join(demographics, experience) -->
+<!-- ``` -->
+<!-- ```{r, echo=FALSE} -->
+<!-- survey <- full_join(demographics, experience) -->
+<!-- print(survey, width=58) -->
+<!-- ``` -->
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- .hand[discussion... what will this do?] -->
+<!-- ```{r, results='hide', message = FALSE} -->
+<!-- surveys <- full_join(demographics, experience) -->
+<!-- results <- full_join(results10, results20) -->
+<!-- ``` -->
+
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- .hand[discussion... what will this do?] -->
+<!-- ```{r} -->
+<!-- surveys %>% print(width = 58) -->
+<!-- ``` -->
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- .hand[discussion... what will this do?] -->
+<!-- ```{r} -->
+<!-- results %>% arrange(feature) %>% print(n = 6) -->
+<!-- ``` -->
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- .hand[discussion... what will this do?] -->
+<!-- ```{r, eval=FALSE} -->
+<!-- full_join(surveys, results) -->
+<!-- ``` -->
+
+
+<!-- --- -->
+<!-- class: inverse -->
+<!-- .hand[discussion... what will this do?] -->
+<!-- ```{r} -->
+<!-- full_join(surveys, results) %>% print(n = 4, width = 58) -->
+<!-- ``` -->
+
+
+
+<!-- --- -->
+
+<!-- class: middle -->
+<!-- .hand[Wrangling Exercise #8] -->
 
 
 

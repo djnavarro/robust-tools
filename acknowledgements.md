@@ -29,3 +29,7 @@
 - Najib Kalil: https://unsplash.com/photos/x-8DF-Ry0Zo
 - Andy Kelly: https://unsplash.com/photos/or6gUjQU-9M
 - Bodie Pyndus: https://unsplash.com/photos/JXqMjodZ0uM
+- Linda Xu: https://unsplash.com/photos/QLV5vFCmHYo
+- Celia Michon: https://unsplash.com/photos/aGHz9-KaO7Y
+- Aaron Burden: https://unsplash.com/photos/pCfJKUB5bes
+- Tim Boote: https://unsplash.com/photos/0-IKoef3Ukw
