@@ -25,3 +25,7 @@
 - Kolar.io: https://unsplash.com/photos/lRoX0shwjUQ
 - Patrick Fore: https://unsplash.com/photos/0gkw_9fy0eQ
 - Jason Abdilla: https://unsplash.com/photos/anE0V1ljPUI
+- Simon de Deyne: swow
+- Najib Kalil: https://unsplash.com/photos/x-8DF-Ry0Zo
+- Andy Kelly: https://unsplash.com/photos/or6gUjQU-9M
+- Bodie Pyndus: https://unsplash.com/photos/JXqMjodZ0uM

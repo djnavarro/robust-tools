@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>&gt; 03   &gt; tidying your data</title>
+    <title>&gt; 03 🧹   &gt; how to clean up your data</title>
     <meta charset="utf-8" />
     <meta name="author" content="danielle navarro" />
-    <meta name="date" content="2020-02-27" />
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
-    <link href="libs/countdown/countdown.css" rel="stylesheet" />
-    <script src="libs/countdown/countdown.js"></script>
     <link rel="stylesheet" href="../style/xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="../style/slides-style.css" type="text/css" />
   </head>
@@ -16,10 +13,9 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# &gt; 03 <br> &gt; tidying your data
-## 🧙 bewitch your data! <br> 🔗 <a href="https://djnavarro.link/robust-tools">djnavarro.link/robust-tools</a>
+# &gt; 03 🧹 <br> &gt; how to clean up your data
+## 🔗 <a href="https://djnavarro.link/robust-tools">djnavarro.link/robust-tools</a>
 ### danielle navarro
-### 27 feb 2020
 
 ---
 
@@ -42,54 +38,556 @@ layout: true
 
 
 
-
 class: middle, inverse
 
-background-image: url("img/purple_heart2.png")
+background-image: url("img/swow_concreteness_fade.jpg")
 background-size: cover
-background-color: #0F4C81
 
 .pull-left-narrow[
-  .larger[.embolden[.pink[
-    class
-    starts
-    in...
-  ]]]
+  .huge-blue-number[1]
 ]
-<div class="countdown" id="timer_5e48cdc5" style="right:0;bottom:0;" data-warnwhen="0">
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
+.pull-right-wide[
+  .larger[.embolden[
+  Small World of Words
+  ]]
+]
 
 ---
 
-class: middle inverse
+class: inverse
+
+background-image: url("img/swow_concreteness_strongfade.jpg")
+background-size: cover
+
+
+.hand[Import the SWOW data]
+--
+
+```r
+library(tidyverse)
+swow &lt;- read_tsv(file = "data_swow.csv.zip")
+```
+--
+
+```
+## # A tibble: 483,636 x 5
+*##   cue   response    R1     N R1.Strength
+##   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;
+## 1 a     one         21    97      0.216 
+## 2 a     the         16    97      0.165 
+## 3 a     b            9    97      0.0928
+## 4 a     an           4    97      0.0412
+## 5 a     first        3    97      0.0309
+## # … with 483,631 more rows
+```
+
+
+---
+
+class: inverse
+
+background-image: url("img/swow_concreteness_strongfade.jpg")
+background-size: cover
+
+.hand[Automated name cleaning?]
+--
+
+```r
+library(janitor)
+swow &lt;- clean_names(swow)
+```
+--
+
+```
+## # A tibble: 483,636 x 5
+*##   cue   response    r1     n r1_strength
+##   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;
+## 1 a     one         21    97      0.216 
+## 2 a     the         16    97      0.165 
+## 3 a     b            9    97      0.0928
+## 4 a     an           4    97      0.0412
+## 5 a     first        3    97      0.0309
+## # … with 483,631 more rows
+```
+
+---
+
+class: inverse
+
+background-image: url("img/swow_concreteness_strongfade.jpg")
+background-size: cover
+
+.hand[Manual name cleaning]
+--
+
+```r
+swow &lt;- swow %&gt;%
+  rename(n_response = r1, 
+         n_total = n, 
+         strength = r1_strength)
+```
+--
+
+```
+## # A tibble: 483,636 x 5
+*##   cue   response n_response n_total strength
+##   &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+## 1 a     one              21      97   0.216 
+## 2 a     the              16      97   0.165 
+## 3 a     b                 9      97   0.0928
+## # … with 483,633 more rows
+```
+
+
+---
+
+class: inverse, middle
+
+background-image: url("img/swow_concreteness_strongfade.jpg")
+background-size: cover
+
+.hand[&lt;span style="font-size:60pt"&gt;exercise #1&lt;/span&gt;]
+
+- open empty script `exercise_tidying_01.R`
+- write your comments at the beginning
+- load tidyverse
+- load the swow data
+- use `rename()` to get new variable names
+
+
+---
+
+
+class: middle, inverse
+
+background-image: url("img/filter.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[2]
+]
+.pull-right-wide[
+  .larger[.embolden[
+  Filtering Data
+  ]]
+]
+
+
+---
+
+background-image: url("img/filter_fade.jpg")
+background-size: cover
+
+.hand[Filter to keep a subset of the data]
+
+- The SWOW data has 483,636 rows
+- Let's extract the cases when `cue == "woman"`
+
+---
+
+background-image: url("img/filter_fade.jpg")
+background-size: cover
+
+.hand[Filter to keep a subset of the data]
+
+--
+
+```r
+swow %&gt;%
+  filter(cue == "woman")
+```
+--
+
+```
+## # A tibble: 28 x 5
+##   cue   response n_response n_total strength
+##   &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+## 1 woman man              38     100     0.38
+## 2 woman female           22     100     0.22
+## 3 woman girl              7     100     0.07
+## 4 woman lady              5     100     0.05
+## # … with 24 more rows
+```
+
+
+
+---
+
+background-image: url("img/filter_fade.jpg")
+background-size: cover
+
+.hand[Filter to keep a subset of the data]
 
 .pull-left[
 
-.hand[Data wrangling]
+```r
+woman_fwd &lt;- swow %&gt;%
+  filter(cue == "woman")
 
-- **What?** Manipulate data
-- **Why?** Data are messy
-- **How?** With tidyverse!
-
-&lt;img src="img/horst_dplyr.png" width="320" /&gt;
-
+ggplot(woman_fwd) + 
+  geom_col(aes(
+    x = response, 
+    y = strength
+  ))
+```
+]
+--
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
 ]
 
 ---
 
+background-image: url("img/filter_fade.jpg")
+background-size: cover
+
+.hand[Filter to keep a subset of the data]
+
+.pull-left[
+
+```r
+woman_fwd &lt;- swow %&gt;%
+  filter(cue == "woman")
+
+ggplot(woman_fwd) + 
+  geom_col(aes(
+    x = response, 
+    y = strength
+  )) + 
+  coord_flip()
+```
+]
+
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+]
+
+
+
+---
+
+background-image: url("img/filter_fade.jpg")
+background-size: cover
+
+.hand[One filter(), then another filter()]
+
+.pull-left[
+
+```r
+woman_fwd &lt;- swow %&gt;%
+ filter(cue == "woman") %&gt;%
+ filter(n_response &gt; 1)
+
+ggplot(woman_fwd) + 
+  geom_col(aes(
+    x = response, 
+    y = strength
+  )) + 
+  coord_flip()
+```
+]
+
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+]
+
+---
+
+background-image: url("img/filter_fade.jpg")
+background-size: cover
+
+.hand[Two expressions in one filter()]
+
+.pull-left[
+
+```r
+woman_fwd &lt;- swow %&gt;%
+  filter(
+    cue == "woman",
+    n_response &gt; 1
+  )
+
+ggplot(woman_fwd) + 
+  geom_col(aes(
+    x = response, 
+    y = strength
+  )) + 
+  coord_flip()
+```
+]
+
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+]
+
+
+
+---
+
+class: inverse, middle
+
+background-image: url("img/filter_fade.jpg")
+background-size: cover
+
+.hand[&lt;span style="font-size:60pt"&gt;exercise #2&lt;/span&gt;]
+
+- open empty script `exercise_tidying_02.R`
+- note it picks up from the last exercise
+- create `woman_bck` for "backward associates"
+- i.e. when `"woman"` is the `response`
+- only keep cases with at least two responses
+
+
+---
+
+
 class: middle, inverse
+
+background-image: url("img/arrange_dark.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[3]
+]
+.pull-right-wide[
+  &lt;br&gt;
+  .larger[.embolden[.plainwhite[
+    Data Arranging
+  ]]]
+]
+
+
+---
+
+background-image: url("img/arrange_fade.jpg")
+background-size: cover
+
+.hand[The forward data are arranged neatly]
+
+
+```r
+swow %&gt;%
+  filter(cue == "woman", n_response &gt; 1)
+```
+
+```
+## # A tibble: 8 x 5
+##   cue   response n_response n_total strength
+##   &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+## 1 woman man              38     100     0.38
+## 2 woman female           22     100     0.22
+## 3 woman girl              7     100     0.07
+## 4 woman lady              5     100     0.05
+## 5 woman beauty            2     100     0.02
+## 6 woman me                2     100     0.02
+## # … with 2 more rows
+```
+
+
+---
+
+background-image: url("img/arrange_fade.jpg")
+background-size: cover
+
+.hand[The backward data are not]
+
+
+```r
+swow %&gt;%
+  filter(response == "woman", n_response &gt; 1)
+```
+
+```
+## # A tibble: 200 x 5
+##   cue           response n_response n_total strength
+##   &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+## 1 abuse         woman             2     100   0.02  
+## 2 actress       woman             7     100   0.07  
+## 3 Amazon        woman             2     100   0.02  
+## 4 American      woman             2     100   0.02  
+## 5 apron         woman             2      98   0.0204
+## 6 argumentative woman             2     100   0.02  
+## # … with 194 more rows
+```
+
+
+---
+
+background-image: url("img/arrange_fade.jpg")
+background-size: cover
+
+.hand[Lets arrange() them]
+
+
+```r
+swow %&gt;%
+  filter(response == "woman", n_response &gt; 1) %&gt;%
+  arrange(strength)
+```
+--
+
+```
+## # A tibble: 200 x 5
+##   cue           response n_response n_total strength
+##   &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+## 1 abuse         woman             2     100     0.02
+## 2 Amazon        woman             2     100     0.02
+## 3 American      woman             2     100     0.02
+## 4 argumentative woman             2     100     0.02
+## 5 attract       woman             2     100     0.02
+## # … with 195 more rows
+```
+
+
+---
+
+background-image: url("img/arrange_fade.jpg")
+background-size: cover
+
+.hand[Lets arrange() them, in descending order]
+
+
+```r
+swow %&gt;%
+  filter(response == "woman", n_response &gt; 1) %&gt;%
+  arrange(desc(strength))
+```
+
+
+```
+## # A tibble: 200 x 5
+##   cue      response n_response n_total strength
+##   &lt;chr&gt;    &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+## 1 man      woman            57      99    0.576
+## 2 lady     woman            36     100    0.36 
+## 3 feminist woman            30      99    0.303
+## 4 female   woman            23      99    0.232
+## 5 pregnant woman            18     100    0.18 
+## # … with 195 more rows
+```
+
+
+---
+
+class: inverse, middle
+
+background-image: url("img/arrange_fade.jpg")
+background-size: cover
+
+.hand[&lt;span style="font-size:60pt"&gt;exercise #3&lt;/span&gt;]
+
+- open script `exercise_tidying_03.R`
+- fix filtering: retain *all* responses for `woman_fwd` and `women_bck`
+- create analogous data sets `man_fwd` and `man_bck`
+- arrange all data sets by descending `strength`
+
+---
+
+class: middle, inverse
+
+background-image: url("img/select_dark.jpg")
+background-size: cover
 
 .pull-left-narrow[
   .huge-blue-number[4]
 ]
 .pull-right-wide[
-  .larger[
-  Organising data
-  ]
+  &lt;br&gt;
+  .larger[.embolden[.plainwhite[
+    &amp;nbsp;&amp;nbsp;Variable&lt;br&gt;&amp;nbsp;&amp;nbsp;Selection
+  ]]]
 ]
 
 ---
+
+background-image: url("img/select_fade.jpg")
+background-size: cover
+
+.hand[Select cue, response and strength]
+
+
+```r
+swow %&gt;%
+  filter(response == "woman") %&gt;%
+  arrange(desc(strength)) %&gt;%
+* select(cue, response, strength)
+```
+
+--
+
+
+```
+## # A tibble: 522 x 3
+##   cue      response strength
+##   &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;
+## 1 man      woman       0.576
+## 2 lady     woman       0.36 
+## 3 feminist woman       0.303
+## # … with 519 more rows
+```
+
+
+---
+
+background-image: url("img/select_fade.jpg")
+background-size: cover
+
+.hand[Alternative method]
+
+
+
+```r
+swow %&gt;%
+  filter(response == "woman") %&gt;%
+  arrange(desc(strength)) %&gt;%
+* select(-n_response, -n_total)
+```
+
+--
+
+
+```
+## # A tibble: 522 x 3
+##   cue      response strength
+##   &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;
+## 1 man      woman       0.576
+## 2 lady     woman       0.36 
+## 3 feminist woman       0.303
+## # … with 519 more rows
+```
+
+
+---
+
+class: inverse, middle
+
+background-image: url("img/select_fade.jpg")
+background-size: cover
+
+.hand[&lt;span style="font-size:60pt"&gt;exercise #4&lt;/span&gt;]
+
+- open script `exercise_tidying_04.R`
+- for each data set: `woman_fwd`, `women_bck`, `man_fwd` and `man_bck`
+- create dataset using `filter()` 
+- sort rows by descending `strength` using `arrange()` and `desc()`
+- use `select()` reduce to three columns: `cue`, `response` and `strength`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
 
 class: inverse
 .hand[Import data]
