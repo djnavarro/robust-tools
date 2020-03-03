@@ -827,6 +827,257 @@ gender %>%
 
 
 
+---
+
+
+class: inverse, middle
+
+background-image: url("img/bind_fade.jpg")
+background-size: cover
+
+.hand[<span style="font-size:60pt">exercise #6</span>]
+
+- open script `exercise_tidying_06.R`
+- take a look at the instructions! `r emo::ji("slightly_smiling_face")`
+
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/pivot.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[7]
+]
+.pull-right-wide[
+  <br>
+  .larger[.embolden[.plainwhite[
+    &nbsp;&nbsp;Pivot
+  ]]]
+]
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.hand[Lovely data]
+
+.pull-left[
+```{r pivot0, message=FALSE}
+love <- read_csv(
+  "data_love.csv"
+)
+```
+]
+
+--
+
+.pull-right[
+```{r, echo=FALSE}
+love
+```
+]
+
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.hand["Pivot" to "longer" data...]
+
+.pull-left[
+```{r pivot1, message=FALSE}
+long_love <- love %>%
+  pivot_longer(
+    cols = c(heart, book),
+    names_to = "object",
+    values_to = "emoji"
+  )
+```
+]
+
+--
+
+.pull-right[
+```{r, echo=FALSE}
+long_love
+```
+]
+
+
+
+
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.hand["Pivot" to "wider" data...]
+
+.pull-left[
+```{r pivot2, message=FALSE}
+wide_love <- long_love %>%
+  pivot_wider(
+    id_cols = colour,
+    names_from = object,
+    values_from = emoji
+  )
+```
+]
+
+--
+
+.pull-right[
+```{r, echo=FALSE}
+wide_love
+```
+]
+
+
+
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.pull-left[
+.hand[Reshape the data]
+```{r pivot3, results="hide"}
+gender_fwd <- gender %>% 
+  filter(
+    type == "forward"
+  ) %>% 
+  pivot_wider(
+    id_cols = associate, 
+    names_from = word, 
+    values_from = rank
+  )
+```
+]
+
+--
+
+.pull-right[
+```{r, echo=FALSE}
+gender_fwd
+```
+]
+
+
+
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.pull-left-wide[
+.hand[Reshape the data]
+```{r pivot4, results="hide"}
+gender_fwd <- gender_fwd %>% 
+  mutate(
+    woman = replace_na(1/woman, 0),
+    man = replace_na(1/man, 0), 
+    diff = woman - man
+  )  %>%  
+  arrange(diff) 
+```
+]
+
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.pull-right-wide[
+```{r, echo=FALSE}
+gender_fwd
+```
+]
+
+
+
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.hand[Reshape the data]
+.pull-left[
+```{r pivot5, results="hide", fig.show="hide"}
+ggplot(
+  data = gender_fwd,
+  mapping = aes(
+    x = associate %>% 
+      reorder(diff), 
+    y = diff
+  )) + 
+  geom_col() + 
+  coord_flip()
+```
+]
+
+.pull-right[
+```{r ref.label="pivot5", echo=FALSE}
+```
+]
+
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+```{r ref.label="pivot5", echo=FALSE}
+```
+
+
+---
+
+
+class: inverse, middle
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  <br><br><br>
+  .hand[<span style="font-size:40pt">exercise #8</span>]
+]
+
+.pull-right-wide[
+```{r, echo=FALSE, fig.height = 4, fig.width = 4, out.height=600}
+gender_bck <- gender %>% 
+  filter(type == "backward") %>% 
+  pivot_wider(
+    id_cols = associate, 
+    names_from = word, 
+    values_from = rank
+  ) %>% 
+  mutate(
+    woman = replace_na(1/woman, 0),
+    man = replace_na(1/man, 0), 
+    diff = woman - man
+  ) %>%
+  arrange(diff) %>%
+  filter(abs(diff) > .05)
+
+ggplot(gender_bck) + 
+  geom_col(aes(x = associate %>% reorder(diff), y = diff)) + 
+  coord_flip() + 
+  ylab(NULL) + 
+  xlab(NULL)
+```
+]
 
 ---
 
@@ -836,7 +1087,7 @@ background-image: url("img/join_dark.jpg")
 background-size: cover
 
 .pull-left-narrow[
-  .huge-blue-number[7]
+  .huge-blue-number[8]
 ]
 .pull-right-wide[
   <br>
