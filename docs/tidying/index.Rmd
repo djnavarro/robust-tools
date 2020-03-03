@@ -38,6 +38,13 @@ num_fmt <- scales::number_format(big.mark = ",")
 ```
 
 
+
+class: middle, inverse
+
+## https://rstudio.cloud/project/??????
+
+---
+
 class: middle, inverse
 
 background-image: url("img/swow_concreteness_fade.jpg")
@@ -1097,262 +1104,22 @@ background-size: cover
 ]
 
 
+---
 
-<!-- class: middle, inverse -->
+.hand[Restore all the variables?]
 
-<!-- .pull-left-narrow[ -->
-<!--   .huge-blue-number[5] -->
-<!-- ] -->
-<!-- .pull-right-wide[ -->
-<!--   .larger[ -->
-<!--   Pivot -->
-<!--   ] -->
-<!-- ] -->
+```{r}
+gender
+```
 
 
-<!-- --- -->
-<!-- class: inverse -->
-<!-- ```{r setup_reshape, results='hide'} -->
-<!-- long_data <- mean_resp_small %>% -->
-<!--   mutate(generalisation = response/9) %>%  -->
-<!--   select(-response) %>% -->
-<!--   arrange(test_item) %>% -->
-<!--   print(n = 4) -->
-<!-- ``` -->
-<!-- -- -->
-<!-- ```{r ref.label="setup_reshape", echo=FALSE, highlight.output = c(1,4,5)} -->
-<!-- ``` -->
+---
 
+.hand[Restore all the variables?]
 
-<!-- --- -->
-<!-- class: inverse -->
-<!-- ```{r, results='hide'} -->
-<!-- wide_data <- long_data %>% -->
-<!--   pivot_wider( -->
-<!--     names_from = condition, #<<  -->
-<!--     values_from = generalisation #<< -->
-<!--   )  -->
-<!-- ``` -->
-
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- ```{r, eval=TRUE, highlight.output = c(1,4)} -->
-<!-- wide_data <- long_data %>% -->
-<!--   pivot_wider( -->
-<!--     names_from = condition,  -->
-<!--     values_from = generalisation  -->
-<!--   ) %>%  -->
-<!--   print(n = 4) -->
-<!-- ``` -->
-
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- ```{r, results='hide'} -->
-<!-- wide_data %>%  -->
-<!--   pivot_longer( -->
-<!--     cols = c(category, property), #<< -->
-<!--     names_to = "condition", #<< -->
-<!--     values_to = "generalisation" #<< -->
-<!--   ) -->
-<!-- ``` -->
-
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- ```{r, eval=TRUE} -->
-<!-- wide_data %>%  -->
-<!--   pivot_longer( -->
-<!--     cols = c(category, property),  -->
-<!--     names_to = "condition",  -->
-<!--     values_to = "generalisation" -->
-<!--   ) %>% -->
-<!--   print(n = 4) -->
-<!-- ``` -->
-
-<!-- --- -->
-
-<!-- class: middle -->
-<!-- .hand[Wrangling Exercise #6] -->
-
-
-<!-- --- -->
-
-<!-- class: middle, inverse -->
-
-<!-- .pull-left-narrow[ -->
-<!--   .huge-blue-number[6] -->
-<!-- ] -->
-<!-- .pull-right-wide[ -->
-<!--   .larger[ -->
-<!--   Combining datasets -->
-<!--   ] -->
-<!-- ] -->
-
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- .hand[sometimes data come in separate files] -->
-<!-- ```{r, message=FALSE} -->
-<!-- # sometimes from two different surveys... -->
-<!-- demographics <- read_csv("data_demographics.csv") -->
-<!-- experience <- read_csv("data_experience.csv") -->
-
-<!-- # sometimes from two different participants... -->
-<!-- results10 <- read_csv("data_results10.csv") -->
-<!-- results20 <- read_csv("data_results20.csv") -->
-<!-- ``` -->
-
-
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- .hand[we want to "stack" these vertically...] -->
-<!-- ```{r, eval=FALSE} -->
-<!-- results10 -->
-<!-- ``` -->
-<!-- ```{r, echo=FALSE} -->
-<!-- print(results10, n = 6) -->
-<!-- ``` -->
-
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- .hand[we want to "stack" these vertically...] -->
-<!-- ```{r, eval=FALSE} -->
-<!-- results20 -->
-<!-- ``` -->
-<!-- ```{r, echo=FALSE, highlight.output=1} -->
-<!-- print(results20, n = 6) -->
-<!-- ``` -->
-
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- .hand[we want to "stack" these vertically... with **bind_rows()**] -->
-<!-- ```{r, eval=FALSE} -->
-<!-- bind_rows(results10, results20) -->
-<!-- ``` -->
-<!-- ```{r, echo=FALSE, highlight.output=1} -->
-<!-- print(bind_rows(results10, results20), n = 6) -->
-<!-- ``` -->
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- .hand[we want to "stack" these vertically... with **bind_rows()**] -->
-<!-- ```{r, eval=FALSE} -->
-<!-- bind_rows(results10, results20) %>% arrange(feature) -->
-<!-- ``` -->
-<!-- ```{r, echo=FALSE, highlight.output=4:5} -->
-<!-- print(bind_rows(results10, results20) %>% arrange(feature), n = 6) -->
-<!-- ``` -->
-
-
-
-<!-- --- -->
-
-<!-- class: middle -->
-<!-- .hand[Wrangling Exercise #7] -->
-
-
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- .hand[we can stack horizontally with **bind_cols()**] -->
-<!-- ```{r, message=FALSE} -->
-<!-- demographics -->
-<!-- ``` -->
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- .hand[we can stack horizontally with **bind_cols()**] -->
-<!-- ```{r, eval=FALSE} -->
-<!-- experience -->
-<!-- ``` -->
-<!-- ```{r, echo=FALSE} -->
-<!-- print(experience, width=58) -->
-<!-- ``` -->
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- .hand[we can stack horizontally with **bind_cols()**, though...] -->
-<!-- ```{r, eval=FALSE} -->
-<!-- bind_cols(demographics, experience) -->
-<!-- ``` -->
-<!-- ```{r, echo=FALSE} -->
-<!-- survey <- bind_cols(demographics, experience) -->
-<!-- print(survey, width=58) -->
-<!-- ``` -->
-
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- .hand[... we may prefer to "merge" using **full_join()**] -->
-<!-- ```{r, eval=FALSE} -->
-<!-- full_join(demographics, experience) -->
-<!-- ``` -->
-<!-- ```{r, echo=FALSE} -->
-<!-- survey <- full_join(demographics, experience) -->
-<!-- print(survey, width=58) -->
-<!-- ``` -->
-
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- .hand[discussion... what will this do?] -->
-<!-- ```{r, results='hide', message = FALSE} -->
-<!-- surveys <- full_join(demographics, experience) -->
-<!-- results <- full_join(results10, results20) -->
-<!-- ``` -->
-
-
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- .hand[discussion... what will this do?] -->
-<!-- ```{r} -->
-<!-- surveys %>% print(width = 58) -->
-<!-- ``` -->
-
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- .hand[discussion... what will this do?] -->
-<!-- ```{r} -->
-<!-- results %>% arrange(feature) %>% print(n = 6) -->
-<!-- ``` -->
-
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- .hand[discussion... what will this do?] -->
-<!-- ```{r, eval=FALSE} -->
-<!-- full_join(surveys, results) -->
-<!-- ``` -->
-
-
-<!-- --- -->
-<!-- class: inverse -->
-<!-- .hand[discussion... what will this do?] -->
-<!-- ```{r} -->
-<!-- full_join(surveys, results) %>% print(n = 4, width = 58) -->
-<!-- ``` -->
-
-
-
-<!-- --- -->
-
-<!-- class: middle -->
-<!-- .hand[Wrangling Exercise #8] -->
-
-
-
-
-
-
-
-
-
+```{r}
+gender %>%
+  left_join(swow, by = "id")
+```
 
 

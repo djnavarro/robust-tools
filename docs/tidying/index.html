@@ -38,6 +38,13 @@ layout: true
 
 
 
+
+class: middle, inverse
+
+## https://rstudio.cloud/project/??????
+
+---
+
 class: middle, inverse
 
 background-image: url("img/swow_concreteness_fade.jpg")
@@ -1238,254 +1245,59 @@ background-size: cover
 ]
 
 
+---
 
-&lt;!-- class: middle, inverse --&gt;
-
-&lt;!-- .pull-left-narrow[ --&gt;
-&lt;!--   .huge-blue-number[5] --&gt;
-&lt;!-- ] --&gt;
-&lt;!-- .pull-right-wide[ --&gt;
-&lt;!--   .larger[ --&gt;
-&lt;!--   Pivot --&gt;
-&lt;!--   ] --&gt;
-&lt;!-- ] --&gt;
+.hand[Restore all the variables?]
 
 
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- ```{r setup_reshape, results='hide'} --&gt;
-&lt;!-- long_data &lt;- mean_resp_small %&gt;% --&gt;
-&lt;!--   mutate(generalisation = response/9) %&gt;%  --&gt;
-&lt;!--   select(-response) %&gt;% --&gt;
-&lt;!--   arrange(test_item) %&gt;% --&gt;
-&lt;!--   print(n = 4) --&gt;
-&lt;!-- ``` --&gt;
-&lt;!-- -- --&gt;
-&lt;!-- ```{r ref.label="setup_reshape", echo=FALSE, highlight.output = c(1,4,5)} --&gt;
-&lt;!-- ``` --&gt;
+```r
+gender
+```
+
+```
+## # A tibble: 501 x 5
+##        id  rank type     word  associate
+##     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;    
+##  1 477316   2   forward  woman female   
+##  2 477317   3   forward  woman girl     
+##  3 477318   4   forward  woman lady     
+##  4 477319   6.5 forward  woman beauty   
+##  5 477320   6.5 forward  woman me       
+##  6 477321   6.5 forward  woman strong   
+##  7 477322   6.5 forward  woman wife     
+##  8 240149   2   backward woman lady     
+##  9 158641   3   backward woman feminist 
+## 10 158492   4   backward woman female   
+## # … with 491 more rows
+```
 
 
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- ```{r, results='hide'} --&gt;
-&lt;!-- wide_data &lt;- long_data %&gt;% --&gt;
-&lt;!--   pivot_wider( --&gt;
-&lt;!--     names_from = condition, #&lt;&lt;  --&gt;
-&lt;!--     values_from = generalisation #&lt;&lt; --&gt;
-&lt;!--   )  --&gt;
-&lt;!-- ``` --&gt;
+---
+
+.hand[Restore all the variables?]
 
 
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- ```{r, eval=TRUE, highlight.output = c(1,4)} --&gt;
-&lt;!-- wide_data &lt;- long_data %&gt;% --&gt;
-&lt;!--   pivot_wider( --&gt;
-&lt;!--     names_from = condition,  --&gt;
-&lt;!--     values_from = generalisation  --&gt;
-&lt;!--   ) %&gt;%  --&gt;
-&lt;!--   print(n = 4) --&gt;
-&lt;!-- ``` --&gt;
+```r
+gender %&gt;%
+  left_join(swow, by = "id")
+```
 
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- ```{r, results='hide'} --&gt;
-&lt;!-- wide_data %&gt;%  --&gt;
-&lt;!--   pivot_longer( --&gt;
-&lt;!--     cols = c(category, property), #&lt;&lt; --&gt;
-&lt;!--     names_to = "condition", #&lt;&lt; --&gt;
-&lt;!--     values_to = "generalisation" #&lt;&lt; --&gt;
-&lt;!--   ) --&gt;
-&lt;!-- ``` --&gt;
-
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- ```{r, eval=TRUE} --&gt;
-&lt;!-- wide_data %&gt;%  --&gt;
-&lt;!--   pivot_longer( --&gt;
-&lt;!--     cols = c(category, property),  --&gt;
-&lt;!--     names_to = "condition",  --&gt;
-&lt;!--     values_to = "generalisation" --&gt;
-&lt;!--   ) %&gt;% --&gt;
-&lt;!--   print(n = 4) --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: middle --&gt;
-&lt;!-- .hand[Wrangling Exercise #6] --&gt;
-
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: middle, inverse --&gt;
-
-&lt;!-- .pull-left-narrow[ --&gt;
-&lt;!--   .huge-blue-number[6] --&gt;
-&lt;!-- ] --&gt;
-&lt;!-- .pull-right-wide[ --&gt;
-&lt;!--   .larger[ --&gt;
-&lt;!--   Combining datasets --&gt;
-&lt;!--   ] --&gt;
-&lt;!-- ] --&gt;
-
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- .hand[sometimes data come in separate files] --&gt;
-&lt;!-- ```{r, message=FALSE} --&gt;
-&lt;!-- # sometimes from two different surveys... --&gt;
-&lt;!-- demographics &lt;- read_csv("data_demographics.csv") --&gt;
-&lt;!-- experience &lt;- read_csv("data_experience.csv") --&gt;
-
-&lt;!-- # sometimes from two different participants... --&gt;
-&lt;!-- results10 &lt;- read_csv("data_results10.csv") --&gt;
-&lt;!-- results20 &lt;- read_csv("data_results20.csv") --&gt;
-&lt;!-- ``` --&gt;
-
-
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- .hand[we want to "stack" these vertically...] --&gt;
-&lt;!-- ```{r, eval=FALSE} --&gt;
-&lt;!-- results10 --&gt;
-&lt;!-- ``` --&gt;
-&lt;!-- ```{r, echo=FALSE} --&gt;
-&lt;!-- print(results10, n = 6) --&gt;
-&lt;!-- ``` --&gt;
-
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- .hand[we want to "stack" these vertically...] --&gt;
-&lt;!-- ```{r, eval=FALSE} --&gt;
-&lt;!-- results20 --&gt;
-&lt;!-- ``` --&gt;
-&lt;!-- ```{r, echo=FALSE, highlight.output=1} --&gt;
-&lt;!-- print(results20, n = 6) --&gt;
-&lt;!-- ``` --&gt;
-
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- .hand[we want to "stack" these vertically... with **bind_rows()**] --&gt;
-&lt;!-- ```{r, eval=FALSE} --&gt;
-&lt;!-- bind_rows(results10, results20) --&gt;
-&lt;!-- ``` --&gt;
-&lt;!-- ```{r, echo=FALSE, highlight.output=1} --&gt;
-&lt;!-- print(bind_rows(results10, results20), n = 6) --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- .hand[we want to "stack" these vertically... with **bind_rows()**] --&gt;
-&lt;!-- ```{r, eval=FALSE} --&gt;
-&lt;!-- bind_rows(results10, results20) %&gt;% arrange(feature) --&gt;
-&lt;!-- ``` --&gt;
-&lt;!-- ```{r, echo=FALSE, highlight.output=4:5} --&gt;
-&lt;!-- print(bind_rows(results10, results20) %&gt;% arrange(feature), n = 6) --&gt;
-&lt;!-- ``` --&gt;
-
-
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: middle --&gt;
-&lt;!-- .hand[Wrangling Exercise #7] --&gt;
-
-
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- .hand[we can stack horizontally with **bind_cols()**] --&gt;
-&lt;!-- ```{r, message=FALSE} --&gt;
-&lt;!-- demographics --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- .hand[we can stack horizontally with **bind_cols()**] --&gt;
-&lt;!-- ```{r, eval=FALSE} --&gt;
-&lt;!-- experience --&gt;
-&lt;!-- ``` --&gt;
-&lt;!-- ```{r, echo=FALSE} --&gt;
-&lt;!-- print(experience, width=58) --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- .hand[we can stack horizontally with **bind_cols()**, though...] --&gt;
-&lt;!-- ```{r, eval=FALSE} --&gt;
-&lt;!-- bind_cols(demographics, experience) --&gt;
-&lt;!-- ``` --&gt;
-&lt;!-- ```{r, echo=FALSE} --&gt;
-&lt;!-- survey &lt;- bind_cols(demographics, experience) --&gt;
-&lt;!-- print(survey, width=58) --&gt;
-&lt;!-- ``` --&gt;
-
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- .hand[... we may prefer to "merge" using **full_join()**] --&gt;
-&lt;!-- ```{r, eval=FALSE} --&gt;
-&lt;!-- full_join(demographics, experience) --&gt;
-&lt;!-- ``` --&gt;
-&lt;!-- ```{r, echo=FALSE} --&gt;
-&lt;!-- survey &lt;- full_join(demographics, experience) --&gt;
-&lt;!-- print(survey, width=58) --&gt;
-&lt;!-- ``` --&gt;
-
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- .hand[discussion... what will this do?] --&gt;
-&lt;!-- ```{r, results='hide', message = FALSE} --&gt;
-&lt;!-- surveys &lt;- full_join(demographics, experience) --&gt;
-&lt;!-- results &lt;- full_join(results10, results20) --&gt;
-&lt;!-- ``` --&gt;
-
-
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- .hand[discussion... what will this do?] --&gt;
-&lt;!-- ```{r} --&gt;
-&lt;!-- surveys %&gt;% print(width = 58) --&gt;
-&lt;!-- ``` --&gt;
-
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- .hand[discussion... what will this do?] --&gt;
-&lt;!-- ```{r} --&gt;
-&lt;!-- results %&gt;% arrange(feature) %&gt;% print(n = 6) --&gt;
-&lt;!-- ``` --&gt;
-
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- .hand[discussion... what will this do?] --&gt;
-&lt;!-- ```{r, eval=FALSE} --&gt;
-&lt;!-- full_join(surveys, results) --&gt;
-&lt;!-- ``` --&gt;
-
-
-&lt;!-- --- --&gt;
-&lt;!-- class: inverse --&gt;
-&lt;!-- .hand[discussion... what will this do?] --&gt;
-&lt;!-- ```{r} --&gt;
-&lt;!-- full_join(surveys, results) %&gt;% print(n = 4, width = 58) --&gt;
-&lt;!-- ``` --&gt;
-
-
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: middle --&gt;
-&lt;!-- .hand[Wrangling Exercise #8] --&gt;
+```
+## # A tibble: 501 x 10
+##        id  rank type  word  associate cue   response n_response n_total strength
+##     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+##  1 477316   2   forw… woman female    woman female           22     100    0.22 
+##  2 477317   3   forw… woman girl      woman girl              7     100    0.07 
+##  3 477318   4   forw… woman lady      woman lady              5     100    0.05 
+##  4 477319   6.5 forw… woman beauty    woman beauty            2     100    0.02 
+##  5 477320   6.5 forw… woman me        woman me                2     100    0.02 
+##  6 477321   6.5 forw… woman strong    woman strong            2     100    0.02 
+##  7 477322   6.5 forw… woman wife      woman wife              2     100    0.02 
+##  8 240149   2   back… woman lady      lady  woman            36     100    0.36 
+##  9 158641   3   back… woman feminist  femi… woman            30      99    0.303
+## 10 158492   4   back… woman female    fema… woman            23      99    0.232
+## # … with 491 more rows
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
