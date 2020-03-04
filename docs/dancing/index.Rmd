@@ -27,6 +27,29 @@ library(countdown)
 library(tidyverse)
 ```
 
+
+
+```{r meta, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "A dance with data using dplyr",
+  ) %>% 
+  meta_name("github-repo" = "djnavarro/robust-tools") %>% 
+  meta_social(
+    title = "A dance with data using dplyr",
+    url = "https://djnavarro.github.io/robust-tools/dancing/",
+    image = "https://djnavarro.github.io/robust-tools/dancing/img/filter_slide.png",
+    image_alt = "Illustration of how the filter() function in the R package dplyr works, showing how to extract a small subset of the so-called 'Small World of Words' data set. The background image is tan, and on the left hand side shows filter coffee dripping downwards.",
+    og_type = "website",
+    og_author = "Danielle Navarro",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@djnavarro"
+  )
+```
+
+
+
 ```{r include=FALSE}
 hook_source <- knitr::knit_hooks$get('source')
 knitr::knit_hooks$set(source = function(x, options) {
