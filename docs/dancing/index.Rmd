@@ -33,7 +33,7 @@ library(tidyverse)
 library(metathis)
 meta() %>%
   meta_general(
-    description = "A dance with data using dplyr",
+    description = "An introduction to data wrangling in R using tidyverse tools, featuring data from the 'Small World of Words' study",
   ) %>% 
   meta_name("github-repo" = "djnavarro/robust-tools") %>% 
   meta_social(
