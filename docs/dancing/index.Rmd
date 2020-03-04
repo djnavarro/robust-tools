@@ -1,5 +1,5 @@
 ---
-title: "> 03 `r emo::ji('broom')` <br> > how to clean up your data"
+title: "> 03 `r emo::ji('dancer')` <br> > dplyr, or a dance with data"
 subtitle: "`r emo::ji('link')` [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
 author: "danielle navarro"
 date: ""
@@ -59,6 +59,33 @@ background-size: cover
   ]]
 ]
 
+
+---
+
+class:middle
+
+
+background-image: url("img/swow_concreteness_strongfade.jpg")
+background-size: cover
+
+
+.pull-left[
+```{r, echo=FALSE}
+knitr::include_graphics("img/science_network.png")
+```
+]
+
+.pull-right[
+<br><br>
+De Deyne, Navarro, Perfors, Brysbaert & Storms (2019).
+<br><br>
+*The Small World of Words: English word association norms for over 12,000 cue words* <br><br>
+https://psyarxiv.com/mb93p/ <br>
+https://smallworldofwords.org/
+]
+
+
+
 ---
 
 class: inverse
@@ -72,7 +99,7 @@ background-size: cover
 ```{r read-swow, warning=FALSE, message=FALSE, results='hide'}
 library(tidyverse)
 swow <- read_tsv(file = "data_swow.csv.zip")
-swow <- swow %>% mutate(id = 1:n())
+swow <- swow %>% mutate(id = 1:n()) # <- ignore for now
 ```
 --
 ```{r read-swow2, echo=FALSE, warning=FALSE, highlight.output=2}
