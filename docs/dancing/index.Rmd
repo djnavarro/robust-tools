@@ -1156,6 +1156,11 @@ background-size: cover
 
 ---
 
+class: middle, inverse
+
+background-image: url("img/join_fade.jpg")
+background-size: cover
+
 .hand[Restore all the variables?]
 
 ```{r}
@@ -1165,11 +1170,37 @@ gender
 
 ---
 
+class: middle, inverse
+
+background-image: url("img/join_fade.jpg")
+background-size: cover
+
 .hand[Restore all the variables?]
 
 ```{r}
 gender %>%
   left_join(swow, by = "id")
 ```
+
+---
+
+
+class: middle, inverse
+
+background-image: url("img/snow_road2.jpg")
+background-size: cover
+
+.pull-right-wide[
+<br>
+.hand[Want more information?]
+
+R for Data Science has a lot of this<br>
+https://r4ds.had.co.nz
+
+<br><br>
+
+Stat 545 is a wonderful resource<br>
+https://stat545.com/
+]
 
 
