@@ -19,7 +19,7 @@ This page is a work in progress! More information will appear over time `r emo::
 - Welcome to the class ([slides](welcome)) 
 - Introduction to data visualisation ([slides](visualisation), [project](https://rstudio.cloud/project/901338))
 - Say hello to your data ([slides](hello), [project](https://rstudio.cloud/project/978818), [study](reasoning))
-- Tidying up your data
+- A dance with data ([slides](dancing), [project](https://rstudio.cloud/project/1006868))
 - Writing your own experiments
 - Structuring your own project
 - Programming in R
