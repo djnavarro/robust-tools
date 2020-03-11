@@ -205,7 +205,7 @@ background-size: cover
 
 .hand[&lt;span style="font-size:60pt"&gt;exercise #1&lt;/span&gt;]
 
-- open empty script `exercise_tidying_01.R`
+- open `exercise_dplyr_01.R`
 - write your comments at the beginning
 - load tidyverse
 - load the swow data
@@ -388,11 +388,10 @@ background-size: cover
 
 .hand[&lt;span style="font-size:60pt"&gt;exercise #2&lt;/span&gt;]
 
-- open empty script `exercise_tidying_02.R`
-- note it picks up from the last exercise
+- open `exercise_dplyr_02.R`
 - create `woman_bck` for "backward associates"
-- i.e. when `"woman"` is the `response`
-- only keep cases with at least two responses
+  - i.e. when `"woman"` is the `response`
+  - only keep cases with at least two responses
 
 
 ---
@@ -533,9 +532,9 @@ background-size: cover
 
 .hand[&lt;span style="font-size:60pt"&gt;exercise #3&lt;/span&gt;]
 
-- open script `exercise_tidying_03.R`
+- open script `exercise_dplyr_03.R`
 - create analogous data sets `man_fwd` and `man_bck`
-- arrange all data sets by descending `strength`
+- make sure all data sets are arranged by descending `strength`
 
 ---
 
@@ -622,13 +621,9 @@ background-size: cover
 
 .hand[&lt;span style="font-size:60pt"&gt;exercise #4&lt;/span&gt;]
 
-- open script `exercise_tidying_04.R`
-- for each data set: `woman_fwd`, `women_bck`, `man_fwd` and `man_bck`
-- create dataset using `filter()` 
-- sort rows by descending `strength` using `arrange()` and `desc()`
-- use `select()` reduce to three columns: `cue`, `response` and `strength`
-
-
+- open script `exercise_dplyr_04.R`
+- notice that the `woman_fwd` pipeline uses `select()` 
+- use `select()` for the other variables
 
 ---
 
@@ -822,7 +817,7 @@ background-size: cover
 
 .hand[&lt;span style="font-size:60pt"&gt;exercise #5&lt;/span&gt;]
 
-- open script `exercise_tidying_05.R`
+- open script `exercise_dplyr_05.R`
 - mutate the data sets to include four new variables:
   - `rank`: see the slides
   - `type`: either `forward` or `backward` 
@@ -994,7 +989,7 @@ background-size: cover
 
 .hand[&lt;span style="font-size:60pt"&gt;exercise #6&lt;/span&gt;]
 
-- open script `exercise_tidying_06.R`
+- open script `exercise_dplyr_06.R`
 - take a look at the instructions! 🙂
 
 
