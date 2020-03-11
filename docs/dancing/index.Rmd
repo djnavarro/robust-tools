@@ -1103,7 +1103,7 @@ background-size: cover
 
 .pull-left-narrow[
   <br><br><br>
-  .hand[<span style="font-size:40pt">exercise #8</span>]
+  .hand[<span style="font-size:40pt">exercise #7</span>]
 ]
 
 .pull-right-wide[
