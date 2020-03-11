@@ -16,10 +16,41 @@ The research toolkit in psychological science has changed a lot in the last deca
 
 This page is a work in progress! More information will appear over time `r emo::ji("slightly_smiling_face")`, but broadly speaking the course is built around a series of modules covering the following topics
 
-- Welcome to the class ([slides](welcome)) 
-- Introduction to data visualisation ([slides](visualisation), [project](https://rstudio.cloud/project/901338))
-- Say hello to your data ([slides](hello), [project](https://rstudio.cloud/project/978818), [study](reasoning))
-- A dance with data ([slides](dancing), [project](https://rstudio.cloud/project/1006868))
+## Section 01 :: Data visualisation
+
+<div class="container">
+<div class="box-left">
+- [Welcome to the class](welcome)
+- [Data visualisation slides](visualisation)
+- [RStudio cloud project 901338](https://rstudio.cloud/project/901338)
+</div>
+<div class="box-right">[<img src="visualisation/img/forensic.png">](visualisation)</div>
+</div>
+
+## Section 02 :: Say hello to your data
+
+<div class="container">
+<div class="box-left">
+- [Hello to data slides](hello)
+- [RStudio cloud project 978818](https://rstudio.cloud/project/978818)
+- [The reasoning study](reasoning)
+</div>
+<div class="box-right">[<img src="hello/img/pipe.png">](hello)</div>
+</div>
+
+## Section 03 :: A dplyr dance with data
+
+<div class="container">
+<div class="box-left">
+- [Data wrangling slides](dancing)
+- [RStudio cloud project 1006868](https://rstudio.cloud/project/1006868)
+</div>
+<div class="box-right">[<img src="dancing/img/filter_slide.png">](dancing)</div>
+</div>
+
+
+## Topics to be added
+
 - Writing your own experiments
 - Structuring your own project
 - Programming in R

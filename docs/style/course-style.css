@@ -27,3 +27,18 @@ blockquote{
 }
 
 
+.container {
+  overflow: auto;
+  width: 100%;
+}
+.box-left {
+  float: left;
+  width: 40%;
+}
+
+.box-right {
+  float: right;
+  width: 60%;
+}
+
+
