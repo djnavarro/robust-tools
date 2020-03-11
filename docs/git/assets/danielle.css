@@ -1,0 +1,13 @@
+
+/* don't set logo or title background */
+:root {
+    --logo: url(""); 
+    --title-background: url("");
+}
+
+.title-slide {
+  background-image: url("");
+  background-size: cover;
+}
+
+

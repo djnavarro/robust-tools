@@ -49,6 +49,17 @@ This page is a work in progress! More information will appear over time `r emo::
 </div>
 
 
+## Section ?? :: Version control with git
+
+<div class="container">
+<div class="box-left">
+- [Slides](https://djnavarro.github.io/chdss2018/day2/git-slides.html)
+- [Tutorial](https://djnavarro.github.io/chdss2018/day2/git.html)
+</div>
+<div class="box-right">[<img src="git/img/git.png">](https://djnavarro.github.io/chdss2018/day2/git-slides.html)</div>
+</div>
+
+
 ## Topics to be added
 
 - Writing your own experiments
