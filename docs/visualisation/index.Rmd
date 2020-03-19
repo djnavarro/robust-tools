@@ -2,7 +2,7 @@
 title: "> 01 `r emo::ji('art')` <br> > data visualisation"
 subtitle: "`r emo::ji('link')` [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
 author: "danielle navarro"
-date: "20 feb 2020"
+date: ""
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -53,37 +53,6 @@ knitr::knit_hooks$set(source = function(x, options) {
   hook_source(x, options)
 })
 ```
-
-class: middle, inverse
-
-background-image: url("img/press_play.png")
-background-size: cover
-background-color: #0F4C81
-
-```{r echo=FALSE}
-countdown(minutes = 1, color_background = "white")
-```
-
-
----
-
-class: middle, inverse
-
-background-image: url("img/press_play.png")
-background-size: cover
-
-.pull-left-narrow[
-  .huge-blue-number[1]
-]
-.pull-right-wide[
-  .larger[
-  <br>
-  `r emo::ji("play_or_pause_button")`
-  ]
-]
-
-
----
 
 class: middle, inverse
 
