@@ -1,8 +1,8 @@
 ---
 title: "> 01 `r emo::ji('art')` <br> > data visualisation"
-subtitle: "`r emo::ji('link')` [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
+subtitle: "`r emo::ji('link') ` [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
 author: "danielle navarro"
-date: ""
+date: " "
 output:
   xaringan::moon_reader:
     lib_dir: libs
