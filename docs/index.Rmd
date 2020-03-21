@@ -14,15 +14,20 @@ rm(list=objects()) # start with a clean workspace
 
 The research toolkit in psychological science has changed a lot in the last decade. Across many areas there is a heightened emphasis on transparency, open access, and a preference for the use of freely available tools. These skills are rarely taught during undergraduate psychology classes, and because research methods classes tend to be statistics heavy, they’re rarely a part of research methodology classes either. This elective provides a hands on tutorial in how to use these tools: it covers an introduction to R programming, modern data visualisation and data wrangling, how to structure your projects, version control and how to write professional documents in R. The course is designed for novices, and no preexisting familiarity with these tools and no programming background is assumed. 
 
-This page is a work in progress! More information will appear over time `r emo::ji("slightly_smiling_face")`, but broadly speaking the course is built around a series of modules covering the following topics
+## Section 00 :: Getting started
+
+The "zeroth" section of the course is brief. It explains the rationale for learning the tools, discusses some reasons why people might feel anxious about the class, and guides the learner through the process of setting up an RStudio Cloud account. For this section -- as well as later ones -- I have made the [slides](welcome) publicly available, and have posted video of me presenting the slides to [youtube](https://youtu.be/t6IIJEoqPyk). 
 
 ## Section 01 :: Data visualisation
 
+The first "real" section of the class provides an introduction to data visualisation in R using ggplot2. It is also assumed to be the *first* contact a student has with R, so it covers a lot of the introductory topics like "what is an R commmand?", "how do I write a script?" and so on. It is intended to be hands-on, alternating between instructor-led content and student exercises. When teaching in-person, I have found this section takes about four hours to complete. As with other sections, it is designed so that you can do it without me: open up the slides and the RStudio Cloud project (both linked below) and then watch the YouTube videos; these will direct you to various hands on exercises you can do within the RStudio Cloud project.
+
 <div class="container">
 <div class="box-left">
-- [Welcome to the class](welcome)
-- [Data visualisation slides](visualisation)
+#### Resources:
+- ["Data visualisation" slides](visualisation)
 - [RStudio cloud project 901338](https://rstudio.cloud/project/901338)
+- [YouTube playlist](https://www.youtube.com/watch?v=6vdHGnD51F8&list=PLRPB0ZzEYegPa4uvvAVJnr6loSKbN4wLb&index=2)
 </div>
 <div class="box-right">[<img src="visualisation/img/forensic.png">](visualisation)</div>
 </div>
@@ -31,7 +36,8 @@ This page is a work in progress! More information will appear over time `r emo::
 
 <div class="container">
 <div class="box-left">
-- [Hello to data slides](hello)
+#### Resources:
+- ["Hello data" slides](hello)
 - [RStudio cloud project 978818](https://rstudio.cloud/project/978818)
 - [The reasoning study](reasoning)
 </div>
@@ -42,8 +48,10 @@ This page is a work in progress! More information will appear over time `r emo::
 
 <div class="container">
 <div class="box-left">
+#### Resources:
 - [Data wrangling slides](dancing)
 - [RStudio cloud project 1006868](https://rstudio.cloud/project/1006868)
+- [YouTube playlist](https://www.youtube.com/watch?v=_LiB4nUKi3o&list=PLRPB0ZzEYegNFsivhQWTFvKvpEc504EPH)
 </div>
 <div class="box-right">[<img src="dancing/img/filter_slide.png">](dancing)</div>
 </div>
