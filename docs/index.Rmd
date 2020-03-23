@@ -8,7 +8,6 @@ output:
 pagetitle: "Robust Tools"
 ---
 
-
 ```{r meta, echo=FALSE}
 library(metathis)
 meta() %>%
@@ -19,7 +18,7 @@ meta() %>%
   meta_social(
     title = "Robust Tools",
     url = "https://djnavarro.github.io/robust-tools/",
-    image = "https://djnavarro.github.io/robust-tools/hello/img/pipe.png",
+    image = "https://djnavarro.github.io/robust-tools/robust.jpg",
     image_alt = "The magrittr pipe in R",
     og_type = "website",
     og_author = "Danielle Navarro",
@@ -27,7 +26,6 @@ meta() %>%
     twitter_creator = "@djnavarro"
   )
 ```
-
 
 
 The research toolkit in psychological science has changed a lot in the last decade. Across many areas there is a heightened emphasis on transparency, open access, and a preference for the use of freely available tools. These skills are rarely taught during undergraduate psychology classes, and because research methods classes tend to be statistics heavy, they’re rarely a part of research methodology classes either. This elective provides a hands on tutorial in how to use these tools: it covers an introduction to R programming, modern data visualisation and data wrangling, how to structure your projects, version control and how to write professional documents in R. The course is designed for novices, and no preexisting familiarity with these tools and no programming background is assumed. 
@@ -101,7 +99,6 @@ This is a work in progress! The linked slides are from a tutorial I gave in late
 - Archiving with OSF 
 - Version control with git
 - Documenting with R markdown
-
 
 
 <br><br>
