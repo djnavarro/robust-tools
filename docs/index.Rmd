@@ -2,10 +2,10 @@
 title: '<div class="jumbotron"><h1 class="title toc-ignore display-3" align="center">Data science with R: A robust toolkit for psychological research</h1><p class="lead" align="center">Danielle Navarro</p></div>'
 output:
   html_document:
+    self_contained: false    
     includes:
       in_header: meta.html
     theme: flatly
-    highlight: textmate
     css: style/course-style.css
 pagetitle: "Robust Tools"
 ---
