@@ -8,9 +8,27 @@ output:
 pagetitle: "Robust Tools"
 ---
 
-```{r,echo=FALSE}
-rm(list=objects()) # start with a clean workspace
+
+```{r meta, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "Data science with R: A robust toolkit for psychological research",
+  ) %>% 
+  meta_name("github-repo" = "djnavarro/robust-tools") %>% 
+  meta_social(
+    title = "Robust Tools",
+    url = "https://djnavarro.github.io/robust-tools/",
+    image = "https://djnavarro.github.io/robust-tools/hello/img/pipe.png",
+    image_alt = "The magrittr pipe in R",
+    og_type = "website",
+    og_author = "Danielle Navarro",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@djnavarro"
+  )
 ```
+
+
 
 The research toolkit in psychological science has changed a lot in the last decade. Across many areas there is a heightened emphasis on transparency, open access, and a preference for the use of freely available tools. These skills are rarely taught during undergraduate psychology classes, and because research methods classes tend to be statistics heavy, they’re rarely a part of research methodology classes either. This elective provides a hands on tutorial in how to use these tools: it covers an introduction to R programming, modern data visualisation and data wrangling, how to structure your projects, version control and how to write professional documents in R. The course is designed for novices, and no preexisting familiarity with these tools and no programming background is assumed. 
 
@@ -34,17 +52,22 @@ The first "real" section of the class provides an introduction to data visualisa
 
 ## Section 02 :: Say hello to your data
 
+The second module to the class is a "bridging" section. It introduces a data set (the reasoning data) that I'll use later in the class, discusses reading data from and writing data to a CSV file, and introduces the pipe. Much of this section is devoted to a discussion of calculating "grouped summaries". In the classroom I've found this takes about two hours to cover including all the practice exercises.
+
 <div class="container">
 <div class="box-left">
 #### Resources:
 - ["Hello data" slides](hello)
 - [RStudio cloud project 978818](https://rstudio.cloud/project/978818)
+- [YouTube playlist](https://www.youtube.com/watch?v=lpbqlu_Sk3M&list=PLRPB0ZzEYegPYKRLwJRh4AbWWSiIlzmC7)
 - [The reasoning study](reasoning)
 </div>
 <div class="box-right">[<img src="hello/img/pipe.png">](hello)</div>
 </div>
 
 ## Section 03 :: A dplyr dance with data
+
+The third section in the class provides an introduction to data wrangling in R, mostly focusing on dplyr. Topics covered include: extracting a subset of the data, rearranging the data, computing new variables in a data set, merging multiple data sets, and pivoting data between "long" and "wide" forms. Including time to complete the in-class exercises, it usually takes about 4 hours.  
 
 <div class="container">
 <div class="box-left">
@@ -59,6 +82,8 @@ The first "real" section of the class provides an introduction to data visualisa
 
 ## Section ?? :: Version control with git
 
+This is a work in progress! The linked slides are from a tutorial I gave in late 2018, and I no longer think this is the best way to teach the material. However, I had to teach this at short notice so for the moment I've left this up in the "old" format...
+
 <div class="container">
 <div class="box-left">
 - [Slides](https://djnavarro.github.io/chdss2018/day2/git-slides.html)
@@ -68,10 +93,10 @@ The first "real" section of the class provides an introduction to data visualisa
 </div>
 
 
-## Topics to be added
+## Topics to be added... soon
 
-- Writing your own experiments
-- Structuring your own project
+- Writing your own experiments in R
+- Structuring your project
 - Programming in R
 - Archiving with OSF 
 - Version control with git
