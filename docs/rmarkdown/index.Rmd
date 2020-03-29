@@ -61,28 +61,6 @@ num_fmt <- scales::number_format(big.mark = ",")
 ```
 
 
-class: middle
-
-## https://rstudio.cloud/project/1006868
-
-- this is a list
-- it has things **big things**
-- links [to places](https://djnavarro.net)
-
----
-
-
-class: middle, inverse
-
-## https://rstudio.cloud/project/1006868
-
-- this is also a list
-- it has things **big things**
-- links [to places](https://djnavarro.net)
-
-
----
-
 class: middle, inverse
 
 background-image: url("img/swow_concreteness_fade.jpg")
@@ -92,55 +70,146 @@ background-size: cover
   .huge-bisque-number[1]
 ]
 .pull-right-wide[
-  .larger[.embolden[
-  Small World of Words
-  ]]
+<br><br><br>
+.larger[.embolden[GitHub]]
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_commits.png")
+```
 ]
+
+---
+
+class: middle
+
+## https://github.com
+
+- **git**:  software to help you organise your code (more later!)
+- **GitHub**: a website for sharing and collaborating code (using git)
 
 
 ---
 
-class:middle
+class: middle
 
-
-background-image: url("img/swow_concreteness_strongfade.jpg")
-background-size: cover
-
+## Me... https://github.com/djnavarro
 
 .pull-left[
 ```{r, echo=FALSE}
-#knitr::include_graphics("img/science_network.png")
+knitr::include_graphics("img/djnavarro_github.png")
 ```
-]
-
-.pull-right[
-<br><br>
-De Deyne, Navarro, Perfors, Brysbaert & Storms (2019).
-<br><br>
-*The Small World of Words: English word association norms for over 12,000 cue words* <br><br>
-https://psyarxiv.com/mb93p/ <br>
-https://smallworldofwords.org/
 ]
 
 
 
 ---
 
-class: inverse
+class: middle
 
-background-image: url("img/swow_concreteness_strongfade.jpg")
-background-size: cover
+## Also me... https://github.com/stringrbelle
 
-
-.hand[Import the SWOW data]
---
-```{r read-swow, warning=FALSE, message=FALSE, results='hide'}
-#library(tidyverse)
-#swow <- read_tsv(file = "data_swow.csv.zip")
-#swow <- swow %>% mutate(id = 1:n()) # <- ignore for now
+.pull-left[
+```{r, echo=FALSE}
+knitr::include_graphics("img/stringrbelle_github.png")
 ```
---
-```{r read-swow2, echo=FALSE, warning=FALSE, highlight.output=2}
-#print(swow, n = 5)
+]
+
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/stringrbelle_avi.png", dpi = 800)
 ```
+oh hey you have a code repository I would like to use!
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/djnavarro_avi.jpeg", dpi = 800)
+```
+really, which one?
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/stringrbelle_avi.png", dpi = 800)
+```
+this one! https://github.com/djnavarro/newblog
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/djnavarro_avi.jpeg", dpi = 800)
+```
+oh cool. well, you're always welcome to create your own **fork** of the repo. or you can use this one as a **template** for your own if you like!
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/stringrbelle_avi.png", dpi = 800)
+```
+awesome! now, how do i do this??
+
+
+
+---
+
+class: middle, inverse
+
+.hand[Create your own!]
+
+- https://github.com/djnavarro/newblog
+- create your repository using "djnavarro/newblog" as a template 
+- use your respository to create a new RStudio cloud project
+
+
+
+---
+
+## 1. go to the "newblog" repository<br>https://github.com/djnavarro/newblog
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/github_template2.png", dpi = 120)
+```
+
+---
+
+
+## 2. create "waffle-blog" from the template
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/github_template3.png", dpi = 200)
+```
+
+---
+
+
+## 3. copy link to the "waffle-blog" repo
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/github_template4.png", dpi = 200)
+```
+
+
+---
+
+
+## 4. go to https://rstudio.cloud<br>then click the arrow next to "new project"<br><br>
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/rstudiocloud_template.png", dpi = 200)
+```
+
+---
+
+## 5. create new project from your repo<br><br>
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/rstudiocloud_template2.png", dpi = 200)
+```
+
+
+---
+
+## 6. celebrate with cake `r emo::ji("cake")` `r emo::ji("tada")`
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/rstudiocloud_template3.png", dpi = 200)
+```
+
+
+
 
