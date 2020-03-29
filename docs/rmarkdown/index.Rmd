@@ -1,0 +1,146 @@
+---
+title: "> &nbsp;&nbsp;04 `r emo::ji('dancer')`  git and rmd "
+subtitle: "`r emo::ji('link')` &nbsp; [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
+author: "danielle navarro"
+date: ""
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["../style/xaringan-themer-bisque.css", "../style/slides-style-bisque.css"]
+    nature:
+      highlightStyle: solarized-light
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+---
+
+```{r child = "../style/setup.Rmd"}
+```
+
+```{r load-packages, message=FALSE, echo=FALSE}
+library(countdown)
+library(tidyverse)
+```
+
+
+
+```{r meta, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "An introduction to data wrangling in R using tidyverse tools, featuring data from the 'Small World of Words' study",
+  ) %>% 
+  meta_name("github-repo" = "djnavarro/robust-tools") %>% 
+  meta_social(
+    title = "A dance with data using dplyr",
+    url = "https://djnavarro.github.io/robust-tools/dancing/",
+    image = "https://djnavarro.github.io/robust-tools/dancing/img/filter_slide.png",
+    image_alt = "Illustration of how the filter() function in the R package dplyr works, showing how to extract a small subset of the so-called 'Small World of Words' data set. The background image is tan, and on the left hand side shows filter coffee dripping downwards.",
+    og_type = "website",
+    og_author = "Danielle Navarro",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@djnavarro"
+  )
+```
+
+
+
+```{r include=FALSE}
+hook_source <- knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  x <- stringr::str_replace(x, "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$", "*\\1")
+  hook_source(x, options)
+})
+
+num_fmt <- scales::number_format(big.mark = ",")
+```
+
+
+class: middle
+
+## https://rstudio.cloud/project/1006868
+
+- this is a list
+- it has things **big things**
+- links [to places](https://djnavarro.net)
+
+---
+
+
+class: middle, inverse
+
+## https://rstudio.cloud/project/1006868
+
+- this is also a list
+- it has things **big things**
+- links [to places](https://djnavarro.net)
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/swow_concreteness_fade.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-bisque-number[1]
+]
+.pull-right-wide[
+  .larger[.embolden[
+  Small World of Words
+  ]]
+]
+
+
+---
+
+class:middle
+
+
+background-image: url("img/swow_concreteness_strongfade.jpg")
+background-size: cover
+
+
+.pull-left[
+```{r, echo=FALSE}
+#knitr::include_graphics("img/science_network.png")
+```
+]
+
+.pull-right[
+<br><br>
+De Deyne, Navarro, Perfors, Brysbaert & Storms (2019).
+<br><br>
+*The Small World of Words: English word association norms for over 12,000 cue words* <br><br>
+https://psyarxiv.com/mb93p/ <br>
+https://smallworldofwords.org/
+]
+
+
+
+---
+
+class: inverse
+
+background-image: url("img/swow_concreteness_strongfade.jpg")
+background-size: cover
+
+
+.hand[Import the SWOW data]
+--
+```{r read-swow, warning=FALSE, message=FALSE, results='hide'}
+#library(tidyverse)
+#swow <- read_tsv(file = "data_swow.csv.zip")
+#swow <- swow %>% mutate(id = 1:n()) # <- ignore for now
+```
+--
+```{r read-swow2, echo=FALSE, warning=FALSE, highlight.output=2}
+#print(swow, n = 5)
+```
+
