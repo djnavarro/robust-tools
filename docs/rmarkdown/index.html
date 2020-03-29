@@ -64,9 +64,6 @@ layout: true
 
 class: middle, inverse
 
-background-image: url("img/swow_concreteness_fade.jpg")
-background-size: cover
-
 .pull-left-narrow[
   .huge-bisque-number[1]
 ]
@@ -182,6 +179,196 @@ class: middle, inverse
 ## 6. celebrate with cake 🍰 🎉
 
 &lt;img src="img/rstudiocloud_template3.png" width="1019" /&gt;
+
+
+
+---
+
+class: middle, inverse
+
+.pull-left-narrow[
+  .huge-bisque-number[2]
+]
+.pull-right-wide[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.larger[.embolden[Blogdown]]
+&lt;img src="img/blogdown.png" width="212" /&gt;
+]
+
+
+---
+
+class: middle, inverse
+
+## Frankenstein's monster
+
+- **Markdown:** a simple text-only format for writing documents
+- **R markdown:** a tool for mixing R code with markdown 
+- **Blogdown:** a tool for writing blogs using R markdown
+- **Hugo:** a vile demon that blogdown summons to do its magic
+
+---
+
+class: inverse
+
+## Building the blog
+
+.pull-left[
+
+```r
+library(blogdown)
+serve_site()
+```
+]
+--
+.pull-right[
+&lt;img src="img/blog_00.png" width="777" /&gt;
+]
+
+---
+
+class: inverse
+
+## Making a new_post()
+
+
+&lt;img src="img/blog_02.png" width="922" /&gt;
+
+
+---
+
+class: inverse
+
+## Editing the document
+
+
+&lt;img src="img/blog_03.png" width="2642" /&gt;
+
+
+---
+
+## Some markdown
+
+.pull-left[
+```
+Markdown:
+
+- unnumbered lists
+- look like this
+
+1. numbered lists
+2. look like this
+
+this is *italicised*
+
+this is **boldfaced**
+```
+]
+--
+.pull-right[
+Output:
+
+- unnumbered lists
+- look like this
+
+1. numbered lists
+2. look like this
+
+this is *italicised*
+
+this is **boldfaced**
+]
+
+---
+
+## Some markdown
+
+.pull-left[
+```
+# Level 1 heading
+## Level 2 heading
+### Level 3 heading
+
+```
+]
+--
+.pull-right[
+# Level 1 heading
+## Level 2 heading
+### Level 3 heading
+]
+
+
+
+---
+
+## Some markdown
+
+.pull-left-wide[
+```
+To insert an image:
+![](https://placekitten.com/200/400)
+```
+]
+--
+.pull-right-narrow[
+To insert an image:
+![](https://placekitten.com/200/400)
+]
+
+---
+
+## Some markdown
+
+.pull-left-wide[
+```
+To insert a URL:
+https://placekitten.com
+
+To make a named link:
+[Placekitten](https://placekitten.com)
+```
+]
+--
+.pull-right-narrow[
+To insert a URL:
+https://placekitten.com
+
+To insert a named link:
+[Placekitten](https://placekitten.com)
+]
+
+
+---
+
+## Some markdown
+
+.pull-left[
+```
+To insert a LaTeX equation:
+$$
+a^2 + b^2 = c^2
+$$
+```
+]
+--
+.pull-right[
+To insert a LaTeX equation:
+$$
+a^2 + b^2 = c^2
+$$
+]
+
+
+
+---
+
+class: middle, inverse
+
+.hand[Create your own!]
+
+- write a short blog post (and save it)
+- try to use a few markdown features
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
