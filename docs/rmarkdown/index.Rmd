@@ -403,3 +403,398 @@ class: middle, inverse
 
 - write a short blog post (and save it)
 - try to use a few markdown features
+
+
+
+---
+
+class: middle, inverse
+
+.pull-left-narrow[
+  .huge-bisque-number[3]
+]
+.pull-right-wide[
+<br><br><br>
+.larger[.embolden[Push and Publish]]
+]
+
+
+---
+
+.pull-left-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/Publish1.png", dpi = 300)
+```
+]
+.pull-right-narrow[
+.xsmall[
+1. djnavarro creates the `newblog` repository on github<br><br>
+]
+]
+
+---
+
+.pull-left-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/Publish2.png", dpi = 300)
+```
+]
+.pull-right-narrow[
+.xsmall[
+1. djnavarro creates the `newblog` repository on github<br><br>
+2. djnavarro publishes `newblog` to github pages<br><br>
+]
+]
+
+---
+
+
+.pull-left-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/Publish3.png", dpi = 300)
+```
+]
+.pull-right-narrow[
+.xsmall[
+1. djnavarro creates the `newblog` repository on github<br><br>
+2. djnavarro publishes `newblog` to github pages<br><br>
+3. stringrbelle creates `waffle-blog` from djnavarro's template<br><br>
+]
+]
+
+
+---
+
+.pull-left-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/Publish4.png", dpi = 300)
+```
+]
+.pull-right-narrow[
+.xsmall[
+1. djnavarro creates the `newblog` repository on github<br><br>
+2. djnavarro publishes `newblog` to github pages<br><br>
+3. stringrbelle creates `waffle-blog` from djnavarro's template<br><br>
+4. stringrbelle creates rstudio cloud project from `waffle-blog`<br><br>
+]
+]
+
+
+
+---
+
+.pull-left-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/Publish5.png", dpi = 300)
+```
+]
+.pull-right-narrow[
+.xsmall[
+1. djnavarro creates the `newblog` repository on github<br><br>
+2. djnavarro publishes `newblog` to github pages<br><br>
+3. stringrbelle creates `waffle-blog` from djnavarro's template<br><br>
+4. stringrbelle creates rstudio cloud project from `waffle-blog`<br><br>
+5. stringrbelle modifies `waffle-blog` project on rstudio cloud<br><br>
+]
+]
+
+
+
+---
+
+.pull-left-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/Publish6.png", dpi = 300)
+```
+]
+.pull-right-narrow[
+.xsmall[
+1. djnavarro creates the `newblog` repository on github<br><br>
+2. djnavarro publishes `newblog` to github pages<br><br>
+3. stringrbelle creates `waffle-blog` from djnavarro's template<br><br>
+4. stringrbelle creates rstudio cloud project from `waffle-blog`<br><br>
+5. stringrbelle modifies `waffle-blog` project on rstudio cloud<br><br>
+6. stringrbelle wants to **push** changes to github and **publish** to github pages <br>(... but how?)
+]
+]
+
+---
+
+class: middle, inverse
+
+.hand[first, a demonstration...]
+
+---
+
+class: middle, inverse
+
+.hand[now, a recap...]
+
+
+---
+
+class:
+
+.hand[Step 1: Staging changes...]
+
+.pull-left-narrow[
+.small[
+- **stage**: tells git *which* changes to include<br><br>
+- go to the git pane
+- shows list of files that have changed
+- click "commit" to open the commit window...
+]
+]
+.pull-right-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_push1.png", dpi = 300)
+```
+]
+
+
+---
+
+.hand[Step 1: Staging changes...]
+
+.pull-left-narrow[
+.small[
+- commit window `->`
+- shows changes in detail
+]
+]
+.pull-right-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_push2.png", dpi = 300)
+```
+]
+
+
+---
+
+.hand[Step 1: Staging changes...]
+
+.pull-left-narrow[
+.small[
+- to select one file to stage, click its checkbox<br><br>
+- to stage everything all at once, use shortcut key (ctrl-A, cmd-A on Mac) to select all, then check any of the boxes (will stage all of them)
+]
+]
+.pull-right-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_push3.png", dpi = 300)
+```
+]
+
+
+---
+
+.hand[Step 2: Commiting changes...]
+
+.pull-left-narrow[
+.small[
+- **commit**: to make a permanent addition to the local repository (i.e., on rstudio cloud) <br><br>
+- write a descriptive "commit message"
+- then click "commit"...
+]
+]
+.pull-right-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_push4.png", dpi = 300)
+```
+]
+
+
+---
+
+class: inverse
+
+.hand[Something goes wrong...]
+
+.pull-left-narrow[
+.small[
+- oh noes!<br><br>
+- don't stress!
+- making mistakes with git is *very* common<br><br>
+- in this case, the local copy of git (on rstudio cloud) doesn't know who we are
+- okay... open the `git_config.R` script!
+]
+]
+.pull-right-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_push6.png", dpi = 300)
+```
+]
+
+
+---
+
+class: inverse
+
+.hand[Something goes wrong...]
+
+.pull-left-narrow[
+.small[
+- stringrbelle types her email and name
+- she sources the script... <br><br>
+- then tries again!
+]
+]
+.pull-right-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_push7.png", dpi = 300)
+```
+]
+
+
+
+
+---
+
+.hand[Step 2: Commiting changes...]
+
+.pull-left-narrow[
+.small[
+- back to the commit!
+- type informative message
+- click "commit"...
+]
+]
+.pull-right-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_push8.png", dpi = 300)
+```
+]
+
+
+---
+
+.hand[Step 2: Commiting changes...]
+
+.pull-left-narrow[
+.small[
+- yaaaay!
+- the *local* (rstudio) repository now has the "commit"
+- click "close"<br><br>
+- next step is to "push"... press "push" `r emo::ji("smile")` 
+]
+]
+.pull-right-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_push9.png", dpi = 300)
+```
+]
+
+
+
+---
+
+.hand[Step 3: Pushing the commit...]
+
+.pull-left-narrow[
+.small[
+- **push**: send commit(s) from the local repository (on rstudio cloud) to the remote version (on github)<br><br>
+- press the "push" button
+- stringrbelle needs to enter her github user name and password
+]
+]
+.pull-right-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_push10.png", dpi = 300)
+```
+]
+
+
+---
+
+.hand[Step 3: Pushing the commit...]
+
+.pull-left-narrow[
+.small[
+- yaaay!
+]]
+.pull-right-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_push11.png", dpi = 300)
+```
+]
+
+
+---
+
+.hand[Step 3: Pushing the commit...]
+
+.pull-left-narrow[
+.small[
+- here's what stringrbelle's repository looked like before
+]
+]
+.pull-right-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_push5.png", dpi = 300)
+```
+]
+
+
+---
+
+.hand[Step 3: Pushing the commit...]
+
+.pull-left-narrow[
+.small[
+- here's what it looks like after!<br><br>
+- for the next step, click "settings"
+]
+]
+.pull-right-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_push12.png", dpi = 300)
+```
+]
+
+
+---
+
+.hand[Step 4: Publishing the blog...]
+
+.pull-left-narrow[
+.small[
+- output is in "docs"
+- to publish, stringrbelle needs to enable GitHub Pages for this repo
+- only needs to do it once: later changes are published automtically<br><br>
+- under settings, scroll down to "GitHub Pages"
+- under "source" menu, choose "master branch /docs folder"
+]
+]
+.pull-right-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_push13.png", dpi = 300)
+```
+]
+
+
+---
+
+.hand[Step 4: Publishing the blog...]
+
+.pull-left-narrow[
+.small[
+- she has a website now!
+- click on the link and...
+]
+]
+.pull-right-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_push14.png", dpi = 300)
+```
+]
+
+
+---
+
+.hand[Step 5: Celebrate! Eat cake! `r emo::ji("tada")` `r emo::ji("cake")`]
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/git_push15.png", dpi = 300)
+```
+
+

@@ -369,6 +369,357 @@ class: middle, inverse
 
 - write a short blog post (and save it)
 - try to use a few markdown features
+
+
+
+---
+
+class: middle, inverse
+
+.pull-left-narrow[
+  .huge-bisque-number[3]
+]
+.pull-right-wide[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.larger[.embolden[Push and Publish]]
+]
+
+
+---
+
+.pull-left-wide[
+&lt;img src="img/Publish1.png" width="712" /&gt;
+]
+.pull-right-narrow[
+.xsmall[
+1. djnavarro creates the `newblog` repository on github&lt;br&gt;&lt;br&gt;
+]
+]
+
+---
+
+.pull-left-wide[
+&lt;img src="img/Publish2.png" width="712" /&gt;
+]
+.pull-right-narrow[
+.xsmall[
+1. djnavarro creates the `newblog` repository on github&lt;br&gt;&lt;br&gt;
+2. djnavarro publishes `newblog` to github pages&lt;br&gt;&lt;br&gt;
+]
+]
+
+---
+
+
+.pull-left-wide[
+&lt;img src="img/Publish3.png" width="712" /&gt;
+]
+.pull-right-narrow[
+.xsmall[
+1. djnavarro creates the `newblog` repository on github&lt;br&gt;&lt;br&gt;
+2. djnavarro publishes `newblog` to github pages&lt;br&gt;&lt;br&gt;
+3. stringrbelle creates `waffle-blog` from djnavarro's template&lt;br&gt;&lt;br&gt;
+]
+]
+
+
+---
+
+.pull-left-wide[
+&lt;img src="img/Publish4.png" width="712" /&gt;
+]
+.pull-right-narrow[
+.xsmall[
+1. djnavarro creates the `newblog` repository on github&lt;br&gt;&lt;br&gt;
+2. djnavarro publishes `newblog` to github pages&lt;br&gt;&lt;br&gt;
+3. stringrbelle creates `waffle-blog` from djnavarro's template&lt;br&gt;&lt;br&gt;
+4. stringrbelle creates rstudio cloud project from `waffle-blog`&lt;br&gt;&lt;br&gt;
+]
+]
+
+
+
+---
+
+.pull-left-wide[
+&lt;img src="img/Publish5.png" width="712" /&gt;
+]
+.pull-right-narrow[
+.xsmall[
+1. djnavarro creates the `newblog` repository on github&lt;br&gt;&lt;br&gt;
+2. djnavarro publishes `newblog` to github pages&lt;br&gt;&lt;br&gt;
+3. stringrbelle creates `waffle-blog` from djnavarro's template&lt;br&gt;&lt;br&gt;
+4. stringrbelle creates rstudio cloud project from `waffle-blog`&lt;br&gt;&lt;br&gt;
+5. stringrbelle modifies `waffle-blog` project on rstudio cloud&lt;br&gt;&lt;br&gt;
+]
+]
+
+
+
+---
+
+.pull-left-wide[
+&lt;img src="img/Publish6.png" width="712" /&gt;
+]
+.pull-right-narrow[
+.xsmall[
+1. djnavarro creates the `newblog` repository on github&lt;br&gt;&lt;br&gt;
+2. djnavarro publishes `newblog` to github pages&lt;br&gt;&lt;br&gt;
+3. stringrbelle creates `waffle-blog` from djnavarro's template&lt;br&gt;&lt;br&gt;
+4. stringrbelle creates rstudio cloud project from `waffle-blog`&lt;br&gt;&lt;br&gt;
+5. stringrbelle modifies `waffle-blog` project on rstudio cloud&lt;br&gt;&lt;br&gt;
+6. stringrbelle wants to **push** changes to github and **publish** to github pages &lt;br&gt;(... but how?)
+]
+]
+
+---
+
+class: middle, inverse
+
+.hand[first, a demonstration...]
+
+---
+
+class: middle, inverse
+
+.hand[now, a recap...]
+
+
+---
+
+class:
+
+.hand[Step 1: Staging changes...]
+
+.pull-left-narrow[
+.small[
+- **stage**: tells git *which* changes to include&lt;br&gt;&lt;br&gt;
+- go to the git pane
+- shows list of files that have changed
+- click "commit" to open the commit window...
+]
+]
+.pull-right-wide[
+&lt;img src="img/git_push1.png" width="513" /&gt;
+]
+
+
+---
+
+.hand[Step 1: Staging changes...]
+
+.pull-left-narrow[
+.small[
+- commit window `-&gt;`
+- shows changes in detail
+]
+]
+.pull-right-wide[
+&lt;img src="img/git_push2.png" width="886" /&gt;
+]
+
+
+---
+
+.hand[Step 1: Staging changes...]
+
+.pull-left-narrow[
+.small[
+- to select one file to stage, click its checkbox&lt;br&gt;&lt;br&gt;
+- to stage everything all at once, use shortcut key (ctrl-A, cmd-A on Mac) to select all, then check any of the boxes (will stage all of them)
+]
+]
+.pull-right-wide[
+&lt;img src="img/git_push3.png" width="884" /&gt;
+]
+
+
+---
+
+.hand[Step 2: Commiting changes...]
+
+.pull-left-narrow[
+.small[
+- **commit**: to make a permanent addition to the local repository (i.e., on rstudio cloud) &lt;br&gt;&lt;br&gt;
+- write a descriptive "commit message"
+- then click "commit"...
+]
+]
+.pull-right-wide[
+&lt;img src="img/git_push4.png" width="885" /&gt;
+]
+
+
+---
+
+class: inverse
+
+.hand[Something goes wrong...]
+
+.pull-left-narrow[
+.small[
+- oh noes!&lt;br&gt;&lt;br&gt;
+- don't stress!
+- making mistakes with git is *very* common&lt;br&gt;&lt;br&gt;
+- in this case, the local copy of git (on rstudio cloud) doesn't know who we are
+- okay... open the `git_config.R` script!
+]
+]
+.pull-right-wide[
+&lt;img src="img/git_push6.png" width="573" /&gt;
+]
+
+
+---
+
+class: inverse
+
+.hand[Something goes wrong...]
+
+.pull-left-narrow[
+.small[
+- stringrbelle types her email and name
+- she sources the script... &lt;br&gt;&lt;br&gt;
+- then tries again!
+]
+]
+.pull-right-wide[
+&lt;img src="img/git_push7.png" width="490" /&gt;
+]
+
+
+
+
+---
+
+.hand[Step 2: Commiting changes...]
+
+.pull-left-narrow[
+.small[
+- back to the commit!
+- type informative message
+- click "commit"...
+]
+]
+.pull-right-wide[
+&lt;img src="img/git_push8.png" width="886" /&gt;
+]
+
+
+---
+
+.hand[Step 2: Commiting changes...]
+
+.pull-left-narrow[
+.small[
+- yaaaay!
+- the *local* (rstudio) repository now has the "commit"
+- click "close"&lt;br&gt;&lt;br&gt;
+- next step is to "push"... press "push" 😄 
+]
+]
+.pull-right-wide[
+&lt;img src="img/git_push9.png" width="886" /&gt;
+]
+
+
+
+---
+
+.hand[Step 3: Pushing the commit...]
+
+.pull-left-narrow[
+.small[
+- **push**: send commit(s) from the local repository (on rstudio cloud) to the remote version (on github)&lt;br&gt;&lt;br&gt;
+- press the "push" button
+- stringrbelle needs to enter her github user name and password
+]
+]
+.pull-right-wide[
+&lt;img src="img/git_push10.png" width="885" /&gt;
+]
+
+
+---
+
+.hand[Step 3: Pushing the commit...]
+
+.pull-left-narrow[
+.small[
+- yaaay!
+]]
+.pull-right-wide[
+&lt;img src="img/git_push11.png" width="570" /&gt;
+]
+
+
+---
+
+.hand[Step 3: Pushing the commit...]
+
+.pull-left-narrow[
+.small[
+- here's what stringrbelle's repository looked like before
+]
+]
+.pull-right-wide[
+&lt;img src="img/git_push5.png" width="524" /&gt;
+]
+
+
+---
+
+.hand[Step 3: Pushing the commit...]
+
+.pull-left-narrow[
+.small[
+- here's what it looks like after!&lt;br&gt;&lt;br&gt;
+- for the next step, click "settings"
+]
+]
+.pull-right-wide[
+&lt;img src="img/git_push12.png" width="509" /&gt;
+]
+
+
+---
+
+.hand[Step 4: Publishing the blog...]
+
+.pull-left-narrow[
+.small[
+- output is in "docs"
+- to publish, stringrbelle needs to enable GitHub Pages for this repo
+- only needs to do it once: later changes are published automtically&lt;br&gt;&lt;br&gt;
+- under settings, scroll down to "GitHub Pages"
+- under "source" menu, choose "master branch /docs folder"
+]
+]
+.pull-right-wide[
+&lt;img src="img/git_push13.png" width="404" /&gt;
+]
+
+
+---
+
+.hand[Step 4: Publishing the blog...]
+
+.pull-left-narrow[
+.small[
+- she has a website now!
+- click on the link and...
+]
+]
+.pull-right-wide[
+&lt;img src="img/git_push14.png" width="397" /&gt;
+]
+
+
+---
+
+.hand[Step 5: Celebrate! Eat cake! 🎉 🍰]
+
+&lt;img src="img/git_push15.png" width="886" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
