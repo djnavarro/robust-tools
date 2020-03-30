@@ -33,14 +33,14 @@ library(tidyverse)
 library(metathis)
 meta() %>%
   meta_general(
-    description = "An introduction to data wrangling in R using tidyverse tools, featuring data from the 'Small World of Words' study",
+    description = "An introduction to R markdown, blogdown and github",
   ) %>% 
   meta_name("github-repo" = "djnavarro/robust-tools") %>% 
   meta_social(
-    title = "A dance with data using dplyr",
-    url = "https://djnavarro.github.io/robust-tools/dancing/",
-    image = "https://djnavarro.github.io/robust-tools/dancing/img/filter_slide.png",
-    image_alt = "Illustration of how the filter() function in the R package dplyr works, showing how to extract a small subset of the so-called 'Small World of Words' data set. The background image is tan, and on the left hand side shows filter coffee dripping downwards.",
+    title = "Make a website with blogdown and github",
+    url = "https://djnavarro.github.io/robust-tools/website/",
+    image = "https://djnavarro.github.io/robust-tools/website/img/twitter-card.png",
+    image_alt = "",
     og_type = "website",
     og_author = "Danielle Navarro",
     twitter_card_type = "summary_large_image",
@@ -945,4 +945,15 @@ knitr::include_graphics("img/blog_edits4.png", dpi = 200)
 ```
 ]
 
+---
+
+class: middle
+
+background-image: url("img/scope_03.png")
+background-size: cover
+
+.pull-left[
+<h3><a style="color:black;font-weight:900;font-size:120%" href=https://stringrbelle.github.io/waffle-blog/>stringrbelle.github.io/<br>waffle-blog</a></h3>
+]
+  
 
