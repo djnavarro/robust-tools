@@ -957,3 +957,99 @@ background-size: cover
 ]
   
 
+---
+
+class: middle, inverse
+
+.pull-left-narrow[
+  .huge-bisque-number[5]
+]
+.pull-right-wide[
+.larger[.embolden[R chunks
+```{r, echo=FALSE}
+knitr::include_graphics("img/rmarkdown.png", dpi = 1000)
+```
+]]]
+
+
+---
+
+.hand[Create a new post...]
+
+.pull-left-wide[
+```{r, eval = FALSE}
+new_post(
+  title = "Using R Markdown", 
+  author = "Stringr Belle", 
+  ext = ".Rmd"
+)
+```
+] 
+.pull-right-narrow[
+```{r, echo=FALSE}
+knitr::include_graphics("img/rmd1.png", dpi = 200)
+```
+]
+
+
+---
+
+.hand[Add some markdown...]
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/rmd2.png", dpi = 200)
+```
+
+---
+
+.hand[Add an R chunk...]
+
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/rmd3.png", dpi = 200)
+```
+
+---
+
+.hand[Make the R chunk prettier...]
+
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/rmd4.png", dpi = 200)
+```
+
+---
+
+.hand[Add some familiar ggplot2 code...]
+
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/rmd5.png", dpi = 200)
+```
+
+---
+
+
+.pull-left-narrow[
+<br><br><br><br><br>
+## `r emo::ji("tada")` `r emo::ji("cake")`
+]
+.pull-right-wide[
+```{r, echo=FALSE}
+knitr::include_graphics("img/rmd6.png", dpi = 200)
+```
+]
+
+
+---
+
+class: inverse
+
+background-image: url("img/waffles.jpg")
+background-size: cover
+
+<h2><a href="https://stringrbelle.github.io/waffle-blog/" style="color:white">https://stringrbelle.github.io/waffle-blog/</a></h2>
+
+
+
+
