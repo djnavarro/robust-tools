@@ -93,7 +93,7 @@ The fourth section in the class provides an introduction to several topics. The 
 - [The waffle-blog repository](https://github.com/stringrbelle/waffle-blog)
 - [The waffle-blog](https://stringrbelle.github.io/waffle-blog)
 </div>
-<div class="box-right">[<img src="website/img/twitter-card.png">](website)</div>
+<div class="box-right">[<img src="website/img/websplash.png">](website)</div>
 </div>
 
 
