@@ -1,5 +1,5 @@
 ---
-title: "> &nbsp;&nbsp;04 `r emo::ji('dancer')`  git and rmd "
+title: "> &nbsp;&nbsp;04 `r emo::ji('book')` Make your own website with blogdown and GitHub"
 subtitle: "`r emo::ji('link')` &nbsp; [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
 author: "danielle navarro"
 date: ""
