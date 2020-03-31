@@ -92,6 +92,7 @@ The fourth section in the class provides an introduction to several topics. The 
 - [The newblog repository](https://github.com/djnavarro/newblog)
 - [The waffle-blog repository](https://github.com/stringrbelle/waffle-blog)
 - [The waffle-blog](https://stringrbelle.github.io/waffle-blog)
+- [YouTube playlist](https://www.youtube.com/playlist?list=PLRPB0ZzEYegNW7FlGgtAOeZyvkCuiq2BT)
 </div>
 <div class="box-right">[<img src="website/img/websplash.png">](website)</div>
 </div>
