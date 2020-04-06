@@ -124,8 +124,8 @@ art_pic <- ggplot(
 # save the ggplot to a png file -------------------------------------------
 
 # size of the image in pixels (or "dots")
-pixels_wide <- 3000
-pixels_high <- 3000
+pixels_wide <- 5000
+pixels_high <- 5000
 
 # what shall we call our image?
 filename <- art_par %>% 
