@@ -98,6 +98,22 @@ The fourth section in the class provides an introduction to several topics. The 
 </div>
 
 
+## Section 05 :: Programming Generative Art
+
+
+The fifth section in the course is an art class, of sorts. Notionally the goal is to build a new generative art system (because everyone loves pretty pictures), but it also serves as a mechanism to introduce key programming concepts: vectors, lists, coercion, logical operations, loops and conditionals are all introduced in this section. 
+
+<div class="container">
+<div class="box-left">
+#### Resources:
+- [R markdown slides](artistry)
+- [YouTube playlist](https://www.youtube.com/watch?v=ZUyahWLWVzY&list=PLRPB0ZzEYegNYW3ksiK3dvd6S4HMfKj1n)
+- [RStudio cloud project 1112041](https://rstudio.cloud/project/1112041)
+</div>
+<div class="box-right">[<img src="artistry/img/scrawl_15-10000-400-100-5_trunc.png">](artistry)</div>
+</div>
+
+
 
 ## Section ?? :: Version control with git
 
