@@ -47,6 +47,10 @@ h1, h2, h3 {
 
 /* Font colors */
 
+.darkpink {
+  color: #8B3A62;
+}
+
 .plainwhite {
   color: #FFFFFF;
 }
@@ -114,6 +118,20 @@ h1, h2, h3 {
 .pull-right-wide ~ * {
   clear: both;
 }
+
+
+.pull-leftish {
+  width: 43%;
+  float: left;
+}
+.pull-rightish {
+  width: 57%;
+  float: right;
+}
+.pull-rightish ~ * {
+  clear: both;
+}
+
 
 
 /* Four column layout */

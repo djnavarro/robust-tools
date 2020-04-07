@@ -62,7 +62,7 @@ layout: true
 
 
 
-class: middle, inverse
+class: middle
 
 background-image: url("img/scrawl_2-500-80-200-70.png")
 background-size: cover
@@ -101,6 +101,466 @@ class: middle, inverse
 
 .hand[Our studio...]
 ## https://rstudio.cloud/project/1112041
+
+
+---
+
+class: middle
+
+background-image: url("img/scrawl_10-1000-400-100-5.png")
+background-size: cover
+opacity: .4
+
+.pull-left-narrow[
+  .huge-hotpink-number[2]
+]
+.pull-right-wide[
+  &lt;br&gt;&lt;br&gt;&lt;br&gt;
+  .larger[.embolden[Values and Vectors]]
+]
+
+---
+
+class: middle
+
+.hand[From the art class...]
+
+&lt;img src="img/scr_vector_annotated.png" width="782" /&gt;
+
+---
+
+class: inverse
+
+.hand[Four types of value]
+
+- **numeric** values: `1.53`, `11.6`, `1.0`, etc
+- **integer** values: `0L`, `1L`, `2L`, `100L`, etc
+- **character** values: `"pride"`, `"and"`, `"prejudice"`,  
+- **logical** values: `TRUE`, `FALSE`
+
+---
+
+class: inverse
+
+.hand[Three kinds of "absence" for a value]
+
+- `NA` means "information not available" (e.g., missing data)
+- `NULL` means "programming variable doesn't exist"
+- `NaN` means "not a number" (e.g., `0/0` is `NaN`)
+
+--
+
+.hand[Two sides to infinity]
+
+- `Inf` is positive infinity (e.g., `1/0` is `Inf`)
+- `-Inf` is negative infinity (e.g., `-1/0` is `-Inf`)
+
+
+---
+
+class: inverse
+
+.pull-leftish[
+.hand[Topic:]
+- vectors with `c()`, numeric
+- vectors with `c()`, character
+- get one using `[ ]` 
+- get two using `[ ]` 
+- negative indices drop items
+- elementwise operations
+- the recycling rule 
+
+]
+--
+.pull-rightish[
+.hand[Example:]
+- `fib &lt;- c(1,1,2,3,5,8)`
+- `pet &lt;- c("bat","cat","dog")`
+- `pet[3]` is `"dog"`
+- `pet[c(1,3)]` is `c("bat","dog")`
+- `pet[-2]` is `c("bat","dog")`
+- `fib + 1` is `c(2,2,3,4,6,9)`
+- `fib + c(0,1)` is `c(1,2,2,4,5,9)`
+]
+
+---
+
+class: middle
+
+background-image: url("img/scrawl_11-1000-400-100-5.png")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-hotpink-number[3]
+]
+.pull-right-wide[
+  &lt;br&gt;&lt;br&gt;&lt;br&gt;
+  .larger[.embolden[Class and Coercion]]
+]
+
+
+
+---
+
+class: middle
+
+.hand[From the art class...]
+
+&lt;img src="img/scr_mixed_annotated.png" width="428" /&gt;
+
+
+---
+
+class: inverse
+
+.pull-leftish[
+.hand[Topic:]
+- objects have a **class**
+- possibly multiple classes
+- you can coerce objects...
+]
+--
+.pull-rightish[
+.hand[Example:]
+- `class(fib)` is `"numeric"`
+- `class(mpg)` shows three classes
+- `as.character(3)` is `"3"`
+- `as.character(TRUE)` is `"TRUE"`
+- `as.numeric(TRUE)` is `1`
+- `as.numeric("cat")` is `NA`
+]
+
+
+---
+
+class: middle
+
+background-image: url("img/scrawl_12-1000-400-100-5.png")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-hotpink-number[4]
+]
+.pull-right-wide[
+  &lt;br&gt;&lt;br&gt;&lt;br&gt;
+  .larger[.embolden[&amp;nbsp;&amp;nbsp;Lists...]]
+]
+
+---
+
+class: middle
+
+.hand[From the art class...]
+
+&lt;img src="img/scr_artpar_annotated.png" width="631" /&gt;
+
+
+---
+
+class: inverse
+
+.hand[Lists are "containers" for arbitrary objects]
+
+
+.pull-left[
+
+```r
+art_par &lt;- list(
+  seed = c(2, 10, 19),
+  n_paths = 100,
+  n_steps = 20,
+  palette = "bilbao",
+  save = TRUE
+)
+```
+]
+--
+.pull-right[
+
+```
+## $seed
+## [1]  2 10 19
+## 
+## $n_paths
+## [1] 100
+## 
+## $n_steps
+## [1] 20
+## 
+## $palette
+## [1] "bilbao"
+## 
+## $save
+## [1] TRUE
+```
+]
+
+
+---
+
+class: middle
+
+background-image: url("img/scrawl_13-1000-400-100-5.png")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-hotpink-number[5]
+]
+.pull-right-wide[
+  &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+  .larger[.embolden[&amp;nbsp;&amp;nbsp;... Listish&lt;br&gt;&amp;nbsp;&amp;nbsp;Things?]]
+]
+
+---
+
+class: inverse
+
+.hand[Tibbles (data frames) are secretly lists]
+
+.pull-left[
+
+```r
+list(
+  pet = c("cat", "dog"), 
+  count = c(3, 1)
+)
+```
+
+```
+## $pet
+## [1] "cat" "dog"
+## 
+## $count
+## [1] 3 1
+```
+]
+
+--
+
+.pull-right[
+
+```r
+tibble(
+  pet = c("cat", "dog"), 
+  count = c(3, 1)
+)
+```
+
+```
+## # A tibble: 2 x 2
+##   pet   count
+##   &lt;chr&gt; &lt;dbl&gt;
+## 1 cat       3
+## 2 dog       1
+```
+]
+
+
+
+---
+
+class: inverse
+
+.hand[Tibbles (data frames) are secretly lists]
+
+.pull-left[
+
+```r
+list(
+  pet = c("cat", "dog"), 
+  count = c(3, 1)
+)
+```
+
+```
+## $pet
+## [1] "cat" "dog"
+## 
+## $count
+## [1] 3 1
+```
+]
+
+
+
+.pull-right[
+
+```r
+data.frame(
+  pet = c("cat", "dog"), 
+  count = c(3, 1)
+)
+```
+
+```
+##   pet count
+## 1 cat     3
+## 2 dog     1
+```
+]
+
+
+---
+
+class: middle
+
+background-image: url("img/scrawl_14-1000-400-100-5.png")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-hotpink-number[6]
+]
+.pull-right-wide[
+  &lt;br&gt;&lt;br&gt;&lt;br&gt;
+  .larger[.embolden[&amp;nbsp;&amp;nbsp;Loops]]
+]
+
+
+
+
+
+---
+
+class: inverse
+
+.hand[Iterate code WHILE some condition remains true]
+
+.pull-left[
+
+
+```r
+value &lt;- 0
+while(value &lt; .8) {
+  value &lt;- runif(n = 1)
+  print(value)
+}
+```
+]
+--
+.pull-right[
+
+```
+## [1] 0.3977455
+## [1] 0.1156978
+## [1] 0.06974868
+## [1] 0.2437494
+## [1] 0.7920104
+## [1] 0.3400624
+## [1] 0.9720625
+```
+]
+
+
+
+---
+
+class: inverse
+
+.hand[Iterate code FOR each element in a vector]
+
+.pull-left[
+
+```r
+pet &lt;- c("bat","cat","dog")
+for(p in pet) {
+  msg &lt;- str_c(
+    "------", p, "------"
+  )
+  print(msg) 
+}
+```
+]
+--
+.pull-right[
+
+```
+## [1] "------bat------"
+## [1] "------cat------"
+## [1] "------dog------"
+```
+]
+
+
+---
+
+class: middle
+
+background-image: url("img/scrawl_15-1000-400-100-5.png")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-hotpink-number[7]
+]
+.pull-right-wide[
+  &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+  .larger[.embolden[&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If]]
+]
+
+
+
+---
+
+class: inverse
+
+.hand[Executing code IF a condition is true]
+
+
+```r
+pet &lt;- c("bat","cat","dog")
+for(p in pet) {
+  if(p == "cat") {
+    msg &lt;- str_c("A ", p, " is the best!!!")
+  } 
+}
+
+print(msg)
+```
+
+--
+
+
+```
+## [1] "A cat is the best!!!"
+```
+
+
+---
+
+class: inverse
+
+.hand[Executing code IF a condition is true]
+
+
+```r
+pet &lt;- c("bat","cat","dog")
+for(p in pet) {
+  if(p == "cat") {
+    msg &lt;- str_c("A ", p, " is the best!!!")
+  } else {
+    msg &lt;- str_c("A ", p, " is okay I guess")
+  }
+  print(msg) 
+}
+```
+
+--
+
+
+```
+## [1] "A bat is okay I guess"
+## [1] "A cat is the best!!!"
+## [1] "A dog is okay I guess"
+```
+
+
+---
+
+background-image: url("img/scrawl_15-10000-400-100-5.png")
+background-size: cover
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.pull.right[.hand[.larger[Thanks!]]]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

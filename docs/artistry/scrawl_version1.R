@@ -12,11 +12,11 @@ library(here)
 # Store the parameters that specify the piece in a list. In each case the 
 # parameters should be a positive integer
 art_par <- list(
-  seed = 2,        # seed for the random number generator
-  n_paths = 500,   # number of distinct paths to draw
-  n_steps = 80,    # number of steps along each path
-  sz_step = 200,   # what is the size of a typical step?
-  sz_slip = 70     # what is the size of a typical slip?
+  seed = 15,        # seed for the random number generator
+  n_paths = 10000,   # number of distinct paths to draw
+  n_steps = 400,    # number of steps along each path
+  sz_step = 100,   # what is the size of a typical step?
+  sz_slip = 5     # what is the size of a typical slip?
 )
 
 
