@@ -39,7 +39,7 @@ meta() %>%
   meta_social(
     title = "Make an art with R",
     url = "https://djnavarro.github.io/robust-tools/artistry/",
-    image = "https://djnavarro.github.io/robust-tools/artistry/img/scrawl_15-10000-400-100-5.png",
+    image = "https://djnavarro.github.io/robust-tools/artistry/img/scrawl_15-10000-400-100-5.png", 
     image_alt = "",
     og_type = "website",
     og_author = "Danielle Navarro",
