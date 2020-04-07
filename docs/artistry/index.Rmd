@@ -39,7 +39,7 @@ meta() %>%
   meta_social(
     title = "Make an art with R",
     url = "https://djnavarro.github.io/robust-tools/artistry/",
-    image = "https://djnavarro.github.io/robust-tools/artistry/img/scrawl_2-500-80-200-70.png",
+    image = "https://djnavarro.github.io/robust-tools/artistry/img/scrawl_15-10000-400-100-5.png",
     image_alt = "",
     og_type = "website",
     og_author = "Danielle Navarro",
@@ -238,11 +238,66 @@ class: inverse
 
 class: middle
 
-background-image: url("img/scrawl_12-1000-400-100-5.png")
+background-image: url("img/scrawl_17-1000-400-100-5.png")
 background-size: cover
 
 .pull-left-narrow[
   .huge-hotpink-number[4]
+]
+.pull-right-wide[
+  <br><br><br><br><br><br>
+  .larger[.embolden[&nbsp;&nbsp;Logical<br>&nbsp;&nbsp;Operations<br>]]
+]
+
+
+---
+
+class: inverse
+
+.pull-left-narrow[
+.hand[Operator:]
+- equal to, `==`
+- less than, `<` 
+- less than or equal to, `<=` 
+]
+--
+.pull-right-wide[
+.hand[Example:]
+- `"cat" == "cat"` is `TRUE`
+- `1 < 10` is `TRUE`
+- `10 <= 10` is `TRUE`
+]
+
+---
+
+class: inverse
+
+.pull-left-narrow[
+.hand[Operator:]
+- and, `&`
+- or, `|`
+- not, `!`
+]
+--
+.pull-right-wide[
+.hand[Example:]
+- `(1+1 == 2) & (2+1 == 2)` is `FALSE`
+- `(1+1 == 2) | (2+1 == 2)` is `TRUE`
+- `!TRUE` is `FALSE`
+]
+
+
+
+
+---
+
+class: middle
+
+background-image: url("img/scrawl_12-1000-400-100-5.png")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-hotpink-number[5]
 ]
 .pull-right-wide[
   <br><br><br>
@@ -294,7 +349,7 @@ background-image: url("img/scrawl_13-1000-400-100-5.png")
 background-size: cover
 
 .pull-left-narrow[
-  .huge-hotpink-number[5]
+  .huge-hotpink-number[6]
 ]
 .pull-right-wide[
   <br><br><br><br><br><br>
@@ -364,7 +419,7 @@ background-image: url("img/scrawl_14-1000-400-100-5.png")
 background-size: cover
 
 .pull-left-narrow[
-  .huge-hotpink-number[6]
+  .huge-hotpink-number[7]
 ]
 .pull-right-wide[
   <br><br><br>
@@ -379,7 +434,7 @@ background-size: cover
 
 class: inverse
 
-.hand[Iterate code WHILE some condition remains true]
+.hand[iterate code WHILE some condition remains true]
 
 .pull-left[
 ```{r include=FALSE}
@@ -405,7 +460,7 @@ while(value < .8) {
 
 class: inverse
 
-.hand[Iterate code FOR each element in a vector]
+.hand[iterate code FOR each element in a vector]
 
 .pull-left[
 ```{r forloop, results='hide'}
@@ -433,7 +488,7 @@ background-image: url("img/scrawl_15-1000-400-100-5.png")
 background-size: cover
 
 .pull-left-narrow[
-  .huge-hotpink-number[7]
+  .huge-hotpink-number[8]
 ]
 .pull-right-wide[
   <br><br><br><br><br><br>
