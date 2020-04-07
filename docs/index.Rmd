@@ -98,7 +98,7 @@ The fourth section in the class provides an introduction to several topics. The 
 </div>
 
 
-## Section 05 :: Programming Generative Art
+## Section 05 :: The programming of aRt
 
 
 The fifth section in the course is an art class, of sorts. Notionally the goal is to build a new generative art system (because everyone loves pretty pictures), but it also serves as a mechanism to introduce key programming concepts: vectors, lists, coercion, logical operations, loops and conditionals are all introduced in this section. 
@@ -115,30 +115,37 @@ The fifth section in the course is an art class, of sorts. Notionally the goal i
 
 
 
-## Section ?? :: Version control with git
+<!-- ## Section ?? :: Version control with git -->
 
-This is a work in progress! The linked slides are from a tutorial I gave in late 2018, and I no longer think this is the best way to teach the material. However, I had to teach this at short notice so for the moment I've left this up in the "old" format...
+<!-- This is a work in progress! The linked slides are from a tutorial I gave in late 2018, and I no longer think this is the best way to teach the material. However, I had to teach this at short notice so for the moment I've left this up in the "old" format... -->
 
-<div class="container">
-<div class="box-left">
-- [Slides](https://djnavarro.github.io/chdss2018/day2/git-slides.html)
-- [Tutorial](https://djnavarro.github.io/chdss2018/day2/git.html)
-</div>
-<div class="box-right">[<img src="git/img/git.png">](https://djnavarro.github.io/chdss2018/day2/git-slides.html)</div>
-</div>
-
-
-## Topics to be added... soon
-
-- Writing your own experiments in R
-- Structuring your project
-- Programming in R
-- Archiving with OSF 
-- Version control with git
-- Documenting with R markdown
+<!-- <div class="container"> -->
+<!-- <div class="box-left"> -->
+<!-- - [Slides](https://djnavarro.github.io/chdss2018/day2/git-slides.html) -->
+<!-- - [Tutorial](https://djnavarro.github.io/chdss2018/day2/git.html) -->
+<!-- </div> -->
+<!-- <div class="box-right">[<img src="git/img/git.png">](https://djnavarro.github.io/chdss2018/day2/git-slides.html)</div> -->
+<!-- </div> -->
 
 
-<br><br>
+<!-- ## Topics to be added... soon -->
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+<!-- - Writing your own experiments in R -->
+<!-- - Structuring your project -->
+<!-- - Programming in R -->
+<!-- - Archiving with OSF  -->
+<!-- - Version control with git -->
+<!-- - Documenting with R markdown -->
+
+
+<br><br><br><br>
+
+Additional course materials to be added!
+<br>
+
+<!-- <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> -->
+
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. Except as noted in the [acknowledgements](acknowledgements.html) page, images and other materials should be credited to Danielle Navarro.
+
+<br><br><br><br>
 
