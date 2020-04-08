@@ -140,7 +140,14 @@ The fifth section in the course is an art class, of sorts. Notionally the goal i
 
 <br><br><br><br>
 
-Additional course materials to be added!
+Additional course materials to be added! Likely topics for this course:
+
+- Functional programming (plus some computational modelling)
+- GitHub revisited (plus some OSF possibly)
+- Behavioural experiments with R
+- A little bit of statistical inference
+
+
 <br>
 
 <!-- <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> -->
