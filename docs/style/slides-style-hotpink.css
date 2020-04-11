@@ -71,6 +71,14 @@ h1, h2, h3 {
 
 /* Custom fonts */
 
+.bigly-hotpink-text {
+ font-family: 'Montserrat', sans-serif;
+ font-size: 800%;
+ font-weight: bold;
+ color: #8B3A62; /* hotpink4 */
+}
+
+
 .huge-hotpink-number {
  font-family: 'Montserrat', sans-serif;
  font-size: 1700%;
@@ -185,7 +193,7 @@ ul{
 
 /* Code highlighting */
 .remark-code-line-highlighted {
-  background-color: var(--peach-quartz)
+  background-color: #D8BFD8
 }
 
 /* Footer */
