@@ -1,0 +1,434 @@
+---
+title: "> &nbsp;&nbsp;06 `r emo::ji('artist')` `r emo::ji('scientist')` <br>> &nbsp;&nbsp;functional programming<br>> &nbsp;&nbsp;for artists and scientists"
+subtitle: "`r emo::ji('link')` &nbsp; [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
+author: "danielle navarro"
+date: ""
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["../style/xaringan-themer-hotpink.css", "../style/slides-style-hotpink.css"]
+    nature:
+      highlightStyle: solarized-light
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+---
+
+```{r child = "../style/setup.Rmd"}
+```
+
+```{r load-packages, message=FALSE, echo=FALSE}
+library(countdown)
+library(tidyverse)
+```
+
+
+
+```{r meta, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "How to write your own R functions and program with them effectively",
+  ) %>% 
+  meta_name("github-repo" = "djnavarro/robust-tools") %>% 
+  meta_social(
+    title = "Write and use your own R functions",
+    url = "https://djnavarro.github.io/robust-tools/functions/",
+    image = "https://djnavarro.github.io/robust-tools/artistry/img/scrawl_15-10000-400-100-5.png", 
+    image_alt = "",
+    og_type = "website",
+    og_author = "Danielle Navarro",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@djnavarro"
+  )
+```
+
+
+
+```{r include=FALSE}
+hook_source <- knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  x <- stringr::str_replace(x, "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$", "*\\1")
+  hook_source(x, options)
+})
+
+num_fmt <- scales::number_format(big.mark = ",")
+```
+
+
+class: middle, inverse
+
+## https://rstudio.cloud/project/1125393
+
+---
+
+
+class: middle
+
+background-image: url("img/scrawl_17-1000-400-100-5.png")
+background-size: cover
+
+.pull-left-wide[
+  .bigly-hotpink-text[scrawl]<br>
+  .embolden[&nbsp;&nbsp;... that thing we did last time! `r emo::ji("smile")`]
+]
+
+---
+
+class: inverse
+
+.hand[this section]
+
+- write your own R functions
+- use functions to in writing a new generative art system
+- learn how to use the functional programming tools in "purrr"
+- apply your knowledge to implement the Rescorla-Wagner model
+
+
+---
+
+class: middle
+
+background-image: url("img/scrawl_17-1000-400-100-5.png")
+background-size: cover
+
+.pull-left-wide[
+  .bigly-hotpink-text[why]<br>
+  .embolden[&nbsp;&nbsp;why should I write functions?]
+]
+
+
+
+---
+
+.hand[scrawl needs approximately 130 lines of code]
+```{r, echo=FALSE}
+knitr::include_graphics("img/fun_spaghetti3.png", dpi=100)
+```
+
+---
+
+.hand[the user doesn't need (or want!) that much code]
+```{r, eval=FALSE}
+# load the functions
+source("scrawl_functions.R")
+
+# set the parameters for the art
+art <- list(seed = 17, n_paths = 800, n_steps = 100,
+            sz_step = 20, sz_slip = 5, palette = "vik")
+
+# ensure R is in an appropriate state
+scrawl_setup(options = art) 
+
+# make a pretty picture with a three-step pipe
+scrawl_build(options = art) %>% 
+  scrawl_plot(options = art) %>% 
+  scrawl_save(options = art)
+```
+
+
+---
+
+.hand[Yay! We can sweep complexity under the carpet...]
+```{r, eval=FALSE}
+# load the functions
+source("scrawl_functions.R") #<<
+
+# set the parameters for the art
+art <- list(seed = 17, n_paths = 800, n_steps = 100,
+            sz_step = 20, sz_slip = 5, palette = "vik")
+
+# ensure R is in an appropriate state
+scrawl_setup(options = art) 
+
+# make a pretty picture with a three-step pipe
+scrawl_build(options = art) %>% 
+  scrawl_plot(options = art) %>% 
+  scrawl_save(options = art)
+```
+
+
+---
+
+.hand[The parameters of the artwork are more obvious...]
+```{r, eval=FALSE}
+# load the functions
+source("scrawl_functions.R")
+
+# set the parameters for the art
+art <- list(seed = 17, n_paths = 800, n_steps = 100, #<<
+            sz_step = 20, sz_slip = 5, palette = "vik") #<<
+
+# ensure R is in an appropriate state
+scrawl_setup(options = art) 
+
+# make a pretty picture with a three-step pipe
+scrawl_build(options = art) %>% 
+  scrawl_plot(options = art) %>% 
+  scrawl_save(options = art)
+```
+
+
+---
+
+.hand[It clarifies that "scrawl" is a four-step process...]
+```{r, eval=FALSE}
+# load the functions
+source("scrawl_functions.R")
+
+# set the parameters for the art
+art <- list(seed = 17, n_paths = 800, n_steps = 100, 
+            sz_step = 20, sz_slip = 5, palette = "vik") 
+
+# ensure R is in an appropriate state
+scrawl_setup(options = art)  #<<
+
+# make a pretty picture with a three-step pipe
+scrawl_build(options = art) %>%  #<<
+  scrawl_plot(options = art) %>%  #<<
+  scrawl_save(options = art) #<<
+```
+
+
+---
+
+.pull-left-wide[
+```{r echo=FALSE}
+knitr::include_graphics("img/Functions0.png", dpi = 300)
+```
+]
+.pull-right-narrow[
+.hand[.. and in doing so it splits our code into **meaningful** and **reusable** parts!]
+]
+
+---
+
+class: inverse
+
+.pull-left-wide[
+```{r echo=FALSE}
+knitr::include_graphics("img/Functions0.png", dpi = 300)
+```
+]
+.pull-right-narrow[
+<br><br><br><br>
+Let's take a look at the structure of this function!
+]
+
+
+---
+
+class: middle
+
+background-image: url("img/scrawl_17-1000-400-100-5.png")
+background-size: cover
+
+.pull-left-wide[
+  .bigly-hotpink-text[what]<br>
+  .embolden[&nbsp;&nbsp;what are the parts of a function?]
+]
+
+
+---
+
+.pull-left-wide[
+```{r echo=FALSE}
+knitr::include_graphics("img/Functions1.png", dpi = 300)
+```
+]
+--
+.pull-right-narrow[
+<br><br><br><br>
+- functions are regular R objects
+- created with `<-`
+]
+
+---
+
+.pull-left-wide[
+```{r echo=FALSE}
+knitr::include_graphics("img/Functions2.png", dpi = 300)
+```
+]
+--
+.pull-right-narrow[
+<br><br><br><br>
+- arguments are "labels" for user input
+]
+
+---
+
+.pull-left-wide[
+```{r echo=FALSE}
+knitr::include_graphics("img/Functions3.png", dpi = 300)
+```
+]
+
+--
+.pull-right-narrow[
+<br><br><br><br>
+- objects inside the function "body" are hidden
+- (that is, function runs in its own "environment")
+]
+
+---
+
+
+.pull-left-wide[
+```{r echo=FALSE}
+knitr::include_graphics("img/Functions4.png", dpi = 300)
+```
+]
+
+--
+
+.pull-right-narrow[
+<br><br><br><br>
+- the user is "returned" this object
+- in this case, a ggplot object
+]
+
+
+---
+
+class: middle
+
+background-image: url("img/scrawl_17-1000-400-100-5.png")
+background-size: cover
+
+.pull-left-wide[
+  .bigly-hotpink-text[how]<br>
+  .embolden[&nbsp;&nbsp;how is this done?]<br>
+  .embolden[&nbsp;&nbsp;part ONE... a thrilling **live coding** exercise!]<br>
+]
+
+
+---
+
+class: middle
+
+background-image: url("img/scrawl_17-1000-400-100-5.png")
+background-size: cover
+
+.pull-left-wide[
+  .bigly-hotpink-text[how]<br>
+  .embolden[&nbsp;&nbsp;how is this done?]<br>
+  .embolden[&nbsp;&nbsp;part TWO... a fabulous **do it yourself** event!]<br>
+]
+
+
+---
+
+class: middle
+
+background-image: url("img/scrawl_17-1000-400-100-5.png")
+background-size: cover
+
+.pull-left-wide[
+  .bigly-hotpink-text[where]<br>
+  .embolden[&nbsp;&nbsp;where do I define default values?]
+  
+]
+
+---
+
+.hand[What I coded...]
+
+```{r}
+pony_greet <- function(name) {
+  gre <- c("Hiya ", "You Rock ", "Hey ", "Yay! It's ")
+  adj <- c("Sparkle-", "Rainbow-", "Flower-", "Dazzle-")
+  exc <- c("!", "!!", "!!!!!!!!", " :-)", " <3")
+  message <- str_c(
+    sample(gre, 1), sample(adj, 1), name, sample(exc, 1)
+  )
+  return(message)
+}
+```
+
+
+
+---
+
+.hand[What you coded...]
+
+```{r}
+pony_say <- function(x) { 
+  msg <- sample(x, size = 1)
+  return(msg)
+} 
+
+pony_greet <- function(name) {
+  gre <- c("Hiya ", "You Rock ", "Hey ", "Yay! It's ")
+  adj <- c("Sparkle-", "Rainbow-", "Flower-", "Dazzle-")
+  exc <- c("!", "!!", "!!!!!!!!", " :-)", " <3")
+  msg <- str_c(
+    pony_say(gre), pony_say(adj), name, pony_say(exc)
+  )
+  return(msg)
+}
+```
+
+
+---
+
+.hand[But what if the pony doesn't know your name?????]
+
+```{r}
+pony_say <- function(x) { 
+  msg <- sample(x, size = 1)
+  return(msg) 
+} 
+
+pony_greet <- function(name) { #<<
+  gre <- c("Hiya ", "You Rock ", "Hey ", "Yay! It's ")
+  adj <- c("Sparkle-", "Rainbow-", "Flower-", "Dazzle-")
+  exc <- c("!", "!!", "!!!!!!!!", " :-)", " <3")
+  msg <- str_c(
+    pony_say(gre), pony_say(adj), name, pony_say(exc)
+  )
+  return(msg)
+}
+```
+
+
+
+
+---
+
+.hand[Ponies have a default word for an unknown human!]
+
+```{r}
+pony_say <- function(x) { 
+  msg <- sample(x, size = 1)
+  return(msg) 
+} 
+
+pony_greet <- function(name = "Hooman") { #<<
+  gre <- c("Hiya ", "You Rock ", "Hey ", "Yay! It's ")
+  adj <- c("Sparkle-", "Rainbow-", "Flower-", "Dazzle-")
+  exc <- c("!", "!!", "!!!!!!!!", " :-)", " <3")
+  msg <- str_c(
+    pony_say(gre), pony_say(adj), name, pony_say(exc) 
+  ) 
+  return(msg)
+}
+```
+
+
+---
+
+.hand[Yay!]
+
+```{r}
+pony_greet()
+```
+
+
+
+
