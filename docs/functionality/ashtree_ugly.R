@@ -7,20 +7,20 @@ radians <- function(degree) {
   2 * pi * degree / 360
 }
 
-adapt_x <- function(x, scale, angle) {
-  x + scale * cos(radians(angle))
-}
-
-adapt_y <- function(y, scale, angle) {
-  y + scale * sin(radians(angle))
-}
-
-adapt_scale <- function(s, scales) {
+adjust_scale <- function(s, scales) {
   s * sample(x = scales, size = length(s), replace = TRUE)
 }
 
-adapt_angle <- function(a, angles) {
+adjust_angle <- function(a, angles) {
   a + sample(x = angles, size = length(a), replace = TRUE)
+}
+
+adjust_x <- function(x, scale, angle) {
+  x + scale * cos(radians(angle))
+}
+
+adjust_y <- function(y, scale, angle) {
+  y + scale * sin(radians(angle))
 }
 
 
@@ -43,17 +43,17 @@ grow_sapling <- function() {
   return(sapling)
 }
 
-grow_from <- function(..split, growth, settings) {
+grow_from <- function(..split, tips, settings) {
   
-  growth_this_split <- growth %>%
+  growth_this_split <- tips %>%
     mutate(
-      scale = adapt_scale(scale, settings$scales), # change segment length
-      angle = adapt_angle(angle, settings$angles), # change segment angle
-      old_x = new_x,                               # begin where last seg ended
-      old_y = new_y,                               # begin where last seg ended
-      new_x = adapt_x(old_x, scale, angle),        # end where this seg ends!
-      new_y = adapt_y(old_y, scale, angle),        # end where this seg ends!
-      split = ..split                              # store the split number
+      scale = adjust_scale(scale, settings$scales), # change segment length
+      angle = adjust_angle(angle, settings$angles), # change segment angle
+      old_x = new_x,                                # begin where last seg ended
+      old_y = new_y,                                # begin where last seg ended
+      new_x = adjust_x(old_x, scale, angle),        # end where this seg ends!
+      new_y = adjust_y(old_y, scale, angle),        # end where this seg ends!
+      split = ..split                               # store the split number
     )
   return(growth_this_split)
 }
