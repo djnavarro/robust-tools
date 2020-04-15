@@ -42,11 +42,11 @@ grow_sapling <- function() {
   return(sapling)
 }
 
-grow_from <- function(tips) {
+grow_from <- function(tips, settings) {
   
-  # parameter values
-  all_scales <- c(.8, .9, .95)
-  all_angles <- c(-10, -5, 5, 10, 20, 25)
+  # read off the relevant settings
+  all_scales <- settings$scales
+  all_angles <- settings$angles
   
   # mutate the tips tibble
   new_growth <- tips %>%
@@ -62,41 +62,71 @@ grow_from <- function(tips) {
 }
 
 
+grow_many <- function(tips, settings) {
+  
+  # read off the relevant settings
+  splits <- settings$splits
+
+  new_tips <- map_dfr(1:splits, ~grow_from(tips, settings))
+  return(new_tips)
+}
 
 
+grow_tree <- function(settings) {
+  
+  # read off the relevant settings
+  cycles <- settings$cycles
+  
+  # initialise
+  tips <- grow_sapling()
+  
+  # grow tree in a loop
+  tree <- accumulate(2:cycles, ~grow_many(.x, settings), .init = tips)
+  tree <- bind_rows(tree)
+  
+  return(tree)
+}
+
+
+draw_tree <- function(tree) {
+  
+  pic <- ggplot(
+    data = tree,
+    mapping = aes(
+      x = old_x, 
+      y = old_y, 
+      xend = new_x, 
+      yend = new_y
+    )
+  ) + 
+    geom_segment(show.legend = FALSE) + 
+    theme_void() + 
+    coord_equal()
+  
+  return(pic)
+}
 
 # do stuff ----------------------------------------------------------------
 
-set.seed(1)
+# STAGE 13: let's reward ourselves by upping the number of 
+# cycles... inside grow_tree() and seeing something pretty!
 
-# STAGE 6: let's call our new functions over and over...
+# STAGE 14: collect all the parameters into a single list that 
+# can be passed down through all the various functions
 
-# initialise
-tree <- grow_sapling()
-tips <- tree
+# STAGE 15: find some settings you like!
 
-# grow once
-tips <- grow_from(tips)
-tree <- bind_rows(tree, tips)
+settings <- list(
+  seed = 7,
+  cycles = 18,
+  splits = 2,
+  scales = c(.2, .8, .9, .95),
+  angles = c(-20, -5, 5, 10, 20, 35)
+)
 
-# grow again
-tips <- grow_from(tips)
-tree <- bind_rows(tree, tips)
+set.seed(settings$seed)
 
-
-
-
-pic <- ggplot(
-  data = tree,
-  mapping = aes(
-    x = old_x, 
-    y = old_y, 
-    xend = new_x, 
-    yend = new_y
-  )
-) + 
-  geom_segment(show.legend = FALSE) + 
-  theme_void() + 
-  coord_equal()
+tree <- grow_tree(settings)
+pic <- draw_tree(tree)
 
 plot(pic)

@@ -368,6 +368,108 @@ knitr::include_graphics("img/Grow3.png", dpi = 300)
 
 
 
+---
+
+class: inverse, middle
+
+## .hand[live coding #3...]
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree1.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree2.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree3.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree4.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree5.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree6.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree7.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree8.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree9.png", dpi = 300)
+```
+
+
+
+---
+
+class: inverse, middle
+
+## .hand[live coding #4...]
+
+
+---
+
+explain stuff!
+
+---
+
+class: inverse, middle
+
+## .hand[live coding #5...]
+
+
 
 
 
