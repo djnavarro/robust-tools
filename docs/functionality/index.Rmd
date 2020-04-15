@@ -242,7 +242,7 @@ background-size: cover
 
 class: inverse, middle
 
-## a thrilling live-coding exercise...
+## .hand[live coding #1...]
 
 
 ---
@@ -296,5 +296,78 @@ knitr::include_graphics("img/function_02.png", dpi = 150)
 
 - things in the function "body" are hidden
 - i.e. function runs in its own "environment"
+
+
+
+---
+
+class: inverse, middle
+
+## .hand[live coding #2...]
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Relations1.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Relations2.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Relations3.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Relations4.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Grow1.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Grow2.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Grow3.png", dpi = 300)
+```
+
+
+
+
+
 
 
