@@ -198,131 +198,65 @@ background-size: cover
 
 class: middle
 
-background-image: url("img/scrawl_17-1000-400-100-5.png")
+background-image: url("img/ashtree2.png")
+background-size: cover
+
+--
+
+.pull-left-wide[
+  .bigly-hotpink-text[why?]<br>
+]
+.pull-right[
+  <br><br>
+  .embolden[&nbsp;&nbsp;why write with functions?]
+]
+
+
+---
+
+class: middle
+
+- breaks code into meaningful chunks
+- breaks code into reusable chunks
+- assign helpful names to code chunks
+- separate user-relevant and internal code
+- building blocks for packages
+
+
+---
+
+class: middle
+
+background-image: url("img/ashtree.png")
 background-size: cover
 
 .pull-left-wide[
-  .bigly-hotpink-text[why]<br>
-  .embolden[&nbsp;&nbsp;why should I write functions?]
+  .bigly-hotpink-text[how?]<br>
+]
+.pull-right[
+  <br><br><br><br><br>
+  .embolden[&nbsp;&nbsp;how do we write R functions?]
 ]
 
-
-
 ---
 
-.hand[scrawl needs approximately 130 lines of code]
-```{r, echo=FALSE}
-knitr::include_graphics("img/fun_spaghetti3.png", dpi=100)
-```
+class: inverse, middle
 
----
+## a thrilling live-coding exercise...
 
-.hand[the user doesn't need (or want!) that much code]
-```{r, eval=FALSE}
-# load the functions
-source("scrawl_functions.R")
-
-# set the parameters for the art
-art <- list(seed = 17, n_paths = 800, n_steps = 100,
-            sz_step = 20, sz_slip = 5, palette = "vik")
-
-# ensure R is in an appropriate state
-scrawl_setup(options = art) 
-
-# make a pretty picture with a three-step pipe
-scrawl_build(options = art) %>% 
-  scrawl_plot(options = art) %>% 
-  scrawl_save(options = art)
-```
-
-
----
-
-.hand[Yay! We can sweep complexity under the carpet...]
-```{r, eval=FALSE}
-# load the functions
-source("scrawl_functions.R") #<<
-
-# set the parameters for the art
-art <- list(seed = 17, n_paths = 800, n_steps = 100,
-            sz_step = 20, sz_slip = 5, palette = "vik")
-
-# ensure R is in an appropriate state
-scrawl_setup(options = art) 
-
-# make a pretty picture with a three-step pipe
-scrawl_build(options = art) %>% 
-  scrawl_plot(options = art) %>% 
-  scrawl_save(options = art)
-```
-
-
----
-
-.hand[The parameters of the artwork are more obvious...]
-```{r, eval=FALSE}
-# load the functions
-source("scrawl_functions.R")
-
-# set the parameters for the art
-art <- list(seed = 17, n_paths = 800, n_steps = 100, #<<
-            sz_step = 20, sz_slip = 5, palette = "vik") #<<
-
-# ensure R is in an appropriate state
-scrawl_setup(options = art) 
-
-# make a pretty picture with a three-step pipe
-scrawl_build(options = art) %>% 
-  scrawl_plot(options = art) %>% 
-  scrawl_save(options = art)
-```
-
-
----
-
-.hand[It clarifies that "scrawl" is a four-step process...]
-```{r, eval=FALSE}
-# load the functions
-source("scrawl_functions.R")
-
-# set the parameters for the art
-art <- list(seed = 17, n_paths = 800, n_steps = 100, 
-            sz_step = 20, sz_slip = 5, palette = "vik") 
-
-# ensure R is in an appropriate state
-scrawl_setup(options = art)  #<<
-
-# make a pretty picture with a three-step pipe
-scrawl_build(options = art) %>%  #<<
-  scrawl_plot(options = art) %>%  #<<
-  scrawl_save(options = art) #<<
-```
-
-
----
-
-.pull-left-wide[
-```{r echo=FALSE}
-knitr::include_graphics("img/Functions0.png", dpi = 300)
-```
-]
-.pull-right-narrow[
-.hand[.. and in doing so it splits our code into **meaningful** and **reusable** parts!]
-]
 
 ---
 
 class: inverse
 
-.pull-left-wide[
-```{r echo=FALSE}
-knitr::include_graphics("img/Functions0.png", dpi = 300)
-```
-]
-.pull-right-narrow[
-<br><br><br><br>
+.hand[
 Let's take a look at the structure of this function!
 ]
+
+
+```{r echo=FALSE}
+knitr::include_graphics("img/function_00.png", dpi = 150)
+```
 
 
 ---
@@ -340,199 +274,27 @@ background-size: cover
 
 ---
 
-.pull-left-wide[
 ```{r echo=FALSE}
-knitr::include_graphics("img/Functions1.png", dpi = 300)
+knitr::include_graphics("img/function_01.png", dpi = 150)
 ```
-]
+
 --
-.pull-right-narrow[
-<br><br><br><br>
+
 - functions are regular R objects
-- created with `<-`
-]
-
----
-
-.pull-left-wide[
-```{r echo=FALSE}
-knitr::include_graphics("img/Functions2.png", dpi = 300)
-```
-]
---
-.pull-right-narrow[
-<br><br><br><br>
+- given a name using `<-`
 - arguments are "labels" for user input
-]
+- return an object to the user
+
 
 ---
 
-.pull-left-wide[
 ```{r echo=FALSE}
-knitr::include_graphics("img/Functions3.png", dpi = 300)
+knitr::include_graphics("img/function_02.png", dpi = 150)
 ```
-]
-
---
-.pull-right-narrow[
-<br><br><br><br>
-- objects inside the function "body" are hidden
-- (that is, function runs in its own "environment")
-]
-
----
-
-
-.pull-left-wide[
-```{r echo=FALSE}
-knitr::include_graphics("img/Functions4.png", dpi = 300)
-```
-]
 
 --
 
-.pull-right-narrow[
-<br><br><br><br>
-- the user is "returned" this object
-- in this case, a ggplot object
-]
-
-
----
-
-class: middle
-
-background-image: url("img/scrawl_17-1000-400-100-5.png")
-background-size: cover
-
-.pull-left-wide[
-  .bigly-hotpink-text[how]<br>
-  .embolden[&nbsp;&nbsp;how is this done?]<br>
-  .embolden[&nbsp;&nbsp;part ONE... a thrilling **live coding** exercise!]<br>
-]
-
-
----
-
-class: middle
-
-background-image: url("img/scrawl_17-1000-400-100-5.png")
-background-size: cover
-
-.pull-left-wide[
-  .bigly-hotpink-text[how]<br>
-  .embolden[&nbsp;&nbsp;how is this done?]<br>
-  .embolden[&nbsp;&nbsp;part TWO... a fabulous **do it yourself** event!]<br>
-]
-
-
----
-
-class: middle
-
-background-image: url("img/scrawl_17-1000-400-100-5.png")
-background-size: cover
-
-.pull-left-wide[
-  .bigly-hotpink-text[where]<br>
-  .embolden[&nbsp;&nbsp;where do I define default values?]
-  
-]
-
----
-
-.hand[What I coded...]
-
-```{r}
-pony_greet <- function(name) {
-  gre <- c("Hiya ", "You Rock ", "Hey ", "Yay! It's ")
-  adj <- c("Sparkle-", "Rainbow-", "Flower-", "Dazzle-")
-  exc <- c("!", "!!", "!!!!!!!!", " :-)", " <3")
-  message <- str_c(
-    sample(gre, 1), sample(adj, 1), name, sample(exc, 1)
-  )
-  return(message)
-}
-```
-
-
-
----
-
-.hand[What you coded...]
-
-```{r}
-pony_say <- function(x) { 
-  msg <- sample(x, size = 1)
-  return(msg)
-} 
-
-pony_greet <- function(name) {
-  gre <- c("Hiya ", "You Rock ", "Hey ", "Yay! It's ")
-  adj <- c("Sparkle-", "Rainbow-", "Flower-", "Dazzle-")
-  exc <- c("!", "!!", "!!!!!!!!", " :-)", " <3")
-  msg <- str_c(
-    pony_say(gre), pony_say(adj), name, pony_say(exc)
-  )
-  return(msg)
-}
-```
-
-
----
-
-.hand[But what if the pony doesn't know your name?????]
-
-```{r}
-pony_say <- function(x) { 
-  msg <- sample(x, size = 1)
-  return(msg) 
-} 
-
-pony_greet <- function(name) { #<<
-  gre <- c("Hiya ", "You Rock ", "Hey ", "Yay! It's ")
-  adj <- c("Sparkle-", "Rainbow-", "Flower-", "Dazzle-")
-  exc <- c("!", "!!", "!!!!!!!!", " :-)", " <3")
-  msg <- str_c(
-    pony_say(gre), pony_say(adj), name, pony_say(exc)
-  )
-  return(msg)
-}
-```
-
-
-
-
----
-
-.hand[Ponies have a default word for an unknown human!]
-
-```{r}
-pony_say <- function(x) { 
-  msg <- sample(x, size = 1)
-  return(msg) 
-} 
-
-pony_greet <- function(name = "Hooman") { #<<
-  gre <- c("Hiya ", "You Rock ", "Hey ", "Yay! It's ")
-  adj <- c("Sparkle-", "Rainbow-", "Flower-", "Dazzle-")
-  exc <- c("!", "!!", "!!!!!!!!", " :-)", " <3")
-  msg <- str_c(
-    pony_say(gre), pony_say(adj), name, pony_say(exc) 
-  ) 
-  return(msg)
-}
-```
-
-
----
-
-.hand[Yay!]
-
-```{r}
-pony_greet()
-```
-
-
+- things in the function "body" are hidden
+- i.e. function runs in its own "environment"
 
 

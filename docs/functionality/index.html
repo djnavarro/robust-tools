@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>&gt;   06 👩‍🎨 👩‍🔬  &gt;   functional programming &gt;   for artists (and scientists)</title>
+    <title>&gt;   06 👨‍🎨 👩‍🔬  &gt;   functional programming &gt;   for artists (and scientists)</title>
     <meta charset="utf-8" />
     <meta name="author" content="danielle navarro" />
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
@@ -31,7 +31,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# &gt;   06 👩‍🎨 👩‍🔬 <br>&gt;   functional programming<br>&gt;   for artists (and scientists)
+# &gt;   06 👨‍🎨 👩‍🔬 <br>&gt;   functional programming<br>&gt;   for artists (and scientists)
 ## 🔗   <a href="https://djnavarro.link/robust-tools">djnavarro.link/robust-tools</a>
 ### danielle navarro
 
@@ -199,129 +199,63 @@ background-size: cover
 
 class: middle
 
-background-image: url("img/scrawl_17-1000-400-100-5.png")
+background-image: url("img/ashtree2.png")
+background-size: cover
+
+--
+
+.pull-left-wide[
+  .bigly-hotpink-text[why?]&lt;br&gt;
+]
+.pull-right[
+  &lt;br&gt;&lt;br&gt;
+  .embolden[&amp;nbsp;&amp;nbsp;why write with functions?]
+]
+
+
+---
+
+class: middle
+
+- breaks code into meaningful chunks
+- breaks code into reusable chunks
+- assign helpful names to code chunks
+- separate user-relevant and internal code
+- building blocks for packages
+
+
+---
+
+class: middle
+
+background-image: url("img/ashtree.png")
 background-size: cover
 
 .pull-left-wide[
-  .bigly-hotpink-text[why]&lt;br&gt;
-  .embolden[&amp;nbsp;&amp;nbsp;why should I write functions?]
+  .bigly-hotpink-text[how?]&lt;br&gt;
+]
+.pull-right[
+  &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+  .embolden[&amp;nbsp;&amp;nbsp;how do we write R functions?]
 ]
 
-
-
 ---
 
-.hand[scrawl needs approximately 130 lines of code]
-&lt;img src="img/fun_spaghetti3.png" width="1381" /&gt;
+class: inverse, middle
 
----
+## a thrilling live-coding exercise...
 
-.hand[the user doesn't need (or want!) that much code]
-
-```r
-# load the functions
-source("scrawl_functions.R")
-
-# set the parameters for the art
-art &lt;- list(seed = 17, n_paths = 800, n_steps = 100,
-            sz_step = 20, sz_slip = 5, palette = "vik")
-
-# ensure R is in an appropriate state
-scrawl_setup(options = art) 
-
-# make a pretty picture with a three-step pipe
-scrawl_build(options = art) %&gt;% 
-  scrawl_plot(options = art) %&gt;% 
-  scrawl_save(options = art)
-```
-
-
----
-
-.hand[Yay! We can sweep complexity under the carpet...]
-
-```r
-# load the functions
-*source("scrawl_functions.R")
-
-# set the parameters for the art
-art &lt;- list(seed = 17, n_paths = 800, n_steps = 100,
-            sz_step = 20, sz_slip = 5, palette = "vik")
-
-# ensure R is in an appropriate state
-scrawl_setup(options = art) 
-
-# make a pretty picture with a three-step pipe
-scrawl_build(options = art) %&gt;% 
-  scrawl_plot(options = art) %&gt;% 
-  scrawl_save(options = art)
-```
-
-
----
-
-.hand[The parameters of the artwork are more obvious...]
-
-```r
-# load the functions
-source("scrawl_functions.R")
-
-# set the parameters for the art
-*art &lt;- list(seed = 17, n_paths = 800, n_steps = 100,
-*           sz_step = 20, sz_slip = 5, palette = "vik")
-
-# ensure R is in an appropriate state
-scrawl_setup(options = art) 
-
-# make a pretty picture with a three-step pipe
-scrawl_build(options = art) %&gt;% 
-  scrawl_plot(options = art) %&gt;% 
-  scrawl_save(options = art)
-```
-
-
----
-
-.hand[It clarifies that "scrawl" is a four-step process...]
-
-```r
-# load the functions
-source("scrawl_functions.R")
-
-# set the parameters for the art
-art &lt;- list(seed = 17, n_paths = 800, n_steps = 100, 
-            sz_step = 20, sz_slip = 5, palette = "vik") 
-
-# ensure R is in an appropriate state
-*scrawl_setup(options = art)
-
-# make a pretty picture with a three-step pipe
-*scrawl_build(options = art) %&gt;%
-* scrawl_plot(options = art) %&gt;%
-* scrawl_save(options = art)
-```
-
-
----
-
-.pull-left-wide[
-&lt;img src="img/Functions0.png" width="712" /&gt;
-]
-.pull-right-narrow[
-.hand[.. and in doing so it splits our code into **meaningful** and **reusable** parts!]
-]
 
 ---
 
 class: inverse
 
-.pull-left-wide[
-&lt;img src="img/Functions0.png" width="712" /&gt;
-]
-.pull-right-narrow[
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.hand[
 Let's take a look at the structure of this function!
 ]
+
+
+&lt;img src="img/function_00.png" width="668" /&gt;
 
 
 ---
@@ -339,199 +273,24 @@ background-size: cover
 
 ---
 
-.pull-left-wide[
-&lt;img src="img/Functions1.png" width="712" /&gt;
-]
+&lt;img src="img/function_01.png" width="668" /&gt;
+
 --
-.pull-right-narrow[
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
 - functions are regular R objects
-- created with `&lt;-`
-]
-
----
-
-.pull-left-wide[
-&lt;img src="img/Functions2.png" width="712" /&gt;
-]
---
-.pull-right-narrow[
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+- given a name using `&lt;-`
 - arguments are "labels" for user input
-]
+- return an object to the user
+
 
 ---
 
-.pull-left-wide[
-&lt;img src="img/Functions3.png" width="712" /&gt;
-]
-
---
-.pull-right-narrow[
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-- objects inside the function "body" are hidden
-- (that is, function runs in its own "environment")
-]
-
----
-
-
-.pull-left-wide[
-&lt;img src="img/Functions4.png" width="712" /&gt;
-]
+&lt;img src="img/function_02.png" width="668" /&gt;
 
 --
 
-.pull-right-narrow[
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-- the user is "returned" this object
-- in this case, a ggplot object
-]
-
-
----
-
-class: middle
-
-background-image: url("img/scrawl_17-1000-400-100-5.png")
-background-size: cover
-
-.pull-left-wide[
-  .bigly-hotpink-text[how]&lt;br&gt;
-  .embolden[&amp;nbsp;&amp;nbsp;how is this done?]&lt;br&gt;
-  .embolden[&amp;nbsp;&amp;nbsp;part ONE... a thrilling **live coding** exercise!]&lt;br&gt;
-]
-
-
----
-
-class: middle
-
-background-image: url("img/scrawl_17-1000-400-100-5.png")
-background-size: cover
-
-.pull-left-wide[
-  .bigly-hotpink-text[how]&lt;br&gt;
-  .embolden[&amp;nbsp;&amp;nbsp;how is this done?]&lt;br&gt;
-  .embolden[&amp;nbsp;&amp;nbsp;part TWO... a fabulous **do it yourself** event!]&lt;br&gt;
-]
-
-
----
-
-class: middle
-
-background-image: url("img/scrawl_17-1000-400-100-5.png")
-background-size: cover
-
-.pull-left-wide[
-  .bigly-hotpink-text[where]&lt;br&gt;
-  .embolden[&amp;nbsp;&amp;nbsp;where do I define default values?]
-  
-]
-
----
-
-.hand[What I coded...]
-
-
-```r
-pony_greet &lt;- function(name) {
-  gre &lt;- c("Hiya ", "You Rock ", "Hey ", "Yay! It's ")
-  adj &lt;- c("Sparkle-", "Rainbow-", "Flower-", "Dazzle-")
-  exc &lt;- c("!", "!!", "!!!!!!!!", " :-)", " &lt;3")
-  message &lt;- str_c(
-    sample(gre, 1), sample(adj, 1), name, sample(exc, 1)
-  )
-  return(message)
-}
-```
-
-
-
----
-
-.hand[What you coded...]
-
-
-```r
-pony_say &lt;- function(x) { 
-  msg &lt;- sample(x, size = 1)
-  return(msg)
-} 
-
-pony_greet &lt;- function(name) {
-  gre &lt;- c("Hiya ", "You Rock ", "Hey ", "Yay! It's ")
-  adj &lt;- c("Sparkle-", "Rainbow-", "Flower-", "Dazzle-")
-  exc &lt;- c("!", "!!", "!!!!!!!!", " :-)", " &lt;3")
-  msg &lt;- str_c(
-    pony_say(gre), pony_say(adj), name, pony_say(exc)
-  )
-  return(msg)
-}
-```
-
-
----
-
-.hand[But what if the pony doesn't know your name?????]
-
-
-```r
-pony_say &lt;- function(x) { 
-  msg &lt;- sample(x, size = 1)
-  return(msg) 
-} 
-
-*pony_greet &lt;- function(name) {
-  gre &lt;- c("Hiya ", "You Rock ", "Hey ", "Yay! It's ")
-  adj &lt;- c("Sparkle-", "Rainbow-", "Flower-", "Dazzle-")
-  exc &lt;- c("!", "!!", "!!!!!!!!", " :-)", " &lt;3")
-  msg &lt;- str_c(
-    pony_say(gre), pony_say(adj), name, pony_say(exc)
-  )
-  return(msg)
-}
-```
-
-
-
-
----
-
-.hand[Ponies have a default word for an unknown human!]
-
-
-```r
-pony_say &lt;- function(x) { 
-  msg &lt;- sample(x, size = 1)
-  return(msg) 
-} 
-
-*pony_greet &lt;- function(name = "Hooman") {
-  gre &lt;- c("Hiya ", "You Rock ", "Hey ", "Yay! It's ")
-  adj &lt;- c("Sparkle-", "Rainbow-", "Flower-", "Dazzle-")
-  exc &lt;- c("!", "!!", "!!!!!!!!", " :-)", " &lt;3")
-  msg &lt;- str_c(
-    pony_say(gre), pony_say(adj), name, pony_say(exc) 
-  ) 
-  return(msg)
-}
-```
-
-
----
-
-.hand[Yay!]
-
-
-```r
-pony_greet()
-```
-
-```
-## [1] "Hey Sparkle-Hooman!!!!!!!!"
-```
+- things in the function "body" are hidden
+- i.e. function runs in its own "environment"
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
