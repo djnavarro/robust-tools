@@ -71,6 +71,14 @@ h1, h2, h3 {
 
 /* Custom fonts */
 
+.biggish-hotpink-text {
+ font-family: 'Montserrat', sans-serif;
+ font-size: 600%;
+ font-weight: bold;
+ color: #8B3A62; /* hotpink4 */
+}
+
+
 .bigly-hotpink-text {
  font-family: 'Montserrat', sans-serif;
  font-size: 800%;

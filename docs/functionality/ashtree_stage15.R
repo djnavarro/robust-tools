@@ -111,10 +111,10 @@ draw_tree <- function(tree) {
 # STAGE 14: find some settings you like!
 
 settings <- list(
-  seed = 6,
-  cycles = 15,
+  seed = 7,
+  cycles = 18,
   splits = 2,
-  scales = c(.5, .8, .9, .95),
+  scales = c(.2, .8, .9, .95),
   angles = c(-20, -5, 5, 10, 20, 35)
 )
 

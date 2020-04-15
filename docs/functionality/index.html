@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>&gt;   06 👩‍🎨 🥼  &gt;   functional programming &gt;   for artists and scientists</title>
+    <title>&gt;   06 👩‍🎨 👩‍🔬  &gt;   functional programming &gt;   for artists (and scientists)</title>
     <meta charset="utf-8" />
     <meta name="author" content="danielle navarro" />
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
@@ -31,7 +31,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# &gt;   06 👩‍🎨 🥼 <br>&gt;   functional programming<br>&gt;   for artists and scientists
+# &gt;   06 👩‍🎨 👩‍🔬 <br>&gt;   functional programming<br>&gt;   for artists (and scientists)
 ## 🔗   <a href="https://djnavarro.link/robust-tools">djnavarro.link/robust-tools</a>
 ### danielle navarro
 
@@ -68,7 +68,6 @@ class: middle, inverse
 
 ---
 
-
 class: middle
 
 background-image: url("img/scrawl_17-1000-400-100-5.png")
@@ -78,17 +77,122 @@ background-size: cover
   .bigly-hotpink-text[scrawl]&lt;br&gt;
   .embolden[&amp;nbsp;&amp;nbsp;... that thing we did last time! 😄]
 ]
+---
+
+class: middle
+
+background-image: url("img/scrawl_17-1000-400-100-5.png")
+background-size: cover
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+## github.com/djnavarro/scrawl
+---
+
+.pull-left[
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.hand[using the scrawl package]
+
+
+```r
+library(scrawl)
+dat &lt;- scrawl_build()
+pic &lt;- scrawl_plot(dat)
+plot(pic)
+```
+]
+
+--
+
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+]
 
 ---
 
+
 class: inverse
+
+.hand[last section]
+
+- loops and conditionals
+- vectors and the `c()` function 
+- lists, tibbles and the `$` operator, etc
+
+--
 
 .hand[this section]
 
 - write your own R functions
-- use functions to in writing a new generative art system
-- learn how to use the functional programming tools in "purrr"
-- apply your knowledge to implement the Rescorla-Wagner model
+- use functions to write a new generative art system
+- introduction to functional programming with "purrr"
+
+--
+
+.hand[a later section]
+
+- bundling functions into a package
+
+---
+
+
+class: middle
+
+background-image: url("img/fern_20_13.png")
+background-size: cover
+
+.pull-left-wide[
+  .biggish-hotpink-text[flametree]&lt;br&gt;
+]
+
+---
+
+class: middle
+
+background-image: url("img/fern_21_13.png")
+background-size: cover
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+## &lt;span style="color:white;font-weight:800%"&gt;github.com/djnavarro/flametree&lt;/span&gt;
+---
+
+
+.pull-left[
+
+.hand[using the flametree package]
+
+
+```r
+library(flametree)
+dat &lt;- flametree_grow(
+  time = 12,
+  scale = c(.5, .8, .9)
+)
+pic &lt;- flametree_plot(dat)
+plot(pic)
+```
+]
+
+--
+
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+]
+
+
+
+
+---
+
+
+class: middle
+
+background-image: url("img/ashtree2.png")
+background-size: cover
+
+.pull-left-wide[
+  .biggish-hotpink-text[ashtree]&lt;br&gt;
+]
 
 
 ---
@@ -426,7 +530,7 @@ pony_greet()
 ```
 
 ```
-## [1] "Hiya Rainbow-Hooman :-)"
+## [1] "Hey Sparkle-Hooman!!!!!!!!"
 ```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
