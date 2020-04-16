@@ -63,7 +63,7 @@ num_fmt <- scales::number_format(big.mark = ",")
 
 class: middle, inverse
 
-## https://rstudio.cloud/project/1125393
+## https://github.com/djnavarro/ashtree
 
 ---
 
@@ -263,7 +263,7 @@ knitr::include_graphics("img/function_00.png", dpi = 150)
 
 class: middle
 
-background-image: url("img/scrawl_17-1000-400-100-5.png")
+background-image: url("img/ashtree3.png")
 background-size: cover
 
 .pull-left-wide[
@@ -304,6 +304,14 @@ knitr::include_graphics("img/function_02.png", dpi = 150)
 class: inverse, middle
 
 ## .hand[live coding #2...]
+
+---
+
+class: middle
+
+background-image: url("img/ashtree6.png")
+background-size: cover
+
 
 
 ---
@@ -668,7 +676,7 @@ class: inverse, middle
 
 class: middle
 
-background-image: url("img/ashtree2.png")
+background-image: url("img/ashtree5.png")
 background-size: cover
 
 
@@ -803,7 +811,7 @@ knitr::include_graphics("img/Acc7.png", dpi = 300)
 ---
 
 ```{r echo=FALSE}
-knitr::include_graphics("img/Acc8.png", dpi = 300)
+knitr::include_graphics("img/Acc8b.png", dpi = 300)
 ```
 
 
@@ -819,7 +827,7 @@ class: inverse, middle
 
 class: middle
 
-background-image: url("img/ashtree2.png")
+background-image: url("img/ashtree4.png")
 background-size: cover
 
 ---
@@ -830,6 +838,17 @@ class: inverse, middle
 ## .hand[... let's make it pretty!]
 
 
+---
 
+class: middle
+
+background-image: url("img/ashtree7.png")
+background-size: cover
+
+.pull-right-wide[
+  .biggish-hotpink-text[thanks!]
+]
+<br><br><br><br><br><br>
+## github.com/djnavarro/ashtree
 
 
