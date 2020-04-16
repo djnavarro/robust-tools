@@ -130,6 +130,7 @@ Additional course materials to be added! Likely topics for this course:
 - GitHub revisited (plus some OSF possibly)
 - Behavioural experiments with R
 - A little bit of statistical inference
+- An introduction to package development
 
 
 <br>
