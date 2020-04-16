@@ -372,7 +372,313 @@ knitr::include_graphics("img/Grow3.png", dpi = 300)
 
 class: inverse, middle
 
+## .hand[sweetie, we need to talk...]
+## .hand[...about iteration]
+
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree1.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree2.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree3.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree4.png", dpi = 300)
+```
+
+
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For1.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For2.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For3.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For4.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For5.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For6.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For7.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For8.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For9.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For10.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For11.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For12.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For13.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For14.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For15.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For16.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For17.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For18.png", dpi = 300)
+```
+
+
+
+---
+
+class: inverse, middle
+
+## .hand[ugh, feels so clunky.]
+## .hand[surely there's a simpler way?]
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map1.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map2.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map3.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map4.png", dpi = 300)
+```
+
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map5.png", dpi = 300)
+```
+
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map6.png", dpi = 300)
+```
+
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map7.png", dpi = 300)
+```
+
+
+---
+
+class: inverse, middle
+
+## .hand[um... but...]
+## .hand[that doesn't solve our problem!]
+
+
+---
+
+.hand[Problem: grow_multi() doesn't transform **three** tips]
+
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree4.png", dpi = 300)
+```
+
+
+---
+
+.hand[Solution: don't include .x value in our recipe!]
+
+
+---
+
+.hand[Before:]
+
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map7.png", dpi = 300)
+```
+
+
+---
+
+.hand[After:]
+
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map8.png", dpi = 300)
+```
+
+
+
+
+---
+
+class: inverse, middle
+
+## .hand[okay, can we do use this in "ashtree"?]
 ## .hand[live coding #3...]
+
+
+---
+
+class: middle
+
+background-image: url("img/ashtree2.png")
+background-size: cover
+
+
+---
+
+class: inverse, middle
+
+## .hand[iteration problems vary...]
+
+
 
 ---
 
@@ -454,20 +760,74 @@ knitr::include_graphics("img/Tree9.png", dpi = 300)
 
 ---
 
-class: inverse, middle
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc1.png", dpi = 300)
+```
 
-## .hand[live coding #4...]
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc2.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc3.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc4.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc5.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc6.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc7.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc8.png", dpi = 300)
+```
 
 
 ---
 
-explain stuff!
+class: inverse, middle
+
+## .hand[so let's try to use accumulate()]
+## .hand[... a.k.a., live coding #4]
+
+
+---
+
+class: middle
+
+background-image: url("img/ashtree2.png")
+background-size: cover
 
 ---
 
 class: inverse, middle
 
 ## .hand[live coding #5...]
+## .hand[... let's make it pretty!]
 
 
 
