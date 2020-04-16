@@ -33,13 +33,13 @@ library(tidyverse)
 library(metathis)
 meta() %>%
   meta_general(
-    description = "How to write your own R functions and program with them effectively",
+    description = "How to write your own R functions and program with them.",
   ) %>% 
   meta_name("github-repo" = "djnavarro/robust-tools") %>% 
   meta_social(
     title = "Write and use your own R functions",
-    url = "https://djnavarro.github.io/robust-tools/functions/",
-    image = "https://djnavarro.github.io/robust-tools/artistry/img/scrawl_15-10000-400-100-5.png", 
+    url = "https://djnavarro.github.io/robust-tools/functionality/",
+    image = "https://djnavarro.github.io/robust-tools/functionality/img/flametree3.png", 
     image_alt = "",
     og_type = "website",
     og_author = "Danielle Navarro",
@@ -842,13 +842,14 @@ class: inverse, middle
 
 class: middle
 
-background-image: url("img/ashtree7.png")
+background-image: url("img/flametree3.png")
 background-size: cover
 
 .pull-right-wide[
   .biggish-hotpink-text[thanks!]
 ]
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
 ## github.com/djnavarro/ashtree
+## github.com/djnavarro/flametree
 
 

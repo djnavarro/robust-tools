@@ -115,35 +115,18 @@ The fifth section in the course is an art class, of sorts. Notionally the goal i
 </div>
 
 
+## Section 06 :: Functional programming for art and science
 
-<!-- ## Section ?? :: Version control with git -->
-
-<!-- This is a work in progress! The linked slides are from a tutorial I gave in late 2018, and I no longer think this is the best way to teach the material. However, I had to teach this at short notice so for the moment I've left this up in the "old" format... -->
-
-<!-- <div class="container"> -->
-<!-- <div class="box-left"> -->
-<!-- - [Slides](https://djnavarro.github.io/chdss2018/day2/git-slides.html) -->
-<!-- - [Tutorial](https://djnavarro.github.io/chdss2018/day2/git.html) -->
-<!-- </div> -->
-<!-- <div class="box-right">[<img src="git/img/git.png">](https://djnavarro.github.io/chdss2018/day2/git-slides.html)</div> -->
-<!-- </div> -->
+The sixth section is also an [art class](functionality), this time focused on writing functions and using the functional programming toolkit in the purrr package.
 
 
-<!-- ## Topics to be added... soon -->
-
-<!-- - Writing your own experiments in R -->
-<!-- - Structuring your project -->
-<!-- - Programming in R -->
-<!-- - Archiving with OSF  -->
-<!-- - Version control with git -->
-<!-- - Documenting with R markdown -->
 
 
 <br><br><br><br>
 
 Additional course materials to be added! Likely topics for this course:
 
-- Functional programming (plus some computational modelling)
+- Computational cognitive modelling in R
 - GitHub revisited (plus some OSF possibly)
 - Behavioural experiments with R
 - A little bit of statistical inference
