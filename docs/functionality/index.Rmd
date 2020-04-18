@@ -85,52 +85,17 @@ background-size: cover
 
 <br><br><br><br><br><br>
 ## github.com/djnavarro/scrawl
----
-
-.pull-left[
-
-<br><br><br>
-.hand[using the scrawl package]
-
-```{r scrawl, results='hide', fig.show='hide', cache=TRUE}
-library(scrawl)
-dat <- scrawl_build()
-pic <- scrawl_plot(dat)
-plot(pic)
-```
-]
-
---
-
-.pull-right[
-```{r, ref.label="scrawl", echo=FALSE, fig.width=3, cache=TRUE}
-```
-]
 
 ---
-
 
 class: inverse
 
-.hand[last section]
 
-- loops and conditionals
-- vectors and the `c()` function 
-- lists, tibbles and the `$` operator, etc
-
---
-
-.hand[this section]
+.hand[our goals!]
 
 - write your own R functions
 - use functions to write a new generative art system
 - introduction to functional programming with "purrr"
-
---
-
-.hand[a later section]
-
-- bundling functions into a package
 
 ---
 
@@ -153,31 +118,6 @@ background-size: cover
 
 <br><br><br><br><br><br><br><br><br><br>
 ## <span style="color:white;font-weight:800%">github.com/djnavarro/flametree</span>
----
-
-
-.pull-left[
-
-.hand[using the flametree package]
-
-```{r flametree, results='hide', fig.show='hide', cache=TRUE}
-library(flametree)
-dat <- flametree_grow(
-  time = 12,
-  scale = c(.5, .8, .9)
-)
-pic <- flametree_plot(dat)
-plot(pic)
-```
-]
-
---
-
-.pull-right[
-```{r, ref.label="flametree", echo=FALSE, fig.width=4, fig.height=4, cache=TRUE}
-```
-]
-
 
 
 
@@ -200,6 +140,7 @@ class: middle
 
 background-image: url("img/ashtree2.png")
 background-size: cover
+
 
 --
 
@@ -311,8 +252,6 @@ class: middle
 
 background-image: url("img/ashtree6.png")
 background-size: cover
-
-
 
 ---
 
@@ -678,7 +617,6 @@ class: middle
 
 background-image: url("img/ashtree5.png")
 background-size: cover
-
 
 ---
 
