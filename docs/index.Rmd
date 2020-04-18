@@ -120,6 +120,18 @@ The fifth section in the course is an art class, of sorts. Notionally the goal i
 The sixth section is also an [art class](functionality), this time focused on writing functions and using the functional programming toolkit in the purrr package.
 
 
+<div class="container">
+<div class="box-left">
+#### Resources:
+- [R markdown slides](functionality)
+- [YouTube playlist class](https://www.youtube.com/playlist?list=PLRPB0ZzEYegPHHji3tBw2U4yp-DxMrUkB)
+- [GitHub repository for ashtree](https://github.com/djnavarro/ashtree)
+- [GitHub repository for flametree](https://github.com/djnavarro/flametree)
+
+</div>
+<div class="box-right">[<img src="functionality/img/ashtree_splash.png">](functionality)</div>
+</div>
+
 
 
 <br><br><br><br>
