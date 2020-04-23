@@ -1,6 +1,6 @@
 ---
 title: "> &nbsp;&nbsp;05 `r emo::ji('artist')` <br>> &nbsp;&nbsp;the programming of aRt"
-subtitle: "`r emo::ji('link')` &nbsp; [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
+subtitle: "`r emo::ji('link')` &nbsp; [robust-tools.djnavarro.net](https://robust-tools.djnavarro.net)"
 author: "danielle navarro"
 date: ""
 output:
@@ -38,8 +38,8 @@ meta() %>%
   meta_name("github-repo" = "djnavarro/robust-tools") %>% 
   meta_social(
     title = "Make an art with R",
-    url = "https://djnavarro.github.io/robust-tools/artistry/",
-    image = "https://djnavarro.github.io/robust-tools/artistry/img/scrawl_15-10000-400-100-5.png", 
+    url = "https://robust-tools.djnavarro.net/artistry/",
+    image = "https://robust-tools.djnavarro.net/artistry/img/scrawl_15-10000-400-100-5.png", 
     image_alt = "",
     og_type = "website",
     og_author = "Danielle Navarro",
