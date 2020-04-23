@@ -10,16 +10,16 @@
     <meta name="github-repo" content="djnavarro/robust-tools"/>
     <meta name="twitter:title" content="Make a website with blogdown and github"/>
     <meta name="twitter:description" content="An introduction to R markdown, blogdown and github"/>
-    <meta name="twitter:url" content="https://djnavarro.github.io/robust-tools/website/"/>
-    <meta name="twitter:image:src" content="https://djnavarro.github.io/robust-tools/website/img/twitter-card.png"/>
+    <meta name="twitter:url" content="https://robust-tools.djnavarro.net/website/"/>
+    <meta name="twitter:image:src" content="https://robust-tools.djnavarro.net/website/img/twitter-card.png"/>
     <meta name="twitter:image:alt" content=""/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:creator" content="@djnavarro"/>
     <meta name="twitter:site" content="@djnavarro"/>
     <meta name="og:title" content="Make a website with blogdown and github"/>
     <meta name="og:description" content="An introduction to R markdown, blogdown and github"/>
-    <meta name="og:url" content="https://djnavarro.github.io/robust-tools/website/"/>
-    <meta name="og:image" content="https://djnavarro.github.io/robust-tools/website/img/twitter-card.png"/>
+    <meta name="og:url" content="https://robust-tools.djnavarro.net/website/"/>
+    <meta name="og:image" content="https://robust-tools.djnavarro.net/website/img/twitter-card.png"/>
     <meta name="og:image:alt" content=""/>
     <meta name="og:type" content="website"/>
     <meta name="og:locale" content="en_US"/>
@@ -32,7 +32,7 @@
 class: center, middle, inverse, title-slide
 
 # &gt;   04 📖 <br>&gt;   website &lt;- blogdown + github
-## 🔗   <a href="https://djnavarro.link/robust-tools">djnavarro.link/robust-tools</a>
+## 🔗   <a href="https://robust-tools.djnavarro.net">robust-tools.djnavarro.net</a>
 ### danielle navarro
 
 ---
@@ -45,7 +45,7 @@ layout: true
   
 &lt;div class="my-footer"&gt;
 &lt;span&gt;
-&lt;a href="https://djnavarro.link/robust-tools" target="_blank"&gt;djnavarro.link/robust-tools&lt;/a&gt;
+&lt;a href="https://robust-tools.djnavarro.net" target="_blank"&gt;robust-tools.djnavarro.net&lt;/a&gt;
 &lt;/span&gt;
 &lt;/div&gt; 
 
@@ -989,6 +989,32 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
@@ -1006,17 +1032,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-</script>
 
 <script>
 slideshow._releaseMath = function(el) {
