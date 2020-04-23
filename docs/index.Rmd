@@ -20,8 +20,8 @@ meta() %>%
   meta_name("github-repo" = "djnavarro/robust-tools") %>% 
   meta_social(
     title = "Robust Tools",
-    url = "https://djnavarro.github.io/robust-tools/",
-    image = "http://djnavarro.github.io/robust-tools/robust.jpg",
+    url = "https://robust-tools.djnavarro.net",
+    image = "http://robust-tools.djnavarro.net/robust.jpg",
     image_alt = "The magrittr pipe in R",
     og_type = "website",
     og_author = "Danielle Navarro",
