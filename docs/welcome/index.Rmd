@@ -1,6 +1,6 @@
 ---
 title: "> 00 welcome! `r emo::ji('wave')`"
-subtitle: "`r emo::ji('link')` [djnavarro.link/robust-tools](https://djnavarro.link/robust-tools)"
+subtitle: "`r emo::ji('link')` [robust-tools.djnavarro.net](https://robust-tools.djnavarro.net)"
 author: "danielle navarro"
 date: ""
 output:
