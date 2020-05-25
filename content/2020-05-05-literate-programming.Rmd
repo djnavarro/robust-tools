@@ -1,22 +1,22 @@
 ---
-title: "04 :: Make a website using blogdown"
+title: "04 :: Literate programming in R"
 author: Danielle Navarro
 date: '2020-05-05'
 slug: literate-programming
 type: post
-summary: "Read this post to get started! "
+summary: "The fourth section in the class is built around a concrete problem: how can we build a website using R? In doing so it provides an overview of how to use R markdown and blogdown, and familiarises you with git and github"
 ---
 
-The fourth section in the class provides an introduction to several topics. The main goal is to teach R markdown, but it does so within a concrete task: creating a website using blogdown and github. It is not assumed that the learner has any familiarity with these topics, so each one is introduced as it becomes relevant. The aim is to teach the core concept (R markdown) while providing initial exposure to other topics (especially git) that will become useful later.
- 
-<div class="container">
-<div class="box-left">
-#### Resources:
+
+<i class="fa fa-link"></i> Materials:
+
 - [R markdown slides](website)
 - [The newblog repository](https://github.com/djnavarro/newblog)
 - [The waffle-blog repository](https://github.com/stringrbelle/waffle-blog)
 - [The waffle-blog](https://stringrbelle.github.io/waffle-blog)
 - [YouTube playlist](https://www.youtube.com/playlist?list=PLRPB0ZzEYegNW7FlGgtAOeZyvkCuiq2BT)
-</div>
-<div class="box-right">[<img src="website/img/websplash.png">](website)</div>
-</div>
+
+<br>
+
+The fourth section in the class provides an introduction to several topics. The main goal is to teach R markdown, but it does so within a concrete task: creating a website using blogdown and github. It is not assumed that the learner has any familiarity with these topics, so each one is introduced as it becomes relevant. The aim is to teach the core concept (R markdown) while providing initial exposure to other topics (especially git) that will become useful later.
+ 

@@ -21,12 +21,12 @@
     </item>
     
     <item>
-      <title>01 :: Make gorgeous data visualisations</title>
+      <title>01 :: Elegant data visualisation</title>
       <link>/data-visualisation/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/data-visualisation/</guid>
-      <description>Read this post to get started!</description>
+      <description>The course begins with an introduction to data visualisation in R using the ggplot2 package. It is assumed that this is our first encounter with R, so this section also covers many introductory topics.</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/hello-data/</guid>
-      <description>Read this post to get started!</description>
+      <description>The second section discusses how to read data into R and how to write output to CSV files, and introduces some of the tools used to create grouped summaries of data. In this section we first encounter the &amp;lsquo;pipe&amp;rsquo; operator %&amp;gt;%.</description>
     </item>
     
     <item>
@@ -44,16 +44,16 @@
       <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/data-wrangling/</guid>
-      <description>Read this post to get started!</description>
+      <description>An introduction to data manipulation and data wrangling in R using the dplyr package. Topics covered include: extracting a subset of the data, rearranging the data, computing new variables in a data set, merging multiple data sets, and reshaping a data set.</description>
     </item>
     
     <item>
-      <title>04 :: Make a website using blogdown</title>
+      <title>04 :: Literate programming in R</title>
       <link>/literate-programming/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/literate-programming/</guid>
-      <description>Read this post to get started!</description>
+      <description>The fourth section in the class is built around a concrete problem: how can we build a website using R? In doing so it provides an overview of how to use R markdown and blogdown, and familiarises you with git and github</description>
     </item>
     
     <item>
@@ -62,7 +62,7 @@
       <pubDate>Thu, 30 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/programming-art/</guid>
-      <description>Read this post to get started!</description>
+      <description>The fifth section in the course is an art class, of sorts. Notionally the goal is to build a new generative art system, but it also serves as a mechanism to introduce key programming concepts: vectors, lists, coercion, logical operations, loops and conditionals.</description>
     </item>
     
     <item>
@@ -71,16 +71,16 @@
       <pubDate>Thu, 30 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/functional-programming/</guid>
-      <description>Read this post to get started!</description>
+      <description>The sixth section is also an art class, this time focused on writing functions and using the functional programming toolkit in the purrr package. There is also some art though, I promise!</description>
     </item>
     
     <item>
-      <title>?? :: To be continued...</title>
+      <title>Topics still to come</title>
       <link>/to-be-continued/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>/to-be-continued/</guid>
-      <description>Read this post to get started!</description>
+      <description>The materials posted so far cover some, but not all of the content I hope to include. My &amp;lsquo;wish list&amp;rsquo; for future topics is listed here</description>
     </item>
     
   </channel>

@@ -4,24 +4,19 @@ author: Danielle Navarro
 date: '2020-04-30'
 slug: functional-programming
 type: post
-summary: "Read this post to get started! "
+summary: "The sixth section is also an art class, this time focused on writing functions and using the functional programming toolkit in the purrr package. There is also some art though, I promise!"
 ---
 
+<i class="fa fa-link"></i> Materials:
 
-The sixth section is also an [art class](functionality), this time focused on writing functions and using the functional programming toolkit in the purrr package. At the beginning the focus is on material for beginners: how to write a function and what the parts of a function are. Through the middle sections the discussion looks at how to write the functions necessary to make the "ashtree" system work, and how to organise those functions in a sensible way. The final sections provide an (minimal) introduction to purrr, and a (very) cursory discussion of scoping rules in R. Also it makes art!
-
-
-<div class="container">
-<div class="box-left">
-#### Resources:
 - [R markdown slides](functionality)
 - [YouTube playlist](https://www.youtube.com/playlist?list=PLRPB0ZzEYegPHHji3tBw2U4yp-DxMrUkB)
 - [RStudio cloud project 1169065](https://rstudio.cloud/project/1169065)
 - [GitHub repository for ashtree](https://github.com/djnavarro/ashtree)
 - [GitHub repository for flametree](https://github.com/djnavarro/flametree)
 
-</div>
-<div class="box-right">[<img src="functionality/img/ashtree_splash.png">](functionality)</div>
-</div>
+<br>
+
+The sixth section is also an [art class](functionality), this time focused on writing functions and using the functional programming toolkit in the purrr package. At the beginning the focus is on material for beginners: how to write a function and what the parts of a function are. Through the middle sections the discussion looks at how to write the functions necessary to make the "ashtree" system work, and how to organise those functions in a sensible way. The final sections provide an (minimal) introduction to purrr, and a (very) cursory discussion of scoping rules in R. Also it makes art!
 
 
