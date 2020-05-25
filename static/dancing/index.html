@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>&gt; 03 💃   &gt; dplyr, or a dance with data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="danielle navarro" />
+    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <meta name="description" content="An introduction to data wrangling in R using tidyverse tools, featuring data from the &#39;Small World of Words&#39; study"/>
+    <meta name="github-repo" content="djnavarro/robust-tools"/>
+    <meta name="twitter:title" content="A dance with data using dplyr"/>
+    <meta name="twitter:description" content="An introduction to data wrangling in R using tidyverse tools, featuring data from the &#39;Small World of Words&#39; study"/>
+    <meta name="twitter:url" content="https://robust-tools.djnavarro.net/dancing/"/>
+    <meta name="twitter:image:src" content="https://robust-tools.djnavarro.net/dancing/img/filter_slide.png"/>
+    <meta name="twitter:image:alt" content="Illustration of how the filter() function in the R package dplyr works, showing how to extract a small subset of the so-called &#39;Small World of Words&#39; data set. The background image is tan, and on the left hand side shows filter coffee dripping downwards."/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@djnavarro"/>
+    <meta name="twitter:site" content="@djnavarro"/>
+    <meta name="og:title" content="A dance with data using dplyr"/>
+    <meta name="og:description" content="An introduction to data wrangling in R using tidyverse tools, featuring data from the &#39;Small World of Words&#39; study"/>
+    <meta name="og:url" content="https://robust-tools.djnavarro.net/dancing/"/>
+    <meta name="og:image" content="https://robust-tools.djnavarro.net/dancing/img/filter_slide.png"/>
+    <meta name="og:image:alt" content="Illustration of how the filter() function in the R package dplyr works, showing how to extract a small subset of the so-called &#39;Small World of Words&#39; data set. The background image is tan, and on the left hand side shows filter coffee dripping downwards."/>
+    <meta name="og:type" content="website"/>
+    <meta name="og:locale" content="en_US"/>
+    <meta name="article:author" content="Danielle Navarro"/>
+    <link rel="stylesheet" href="../style/xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="../style/slides-style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# &gt; 03 💃 <br> &gt; dplyr, or a dance with data
+## 🔗 <a href="https://robust-tools.djnavarro.net">robust-tools.djnavarro.net</a>
+### danielle navarro
+
+---
+
+
+
+
+
+layout: true
+  
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="https://robust-tools.djnavarro.net" target="_blank"&gt;robust-tools.djnavarro.net&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+class: middle, inverse
+
+## https://rstudio.cloud/project/1006868
+
+---
+
+class: middle, inverse
+
+background-image: url("img/swow_concreteness_fade.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[1]
+]
+.pull-right-wide[
+  .larger[.embolden[
+  Small World of Words
+  ]]
+]
+
+
+---
+
+class:middle
+
+
+background-image: url("img/swow_concreteness_strongfade.jpg")
+background-size: cover
+
+
+.pull-left[
+&lt;img src="img/science_network.png" width="672" /&gt;
+]
+
+.pull-right[
+&lt;br&gt;&lt;br&gt;
+De Deyne, Navarro, Perfors, Brysbaert &amp; Storms (2019).
+&lt;br&gt;&lt;br&gt;
+*The Small World of Words: English word association norms for over 12,000 cue words* &lt;br&gt;&lt;br&gt;
+https://psyarxiv.com/mb93p/ &lt;br&gt;
+https://smallworldofwords.org/
+]
+
+
+
+---
+
+class: inverse
+
+background-image: url("img/swow_concreteness_strongfade.jpg")
+background-size: cover
+
+
+.hand[Import the SWOW data]
+--
+
+```r
+library(tidyverse)
+swow &lt;- read_tsv(file = "data_swow.csv.zip")
+swow &lt;- swow %&gt;% mutate(id = 1:n()) # &lt;- ignore for now
+```
+--
+
+```
+## # A tibble: 483,636 x 6
+*##   cue   response    R1     N R1.Strength    id
+##   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;
+## 1 a     one         21    97      0.216      1
+## 2 a     the         16    97      0.165      2
+## 3 a     b            9    97      0.0928     3
+## 4 a     an           4    97      0.0412     4
+## 5 a     first        3    97      0.0309     5
+## # … with 483,631 more rows
+```
+
+
+---
+
+class: inverse
+
+background-image: url("img/swow_concreteness_strongfade.jpg")
+background-size: cover
+
+.hand[Automated name cleaning?]
+--
+
+```r
+library(janitor)
+swow &lt;- clean_names(swow)
+```
+--
+
+```
+## # A tibble: 483,636 x 6
+*##   cue   response    r1     n r1_strength    id
+##   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;
+## 1 a     one         21    97      0.216      1
+## 2 a     the         16    97      0.165      2
+## 3 a     b            9    97      0.0928     3
+## 4 a     an           4    97      0.0412     4
+## 5 a     first        3    97      0.0309     5
+## # … with 483,631 more rows
+```
+
+---
+
+class: inverse
+
+background-image: url("img/swow_concreteness_strongfade.jpg")
+background-size: cover
+
+.hand[Manual name cleaning]
+--
+
+```r
+swow &lt;- swow %&gt;%
+  rename(n_response = r1, 
+         n_total = n, 
+         strength = r1_strength)
+```
+--
+
+```
+## # A tibble: 483,636 x 6
+*##   cue   response n_response n_total strength    id
+##   &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;
+## 1 a     one              21      97   0.216      1
+## 2 a     the              16      97   0.165      2
+## 3 a     b                 9      97   0.0928     3
+## # … with 483,633 more rows
+```
+
+
+---
+
+class: inverse, middle
+
+background-image: url("img/swow_concreteness_strongfade.jpg")
+background-size: cover
+
+.hand[&lt;span style="font-size:60pt"&gt;exercise #1&lt;/span&gt;]
+
+- open `exercise_dplyr_01.R`
+- write your comments at the beginning
+- load tidyverse
+- load the swow data
+- use `rename()` to get new variable names
+
+
+---
+
+
+class: middle, inverse
+
+background-image: url("img/filter.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[2]
+]
+.pull-right-wide[
+  .larger[.embolden[
+  Filtering Data
+  ]]
+]
+
+
+---
+
+background-image: url("img/filter_fade.jpg")
+background-size: cover
+
+.hand[Filter to keep a subset of the data]
+
+- The SWOW data has 483,636 rows
+- Let's extract the cases when `cue == "woman"`
+
+---
+
+background-image: url("img/filter_fade.jpg")
+background-size: cover
+
+.hand[Filter to keep a subset of the data]
+
+--
+
+```r
+swow %&gt;%
+  filter(cue == "woman")
+```
+--
+
+```
+## # A tibble: 28 x 6
+##   cue   response n_response n_total strength     id
+##   &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;int&gt;
+## 1 woman man              38     100     0.38 477315
+## 2 woman female           22     100     0.22 477316
+## 3 woman girl              7     100     0.07 477317
+## 4 woman lady              5     100     0.05 477318
+## # … with 24 more rows
+```
+
+
+
+---
+
+background-image: url("img/filter_fade.jpg")
+background-size: cover
+
+.hand[Filter to keep a subset of the data]
+
+.pull-left[
+
+```r
+woman_fwd &lt;- swow %&gt;%
+  filter(cue == "woman")
+
+ggplot(woman_fwd) + 
+  geom_col(aes(
+    x = response, 
+    y = strength
+  ))
+```
+]
+--
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+]
+
+---
+
+background-image: url("img/filter_fade.jpg")
+background-size: cover
+
+.hand[Filter to keep a subset of the data]
+
+.pull-left[
+
+```r
+woman_fwd &lt;- swow %&gt;%
+  filter(cue == "woman")
+
+ggplot(woman_fwd) + 
+  geom_col(aes(
+    x = response, 
+    y = strength
+  )) + 
+  coord_flip()
+```
+]
+
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+]
+
+
+
+---
+
+background-image: url("img/filter_fade.jpg")
+background-size: cover
+
+.hand[One filter(), then another filter()]
+
+.pull-left[
+
+```r
+woman_fwd &lt;- swow %&gt;%
+ filter(cue == "woman") %&gt;%
+ filter(n_response &gt; 1)
+
+ggplot(woman_fwd) + 
+  geom_col(aes(
+    x = response, 
+    y = strength
+  )) + 
+  coord_flip()
+```
+]
+
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+]
+
+---
+
+background-image: url("img/filter_fade.jpg")
+background-size: cover
+
+.hand[Two expressions in one filter()]
+
+.pull-left[
+
+```r
+woman_fwd &lt;- swow %&gt;%
+  filter(
+    cue == "woman",
+    n_response &gt; 1
+  )
+
+ggplot(woman_fwd) + 
+  geom_col(aes(
+    x = response, 
+    y = strength
+  )) + 
+  coord_flip()
+```
+]
+
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+]
+
+
+
+---
+
+class: inverse, middle
+
+background-image: url("img/filter_fade.jpg")
+background-size: cover
+
+.hand[&lt;span style="font-size:60pt"&gt;exercise #2&lt;/span&gt;]
+
+- open `exercise_dplyr_02.R`
+- create `woman_bck` for "backward associates"
+  - i.e. when `"woman"` is the `response`
+  - only keep cases with at least two responses
+
+
+---
+
+
+class: middle, inverse
+
+background-image: url("img/arrange_dark.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[3]
+]
+.pull-right-wide[
+  &lt;br&gt;
+  .larger[.embolden[.plainwhite[
+    Data Arranging
+  ]]]
+]
+
+
+---
+
+background-image: url("img/arrange_fade.jpg")
+background-size: cover
+
+.hand[The forward data are arranged neatly]
+
+
+```r
+swow %&gt;%
+  filter(cue == "woman", n_response &gt; 1)
+```
+
+```
+## # A tibble: 8 x 6
+##   cue   response n_response n_total strength     id
+##   &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;int&gt;
+## 1 woman man              38     100     0.38 477315
+## 2 woman female           22     100     0.22 477316
+## 3 woman girl              7     100     0.07 477317
+## 4 woman lady              5     100     0.05 477318
+## 5 woman beauty            2     100     0.02 477319
+## 6 woman me                2     100     0.02 477320
+## # … with 2 more rows
+```
+
+
+---
+
+background-image: url("img/arrange_fade.jpg")
+background-size: cover
+
+.hand[The backward data are not]
+
+
+```r
+swow %&gt;%
+  filter(response == "woman", n_response &gt; 1)
+```
+
+```
+## # A tibble: 200 x 6
+##   cue           response n_response n_total strength    id
+##   &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;
+## 1 abuse         woman             2     100   0.02    1353
+## 2 actress       woman             7     100   0.07    3921
+## 3 Amazon        woman             2     100   0.02   12286
+## 4 American      woman             2     100   0.02   12941
+## 5 apron         woman             2      98   0.0204 19310
+## 6 argumentative woman             2     100   0.02   20182
+## # … with 194 more rows
+```
+
+
+---
+
+background-image: url("img/arrange_fade.jpg")
+background-size: cover
+
+.hand[Lets arrange() them]
+
+
+```r
+swow %&gt;%
+  filter(response == "woman", n_response &gt; 1) %&gt;%
+  arrange(strength)
+```
+--
+
+```
+## # A tibble: 200 x 6
+##   cue           response n_response n_total strength    id
+##   &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;
+## 1 abuse         woman             2     100     0.02  1353
+## 2 Amazon        woman             2     100     0.02 12286
+## 3 American      woman             2     100     0.02 12941
+## 4 argumentative woman             2     100     0.02 20182
+## 5 attract       woman             2     100     0.02 25876
+## # … with 195 more rows
+```
+
+
+---
+
+background-image: url("img/arrange_fade.jpg")
+background-size: cover
+
+.hand[Lets arrange() them, in descending order]
+
+
+```r
+swow %&gt;%
+  filter(response == "woman", n_response &gt; 1) %&gt;%
+  arrange(desc(strength))
+```
+
+
+```
+## # A tibble: 200 x 6
+##   cue      response n_response n_total strength     id
+##   &lt;chr&gt;    &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;int&gt;
+## 1 man      woman            57      99    0.576 258593
+## 2 lady     woman            36     100    0.36  240149
+## 3 feminist woman            30      99    0.303 158641
+## 4 female   woman            23      99    0.232 158492
+## 5 pregnant woman            18     100    0.18  327286
+## # … with 195 more rows
+```
+
+
+---
+
+class: inverse, middle
+
+background-image: url("img/arrange_fade.jpg")
+background-size: cover
+
+.hand[&lt;span style="font-size:60pt"&gt;exercise #3&lt;/span&gt;]
+
+- open script `exercise_dplyr_03.R`
+- create analogous data sets `man_fwd` and `man_bck`
+- make sure all data sets are arranged by descending `strength`
+
+---
+
+class: middle, inverse
+
+background-image: url("img/select_dark.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[4]
+]
+.pull-right-wide[
+  &lt;br&gt;
+  .larger[.embolden[.plainwhite[
+    &amp;nbsp;&amp;nbsp;Variable&lt;br&gt;&amp;nbsp;&amp;nbsp;Selection
+  ]]]
+]
+
+---
+
+background-image: url("img/select_fade.jpg")
+background-size: cover
+
+.hand[Select cue, response and strength]
+
+
+```r
+swow %&gt;%
+  filter(response == "woman", n_response &gt; 1) %&gt;%
+  arrange(desc(strength)) %&gt;%
+* select(cue, response, strength)
+```
+
+--
+
+
+```
+## # A tibble: 200 x 3
+##   cue      response strength
+##   &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;
+## 1 man      woman       0.576
+## 2 lady     woman       0.36 
+## 3 feminist woman       0.303
+## # … with 197 more rows
+```
+
+
+---
+
+background-image: url("img/select_fade.jpg")
+background-size: cover
+
+.hand[Alternative approach...]
+
+
+
+```r
+swow %&gt;%
+  filter(response == "woman", n_response &gt; 1) %&gt;%
+  arrange(desc(strength)) %&gt;%
+* select(-n_response, -n_total)
+```
+
+--
+
+
+```
+## # A tibble: 200 x 4
+##   cue      response strength     id
+##   &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt;
+## 1 man      woman       0.576 258593
+## 2 lady     woman       0.36  240149
+## 3 feminist woman       0.303 158641
+## # … with 197 more rows
+```
+
+
+---
+
+class: inverse, middle
+
+background-image: url("img/select_fade.jpg")
+background-size: cover
+
+.hand[&lt;span style="font-size:60pt"&gt;exercise #4&lt;/span&gt;]
+
+- open script `exercise_dplyr_04.R`
+- notice that the `woman_fwd` pipeline uses `select()` 
+- use `select()` for the other variables
+
+---
+
+class: middle, inverse
+
+background-image: url("img/butterfly.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[5]
+]
+.pull-right-wide[
+  &lt;br&gt;
+  .larger[.embolden[
+    &amp;nbsp;&amp;nbsp;Mutate
+  ]]
+]
+
+
+
+---
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Digression: Psychological measurement is hard]
+
+
+&lt;img src="index_files/figure-html/mutate0-1.png" width="600" height="400" /&gt;
+
+
+---
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Forward: compete with responses to **same** cue]
+
+
+```r
+woman_fwd
+```
+
+
+```
+## # A tibble: 8 x 4
+##   cue   response strength     id
+##   &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt;
+## 1 woman man          0.38 477315
+## 2 woman female       0.22 477316
+## 3 woman girl         0.07 477317
+## 4 woman lady         0.05 477318
+## 5 woman beauty       0.02 477319
+## 6 woman me           0.02 477320
+## # … with 2 more rows
+```
+
+
+---
+
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Backward: compete with responses to **other** cues]
+
+
+```r
+woman_bck
+```
+
+
+```
+## # A tibble: 200 x 4
+##   cue       response strength     id
+##   &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt;
+## 1 man       woman       0.576 258593
+## 2 lady      woman       0.36  240149
+## 3 feminist  woman       0.303 158641
+## 4 female    woman       0.232 158492
+## 5 pregnant  woman       0.18  327286
+## 6 housewife woman       0.17  209394
+## # … with 194 more rows
+```
+
+---
+
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Use mutate() to compute new variables]
+
+
+```r
+woman_fwd %&gt;%
+  mutate(rank = rank(-strength))
+```
+
+
+```
+## # A tibble: 8 x 5
+##   cue   response strength     id  rank
+##   &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt; &lt;dbl&gt;
+## 1 woman man          0.38 477315   1  
+## 2 woman female       0.22 477316   2  
+## 3 woman girl         0.07 477317   3  
+## 4 woman lady         0.05 477318   4  
+## 5 woman beauty       0.02 477319   6.5
+## # … with 3 more rows
+```
+
+
+
+---
+
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Use mutate() to compute new variables]
+
+
+```r
+woman_bck %&gt;%
+  mutate(rank = rank(-strength))
+```
+
+
+```
+## # A tibble: 200 x 5
+##   cue      response strength     id  rank
+##   &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt; &lt;dbl&gt;
+## 1 man      woman       0.576 258593     1
+## 2 lady     woman       0.36  240149     2
+## 3 feminist woman       0.303 158641     3
+## 4 female   woman       0.232 158492     4
+## 5 pregnant woman       0.18  327286     5
+## # … with 195 more rows
+```
+
+
+
+
+---
+
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Use mutate() to compute new variables]
+
+
+```r
+woman_bck %&gt;%
+  mutate(rank = rank(-strength), type = "backward")
+```
+
+
+```
+## # A tibble: 200 x 6
+##   cue      response strength     id  rank type    
+##   &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   
+## 1 man      woman       0.576 258593     1 backward
+## 2 lady     woman       0.36  240149     2 backward
+## 3 feminist woman       0.303 158641     3 backward
+## 4 female   woman       0.232 158492     4 backward
+## 5 pregnant woman       0.18  327286     5 backward
+## # … with 195 more rows
+```
+
+
+
+---
+
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[Which should we use, "rank" or "strength"?]
+
+&lt;img src="index_files/figure-html/mutate6-1.png" width="600" height="400" /&gt;
+
+---
+
+
+class: inverse, middle
+
+background-image: url("img/butterfly_fade.jpg")
+background-size: cover
+
+.hand[&lt;span style="font-size:60pt"&gt;exercise #5&lt;/span&gt;]
+
+- open script `exercise_dplyr_05.R`
+- mutate the data sets to include four new variables:
+  - `rank`: see the slides
+  - `type`: either `forward` or `backward` 
+  - `word`: either `man` or `woman`
+  - `associate`: see script for details!
+
+
+
+
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/bind.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[6]
+]
+.pull-right-wide[
+  &lt;br&gt;
+  .larger[.embolden[.plainwhite[
+    &amp;nbsp;&amp;nbsp;Bind
+  ]]]
+]
+
+
+
+---
+
+
+background-image: url("img/bind_fade.jpg")
+background-size: cover
+
+.hand[Use bind_rows() to stack data sets vertically]
+
+
+
+
+
+```r
+gender &lt;- bind_rows(woman_fwd, woman_bck, 
+                    man_fwd, man_bck)
+```
+
+--
+
+
+```
+*## # A tibble: 505 x 8
+##   cue   response strength     id  rank type    word  associate
+## * &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;   &lt;chr&gt; &lt;chr&gt;    
+## 1 woman man          0.38 477315   1   forward woman man      
+## 2 woman female       0.22 477316   2   forward woman female   
+## 3 woman girl         0.07 477317   3   forward woman girl     
+## 4 woman lady         0.05 477318   4   forward woman lady     
+## 5 woman beauty       0.02 477319   6.5 forward woman beauty   
+## 6 woman me           0.02 477320   6.5 forward woman me       
+## # … with 499 more rows
+```
+
+
+
+---
+
+
+background-image: url("img/bind_fade.jpg")
+background-size: cover
+
+.hand[Clean up using select()...]
+
+
+
+```r
+gender &lt;- bind_rows(woman_fwd, woman_bck, 
+                    man_fwd, man_bck) %&gt;%
+  select(id:associate)
+```
+
+
+```
+## # A tibble: 505 x 5
+##       id  rank type    word  associate
+##    &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;   &lt;chr&gt; &lt;chr&gt;    
+## 1 477315   1   forward woman man      
+## 2 477316   2   forward woman female   
+## 3 477317   3   forward woman girl     
+## 4 477318   4   forward woman lady     
+## 5 477319   6.5 forward woman beauty   
+## # … with 500 more rows
+```
+
+---
+
+
+background-image: url("img/bind_fade.jpg")
+background-size: cover
+
+.hand[Clean up using select() and filter()]
+
+
+
+```r
+gender &lt;- bind_rows(woman_fwd, woman_bck, 
+                    man_fwd, man_bck) %&gt;%
+  select(id:associate) %&gt;%
+  filter(associate != "man", associate != "woman")
+```
+
+
+```
+## # A tibble: 501 x 5
+##       id  rank type    word  associate
+##    &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;   &lt;chr&gt; &lt;chr&gt;    
+## 1 477316   2   forward woman female   
+## 2 477317   3   forward woman girl     
+## 3 477318   4   forward woman lady     
+## 4 477319   6.5 forward woman beauty   
+## # … with 497 more rows
+```
+
+
+
+
+
+
+---
+
+
+background-image: url("img/bind_fade.jpg")
+background-size: cover
+
+.hand[Check that it worked!]
+
+.pull-left[
+
+```r
+gender %&gt;%
+  group_by(word, type) %&gt;%
+  count()
+```
+]
+--
+.pull-right[
+
+```
+## # A tibble: 4 x 3
+## # Groups:   word, type [4]
+##   word  type         n
+##   &lt;chr&gt; &lt;fct&gt;    &lt;int&gt;
+## 1 man   forward      7
+## 2 man   backward   288
+## 3 woman forward      7
+## 4 woman backward   199
+```
+]
+
+
+
+---
+
+
+class: inverse, middle
+
+background-image: url("img/bind_fade.jpg")
+background-size: cover
+
+.hand[&lt;span style="font-size:60pt"&gt;exercise #6&lt;/span&gt;]
+
+- open script `exercise_dplyr_06.R`
+- take a look at the instructions! 🙂
+
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/pivot.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[7]
+]
+.pull-right-wide[
+  &lt;br&gt;
+  .larger[.embolden[.plainwhite[
+    &amp;nbsp;&amp;nbsp;Pivot
+  ]]]
+]
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.hand[Lovely data]
+
+.pull-left[
+
+```r
+love &lt;- read_csv(
+  "data_love.csv"
+)
+```
+]
+
+--
+
+.pull-right[
+
+```
+## # A tibble: 4 x 3
+##   colour heart book 
+##   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;
+## 1 blue   💙    📘   
+## 2 green  💚    📗   
+## 3 yellow 💛    📒   
+## 4 orange 🧡    📙
+```
+]
+
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.hand["Pivot" to "longer" data...]
+
+.pull-left[
+
+```r
+long_love &lt;- love %&gt;%
+  pivot_longer(
+    cols = c(heart, book),
+    names_to = "object",
+    values_to = "emoji"
+  )
+```
+]
+
+--
+
+.pull-right[
+
+```
+## # A tibble: 8 x 3
+##   colour object emoji
+##   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;
+## 1 blue   heart  💙   
+## 2 blue   book   📘   
+## 3 green  heart  💚   
+## 4 green  book   📗   
+## 5 yellow heart  💛   
+## 6 yellow book   📒   
+## 7 orange heart  🧡   
+## 8 orange book   📙
+```
+]
+
+
+
+
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.hand["Pivot" to "wider" data...]
+
+.pull-left[
+
+```r
+wide_love &lt;- long_love %&gt;%
+  pivot_wider(
+    id_cols = colour,
+    names_from = object,
+    values_from = emoji
+  )
+```
+]
+
+--
+
+.pull-right[
+
+```
+## # A tibble: 4 x 3
+##   colour heart book 
+##   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;
+## 1 blue   💙    📘   
+## 2 green  💚    📗   
+## 3 yellow 💛    📒   
+## 4 orange 🧡    📙
+```
+]
+
+
+
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.pull-left[
+.hand[Reshape the data]
+
+```r
+gender_fwd &lt;- gender %&gt;% 
+  filter(
+    type == "forward"
+  ) %&gt;% 
+  pivot_wider(
+    id_cols = associate, 
+    names_from = word, 
+    values_from = rank
+  )
+```
+]
+
+--
+
+.pull-right[
+
+```
+## # A tibble: 13 x 3
+##    associate woman   man
+##    &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
+##  1 female      2    NA  
+##  2 girl        3    NA  
+##  3 lady        4    NA  
+##  4 beauty      6.5  NA  
+##  5 me          6.5  NA  
+##  6 strong      6.5   6.5
+##  7 wife        6.5  NA  
+##  8 male       NA     2  
+##  9 human      NA     3  
+## 10 husband    NA     4  
+## 11 boy        NA     6.5
+## 12 gender     NA     6.5
+## 13 person     NA     6.5
+```
+]
+
+
+
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.pull-left-wide[
+.hand[Reshape the data]
+
+```r
+gender_fwd &lt;- gender_fwd %&gt;% 
+  mutate(
+    woman = replace_na(1/woman, 0),
+    man = replace_na(1/man, 0), 
+    diff = woman - man
+  )  %&gt;%  
+  arrange(diff) 
+```
+]
+
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.pull-right-wide[
+
+```
+## # A tibble: 13 x 4
+##    associate woman   man   diff
+##    &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1 male      0     0.5   -0.5  
+##  2 human     0     0.333 -0.333
+##  3 husband   0     0.25  -0.25 
+##  4 boy       0     0.154 -0.154
+##  5 gender    0     0.154 -0.154
+##  6 person    0     0.154 -0.154
+##  7 strong    0.154 0.154  0    
+##  8 beauty    0.154 0      0.154
+##  9 me        0.154 0      0.154
+## 10 wife      0.154 0      0.154
+## 11 lady      0.25  0      0.25 
+## 12 girl      0.333 0      0.333
+## 13 female    0.5   0      0.5
+```
+]
+
+
+
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.hand[Reshape the data]
+.pull-left[
+
+```r
+ggplot(
+  data = gender_fwd,
+  mapping = aes(
+    x = associate %&gt;% 
+      reorder(diff), 
+    y = diff
+  )) + 
+  geom_col() + 
+  coord_flip()
+```
+]
+
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+]
+
+
+---
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+![](index_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+
+
+---
+
+
+class: inverse, middle
+
+background-image: url("img/pivot_fade.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  &lt;br&gt;&lt;br&gt;&lt;br&gt;
+  .hand[&lt;span style="font-size:40pt"&gt;exercise #7&lt;/span&gt;]
+]
+
+.pull-right-wide[
+&lt;img src="index_files/figure-html/unnamed-chunk-19-1.png" height="600" /&gt;
+]
+
+---
+
+class: middle, inverse
+
+background-image: url("img/join_dark.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[8]
+]
+.pull-right-wide[
+  &lt;br&gt;
+  .larger[.embolden[.plainwhite[
+    &amp;nbsp;&amp;nbsp;Join
+  ]]]
+]
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/join_fade.jpg")
+background-size: cover
+
+.hand[Restore all the variables?]
+
+
+```r
+gender
+```
+
+```
+## # A tibble: 501 x 5
+##        id  rank type     word  associate
+##     &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;    &lt;chr&gt; &lt;chr&gt;    
+##  1 477316   2   forward  woman female   
+##  2 477317   3   forward  woman girl     
+##  3 477318   4   forward  woman lady     
+##  4 477319   6.5 forward  woman beauty   
+##  5 477320   6.5 forward  woman me       
+##  6 477321   6.5 forward  woman strong   
+##  7 477322   6.5 forward  woman wife     
+##  8 240149   2   backward woman lady     
+##  9 158641   3   backward woman feminist 
+## 10 158492   4   backward woman female   
+## # … with 491 more rows
+```
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/join_fade.jpg")
+background-size: cover
+
+.hand[Restore all the variables?]
+
+
+```r
+gender %&gt;%
+  left_join(swow, by = "id")
+```
+
+```
+## # A tibble: 501 x 10
+##        id  rank type  word  associate cue   response n_response n_total strength
+##  *  &lt;int&gt; &lt;dbl&gt; &lt;fct&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+##  1 477316   2   forw… woman female    woman female           22     100    0.22 
+##  2 477317   3   forw… woman girl      woman girl              7     100    0.07 
+##  3 477318   4   forw… woman lady      woman lady              5     100    0.05 
+##  4 477319   6.5 forw… woman beauty    woman beauty            2     100    0.02 
+##  5 477320   6.5 forw… woman me        woman me                2     100    0.02 
+##  6 477321   6.5 forw… woman strong    woman strong            2     100    0.02 
+##  7 477322   6.5 forw… woman wife      woman wife              2     100    0.02 
+##  8 240149   2   back… woman lady      lady  woman            36     100    0.36 
+##  9 158641   3   back… woman feminist  femi… woman            30      99    0.303
+## 10 158492   4   back… woman female    fema… woman            23      99    0.232
+## # … with 491 more rows
+```
+
+---
+
+
+class: middle, inverse
+
+background-image: url("img/snow_road2.jpg")
+background-size: cover
+
+.pull-right-wide[
+&lt;br&gt;
+.hand[Want more information?]
+
+R for Data Science has a lot of this&lt;br&gt;
+https://r4ds.had.co.nz
+
+&lt;br&gt;&lt;br&gt;
+
+Stat 545 is a wonderful resource&lt;br&gt;
+https://stat545.com/
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "solarized-light",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "<div class=\"progress-bar-container\">   <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">   </div> </div>`"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

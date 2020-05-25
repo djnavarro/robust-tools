@@ -1,0 +1,1 @@
+Style files used across all modules of my class

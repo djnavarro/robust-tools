@@ -1,0 +1,18 @@
+---
+title: "?? :: To be continued..."
+author: Danielle Navarro
+date: '2020-01-01'
+slug: to-be-continued
+type: post
+summary: "Read this post to get started! "
+---
+
+Additional course materials to be added! Likely topics for this course:
+
+- Computational cognitive modelling in R
+- GitHub revisited (plus some OSF possibly)
+- Behavioural experiments with R
+- A little bit of statistical inference
+- An introduction to package development
+
+

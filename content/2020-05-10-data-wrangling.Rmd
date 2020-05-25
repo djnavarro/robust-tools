@@ -1,0 +1,20 @@
+---
+title: "03 :: Go dancing with your data"
+author: Danielle Navarro
+date: '2020-05-10'
+slug: data-wrangling
+type: post
+summary: "Read this post to get started! "
+---
+
+The third section in the class provides an introduction to data wrangling in R, mostly focusing on dplyr. Topics covered include: extracting a subset of the data, rearranging the data, computing new variables in a data set, merging multiple data sets, and pivoting data between "long" and "wide" forms. Including time to complete the in-class exercises, it usually takes about 4 hours.  
+
+<div class="container">
+<div class="box-left">
+#### Resources:
+- [Data wrangling slides](dancing)
+- [RStudio cloud project 1006868](https://rstudio.cloud/project/1006868)
+- [YouTube playlist](https://www.youtube.com/watch?v=_LiB4nUKi3o&list=PLRPB0ZzEYegNFsivhQWTFvKvpEc504EPH)
+</div>
+<div class="box-right">[<img src="dancing/img/filter_slide.png">](dancing)</div>
+</div>

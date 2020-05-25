@@ -1,0 +1,68 @@
+baseURL = "https://robust-tools.djnavarro.net"
+languageCode = "en"
+DefaultContentLanguage = "en"
+title = "Essays by Danielle Navarro"
+theme = "anatole"
+summarylength = 10
+enableEmoji = true
+publishDir = "docs"
+
+# Enable Disqus
+#disqusShortname = ""
+
+# Google Analytics
+#googleAnalytics = "UA-123-45"
+
+[params]
+title = "Data Science with R"
+author = "Danielle Navarro"
+description = "An introductory course by Danielle Navarro"
+profilePicture = "images/profile.jpg"
+keywords = ""
+favicon = "favicons/"
+customCss = []
+
+## Math settings
+[params.math]
+enable = false  # options: true, false. Enable math support globally, default: false. You can always enable math on per page.
+use = "katex"  # options: "katex", "mathjax". default is "katex".
+
+## Social links
+[[params.socialIcons]]
+icon = "fa-paper-plane"
+title = "Email"
+url = "mailto:d.navarro@unsw.edu.au"
+
+[[params.socialIcons]]
+icon = "fa-home"
+title = "Homepage"
+url = "https://robust-tools.djnavarro.net"
+
+[[params.socialIcons]]
+icon = "fa-twitter"
+title = "Twitter"
+url = "https://www.twitter.com/djnavarro"
+
+[[params.socialIcons]]
+icon = "fa-github"
+title = "GitHub"
+url = "https://github.com/djnavarro/robust-tools"
+
+
+
+## Menu items
+
+[menu]
+
+  [[menu.main]]
+  name = "Sections"
+  identifier = "sections"
+  weight = 100
+  url = "/"
+
+#  [[menu.main]]
+#  name = "Posts"
+#  weight = 200
+#  identifier = "posts"
+#  url = "/post/"
+

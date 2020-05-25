@@ -1,0 +1,23 @@
+---
+title: "05 :: How to program an aRt"
+author: Danielle Navarro
+date: '2020-04-30'
+slug: programming-art
+type: post
+summary: "Read this post to get started! "
+---
+
+
+
+The fifth section in the course is an art class, of sorts. Notionally the goal is to build a new generative art system (because everyone loves pretty pictures), but it also serves as a mechanism to introduce key programming concepts: vectors, lists, coercion, logical operations, loops and conditionals are all introduced in this section. In this section there are two YouTube playlists, the "main" one which runs through the art class itself (and is rather fun!), and an "appendix" one that briefly summarises the relevant programming constructs in a succinct fashion (but is very dull).  
+
+<div class="container">
+<div class="box-left">
+#### Resources:
+- [R markdown slides](artistry)
+- [YouTube playlist for the art class](https://www.youtube.com/watch?v=ZUyahWLWVzY&list=PLRPB0ZzEYegNYW3ksiK3dvd6S4HMfKj1n)
+- [YouTube playlist for the appendix](https://www.youtube.com/watch?v=aozL5TKQgfY&list=PLRPB0ZzEYegMStVRojPITLUZ6A8YGUHi-)
+- [RStudio cloud project 1112041](https://rstudio.cloud/project/1112041)
+</div>
+<div class="box-right">[<img src="artistry/img/scrawl_15-10000-400-100-5_trunc.png">](artistry)</div>
+</div>

@@ -1,0 +1,6 @@
+
+    <span class="separator">
+        {{- range $index, $el := . -}}
+      <a class="tag" href="{{ ( printf "tags/%s/" ( . | urlize ) ) | relLangURL }}">{{ . }}</a>
+      {{- end -}}
+    </span>

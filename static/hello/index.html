@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>&gt; 02 🤝   &gt; say hello to your data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="danielle navarro" />
+    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <meta name="description" content="Importing, piping and exporting data in R"/>
+    <meta name="github-repo" content="djnavarro/robust-tools"/>
+    <meta name="twitter:title" content="Say hello to your data"/>
+    <meta name="twitter:description" content="Importing, piping and exporting data in R"/>
+    <meta name="twitter:url" content="https://robust-tools.djnavarro.net/hello/"/>
+    <meta name="twitter:image:src" content="https://robust-tools.djnavarro.net/hello/img/pipe.png"/>
+    <meta name="twitter:image:alt" content="Text showing the magrittr pipe in R, written as %&gt;%, overlaying a greyscale image of industrial pipes"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@djnavarro"/>
+    <meta name="twitter:site" content="@djnavarro"/>
+    <meta name="og:title" content="Say hello to your data"/>
+    <meta name="og:description" content="Importing, piping and exporting data in R"/>
+    <meta name="og:url" content="https://robust-tools.djnavarro.net/hello/"/>
+    <meta name="og:image" content="https://robust-tools.djnavarro.net/hello/img/pipe.png"/>
+    <meta name="og:image:alt" content="Text showing the magrittr pipe in R, written as %&gt;%, overlaying a greyscale image of industrial pipes"/>
+    <meta name="og:type" content="website"/>
+    <meta name="og:locale" content="en_US"/>
+    <meta name="article:author" content="Danielle Navarro"/>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="../style/xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="../style/slides-style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# &gt; 02 🤝 <br> &gt; say hello to your data
+## 🔗 <a href="https://robust-tools.djnavarro.net">robust-tools.djnavarro.net</a>
+### danielle navarro
+
+---
+
+
+
+
+
+
+layout: true
+  
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="https://robust-tools.djnavarro.net" target="_blank"&gt;robust-tools.djnavarro.net&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+
+
+
+
+
+
+
+
+class: middle
+
+background-image: url("img/thinking_skeleton.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[1]
+]
+.pull-right-wide[
+  .larger[
+  👩‍🔬
+  ]
+]
+
+---
+
+
+class:middle
+
+.pull-left[
+![](index_files/figure-html/summary.plot-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+&lt;br&gt;&lt;br&gt;
+Hayes, Banner, Forrester &amp; Navarro (2019). 
+&lt;br&gt;&lt;br&gt;
+*Selective sampling and inductive inference: Drawing inferences based on observed and missing evidence* &lt;br&gt;&lt;br&gt;
+https://psyarxiv.com/2m83v/ 
+]
+
+---
+
+
+
+
+class: middle
+
+### https://robust-tools.djnavarro.net/reasoning/
+
+&lt;img src="img/robot1.jpg" width="1707" /&gt;
+
+
+---
+
+class: middle
+
+.hand[Property sampling: the robot only detects plaxium spheres]
+&lt;img src="img/data10_property.jpg" width="410" /&gt;
+
+
+---
+
+class: middle
+.hand[Category sampling: the robot only tests small spheres]
+&lt;img src="img/data10_category.jpg" width="410" /&gt;
+
+
+---
+
+class: middle
+.hand[Small sample size: Elicit judgments after two observations]
+&lt;img src="img/data2_property.jpg" width="410" /&gt;
+
+---
+
+class: middle
+.hand[Medium sample size: Elicit judgments after six observations]
+&lt;img src="img/data6_property.jpg" width="410" /&gt;
+
+---
+
+class: middle
+.hand[Large sample size: Elicit judgments after twelve observations]
+&lt;img src="img/data12_property.jpg" width="410" /&gt;
+
+
+---
+
+class: middle
+.hand[Seven test items that vary in size: Smallest...]
+&lt;img src="img/test2.jpg" width="410" /&gt;
+
+---
+
+class: middle
+.hand[Seven test items that vary in size: Largest...]
+&lt;img src="img/test8.jpg" width="410" /&gt;
+
+
+---
+
+class: middle
+
+.pull-left[
+![](index_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+&lt;br&gt;&lt;br&gt;
+- smooth generalisation profiles
+- similar for small samples
+- different for large samples
+&lt;br&gt;&lt;br&gt;
+- property shows "tightening"
+- category does not
+]
+
+---
+
+class: middle
+
+background-image: url("img/thinking_skeleton.jpg")
+background-size: cover
+
+.pull-left[
+![](index_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;
+
+.hand[
+&lt;p style="text-align:right"&gt;Exercise #1:&lt;br&gt;discuss this study!&lt;/p&gt;
+]
+
+<div class="countdown" id="timer_5ea114db" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+]
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/bookshelves.jpg")
+background-size: cover
+
+
+.pull-left-narrow[
+  .huge-blue-number[2]
+]
+.pull-right-wide[
+  .larger[
+  &amp;nbsp; 📖 &lt;br&gt;
+  &amp;nbsp; &lt;span style="color:white;font-weight: bold"&gt;Reading&lt;/span&gt;&lt;br&gt;
+  &amp;nbsp; &lt;span style="color:white;font-weight: bold"&gt;your data&lt;/span&gt;
+  ]
+]
+
+
+---
+
+class: middle, inverse
+
+## https://rstudio.cloud/project/978818
+
+---
+
+class: inverse
+.hand[Reading the data into R]
+
+
+```r
+library(tidyverse)
+frames &lt;- read_csv(file = "data_reasoning.csv")
+```
+--
+
+```
+## Parsed with column specification:
+## cols(
+##   id = col_double(),
+##   gender = col_character(),
+##   age = col_double(),
+##   condition = col_character(),
+##   sample_size = col_character(),
+##   n_obs = col_double(),
+##   test_item = col_double(),
+##   response = col_double()
+## )
+```
+
+
+---
+
+class: inverse
+.hand[Click on "frames" in the environment pane]
+&lt;img src="img/view_frames_0.png" width="900" /&gt;
+
+
+---
+
+class: inverse
+.hand[Click on "frames" in the environment pane]
+&lt;img src="img/view_frames_1.png" width="900" /&gt;
+
+
+---
+
+class: inverse
+.hand[Inspecting the data]
+
+```r
+print(frames)
+```
+--
+
+```
+## # A tibble: 4,725 x 8
+##      id gender   age condition sample_size n_obs test_item
+##   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+## 1     1 male      36 category  small           2         1
+## 2     1 male      36 category  small           2         2
+## 3     1 male      36 category  small           2         3
+## 4     1 male      36 category  small           2         4
+## 5     1 male      36 category  small           2         5
+## 6     1 male      36 category  small           2         6
+## # … with 4,719 more rows, and 1 more variable:
+## #   response &lt;dbl&gt;
+```
+
+
+---
+
+class: inverse
+.hand[Inspecting the data]
+
+```r
+glimpse(frames)
+```
+--
+
+```
+## Rows: 4,725
+## Columns: 8
+## $ id          &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
+## $ gender      &lt;chr&gt; "male", "male", "male", "male", "mal…
+## $ age         &lt;dbl&gt; 36, 36, 36, 36, 36, 36, 36, 36, 36, …
+## $ condition   &lt;chr&gt; "category", "category", "category", …
+## $ sample_size &lt;chr&gt; "small", "small", "small", "small", …
+## $ n_obs       &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 6, 6, 6, 6, 6, …
+## $ test_item   &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, …
+## $ response    &lt;dbl&gt; 8, 7, 6, 6, 5, 6, 3, 9, 7, 5, 6, 4, …
+```
+
+---
+
+background-image: url("img/bookshelves.jpg")
+background-size: cover
+
+class: middle
+.hand[&lt;span style="color:white;font-weight: bold;font-size:64pt"&gt;Exercise #2&lt;/span&gt;]
+
+---
+
+class: middle, inverse
+
+background-image: url("img/pipes.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[3]
+]
+.pull-right-wide[
+  .larger[
+  &amp;nbsp;The pipe&lt;br&gt;
+  &amp;nbsp;.embolden[%&amp;gt;%]&lt;br&gt;
+  ]
+]
+
+
+---
+
+background-image: url("img/pipes2.jpg")
+background-size: cover
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.hand[The pipe, %&gt;%]
+
+.pull-left[
+- Take the frames data...
+- Do one thing...
+- Then another...
+- And then one more...
+]
+--
+.pull-right[
+```{}
+frames %&gt;%
+  do_one_thing(.) %&gt;%
+  then_another(.) %&gt;%
+  and_then_one_more(.)
+```
+]
+
+
+---
+
+background-image: url("img/pipes2.jpg")
+background-size: cover
+
+class: middle
+
+.pull-left-wide[
+```{}
+data %&gt;% 
+  tidy() %&gt;%
+  describe() %&gt;%
+  visualise() %&gt;%
+  analyse()
+```
+
+- We "pipe" our data through operations
+- The data set *flows* through our analysis
+]
+
+---
+
+background-image: url("img/pipes2.jpg")
+background-size: cover
+
+class: middle
+.hand[&lt;span style="font-weight: bold;font-size:64pt"&gt;Exercise #3&lt;/span&gt;]
+
+---
+
+class: middle, inverse
+
+background-image: url("img/drawers.jpg")
+background-size: cover
+
+
+.pull-left-narrow[
+  .huge-blue-number[4]
+]
+.pull-right-wide[
+  .larger[.embolden[.plainwhite[
+    &amp;nbsp; Grouped&lt;br&gt;
+    &amp;nbsp; summary
+  ]]]
+]
+
+---
+
+class: middle, inverse 
+
+background-image: url("img/drawer2.jpg")
+background-size: cover
+
+.pull-left-wide[
+.hand[The basic idea]
+
+
+```r
+frames %&gt;%
+  group_by( GROUP ) %&gt;%
+  summarise( EXPRESSION ) %&gt;%
+  ungroup()
+```
+
+- use `group_by` to define groups
+- use `summarise` to... summarise
+- use `ungroup` to remove grouping
+]
+
+
+---
+class: inverse
+
+background-image: url("img/drawer2.jpg")
+background-size: cover
+
+.hand[Group, summarise...]
+
+
+```r
+frames %&gt;%
+  group_by(test_item, sample_size, n_obs, condition) %&gt;%
+  summarise(response = mean(response))
+```
+--
+
+```
+## # A tibble: 42 x 5
+*## # Groups:   test_item, sample_size, n_obs [21]
+*##   test_item sample_size n_obs condition response
+##       &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
+## 1         1 large          12 category      7.60
+## 2         1 large          12 property      7.16
+## 3         1 medium          6 category      7.32
+## 4         1 medium          6 property      6.66
+## # … with 38 more rows
+```
+
+
+---
+class: inverse
+
+background-image: url("img/drawer2.jpg")
+background-size: cover
+
+.hand[Group, summarise, and ungroup]
+
+
+```r
+frames %&gt;%
+  group_by(test_item, sample_size, n_obs, condition) %&gt;%
+  summarise(response = mean(response)) %&gt;%
+* ungroup()
+```
+
+
+```
+## # A tibble: 42 x 5
+*##   test_item sample_size n_obs condition response
+##       &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
+## 1         1 large          12 category      7.60
+## 2         1 large          12 property      7.16
+## 3         1 medium          6 category      7.32
+## 4         1 medium          6 property      6.66
+## # … with 38 more rows
+```
+
+---
+class: inverse
+
+background-image: url("img/drawer2.jpg")
+background-size: cover
+
+.hand[A more realistic example]
+.pull-left[
+
+```r
+frames %&gt;% 
+  group_by(test_item) %&gt;%
+  summarise(
+*   m = mean(response),
+*   s = sd(response),
+*   n = n()
+  ) %&gt;%
+  ungroup()
+```
+]
+--
+.pull-right[
+
+```
+## # A tibble: 7 x 4
+##   test_item     m     s     n
+## *     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+## 1         1  6.77  2.56   675
+## 2         2  6.88  2.10   675
+## 3         3  5.71  2.41   675
+## 4         4  4.48  2.68   675
+## 5         5  3.76  2.81   675
+## 6         6  3.43  2.99   675
+## 7         7  3.26  3.11   675
+```
+]
+
+???
+- these are bad variable names
+- i've done it to fit the slides
+- don't do it in real life
+
+
+---
+class: inverse
+
+background-image: url("img/drawer2.jpg")
+background-size: cover
+
+.hand[A more realistic example]
+.pull-left[
+
+```r
+*by_item &lt;- frames %&gt;%
+  group_by(test_item) %&gt;%
+  summarise(
+    m = mean(response), 
+    s = sd(response), 
+    n = n() 
+  ) %&gt;%
+  ungroup()
+```
+]
+
+---
+class: inverse
+
+background-image: url("img/drawer2.jpg")
+background-size: cover
+
+.hand[A more realistic example]
+.pull-left[
+
+```r
+ggplot(
+  data = by_item,
+  mapping = aes(
+    x = test_item, 
+    y = m
+  )
+) +
+geom_point() 
+```
+]
+--
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+]
+
+
+---
+class: inverse
+
+background-image: url("img/drawer2.jpg")
+background-size: cover
+
+.hand[A more realistic example]
+.pull-left[
+
+```r
+ggplot(
+  data = by_item,
+  mapping = aes(
+    x = test_item, 
+    y = m, 
+*   ymin = m - s,
+*   ymax = m + s
+  )
+) +
+*geom_pointrange()
+```
+]
+.pull-right[
+![](index_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
+]
+
+
+
+
+
+
+
+---
+
+class: middle
+
+background-image: url("img/drawer2.jpg")
+background-size: cover
+
+.hand[.plainwhite[
+  &lt;span style="font-weight:bold;font-size:64pt"&gt;Exercises #4 and #5&lt;/span&gt;
+]]
+
+---
+
+class: middle, inverse
+
+background-image: url("img/typewriter.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[5]
+]
+.pull-right-wide[
+  .larger[
+  🖋&lt;br&gt;
+  .plainwhite[Writing&lt;br&gt;data]
+  ]
+]
+
+
+---
+
+class: inverse
+.hand[If we read with read_csv...]
+
+
+```r
+read_csv("data_reasoning.csv")
+```
+
+&lt;br&gt;&lt;br&gt;
+--
+.hand[... then we write with write_csv!]
+
+
+```r
+write_csv(by_item, "summary_reasoning_by_item.csv")
+```
+
+
+
+---
+
+class: middle
+
+background-image: url("img/typewriter.jpg")
+background-size: cover
+
+.hand[.plainwhite[
+  &lt;span style="font-weight:bold;font-size:64pt"&gt;Exercises #6 and #7&lt;/span&gt;
+]]
+
+
+---
+
+class: middle
+
+background-image: url("img/snow_road.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[6]
+]
+.pull-right-wide[
+  .larger[
+  &amp;nbsp;Where&lt;br&gt;&amp;nbsp;next?
+  ]
+]
+
+
+---
+
+background-image: url("img/snow_road2.jpg")
+background-size: cover
+
+
+.hand[Not in this class, but for future reference...]
+- Excel files? `readxl` package
+- SPSS, Stata or SAS? `haven` package
+- JSON format? `jsonlite` package
+- Databases? `dbplyr` package
+
+.pull-right-wide[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.hand[Want more information?]
+
+Data import chapter in R for Data Science&lt;br&gt;
+https://r4ds.had.co.nz/data-import.html
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "solarized-light",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "<div class=\"progress-bar-container\">   <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">   </div> </div>`"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,401 +1,148 @@
 <!DOCTYPE html>
+<html lang="en"><head>
+    <title> Danielle Navarro | Robust Tools </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.71.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    
+    <meta name="description" content="An introductory course by Danielle Navarro">
+    <meta name="twitter:title" content="Robust Tools">
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:creator" content="@djnavarro"/>
+    <meta name="twitter:site" content="@djnavarro"/>
+    <meta name="twitter:image:src" content="http://essays.djnavarro.net/images/profile.jpg"/>
+    <meta name="og:image" content="http://essays.djnavarro.net/images/profile.jpg"/>
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <base href="/">
+    
+    <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
 
-<html>
+    <link rel="canonical" href="/">
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/profile.jpg" alt="profile picture" style="width:127px;border-radius: 50%;">
+        <h3 title=""><a href="/">Data Science with R</a></h3>
+        <div class="description">
+          <p>An introductory course by Danielle Navarro</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <a href="mailto:d.navarro@unsw.edu.au" rel="me" >
+          <i class="fa fa-paper-plane" aria-hidden="true" title="Email"></i>
+        </a>
+        
+        <a href="https://robust-tools.djnavarro.net" rel="me" >
+          <i class="fa fa-home" aria-hidden="true" title="Homepage"></i>
+        </a>
+        
+        <a href="https://www.twitter.com/djnavarro" rel="me" >
+          <i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i>
+        </a>
+        
+        <a href="https://github.com/djnavarro/robust-tools" rel="me" >
+          <i class="fa fa-github" aria-hidden="true" title="GitHub"></i>
+        </a>
+        
+    </ul>
+    <div class="footer">
+        
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <div class="nav">
+        
+        
+        <li><a class="current" href="/" title="">Sections</a></li>
 
-<head>
+        
+    </div>
+</div>
+            <div class="autopagerize_page_element">
+                <div class="content">
 
-<meta charset="utf-8" />
-<meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
-
-
-
-
-<title>Robust Tools</title>
-
-<script src="index_files/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="index_files/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
-<script src="index_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="index_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="index_files/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="index_files/navigation-1.1/tabsets.js"></script>
-<link href="index_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="index_files/highlightjs-9.12.0/highlight.js"></script>
-<meta name="description" content="Data science with R: A robust toolkit for psychological research"/>
-<meta name="github-repo" content="djnavarro/robust-tools"/>
-<meta name="twitter:title" content="Robust Tools"/>
-<meta name="twitter:description" content="Data science with R: A robust toolkit for psychological research"/>
-<meta name="twitter:url" content="https://robust-tools.djnavarro.net"/>
-<meta name="twitter:image:src" content="http://robust-tools.djnavarro.net/robust.jpg"/>
-<meta name="twitter:image:alt" content="The magrittr pipe in R"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:creator" content="@djnavarro"/>
-<meta name="twitter:site" content="@djnavarro"/>
-<meta name="og:title" content="Robust Tools"/>
-<meta name="og:description" content="Data science with R: A robust toolkit for psychological research"/>
-<meta name="og:url" content="https://robust-tools.djnavarro.net"/>
-<meta name="og:image" content="http://robust-tools.djnavarro.net/robust.jpg"/>
-<meta name="og:image:alt" content="The magrittr pipe in R"/>
-<meta name="og:type" content="website"/>
-<meta name="og:locale" content="en_US"/>
-<meta name="article:author" content="Danielle Navarro"/>
-<meta name="description" content="Data science with R: A robust toolkit for psychological research" />
-<meta name="github-repo" content="djnavarro/robust-tools" />
-<meta name="twitter:title" content="Robust Tools" />
-<meta name="twitter:description" content="Data science with R: A robust toolkit for psychological research" />
-<meta name="twitter:url" content="https://djnavarro.github.io/robust-tools/" />
-<meta name="twitter:image:src" content="https://djnavarro.github.io/robust-tools/robust.jpg" />
-<meta name="twitter:image:alt" content="The magrittr pipe in R" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:creator" content="@djnavarro" />
-<meta name="twitter:site" content="@djnavarro" />
-<meta name="og:title" content="Robust Tools" />
-<meta name="og:description" content="Data science with R: A robust toolkit for psychological research" />
-<meta name="og:url" content="https://djnavarro.github.io/robust-tools/" />
-<meta name="og:image" content="https://djnavarro.github.io/robust-tools/robust.jpg" />
-<meta name="og:image:alt" content="The magrittr pipe in R" />
-<meta name="og:type" content="website" />
-<meta name="og:locale" content="en_US" />
-<meta name="article:author" content="Danielle Navarro" />
-
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
-
-<link rel="stylesheet" href="style/course-style.css" type="text/css" />
-
-
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-.html-widget {
-  margin-bottom: 20px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-summary {
-  display: list-item;
-}
-</style>
-
-
-
-<!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
-<!-- code folding -->
-
-
-
-
-</head>
-
-<body>
-
-
-<div class="container-fluid main-container">
-
-
-
-
-<div class="fluid-row" id="header">
-
-
-
-<h1 class="title toc-ignore"><div class="jumbotron">
-<h1 class="title toc-ignore display-3" align="center">
-Data science with R: A robust toolkit for psychological research
-</h1>
-<p class="lead" align="center">
-Danielle Navarro
-</p>
-</div></h1>
-
+<div class="about animated fadeInDown">
+    
+        
+        <div>
+            <h3><a href="/welcome-to-robust-tools/">00 :: Welcome, and why are we doing this?</a></h3>
+            Read this post to get started!
+          </div>
+          
+        
+    
+        
+        <div>
+            <h3><a href="/data-visualisation/">01 :: Make gorgeous data visualisations</a></h3>
+            Read this post to get started!
+          </div>
+          
+        
+    
+        
+        <div>
+            <h3><a href="/hello-data/">02 :: Say hello to your data</a></h3>
+            Read this post to get started!
+          </div>
+          
+        
+    
+        
+        <div>
+            <h3><a href="/data-wrangling/">03 :: Go dancing with your data</a></h3>
+            Read this post to get started!
+          </div>
+          
+        
+    
+        
+        <div>
+            <h3><a href="/literate-programming/">04 :: Make a website using blogdown</a></h3>
+            Read this post to get started!
+          </div>
+          
+        
+    
+        
+        <div>
+            <h3><a href="/programming-art/">05 :: How to program an aRt</a></h3>
+            Read this post to get started!
+          </div>
+          
+        
+    
+        
+        <div>
+            <h3><a href="/functional-programming/">06 :: Functional programming for art and science</a></h3>
+            Read this post to get started!
+          </div>
+          
+        
+    
+        
+        <div>
+            <h3><a href="/to-be-continued/">?? :: To be continued...</a></h3>
+            Read this post to get started!
+          </div>
+          
+        
+    
 </div>
 
 
-<p>The research toolkit in psychological science has changed a lot in the last decade. Across many areas there is a heightened emphasis on transparency, open access, and a preference for the use of freely available tools. These skills are rarely taught during undergraduate psychology classes, and because research methods classes tend to be statistics heavy, they’re rarely a part of research methodology classes either. This elective provides a hands on tutorial in how to use these tools: it covers an introduction to R programming, modern data visualisation and data wrangling, how to structure your projects, version control and how to write professional documents in R. The course is designed for novices, and no preexisting familiarity with these tools and no programming background is assumed.</p>
-<div id="section-00-getting-started" class="section level2">
-<h2>Section 00 :: Getting started</h2>
-<p>The “zeroth” section of the course is brief. It explains the rationale for learning the tools, discusses some reasons why people might feel anxious about the class, and guides the learner through the process of setting up an RStudio Cloud account. For this section – as well as later ones – I have made the <a href="welcome">slides</a> publicly available, and have posted video of me presenting the slides to <a href="https://youtu.be/t6IIJEoqPyk">youtube</a>.</p>
-</div>
-<div id="section-01-data-visualisation" class="section level2">
-<h2>Section 01 :: Data visualisation</h2>
-<p>The first “real” section of the class provides an introduction to data visualisation in R using ggplot2. It is also assumed to be the <em>first</em> contact a student has with R, so it covers a lot of the introductory topics like “what is an R commmand?”, “how do I write a script?” and so on. It is intended to be hands-on, alternating between instructor-led content and student exercises. When teaching in-person, I have found this section takes about four hours to complete. As with other sections, it is designed so that you can do it without me: open up the slides and the RStudio Cloud project (both linked below) and then watch the YouTube videos; these will direct you to various hands on exercises you can do within the RStudio Cloud project.</p>
-<div class="container">
-<div class="box-left">
-<h4 id="resources">Resources:</h4>
-<ul>
-<li><a href="visualisation">“Data visualisation” slides</a></li>
-<li><a href="https://rstudio.cloud/project/901338">RStudio cloud project 901338</a></li>
-<li><a href="https://www.youtube.com/watch?v=6vdHGnD51F8&amp;list=PLRPB0ZzEYegPa4uvvAVJnr6loSKbN4wLb&amp;index=2">YouTube playlist</a></li>
-</ul>
-</div>
-<div class="box-right">
-<a href="visualisation"><img src="visualisation/img/forensic.png"></a>
-</div>
-</div>
-</div>
-<div id="section-02-say-hello-to-your-data" class="section level2">
-<h2>Section 02 :: Say hello to your data</h2>
-<p>The second module to the class is a “bridging” section. It introduces a data set (the reasoning data) that I’ll use later in the class, discusses reading data from and writing data to a CSV file, and introduces the pipe. Much of this section is devoted to a discussion of calculating “grouped summaries”. In the classroom I’ve found this takes about two hours to cover including all the practice exercises.</p>
-<div class="container">
-<div class="box-left">
-<h4 id="resources-1">Resources:</h4>
-<ul>
-<li><a href="hello">“Hello data” slides</a></li>
-<li><a href="https://rstudio.cloud/project/978818">RStudio cloud project 978818</a></li>
-<li><a href="https://www.youtube.com/watch?v=lpbqlu_Sk3M&amp;list=PLRPB0ZzEYegPYKRLwJRh4AbWWSiIlzmC7">YouTube playlist</a></li>
-<li><a href="reasoning">The reasoning study</a></li>
-</ul>
-</div>
-<div class="box-right">
-<a href="hello"><img src="hello/img/pipe.png"></a>
-</div>
-</div>
-</div>
-<div id="section-03-a-dplyr-dance-with-data" class="section level2">
-<h2>Section 03 :: A dplyr dance with data</h2>
-<p>The third section in the class provides an introduction to data wrangling in R, mostly focusing on dplyr. Topics covered include: extracting a subset of the data, rearranging the data, computing new variables in a data set, merging multiple data sets, and pivoting data between “long” and “wide” forms. Including time to complete the in-class exercises, it usually takes about 4 hours.</p>
-<div class="container">
-<div class="box-left">
-<h4 id="resources-2">Resources:</h4>
-<ul>
-<li><a href="dancing">Data wrangling slides</a></li>
-<li><a href="https://rstudio.cloud/project/1006868">RStudio cloud project 1006868</a></li>
-<li><a href="https://www.youtube.com/watch?v=_LiB4nUKi3o&amp;list=PLRPB0ZzEYegNFsivhQWTFvKvpEc504EPH">YouTube playlist</a></li>
-</ul>
-</div>
-<div class="box-right">
-<a href="dancing"><img src="dancing/img/filter_slide.png"></a>
-</div>
-</div>
-</div>
-<div id="section-04-literate-programming" class="section level2">
-<h2>Section 04 :: Literate programming</h2>
-<p>The fourth section in the class provides an introduction to several topics. The main goal is to teach R markdown, but it does so within a concrete task: creating a website using blogdown and github. It is not assumed that the learner has any familiarity with these topics, so each one is introduced as it becomes relevant. The aim is to teach the core concept (R markdown) while providing initial exposure to other topics (especially git) that will become useful later.</p>
-<div class="container">
-<div class="box-left">
-<h4 id="resources-3">Resources:</h4>
-<ul>
-<li><a href="website">R markdown slides</a></li>
-<li><a href="https://github.com/djnavarro/newblog">The newblog repository</a></li>
-<li><a href="https://github.com/stringrbelle/waffle-blog">The waffle-blog repository</a></li>
-<li><a href="https://stringrbelle.github.io/waffle-blog">The waffle-blog</a></li>
-<li><a href="https://www.youtube.com/playlist?list=PLRPB0ZzEYegNW7FlGgtAOeZyvkCuiq2BT">YouTube playlist</a></li>
-</ul>
-</div>
-<div class="box-right">
-<a href="website"><img src="website/img/websplash.png"></a>
-</div>
-</div>
-</div>
-<div id="section-05-the-programming-of-art" class="section level2">
-<h2>Section 05 :: The programming of aRt</h2>
-<p>The fifth section in the course is an art class, of sorts. Notionally the goal is to build a new generative art system (because everyone loves pretty pictures), but it also serves as a mechanism to introduce key programming concepts: vectors, lists, coercion, logical operations, loops and conditionals are all introduced in this section. In this section there are two YouTube playlists, the “main” one which runs through the art class itself (and is rather fun!), and an “appendix” one that briefly summarises the relevant programming constructs in a succinct fashion (but is very dull).</p>
-<div class="container">
-<div class="box-left">
-<h4 id="resources-4">Resources:</h4>
-<ul>
-<li><a href="artistry">R markdown slides</a></li>
-<li><a href="https://www.youtube.com/watch?v=ZUyahWLWVzY&amp;list=PLRPB0ZzEYegNYW3ksiK3dvd6S4HMfKj1n">YouTube playlist for the art class</a></li>
-<li><a href="https://www.youtube.com/watch?v=aozL5TKQgfY&amp;list=PLRPB0ZzEYegMStVRojPITLUZ6A8YGUHi-">YouTube playlist for the appendix</a></li>
-<li><a href="https://rstudio.cloud/project/1112041">RStudio cloud project 1112041</a></li>
-</ul>
-</div>
-<div class="box-right">
-<a href="artistry"><img src="artistry/img/scrawl_15-10000-400-100-5_trunc.png"></a>
-</div>
-</div>
-</div>
-<div id="section-06-functional-programming-for-art-and-science" class="section level2">
-<h2>Section 06 :: Functional programming for art and science</h2>
-<p>The sixth section is also an <a href="functionality">art class</a>, this time focused on writing functions and using the functional programming toolkit in the purrr package. At the beginning the focus is on material for beginners: how to write a function and what the parts of a function are. Through the middle sections the discussion looks at how to write the functions necessary to make the “ashtree” system work, and how to organise those functions in a sensible way. The final sections provide an (minimal) introduction to purrr, and a (very) cursory discussion of scoping rules in R. Also it makes art!</p>
-<div class="container">
-<div class="box-left">
-<h4 id="resources-5">Resources:</h4>
-<ul>
-<li><a href="functionality">R markdown slides</a></li>
-<li><a href="https://www.youtube.com/playlist?list=PLRPB0ZzEYegPHHji3tBw2U4yp-DxMrUkB">YouTube playlist</a></li>
-<li><a href="https://rstudio.cloud/project/1169065">RStudio cloud project 1169065</a></li>
-<li><a href="https://github.com/djnavarro/ashtree">GitHub repository for ashtree</a></li>
-<li><a href="https://github.com/djnavarro/flametree">GitHub repository for flametree</a></li>
-</ul>
-</div>
-<div class="box-right">
-<a href="functionality"><img src="functionality/img/ashtree_splash.png"></a>
-</div>
-</div>
-<p><br><br><br><br></p>
-<p>Additional course materials to be added! Likely topics for this course:</p>
-<ul>
-<li>Computational cognitive modelling in R</li>
-<li>GitHub revisited (plus some OSF possibly)</li>
-<li>Behavioural experiments with R</li>
-<li>A little bit of statistical inference</li>
-<li>An introduction to package development</li>
-</ul>
-<p><br></p>
-<!-- <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /> -->
-<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. Except as noted in the <a href="acknowledgements.html">acknowledgements</a> page, images and other materials should be credited to Danielle Navarro.</p>
-<p><br><br><br><br></p>
-</div>
-
-
-
-
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
-
+                </div>
+            </div>
+        </div>
 </body>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="/js/jquery-appear.min.js"></script></html></body>
+
 </html>

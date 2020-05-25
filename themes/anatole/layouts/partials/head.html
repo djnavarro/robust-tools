@@ -1,0 +1,20 @@
+<head>
+    <title> {{.Site.Params.author}} | {{.Title}} </title>
+    <meta charset="utf-8">
+    {{- hugo.Generator -}}
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="{{ .Site.Params.description }}">
+    <link rel="stylesheet" href="{{ `css/style.css` | absURL }}" type="text/css">
+    {{ range .Site.Params.customCss -}}
+    <link rel="stylesheet" href="{{ . | absURL }}" type="text/css">
+    {{- end }}
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <base href="{{ .Site.BaseURL }}">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{{ .Site.Params.favicon | absURL }}favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.Params.favicon | absURL }}apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.Params.favicon | absURL }}favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.Params.favicon | absURL }}favicon-16x16.png">
+
+    <link rel="canonical" href="{{ .Permalink }}">
+</head>

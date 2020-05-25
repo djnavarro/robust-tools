@@ -1,0 +1,16 @@
+---
+title: "00 :: Welcome, and why are we doing this?"
+author: Danielle Navarro
+date: '2020-05-25'
+slug: welcome-to-robust-tools
+type: post
+summary: "Read this post to get started! "
+---
+
+The research toolkit in psychological science has changed a lot in the last decade. Across many areas there is a heightened emphasis on transparency, open access, and a preference for the use of freely available tools. These skills are rarely taught during undergraduate psychology classes, and because research methods classes tend to be statistics heavy, they’re rarely a part of research methodology classes either. This elective provides a hands on tutorial in how to use these tools: it covers an introduction to R programming, modern data visualisation and data wrangling, how to structure your projects, version control and how to write professional documents in R. The course is designed for novices, and no preexisting familiarity with these tools and no programming background is assumed.
+
+
+The "zeroth" section of the course is brief. It explains the rationale for learning the tools, discusses some reasons why people might feel anxious about the class, and guides the learner through the process of setting up an RStudio Cloud account. For this section -- as well as later ones -- I have made the [slides](welcome) publicly available, and have posted video of me presenting the slides to [youtube](https://youtu.be/t6IIJEoqPyk). 
+
+
+A note for students and instructors: This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. Except as noted in the [acknowledgements](acknowledgements.html) page, images and other materials should be credited to Danielle Navarro.

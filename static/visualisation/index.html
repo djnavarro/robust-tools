@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>&gt; 01 🎨   &gt; data visualisation</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="danielle navarro" />
+    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <meta name="description" content="An introduction to data visualisation in R for new users"/>
+    <meta name="github-repo" content="djnavarro/robust-tools"/>
+    <meta name="twitter:title" content="Data Visualisation"/>
+    <meta name="twitter:description" content="An introduction to data visualisation in R for new users"/>
+    <meta name="twitter:url" content="https://robust-tools.djnavarro.net/visualisation/"/>
+    <meta name="twitter:image:src" content="https://robust-tools.djnavarro.net/visualisation/img/forensic.png"/>
+    <meta name="twitter:image:alt" content="Boxplots summarising the distributions of estimated frequency of handwriting features, as judged by experts and novices, broken down as a function of the true frequency of the feature (split into five bins). Both groups show some skill at the task, but experts appear to be somewhat better."/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@djnavarro"/>
+    <meta name="twitter:site" content="@djnavarro"/>
+    <meta name="og:title" content="Data Visualisation"/>
+    <meta name="og:description" content="An introduction to data visualisation in R for new users"/>
+    <meta name="og:url" content="https://robust-tools.djnavarro.net/visualisation/"/>
+    <meta name="og:image" content="https://robust-tools.djnavarro.net/visualisation/img/forensic.png"/>
+    <meta name="og:image:alt" content="Boxplots summarising the distributions of estimated frequency of handwriting features, as judged by experts and novices, broken down as a function of the true frequency of the feature (split into five bins). Both groups show some skill at the task, but experts appear to be somewhat better."/>
+    <meta name="og:type" content="website"/>
+    <meta name="og:locale" content="en_US"/>
+    <meta name="article:author" content="Danielle Navarro"/>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="../style/xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="../style/slides-style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# &gt; 01 🎨 <br> &gt; data visualisation
+## 🔗 <a href="https://robust-tools.djnavarro.net">robust-tools.djnavarro.net</a>
+### danielle navarro
+
+---
+
+
+
+
+
+layout: true
+  
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="https://robust-tools.djnavarro.net" target="_blank"&gt;robust-tools.djnavarro.net&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+
+
+
+
+
+
+class: middle, inverse
+
+## https://rstudio.cloud/project/901338
+
+???
+
+demo sequence:
+- explain RStudio layout
+- explain boring R text
+- ctrl-L to clear boring text (verbalise shortcut)
+- `library(tidyverse)`, explain messages
+- `mpg`, explain data
+- `?mpg`, explain "help" docs
+- clear screen again
+- `ggplot(data = mpg)`, explain each component while typing (use the word "function" early!)
+- discuss output (note the popups and explain them)
+- up arrow to recall last command (verbalise it)
+- `+ geom_point(mapping = aes(x = displ, y = hwy))`
+- talk them through this bit by bit, but "defer" explanation of `aes()` for now
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/code.jpg")
+background-size: cover
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/code.jpg")
+background-size: cover
+
+&lt;img src="img/My_First_Plot1.png" width="500" height="500" style="display: block; margin: auto;" /&gt;
+
+???
+
+- this is recap to solidify learning
+- `ggplot()` creates the (still blank) plot using `data = mpg`
+
+---
+
+class: middle, inverse
+
+background-image: url("img/code.jpg")
+background-size: cover
+
+&lt;img src="img/My_First_Plot2.png" width="500" height="500" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: middle, inverse
+
+background-image: url("img/code.jpg")
+background-size: cover
+
+&lt;img src="img/My_First_Plot3.png" width="500" height="500" style="display: block; margin: auto;" /&gt;
+
+???
+
+- then `geom_point()` adds the dots
+- ... using the `mapping` (currently referred to as "blah")
+
+---
+
+class: middle, inverse
+
+background-image: url("img/code.jpg")
+background-size: cover
+
+&lt;img src="img/My_First_Plot4.png" width="500" height="500" style="display: block; margin: auto;" /&gt;
+
+???
+
+- the `mapping` tells R *how* to connect the plot to the data
+- in this case we map `x` onto the `displ` variable
+- and we map `y` onto the `hwy` variable
+
+---
+
+class: middle, inverse
+
+background-image: url("img/code.jpg")
+background-size: cover
+
+&lt;img src="img/My_First_Plot5.png" width="500" height="500" style="display: block; margin: auto;" /&gt;
+
+???
+
+- `displ` is essentially a measure of engine size
+- `hwy` is fuel efficiency for highway driving
+
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[the real code ❤️]
+
+```r
+library(tidyverse)
+ggplot(data = mpg) +
+geom_point(
+  mapping = aes(
+    x = displ,
+    y = hwy
+  )
+) 
+```
+]
+
+--
+
+.pull-right[
+.hand[... and the real output!]
+
+![](index_files/figure-html/hello-r-output-1.png)&lt;!-- --&gt;
+]
+
+---
+
+class: middle
+
+## .hand[exercise 1...👯‍♀️]
+
+
+- how to show the city mileage `cty` as the y-value?
+- how to show the manufacture `year` as the x-value?  
+- how to show the number of cylinders `cyl` as the colour?
+- (bonus): how to include a regression line instead of dot points?
+
+<div class="countdown" id="timer_5ea11644" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+???
+
+- they're not expected to know all the answers!
+- questions 1-3 promote intuitive grasp of mappings
+- question 4 is there to foreshadow geoms
+
+---
+
+class: middle, inverse
+
+.hand[i am very good at art]
+&lt;img src="img/My_First_Plot.gif" width="500" height="500" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+
+class: middle
+
+background-image: url("img/maps_light.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[2]
+]
+.pull-right-wide[
+  .larger[
+  &amp;nbsp; aesthetic&lt;br&gt;
+  &amp;nbsp; mappings&lt;br&gt;
+  &amp;nbsp; 🎨 🗺
+  ]
+]
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/maps.jpg")
+background-size: cover
+
+---
+
+class: middle, inverse
+
+background-image: url("img/maps.jpg")
+background-size: cover
+
+
+&lt;img src="img/Mapping1.png" width="500" height="500" style="display: block; margin: auto;" /&gt;
+
+???
+
+- let's unpack the contents of that "blah", shall we?
+- the `ggplot(data = mpg)` part tells us the `mpg` data go with our plot
+
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/maps.jpg")
+background-size: cover
+
+&lt;img src="img/Mapping2.png" width="500" height="500" style="display: block; margin: auto;" /&gt;
+
+???
+
+- the `mpg` data contains "variables"
+- here are some of those variables in the data...
+- but how do they "map" to the plot???
+
+
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/maps.jpg")
+background-size: cover
+
+&lt;img src="img/Mapping3.png" width="500" height="500" style="display: block; margin: auto;" /&gt;
+
+???
+
+- the visual content/features of a plot are "aesthetics" 
+- `x` coordinates and `y` coordinates are aesthetics
+- can include things like `size` and `colour` also
+- (mention US/UK spelling)
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/maps.jpg")
+background-size: cover
+
+&lt;img src="img/Mapping4.png" width="500" height="500" style="display: block; margin: auto;" /&gt;
+
+???
+
+- that "blah" was an **aesthetic mapping**
+- it tells R which plot aesthetics are mapped onto which variables in the data
+
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/maps.jpg")
+background-size: cover
+
+&lt;img src="img/Mapping5.png" width="500" height="500" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/maps.jpg")
+background-size: cover
+
+&lt;img src="img/Mapping6.png" width="500" height="500" style="display: block; margin: auto;" /&gt;
+
+
+
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[using real code this time...]
+
+```r
+ggplot(data = mpg) +
+geom_point(
+* mapping = aes(
+*   x = displ,
+*   y = hwy
+* )
+) 
+```
+]
+
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[using real code this time...]
+
+```r
+aes(
+  x = displ,
+  y = hwy 
+) 
+```
+]
+--
+.pull-right[
+.hand[.]
+
+```
+## Aesthetic mapping: 
+## * `x` -&gt; `displ`
+## * `y` -&gt; `hwy`
+```
+]
+
+
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[can we add colour to this?]
+
+```r
+ggplot(data = mpg) +
+geom_point(
+  mapping = aes(
+    x = displ,
+    y = hwy
+  )
+) 
+```
+]
+
+.pull-right[
+.hand[.]
+
+![](index_files/figure-html/hello-r-output-2-1.png)&lt;!-- --&gt;
+]
+
+???
+
+- ask them to set colour to the number of cylinders `cyl`
+- (not a class exercise, just to segue...)
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[add **colour** to the mapping!]
+
+```r
+ggplot(data = mpg) +
+geom_point(
+  mapping = aes(
+    x = displ,
+    y = hwy,
+*   color = cyl
+  )
+) 
+```
+]
+
+--
+
+.pull-right[
+.hand[...the output gets colour]
+
+![](index_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+]
+
+???
+
+- prompt: is something wrong here?
+- hint: can you have 5.21 cylinders in an engine?
+- (don't give them the answer yet...)
+
+
+---
+
+class: middle
+
+## .hand[exercise 2...👩‍💻]
+
+code along with me while we...
+- look at the `mpg` data
+- recreate the last plot
+- change the mapped **variables** (type `mpg` to see variables)
+- change the mapped **aesthetics** (e.g. `x`, `y`, `color`, `size`, `fill`, `shape`)
+
+???
+
+- do the typing in rstudio cloud and get them to type along 
+- get them to suggest possible code edits...
+- let them discover the "continuous variable cannot be mapped..." error
+- talk them through it and show them `factor()` as the answer
+
+<div class="countdown" id="timer_5ea11512" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+---
+
+
+class: middle
+
+background-image: url("img/layer-cake_light.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[3]
+]
+.pull-right-wide[
+  .larger[
+  &amp;nbsp; layered&lt;br&gt;
+  &amp;nbsp; plots&lt;br&gt;
+  &amp;nbsp; 🍰
+  ]
+]
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/layer-cake.jpg")
+background-size: cover
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/layer-cake.jpg")
+background-size: cover
+
+
+&lt;img src="img/Layers1.png" width="500" height="500" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+class: middle, inverse
+
+background-image: url("img/layer-cake.jpg")
+background-size: cover
+
+
+&lt;img src="img/Layers2.png" width="500" height="500" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: middle, inverse
+
+background-image: url("img/layer-cake.jpg")
+background-size: cover
+
+
+&lt;img src="img/Layers3.png" width="500" height="500" style="display: block; margin: auto;" /&gt;
+
+
+
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[our plot has a "points" layer]
+
+```r
+ggplot(data = mpg) +
+*geom_point(
+  mapping = aes(
+    x = displ,
+    y = hwy,
+    color = cyl 
+  )
+) 
+```
+]
+
+--
+
+.pull-right[
+.hand[.]
+
+![](index_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
+]
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[adding **geom_smooth()**]
+
+```r
+ggplot(data = mpg) +
+geom_point(
+  mapping = aes(
+    x = displ,
+    y = hwy,
+    color = cyl 
+  )
+) + 
+*geom_smooth(
+* mapping = aes(
+*   x = displ,
+*   y = hwy
+* )
+*) 
+```
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+]
+
+.pull-right[
+.hand[paints another layer]
+
+![](index_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+]
+
+
+
+---
+
+class: middle
+
+## .hand[exercise 3...👩‍💻]
+
+code along with me while we...
+- recreate the plot with `geom_point()` only
+- add the `geom_smooth()` layer
+- add a third layer with `geom_rug()`
+
+<div class="countdown" id="timer_5ea1142b" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+
+---
+
+
+class: middle
+
+background-image: url("img/tidy.jpg")
+background-size: cover
+
+
+.pull-left-narrow[
+  .huge-blue-number[4]
+]
+.pull-right-wide[
+  .larger[
+  &amp;nbsp;&amp;nbsp;tidy code
+  ]
+]
+
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[hm... this is annoying]
+
+```r
+ggplot(data = mpg) +
+geom_point(
+* mapping = aes(
+*   x = displ,
+*   y = hwy,
+    color = cyl 
+  )
+) + 
+geom_smooth(
+* mapping = aes(
+*   x = displ,
+*   y = hwy
+  ) 
+) 
+```
+]
+
+--
+
+.pull-right[
+.hand[can we eliminate this redundancy?]
+- `x` and `y` values are the same
+- make them **global** aesthetics
+]
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[we can just move the code!]
+
+```r
+ggplot(data = mpg,
+* mapping = aes(
+*   x = displ,
+*   y = hwy
+* )
+) +
+geom_point(
+  mapping = aes(
+    color = cyl 
+  )
+) + 
+geom_smooth() 
+```
+]
+
+--
+
+.pull-right[
+&lt;br&gt;
+- the `mapping` within the `ggplot()` command is "global"
+]
+
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[we can just move the code!]
+
+```r
+ggplot(data = mpg,
+  mapping = aes( 
+    x = displ, 
+    y = hwy 
+  ) 
+) +
+*geom_point(
+  mapping = aes(
+    color = cyl 
+  )
+) + 
+*geom_smooth()
+```
+]
+
+.pull-right[
+&lt;br&gt;
+- the `mapping` within the `ggplot()` command is "global"
+- both "geoms" will use the `x` and `y` values that they "inherit"
+]
+
+
+
+
+---
+
+class: inverse
+
+.pull-left[
+.hand[we can just move the code!]
+
+```r
+ggplot(data = mpg,
+  mapping = aes( 
+    x = displ, 
+    y = hwy 
+  ) 
+) +
+geom_point(
+* mapping = aes(
+*   color = cyl
+* )
+) + 
+geom_smooth()
+```
+]
+
+.pull-right[
+&lt;br&gt;
+- the `mapping` within the `ggplot()` command is "global"
+- both "geoms" will use the `x` and `y` values that they "inherit"
+- the `color` aesthetic remains "local" to `geom_point()`
+]
+
+
+
+---
+
+class: inverse
+
+.left[
+.hand[same code, just neater!]
+
+```r
+ggplot(
+  data = mpg,
+  mapping = aes(x = displ, y = hwy)
+) +
+geom_point(mapping = aes(color = cyl)) + 
+geom_smooth() 
+```
+]
+
+
+---
+
+.left[
+.hand[exercise 4... paired discussion 👯‍♀️]
+
+```r
+ggplot(
+  data = mpg,
+  mapping = aes(x = displ, y = hwy)
+) +
+geom_point(mapping = aes(color = cyl)) + 
+geom_smooth() 
+```
+]
+
+.left[
+- what are the **variables**?
+- what are the **geoms**, and what do they do?
+- identify the R **functions** this code uses 
+- why did I say this is the "same" code as before?
+]
+
+
+<div class="countdown" id="timer_5ea11492" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+---
+
+class: middle
+
+background-image: url("img/dinosaur.jpg")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[5]
+]
+.pull-right-wide[
+  .larger[
+  👯‍♀️
+  ]
+]
+
+
+---
+
+
+background-image: url("img/dinosaur.jpg")
+background-size: cover
+
+.pull-left-wide[
+.hand[exercise_ggplot_05.R]
+
+```r
+library(tidyverse)
+
+dino &lt;- read_csv("data_dino.csv")
+picture &lt;- ggplot(data = dino) + 
+  geom_point(
+    mapping = aes(
+      x = horizontal, 
+      y = vertical
+    )
+  )
+
+plot(picture)
+```
+
+<div class="countdown" id="timer_5ea112f9" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+]
+
+--
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](index_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;
+]
+
+
+---
+
+class: middle
+
+background-image: url("img/handwriting_light.jpg")
+background-size: cover
+
+
+.pull-left-narrow[
+  .huge-blue-number[6]
+]
+.pull-right-wide[
+  .larger[
+  &amp;nbsp;naming&lt;br&gt;&amp;nbsp;things&lt;br&gt;
+  ]
+]
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[from the exercise]
+
+```r
+dino &lt;- read_csv("data_dino.csv")
+*picture &lt;- ggplot(data = dino) +
+  geom_point(
+    mapping = aes(
+      x = horizontal, 
+      y = vertical
+    )
+  )
+plot(picture)
+```
+]
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](index_files/figure-html/unnamed-chunk-28-1.png)&lt;!-- --&gt;
+]
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[this is the same!]
+
+```r
+dino &lt;- read_csv("data_dino.csv")
+*picture &lt;- ggplot(dino) +
+  geom_point(
+    mapping = aes(
+      x = horizontal, 
+      y = vertical
+    )
+  )
+plot(picture)
+```
+]
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](index_files/figure-html/unnamed-chunk-29-1.png)&lt;!-- --&gt;
+]
+
+--
+
+.pull-left-wide[
+- named argument: `ggplot(data = dino)`
+- unnamed argument: `ggplot(dino)`
+]
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[unnamed arguments]
+
+```r
+*dino &lt;- read_csv("data_dino.csv")
+*picture &lt;- ggplot(dino) +
+  geom_point(
+    mapping = aes(
+      x = horizontal, 
+      y = vertical
+    )
+  )
+*plot(picture)
+```
+]
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](index_files/figure-html/unnamed-chunk-30-1.png)&lt;!-- --&gt;
+]
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[named argument]
+
+```r
+dino &lt;- read_csv("data_dino.csv") 
+picture &lt;- ggplot(dino) + 
+  geom_point( 
+*   mapping = aes(
+      x = horizontal,
+      y = vertical
+    ) 
+  ) 
+plot(picture) 
+```
+]
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](index_files/figure-html/unnamed-chunk-31-1.png)&lt;!-- --&gt;
+]
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[unnamed]
+
+```r
+dino &lt;- read_csv("data_dino.csv")
+picture &lt;- ggplot(dino) + 
+  geom_point(
+*   aes(
+      x = horizontal, 
+      y = vertical
+    )
+  ) 
+plot(picture)
+```
+
+]
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](index_files/figure-html/unnamed-chunk-32-1.png)&lt;!-- --&gt;
+]
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[one more time!]
+
+```r
+dino &lt;- read_csv("data_dino.csv")
+picture &lt;- ggplot(dino) + 
+  geom_point(
+    aes( 
+*     x = horizontal,
+*     y = vertical
+    )
+  ) 
+plot(picture)
+```
+
+]
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](index_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
+]
+
+
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[one more time!]
+
+```r
+dino &lt;- read_csv("data_dino.csv")
+picture &lt;- ggplot(dino) + 
+  geom_point(
+    aes( 
+*     horizontal,
+*     vertical
+    )
+  ) 
+plot(picture)
+```
+
+]
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](index_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
+]
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[one more time!]
+
+```r
+dino &lt;- read_csv("data_dino.csv")
+picture &lt;- ggplot(dino) + 
+* geom_point(aes(horizontal, vertical))
+
+plot(picture)
+```
+
+]
+
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](index_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
+]
+
+
+
+
+---
+
+class: inverse
+
+.pull-left-wide[
+.hand[ggplot2 code often looks like this!]
+
+```r
+dino &lt;- read_csv("data_dino.csv")
+*picture &lt;- ggplot(dino) +
+* geom_point(aes(horizontal, vertical))
+
+plot(picture)
+```
+
+]
+
+
+.pull-right-narrow[
+&lt;br&gt;&lt;br&gt;
+![](index_files/figure-html/unnamed-chunk-36-1.png)&lt;!-- --&gt;
+]
+
+
+---
+
+class: middle
+
+background-image: url("img/exercise.jpg")
+background-size: cover
+
+
+.pull-left-narrow[
+  .huge-blue-number[7]
+]
+.pull-right-wide[
+  .larger[
+  &amp;nbsp;🏊
+  ]
+]
+
+
+
+---
+
+class: middle
+
+.hand[exercises 6-8... emoji translation!]
+
+&lt;img src="img/Exercise04.png" width="600" /&gt;
+
+
+---
+
+class: middle
+
+.hand[exercises 9-10... forensic handwriting expertise]
+
+.pull-left[
+&lt;img src="img/handwriting.jpg" width="600" /&gt;
+]
+.pull-right[
+- Martire, Growns &amp; Navarro (2018) *What do the experts know? Calibration, precision, and the wisdom of crowds among forensic handwriting experts*
+- https://psyarxiv.com/pq7kz
+]
+
+
+
+
+---
+
+class: middle
+
+.hand[exercise 9 plot]
+
+&lt;img src="index_files/figure-html/exercise9-1.png" width="600" height="400" /&gt;
+
+
+---
+
+.pull-left[
+.hand[exercise 10 solution]
+
+```r
+ggplot(data = forensic) + 
+  geom_boxplot(
+    mapping = aes(
+      x = band, 
+      y = est
+    )
+  )
+```
+]
+.pull-right[
+&lt;br&gt;&lt;br&gt;
+![](index_files/figure-html/unnamed-chunk-40-1.png)&lt;!-- --&gt;
+]
+
+
+---
+
+.pull-left[
+.hand[exercise 10 solution]
+
+```r
+ggplot(data = forensic) + 
+* geom_violin(
+    mapping = aes(
+      x = band, 
+      y = est
+    )
+  )
+```
+]
+.pull-right[
+&lt;br&gt;&lt;br&gt;
+![](index_files/figure-html/unnamed-chunk-41-1.png)&lt;!-- --&gt;
+]
+
+
+
+
+---
+
+class: middle
+
+background-image: url("img/facets.jpg")
+background-size: cover
+
+
+.pull-left-narrow[
+  .huge-blue-number[8]
+]
+.pull-right-wide[
+  .larger[
+  &amp;nbsp; facets &lt;br&gt;
+  &amp;nbsp; 🔲 🔲&lt;br&gt;
+  &amp;nbsp; 🔲 🔲&lt;br&gt;
+  ]
+]
+
+
+---
+
+class: inverse
+
+.hand[split experts and novices?]
+
+```r
+ggplot(forensic) + 
+  geom_boxplot(aes(x = band, y = est)) 
+```
+
+&lt;img src="index_files/figure-html/facet0-1.png" height="300" /&gt;
+
+---
+
+class: inverse
+
+.hand[split experts and novices?]
+
+```r
+ggplot(forensic) + 
+  geom_boxplot(aes(x = band, y = est)) + 
+* facet_wrap(vars(handwriting_expert))
+```
+
+&lt;img src="index_files/figure-html/facet1-1.png" width="600" height="300" /&gt;
+
+
+---
+
+class: middle
+
+background-image: url("img/one_art_please.png")
+background-size: cover
+
+.pull-left-narrow[
+  .huge-blue-number[9]
+]
+.pull-right-wide[
+  .larger[
+  &amp;nbsp; &lt;span style="color:white;font-weight: bold"&gt;glamour&lt;/span&gt;&lt;br&gt;
+  &amp;nbsp; &lt;span style="color:white;font-weight: bold"&gt;graphics&lt;/span&gt;
+  ]
+]
+
+
+---
+
+class: inverse
+
+&lt;blockquote class="twitter-tweet tw-align-center"&gt;&lt;p lang="en" dir="ltr"&gt;The recording of my &lt;a href="https://twitter.com/hashtag/rstudioconf?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#rstudioconf&lt;/a&gt; talk, The Glamour of Graphics is up! 💅 Enjoy, and keep in mind these are guidelines, not rules. &lt;a href="https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#rstats&lt;/a&gt; &lt;a href="https://t.co/VHz05yAs09"&gt;https://t.co/VHz05yAs09&lt;/a&gt;&lt;/p&gt;&amp;mdash; Will Chase (@W_R_Chase) &lt;a href="https://twitter.com/W_R_Chase/status/1228683209422057479?ref_src=twsrc%5Etfw"&gt;February 15, 2020&lt;/a&gt;&lt;/blockquote&gt;
+
+.
+
+
+---
+
+.pull-left[
+
+```r
+pic &lt;- ggplot(
+  data = forensic
+) + 
+geom_boxplot(
+  mapping = aes(
+    x = band, 
+    y = est, 
+    fill = band
+  )
+) + 
+facet_wrap(
+  vars(handwriting_expert)
+)
+plot(pic)
+```
+]
+
+--
+
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-42-1.png" width="600" height="300" /&gt;
+]
+
+
+
+---
+
+
+.pull-left[
+
+```r
+pic + 
+  theme_minimal() 
+```
+]
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-43-1.png" width="600" height="300" /&gt;
+]
+
+
+
+---
+
+
+.pull-left[
+
+```r
+pic + 
+  theme_minimal() + 
+  scale_x_discrete(
+    name = NULL,
+    labels = NULL
+  )
+```
+]
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-44-1.png" width="600" height="300" /&gt;
+]
+
+
+---
+
+
+.pull-left[
+
+```r
+pic &lt;- pic + 
+  theme_minimal() + 
+  scale_x_discrete(
+    name = NULL,
+    labels = NULL
+  ) + 
+  scale_y_continuous(
+    name = NULL
+  )
+pic
+```
+]
+
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-45-1.png" width="600" height="300" /&gt;
+]
+
+
+---
+
+
+.pull-left[
+
+```r
+pic &lt;- pic + ggtitle(
+  "Estimated frequency of handwriting features"
+)
+pic
+```
+]
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-46-1.png" width="600" height="300" /&gt;
+]
+
+
+---
+
+
+.pull-left[
+
+```r
+pic + 
+  scale_fill_viridis_d()
+```
+]
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-47-1.png" width="600" height="300" /&gt;
+]
+
+
+---
+
+
+.pull-left[
+
+```r
+pic + 
+  scale_fill_viridis_d(
+    alpha = .5
+  )
+```
+]
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-48-1.png" width="600" height="300" /&gt;
+]
+
+
+---
+
+
+.pull-left[
+
+```r
+pic + 
+  scale_fill_viridis_d(
+    alpha = .5,
+    name = NULL
+  )
+```
+]
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-49-1.png" width="600" height="300" /&gt;
+]
+
+
+---
+
+
+
+&lt;img src="index_files/figure-html/unnamed-chunk-50-1.png" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+
+
+&lt;img src="index_files/figure-html/style8-1.png" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+
+.hand[So now you know the basics. Where to next?]
+
+*Refresher?* ...try this lovely tutorial! &lt;br&gt;
+https://ggplot2tutor.com/beginner_tutorial/beginner_tutorial/
+
+*A classic?* ...look into "R for Data Science" &lt;br&gt;
+https://r4ds.had.co.nz/data-visualisation.html
+
+*This but extra?* ...I wrote an advanced workshop&lt;br&gt;
+https://djnavarro.github.io/satrdayjoburg/
+
+*A full book?* ...Keiran Healy's book is very good! &lt;br&gt;
+https://socviz.co/
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "solarized-light",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "<div class=\"progress-bar-container\">   <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">   </div> </div>`"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

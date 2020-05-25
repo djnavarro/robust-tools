@@ -1,0 +1,793 @@
+---
+title: "> &nbsp;&nbsp;06 `r emo::ji('artist')` `r emo::ji('scientist')` <br>> &nbsp;&nbsp;functional programming<br>> &nbsp;&nbsp;for artists (and scientists)"
+subtitle: "`r emo::ji('link')` &nbsp; [robust-tools.djnavarro.net](https://robust-tools.djnavarro.net)"
+author: "danielle navarro"
+date: ""
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["../style/xaringan-themer-hotpink.css", "../style/slides-style-hotpink.css"]
+    nature:
+      highlightStyle: solarized-light
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+---
+
+```{r child = "../style/setup.Rmd"}
+```
+
+```{r load-packages, message=FALSE, echo=FALSE}
+library(countdown)
+library(tidyverse)
+```
+
+
+
+```{r meta, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "How to write your own R functions and program with them.",
+  ) %>% 
+  meta_name("github-repo" = "djnavarro/robust-tools") %>% 
+  meta_social(
+    title = "Write and use your own R functions",
+    url = "https://robust-tools.djnavarro.net/functionality/",
+    image = "https://robust-tools.djnavarro.net/functionality/img/flametree3.png", 
+    image_alt = "",
+    og_type = "website",
+    og_author = "Danielle Navarro",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@djnavarro"
+  )
+```
+
+
+
+```{r include=FALSE}
+hook_source <- knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  x <- stringr::str_replace(x, "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$", "*\\1")
+  hook_source(x, options)
+})
+
+num_fmt <- scales::number_format(big.mark = ",")
+```
+
+
+class: middle, inverse
+
+## https://github.com/djnavarro/ashtree
+
+---
+
+class: middle
+
+background-image: url("img/scrawl_17-1000-400-100-5.png")
+background-size: cover
+
+.pull-left-wide[
+  .bigly-hotpink-text[scrawl]<br>
+  .embolden[&nbsp;&nbsp;... that thing we did last time! `r emo::ji("smile")`]
+]
+---
+
+class: middle
+
+background-image: url("img/scrawl_17-1000-400-100-5.png")
+background-size: cover
+
+<br><br><br><br><br><br>
+## github.com/djnavarro/scrawl
+
+---
+
+class: inverse
+
+
+.hand[our goals!]
+
+- write your own R functions
+- use functions to write a new generative art system
+- introduction to functional programming with "purrr"
+
+---
+
+
+class: middle
+
+background-image: url("img/fern_20_13.png")
+background-size: cover
+
+.pull-left-wide[
+  .biggish-hotpink-text[flametree]<br>
+]
+
+---
+
+class: middle
+
+background-image: url("img/fern_21_13.png")
+background-size: cover
+
+<br><br><br><br><br><br><br><br><br><br>
+## <span style="color:white;font-weight:800%">github.com/djnavarro/flametree</span>
+
+
+
+---
+
+
+class: middle
+
+background-image: url("img/ashtree2.png")
+background-size: cover
+
+.pull-left-wide[
+  .biggish-hotpink-text[ashtree]<br>
+]
+
+
+---
+
+class: middle
+
+background-image: url("img/ashtree2.png")
+background-size: cover
+
+
+--
+
+.pull-left-wide[
+  .bigly-hotpink-text[why?]<br>
+]
+.pull-right[
+  <br><br>
+  .embolden[&nbsp;&nbsp;why write with functions?]
+]
+
+
+---
+
+class: middle
+
+- breaks code into meaningful chunks
+- breaks code into reusable chunks
+- assign helpful names to code chunks
+- separate user-relevant and internal code
+- building blocks for packages
+
+
+---
+
+class: middle
+
+background-image: url("img/ashtree.png")
+background-size: cover
+
+.pull-left-wide[
+  .bigly-hotpink-text[how?]<br>
+]
+.pull-right[
+  <br><br><br><br><br>
+  .embolden[&nbsp;&nbsp;how do we write R functions?]
+]
+
+---
+
+class: inverse, middle
+
+## .hand[live coding #1...]
+
+
+---
+
+class: inverse
+
+.hand[
+Let's take a look at the structure of this function!
+]
+
+
+```{r echo=FALSE}
+knitr::include_graphics("img/function_00.png", dpi = 150)
+```
+
+
+---
+
+class: middle
+
+background-image: url("img/ashtree3.png")
+background-size: cover
+
+.pull-left-wide[
+  .bigly-hotpink-text[what]<br>
+  .embolden[&nbsp;&nbsp;what are the parts of a function?]
+]
+
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/function_01.png", dpi = 150)
+```
+
+--
+
+- functions are regular R objects
+- given a name using `<-`
+- arguments are "labels" for user input
+- return an object to the user
+
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/function_02.png", dpi = 150)
+```
+
+--
+
+- things in the function "body" are hidden
+- i.e. function runs in its own "environment"
+
+
+
+---
+
+class: inverse, middle
+
+## .hand[live coding #2...]
+
+---
+
+class: middle
+
+background-image: url("img/ashtree6.png")
+background-size: cover
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Relations1.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Relations2.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Relations3.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Relations4.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Grow1.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Grow2.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Grow3.png", dpi = 300)
+```
+
+
+
+
+---
+
+class: inverse, middle
+
+## .hand[sweetie, we need to talk...]
+## .hand[...about iteration]
+
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree1.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree2.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree3.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree4.png", dpi = 300)
+```
+
+
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For1.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For2.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For3.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For4.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For5.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For6.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For7.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For8.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For9.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For10.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For11.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For12.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For13.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For14.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For15.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For16.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For17.png", dpi = 300)
+```
+
+---
+
+background-color: #8B3A62
+
+```{r echo=FALSE}
+knitr::include_graphics("img/For18.png", dpi = 300)
+```
+
+
+
+---
+
+class: inverse, middle
+
+## .hand[ugh, feels so clunky.]
+## .hand[surely there's a simpler way?]
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map1.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map2.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map3.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map4.png", dpi = 300)
+```
+
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map5.png", dpi = 300)
+```
+
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map6.png", dpi = 300)
+```
+
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map7.png", dpi = 300)
+```
+
+
+---
+
+class: inverse, middle
+
+## .hand[um... but...]
+## .hand[that doesn't solve our problem!]
+
+
+---
+
+.hand[Problem: grow_multi() doesn't transform **three** tips]
+
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree4.png", dpi = 300)
+```
+
+
+---
+
+.hand[Solution: don't include .x value in our recipe!]
+
+
+---
+
+.hand[Before:]
+
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map7.png", dpi = 300)
+```
+
+
+---
+
+.hand[After:]
+
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Map8.png", dpi = 300)
+```
+
+
+
+
+---
+
+class: inverse, middle
+
+## .hand[okay, can we do use this in "ashtree"?]
+## .hand[live coding #3...]
+
+
+---
+
+class: middle
+
+background-image: url("img/ashtree5.png")
+background-size: cover
+
+---
+
+class: inverse, middle
+
+## .hand[iteration problems vary...]
+
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree1.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree2.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree3.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree4.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree5.png", dpi = 300)
+```
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree6.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree7.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree8.png", dpi = 300)
+```
+
+
+---
+
+class: inverse
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Tree9.png", dpi = 300)
+```
+
+
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc1.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc2.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc3.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc4.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc5.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc6.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc7.png", dpi = 300)
+```
+
+---
+
+```{r echo=FALSE}
+knitr::include_graphics("img/Acc8b.png", dpi = 300)
+```
+
+
+---
+
+class: inverse, middle
+
+## .hand[so let's try to use accumulate()]
+## .hand[... a.k.a., live coding #4]
+
+
+---
+
+class: middle
+
+background-image: url("img/ashtree4.png")
+background-size: cover
+
+---
+
+class: inverse, middle
+
+## .hand[live coding #5...]
+## .hand[... let's make it pretty!]
+
+
+---
+
+class: middle
+
+background-image: url("img/flametree3.png")
+background-size: cover
+
+.pull-right-wide[
+  .biggish-hotpink-text[thanks!]
+]
+<br><br><br><br><br><br><br>
+## github.com/djnavarro/ashtree
+## github.com/djnavarro/flametree
+
+

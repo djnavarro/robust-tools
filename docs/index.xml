@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Robust Tools on Essays by Danielle Navarro</title>
+    <link>/</link>
+    <description>Recent content in Robust Tools on Essays by Danielle Navarro</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>00 :: Welcome, and why are we doing this?</title>
+      <link>/welcome-to-robust-tools/</link>
+      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/welcome-to-robust-tools/</guid>
+      <description>Read this post to get started!</description>
+    </item>
+    
+    <item>
+      <title>01 :: Make gorgeous data visualisations</title>
+      <link>/data-visualisation/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/data-visualisation/</guid>
+      <description>Read this post to get started!</description>
+    </item>
+    
+    <item>
+      <title>02 :: Say hello to your data</title>
+      <link>/hello-data/</link>
+      <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/hello-data/</guid>
+      <description>Read this post to get started!</description>
+    </item>
+    
+    <item>
+      <title>03 :: Go dancing with your data</title>
+      <link>/data-wrangling/</link>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/data-wrangling/</guid>
+      <description>Read this post to get started!</description>
+    </item>
+    
+    <item>
+      <title>04 :: Make a website using blogdown</title>
+      <link>/literate-programming/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/literate-programming/</guid>
+      <description>Read this post to get started!</description>
+    </item>
+    
+    <item>
+      <title>05 :: How to program an aRt</title>
+      <link>/programming-art/</link>
+      <pubDate>Thu, 30 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/programming-art/</guid>
+      <description>Read this post to get started!</description>
+    </item>
+    
+    <item>
+      <title>06 :: Functional programming for art and science</title>
+      <link>/functional-programming/</link>
+      <pubDate>Thu, 30 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/functional-programming/</guid>
+      <description>Read this post to get started!</description>
+    </item>
+    
+    <item>
+      <title>?? :: To be continued...</title>
+      <link>/to-be-continued/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/to-be-continued/</guid>
+      <description>Read this post to get started!</description>
+    </item>
+    
+  </channel>
+</rss>
