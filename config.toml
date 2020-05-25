@@ -1,11 +1,13 @@
 baseURL = "https://robust-tools.djnavarro.net"
 languageCode = "en"
 DefaultContentLanguage = "en"
-title = "Essays by Danielle Navarro"
+title = "Data Science with R"
 theme = "anatole"
 summarylength = 10
 enableEmoji = true
 publishDir = "docs"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
 
 # Enable Disqus
 #disqusShortname = ""
